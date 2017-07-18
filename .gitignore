@@ -4,9 +4,14 @@
 *.orig
 
 # LaTeX
-*.log
 *.aux
+*.bbl
+*.blg
+*.fls
+*.log
 *-converted-to.*
+*.synctex.gz
+*.fdb_latexmk
 
 # Emacs
 .#*
