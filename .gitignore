@@ -1,0 +1,13 @@
+# Generic
+*~
+*.swp
+*.orig
+
+# LaTeX
+*.log
+*.aux
+*-converted-to.*
+
+# Emacs
+.#*
+auto/
