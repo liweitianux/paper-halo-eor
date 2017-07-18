@@ -1,0 +1,238 @@
+%%
+%% Weitian LI, Haiguang XU, et al.
+%% Department of Astronomy, Shanghai Jiao Tong University
+%%
+
+%%%%%%%%%%%
+%% Preamble
+%%%%%%%%%%%
+
+\documentclass[modern]{aastex61}
+%%
+%% Defaults: single spaced, 10 point font article
+%%
+%%  twocolumn   : two text columns, 10 point font, single spaced article.
+%%                This is the most compact and represent the final published
+%%                derived PDF copy of the accepted manuscript from the publisher
+%%  manuscript  : one text column, 12 point font, double spaced article.
+%%  preprint    : one text column, 12 point font, single spaced article.
+%%  preprint2   : two text columns, 12 point font, single spaced article.
+%%  modern      : a stylish, single text column, 12 point font, article with
+%%                wider left and right margins. This uses the Daniel
+%%                Foreman-Mackey and David Hogg design.
+%%
+%% Note that you can submit to the AAS Journals in any of these 6 styles.
+%%
+%% There are other optional arguments one can envoke to allow other stylistic
+%% actions. The available options are:
+%%
+%%  astrosymb    : Loads Astrosymb font and define \astrocommands.
+%%  tighten      : Makes baselineskip slightly smaller, only works with
+%%                 the twocolumn substyle.
+%%  times        : uses times font instead of the default
+%%  linenumbers  : turn on lineno package.
+%%  trackchanges : required to see the revision mark up and print its output
+%%  longauthor   : Do not use the more compressed footnote style (default) for
+%%                 the author/collaboration/affiliations. Instead print all
+%%                 affiliation information after each name. Creates a much
+%%                 long author list but may be desirable for short author papers
+
+%% Custom macros
+\newcommand{\vdag}{(v)^\dagger}
+\newcommand\aastex{AAS\TeX}
+\newcommand\latex{La\TeX}
+\newcommand{\etal}{\textit{et al.}}
+
+\received{xxx, 2017}
+\revised{xxx, 2017}
+\accepted{xxx, 2017}
+\submitjournal{ApJ}
+
+\shorttitle{Low-frequency Radio Foregrounds Simulation}
+\shortauthors{Li \etal}
+
+%% You can add a light gray and diagonal water-mark to the first page
+%% with this command:
+\watermark{DRAFT}
+%% where "text", e.g. DRAFT, is the text to appear.  If the text is
+%% long you can control the water-mark size with:
+%  \setwatermarkfontsize{dimension}
+%% where dimension is any recognized LaTeX dimension, e.g. pt, in, etc.
+
+
+%%%%%%%%%%%
+%% Document
+%%%%%%%%%%%
+
+\begin{document}
+
+\title{Low-frequency Radio Foregrounds Simulation: Galaxy Clusters}
+
+%% The \author command is the same as before except it now takes an optional
+%% argument which is the 16 digit ORCID. The syntax is:
+%% \author[xxxx-xxxx-xxxx-xxxx]{Author Name}
+%%
+%% This will hyperlink the author name to the author's ORCID page. Note that
+%% during compilation, LaTeX will do some limited checking of the format of
+%% the ID to make sure it is valid.
+%%
+%% Use \affiliation for affiliation information. The old \affil is now aliased
+%% to \affiliation. AASTeX v6.1 will automatically index these in the header.
+%% When a duplicate is found its index will be the same as its previous entry.
+%%
+%% Note that \altaffilmark and \altaffiltext have been removed and thus
+%% can not be used to document secondary affiliations. If they are used latex
+%% will issue a specific error message and quit. Please use multiple
+%% \affiliation calls for to document more than one affiliation.
+%%
+%% The new \altaffiliation can be used to indicate some secondary information
+%% such as fellowships. This command produces a non-numeric footnote that is
+%% set away from the numeric \affiliation footnotes.  NOTE that if an
+%% \altaffiliation command is used it must come BEFORE the \affiliation call,
+%% right after the \author command, in order to place the footnotes in
+%% the proper location.
+%%
+%% Use \email to set provide email addresses. Each \email will appear on its
+%% own line so you can put multiple email address in one \email call. A new
+%% \correspondingauthor command is available in V6.1 to identify the
+%% corresponding author of the manuscript. It is the author's responsibility
+%% to make sure this name is also in the author list.
+%%
+%% While authors can be grouped inside the same \author and \affiliation
+%% commands it is better to have a single author for each. This allows for
+%% one to exploit all the new benefits and should make book-keeping easier.
+%%
+%% If done correctly the peer review system will be able to
+%% automatically put the author and affiliation information from the manuscript
+%% and save the corresponding author the trouble of entering it by hand.
+
+\correspondingauthor{Haiguang Xu}
+\email{hgxu@sjtu.edu.cn}
+
+\author[0000-0002-7527-380X]{Weitian Li}
+\email{liweitianux@sjtu.edu.cn}
+\affil{Department of Astronomy, Shanghai Jiao Tong University,
+  800 Dongchuan Road, Shanghai 200240, China}
+
+\author{Haiguang Xu}
+\affil{Department of Astronomy, Shanghai Jiao Tong University,
+  800 Dongchuan Road, Shanghai 200240, China}
+
+
+%%
+%% Abstract
+%%
+
+\begin{abstract}
+TODO!!!
+\end{abstract}
+
+%% See the online documentation for the full list of available subject
+%% keywords and the rules for their use.
+%% http://journals.aas.org/authors/keywords2013.html
+\keywords{
+  dark ages, reionization, first stars ---
+  galaxies: clusters: intracluster medium ---
+  galaxies: halos ---
+  radio continuum: galaxies
+}
+
+%%%%%%%
+%% Body
+%%%%%%%
+
+\section{Introduction}
+\label{sec:intro}
+
+TODO!!!
+
+
+\section{Foregrounds Simulation}
+\label{sec:fg-simu}
+
+\subsection{Galactic Synchrotron Emission}
+\label{sec:fg-gsync}
+
+
+\section{Discussions}
+\label{sec:discussions}
+
+TODO!!!
+
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+TODO!!!
+
+%% If you wish to include an acknowledgments section in your paper,
+%% separate it off from the body of the text using the \acknowledgments
+%% command.
+\acknowledgments
+
+TODO!!!
+We thank all the people that have made this AASTeX what it is today.  This
+includes but not limited to Bob Hanisch, Chris Biemesderfer, Lee Brotzman,
+Pierre Landau, Arthur Ogawa, Maxim Markevitch, Alexey Vikhlinin and Amy
+Hendrickson. Also special thanks to David Hogg and Daniel Foreman-Mackey
+for the new ``modern'' style design. It is super cool!
+
+
+%% To help institutions obtain information on the effectiveness of their
+%% telescopes the AAS Journals has created a group of keywords for telescope
+%% facilities.
+%
+%% Following the acknowledgments section, use the following syntax and the
+%% \facility{} or \facilities{} macros to list the keywords of facilities used
+%% in the research for the paper.  Each keyword is check against the master
+%% list during copy editing.  Individual instruments can be provided in
+%% parentheses, after the keyword, but they are not verified.
+
+\vspace{5mm}
+
+\facilities{???}
+
+%% Similar to \facility{}, there is the optional \software command to allow
+%% authors a place to specify which programs were used during the creation of
+%% the manusscript. Authors should list each code and include either a
+%% citation or url to the code inside ()s when available.
+
+\software{
+  AstroPy \citep{2013A&A...558A..33A},
+  NumPy (\url{http://www.numpy.org/}),
+  Vim (\url{http://www.vim.org/}),
+  Emacs (\url{https://www.gnu.org/s/emacs/})
+}
+
+
+%% Appendix material should be preceded with a single \appendix command.
+%% There should be a \section command for each appendix. Mark appendix
+%% subsections with the same markup you use in the main body of the paper.
+
+%% Each Appendix (indicated with \section) will be lettered A, B, C, etc.
+%% The equation counter will reset when it encounters the \appendix
+%% command and will number appendix equations (A1), (A2), etc. The
+%% Figure and Table counter will not reset.
+
+% \appendix
+
+
+%%%%%%%%%%%%%
+%% References
+%%%%%%%%%%%%%
+
+\begin{thebibliography}{}
+\bibitem[Astropy Collaboration et al.(2013)]
+  {2013A&A...558A..33A}
+  Astropy Collaboration, Robitaille, T.~P., Tollerud, E.~J., \etal{}
+  2013, \aap, 558, A33
+\end{thebibliography}
+
+
+%% Include this line if you are using the \added, \replaced, \deleted
+%% commands to see a summary list of all changes at the end of the article.
+%\listofchanges
+
+\end{document}
+
+%% EOF
