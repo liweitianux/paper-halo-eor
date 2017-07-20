@@ -1,6 +1,10 @@
 %%
+%% Copyright (c) 2017 The Authors.  All Rights Reserved.
+%%
 %% Weitian LI, Haiguang XU, et al.
 %% Department of Astronomy, Shanghai Jiao Tong University
+%%
+%% 2017-07-18
 %%
 
 %%%%%%%%%%%
@@ -38,9 +42,6 @@
 %%                 long author list but may be desirable for short author papers
 
 %% Custom macros
-\newcommand{\vdag}{(v)^\dagger}
-\newcommand\aastex{AAS\TeX}
-\newcommand\latex{La\TeX}
 \newcommand{\etal}{\textit{et al.}}
 
 \received{xxx, 2017}
@@ -66,7 +67,10 @@
 
 \begin{document}
 
-\title{Low-frequency Radio Foregrounds Simulation: Galaxy Clusters}
+\title{
+  Low-frequency Radio Foregrounds Simulation:
+  Extended Radio Emission from Galaxy Clusters
+}
 
 %% The \author command is the same as before except it now takes an optional
 %% argument which is the 16 digit ORCID. The syntax is:
@@ -150,12 +154,62 @@ TODO!!!
 \section{Foregrounds Simulation}
 \label{sec:fg-simu}
 
+TODO!!!
+
 \subsection{Galactic Synchrotron Emission}
 \label{sec:fg-gsync}
 
+TODO!!!
 
-\section{Discussions}
-\label{sec:discussions}
+\subsection{Galactic Free-free Emission}
+\label{sec:fg-gfree}
+
+TODO!!!
+
+\subsection{Galactic Supernova Remnants}
+\label{sec:fg-gsnr}
+
+TODO!!!
+
+\subsection{Clusters of Galaxies}
+\label{sec:fg-clusters}
+
+We have only observed radio halos in a fraction of galaxy clusters showing
+merging features.  One possibility is that radio halos have a lifetime
+$\tau_{\mathrm{halo}}$ shorter than the timescale $\tau_m$ ($\sim$ 2--3 Gyr)
+for the duration of merger-induced disturbance \citep{cassano2016}.
+
+\subsubsection{Radio Halos}
+
+Halo sizes are derived from the virial radius adopting the following
+scaling relation \citep{cassano2007}:
+\begin{equation}
+  \label{eq:rhalo-rvir}
+  \log_{10}\left[ \frac{R_{\mathrm{halo}}}{\mathrm{kpc}} \right]
+  = (2.63 \pm 0.50) \log_{10}\left[ \frac{R_{\mathrm{vir}}}{\mathrm{kpc}} \right]
+  + (2.30 \pm 0.05)
+\end{equation}
+
+\subsubsection{Radio Relics}
+
+
+\subsection{Extragalactic Point Sources}
+
+See Wang et al. 2010???
+
+
+\section{Results}
+\label{sec:results}
+
+TODO!!!
+
+Simulated images, scaling relations???
+
+Radio halos + clusters: compare with observations!!!
+
+
+\section{Discussion}
+\label{sec:discussion}
 
 TODO!!!
 
@@ -198,7 +252,7 @@ for the new ``modern'' style design. It is super cool!
 %% citation or url to the code inside ()s when available.
 
 \software{
-  AstroPy \citep{2013A&A...558A..33A},
+  Astropy \citep{astropy2013},
   NumPy (\url{http://www.numpy.org/}),
   Vim (\url{http://www.vim.org/}),
   Emacs (\url{https://www.gnu.org/s/emacs/})
@@ -221,12 +275,7 @@ for the new ``modern'' style design. It is super cool!
 %% References
 %%%%%%%%%%%%%
 
-\begin{thebibliography}{}
-\bibitem[Astropy Collaboration et al.(2013)]
-  {2013A&A...558A..33A}
-  Astropy Collaboration, Robitaille, T.~P., Tollerud, E.~J., \etal{}
-  2013, \aap, 558, A33
-\end{thebibliography}
+\bibliography{references}
 
 
 %% Include this line if you are using the \added, \replaced, \deleted
