@@ -43,7 +43,15 @@
 
 %% Custom macros
 \newcommand{\etal}{\textit{et al.}}
+\newcommand{\D}[1]{\mathrm{d} #1}
+\newcommand{\diff}[2]{\frac{\D{#1}}{\D{#2}}}
+\newcommand{\pdiff}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\uG}{\mathrm{\mu G}}
+\newcommand{\Msun}{\mathrm{M}_{\odot}}
+\newcommand{\lcdm}{$\Lambda$CDM}
 
+
+%% Journal information
 \received{xxx, 2017}
 \revised{xxx, 2017}
 \accepted{xxx, 2017}
@@ -150,11 +158,30 @@ TODO!!!
 
 TODO!!!
 
+Extended radio emissions are only detected in a fraction of massive and
+luminous galaxy clusters, and they can be classified into several types
+\citep[see][for recent reviews]{feretti2012rev,brunetti2014rev}:
+\begin{description}
+\item[halo]
+  Giant radio halos extending on $\sim$Mpc scales;
+  only appear in merging clusters;
+\item[mini-halo]
+  Radio mini-halos, smaller than the above giant halos (usually several
+  hundreds of kpc); can be found in cool-core clusters;
+\item[relic]
+  Elongated relics, and roundish relics;
+\end{description}
+
+We adopt a flat \lcdm{} cosmology with
+$H_0 = 100 h = 71 \,\mathrm{km}\,\mathrm{s}^{-1}\,\mathrm{Mpc}^{-1}$,
+$\Omega_m = 0.27$, $\Omega_{\Lambda} = 1 - \Omega_m = 0.73$,
+$\Omega_b = 0.046$, and $\sigma_8 = 0.81$ \citep{komatsu2011}.
+
 
 \section{Foregrounds Simulation}
 \label{sec:fg-simu}
 
-TODO!!!
+TODO: OVERVIEW!!!
 
 \subsection{Galactic Synchrotron Emission}
 \label{sec:fg-gsync}
@@ -171,32 +198,346 @@ TODO!!!
 
 TODO!!!
 
+Update to use a empirical model about the total number of Galactic SNRs
+and their spatial distributions.  Meanwhile derive necessary scaling
+relations from the current observed catalog maintained by Green.
+
 \subsection{Clusters of Galaxies}
 \label{sec:fg-clusters}
 
-We have only observed radio halos in a fraction of galaxy clusters showing
-merging features.  One possibility is that radio halos have a lifetime
-$\tau_{\mathrm{halo}}$ shorter than the timescale $\tau_m$ ($\sim$ 2--3 Gyr)
-for the duration of merger-induced disturbance \citep{cassano2016}.
+TODO: OVERVIEW!
 
-\subsubsection{Radio Halos}
+In the framework of low-frequency radio foregrounds simulation for the
+EoR signal detection, the most realistic consideration to the galaxy
+clusters component until now is our work in \citeyear{wang2010} \citep{wang2010}.
+In this work, we continue to improve our simulation method in several
+ways:
+(1) Predict radio halos by tracing the most recent major merger of clusters;
+(2) Determine the halo brightness and spectrum by solving the time
+evolution of relativistic electrons within the cluster ICM;
+(3) Preliminary inclusion of radio relics (???).
+We present our improved simulation method to the galaxy clusters in this
+section.
 
-Halo sizes are derived from the virial radius adopting the following
-scaling relation \citep{cassano2007}:
+\subsubsection{Distributions}
+\label{sec:cluster-dist}
+
+For a patch of sky, we first want to determine the mass and redshift
+distributions of the galaxy clusters, which can be sampled from the
+Press-Schechter (PS) mass function \citep{press1974}:
 \begin{equation}
-  \label{eq:rhalo-rvir}
-  \log_{10}\left[ \frac{R_{\mathrm{halo}}}{\mathrm{kpc}} \right]
-  = (2.63 \pm 0.50) \log_{10}\left[ \frac{R_{\mathrm{vir}}}{\mathrm{kpc}} \right]
-  + (2.30 \pm 0.05)
+  \label{eq:ps-mass-func}
+  n(M, z) \D{M} = \sqrt{\frac{2}{\pi}} \frac{\langle{\rho}\rangle}{M}
+  \frac{\delta_c(z)}{\sigma^2(M)} \left| \diff{\sigma(M)}{M} \right|
+  \exp\left[ -\frac{\delta_c^2(z)}{2\sigma^2{M}} \right] \D{M},
+\end{equation}
+where
+$M$ is the cluster mass,
+$\langle {\rho} \rangle$ is the current mean density of the Universe,
+$\delta_c(z)$ is the critical linear overdensity for a region to collapse
+at redshift $z$,
+and $\sigma(M)$ is the current rms density fluctuations within a sphere
+of mean mass $M$.
+
+In cold dark matter (CDM) models and over the range of scales covered
+by clusters, it is generally sufficient to consider a power-law spectrum
+for the density perturbations \citep{sarazin2002,randall2002}:
+\begin{equation}
+  \label{eq:sigma-mass}
+  \sigma(M) = \sigma_8 \left( \frac{M}{M_8} \right)^{-\alpha},
+\end{equation}
+where $\sigma_8$ is the present-day rms density fluctuations on a
+scale of $8 h^{-1}$ Mpc,
+$M_8 = (4\pi/3)(8 h^{-1} \,\mathrm{Mpc})^3 \langle{\rho}\rangle$
+is the mass contained in a sphere of radius $8 h^{-1}$ Mpc.
+The exponent $\alpha$ is given by $\alpha = (n+3)/6$, where
+the power spectrum of fluctuations varies with wavenumber $k$
+as $k^n$, and we adopt $n = -7/5$ for this work \citep{randall2002}.
+
+We place a lower mass limit of $2 \times 10^{14} \,\Msun$ for clusters,
+determine the expected total number of clusters within our simulation
+sky patch, and then derive the mass and redshift for each cluster by
+sampling from the PS mass function using Monte Carlo method
+\citep{wang2010}.
+The clusters are randomly distributed within the sky patch.
+
+\subsubsection{Merging History}
+\label{sec:merging-history}
+
+Galaxy clusters are formed hierarchically by merging from smaller (i.e.,
+lower mass) clusters, groups, and galaxies.
+And the PS formalism provides a way to infer the formation history
+of a cluster from its current status.
+We follow the extended PS (EPS) method outlined by \citet{lacey1993} to
+generate the merger trees.
+
+The conditional probability that a ``parent'' cluster of mass $M_2$ at
+a time $t_2$ had a ``progenitor'' of mass in the range
+$M_1 \rightarrow M_1 + \D{M_1}$ at some earlier time $t_1$,
+with $M_2 > M_1$ and $t_2 > t_1$, is given by
+\citep{lacey1993,randall2002}:
+\begin{equation}
+  \label{eq:eps-condprob}
+  P(M_1, t_1 | M_2, t_2) \D{M_1} = \frac{1}{\sqrt{2\pi}} \frac{M_2}{M_1}
+  \frac{\delta_{c1} - \delta_{c2}}{(\sigma_1^2 - \sigma_2^2)^{3/2}}
+  \left| \diff{\sigma_1^2}{M_1} \right|
+  \exp \left[ -\frac{(\delta_{c1} - \delta_{c2})^2}
+    {2(\sigma_1^2 - \sigma_2^2)} \right] \D{M_1},
+\end{equation}
+where
+$\delta_{c1} \equiv \delta_c(t_1)$ and $\sigma_1 \equiv \sigma(M_1)$,
+with similar definitions for $\delta_{c2}$ and $\sigma_2$.
+By further defining $S \equiv \sigma^2(M)$ and $\omega \equiv \delta_c(t)$,
+and let $K(\Delta S, \Delta \omega) \D{\Delta S}$ be the probability
+that a cluster had a progenitor with a mass corresponding to a change
+in $S$ of $\Delta S = \sigma_1^2 - \sigma_2^2$ in the range
+$\Delta S \rightarrow \Delta S + \D{\Delta S}$ at an earlier time
+corresponding to $\Delta \omega = \delta_{c1} - \delta_{c2}$,
+then Equation~(\ref{eq:eps-condprob}) is simplified into:
+\begin{equation}
+  \label{eq:eps-condprob-simp}
+  K(\Delta S, \Delta \omega) \D{\Delta S} = \frac{1}{\sqrt{2\pi}}
+  \frac{\Delta\omega}{(\Delta S)^{3/2}}
+  \exp \left[ -\frac{(\Delta\omega)^2}{2 \Delta S} \right] \D{\Delta S}.
 \end{equation}
 
-\subsubsection{Radio Relics}
+We employ the standard Monte Carlo technique to build the merger trees,
+with each of them starts with a cluster with an initial mass $M_0$
+and redshift $z_0$ simulated in the last section.
+We trace each cluster back in time, using a step size $\Delta\omega$
+adaptively determined by:
+\begin{equation}
+  \label{sec:dw-step}
+  (\Delta\omega)_{\mathrm{step}} = \frac{1}{2} \sqrt{
+    \left| \diff{\ln \sigma^2}{\ln M} \right|
+    \left( \frac{\Delta M_c}{M} \right) S},
+\end{equation}
+where $M$ is the cluster mass at the current time step,
+$\Delta M_c$ is the minimum mass change indicating the smallest
+merging sub-cluster can be resolved in the merger trees;
+and we choose $\Delta M_c = 10^{12} \,\Msun$.
+In order to obey the probability distribution of mergers of different
+$\Delta S$ (i.e., $\Delta M$), we sample the cumulative probability
+distribution of the sub-cluster masses:
+\begin{equation}
+  \label{sec:cdf-sub-masses}
+  P(<\Delta S, \Delta\omega) =
+  \int_0^{\Delta S} K(\Delta S', \Delta\omega) \D{\Omega S'} =
+  \mathrm{erfc} \left( \frac{\Delta \omega}{\sqrt{2 \Delta S}} \right),
+\end{equation}
+where $\mathrm{erfc}(x) = 1 - \mathrm{erf}(x)$ is the complementary error
+function whose inversion is also analytical.
+With a random $\Delta S$ drawn from this probability distribution,
+the value of $S_1$ of the progenitor is then $S_1 = S_2 + \Delta S$,
+and the mass of one of the progenitors is determined by
+$\sigma^2(M_1) = S_1$, while for the other is $\Delta M = M_2 - M_1$.
 
+Let $M_{\mathrm{main}} \equiv \mathrm{max}(M_1, \Delta M)$ and
+$M_{\mathrm{sub}} \equiv \mathrm{min}(M_1, \Delta M)$.
+If $M_{\mathrm{sub}} \leq \Delta M_c$, we regard this change in mass
+to be due to accretion, and we continue build the merger tree from
+$M_{\mathrm{main}}$ with the sub-cluster been ignored.
+On the other hand, it is identified as a merger event if
+$M_{\mathrm{sub}} > \Delta M_c$, then we trace both the main cluster
+and the sub-cluster separately.
+
+Considering that radio halos are only observed in
+a fraction of massive merging clusters, suggesting they are closely
+related to the recent major mergers, and have a lifetime
+$\tau_{\mathrm{halo}}$ shorter than the timescale $\tau_m$ ($\sim$ 2--3 Gyr)
+for the duration of merger-induced disturbance \citep{cassano2016}.
+Therefore we only trace the merging history of the main cluster
+to a maximum backward time of 3 Gyr.
+Then we identify the most recent major merger for each cluster,
+which is defined as $M_{\mathrm{main}}/M_{\mathrm{sub}} < 3$
+\citep[e.g.,][]{wetzel2009},
+and extract the $(M_{\mathrm{main}}, M_{\mathrm{sub}}, z_{\mathrm{merger}})$
+data for use in the following radio halos simulation.
+Meanwhile, those clusters without a recent major merger found
+are thought to not host radio halos, and thus been ignored.
+
+We also note that this technique allows only binary mergers,
+but it is sufficient for our use here.
+
+\subsubsection{Radio Halos}
+\label{sec:halo}
+
+Giant radio halos in galaxy clusters are associated with the on-going or
+most recent major mergers, and they are widely believed to be radiated from
+highly relativistic electrons re-accelerated by the merger-induced
+large-scale turbulent fluctuations.
+In addition, extended radio emissions of smaller scale (a few hundred kpc),
+called mini-halos, have been found in some relaxed cool-core clusters.
+We do not account for the radio mini-halos for the moment, and they
+seems to have a different origin \citep{feretti2012rev}.
+
+The approach we adopted here to simulate the giant radio halos
+was largely inspired by \citet{cassano2005}, but we
+made various modifications as well as simplifications for our needs.
+
+For each cluster associated with a recent major merger, we assume that
+the two sub-clusters undergo only central collisions.
+Starting from an initial distance $d_0$ with zero velocity,
+the relative impact velocity of two sub-clusters with mass
+$M_{\mathrm{main}}$ and $M_{\mathrm{sub}}$ upon collide (at a distance
+$R_{\mathrm{main}}$ between the centers) is given by
+\citep{cassano2005,sarazin2002}:
+\begin{equation}
+  \label{eq:v-imp}
+  v_{\mathrm{imp}} \simeq \left[
+    \frac{2G (M_{\mathrm{main}} + M_{\mathrm{sub}})}{R_{\mathrm{main}}}
+    \left( 1 - \frac{1}{\eta_v} \right)\right]^{1/2},
+\end{equation}
+where $d_0 = \eta_v R_{\mathrm{main}}$,
+$\eta_v \simeq 4 (1 + M_{\mathrm{sub}}/M_{\mathrm{main}})^{1/3}$,
+and $R_{\mathrm{main}}$ is the virial radius of the main cluster
+[see Equation~(\ref{eq:radius-virial})].
+
+Cluster mergers generate turbulence throughout the cluster over $\sim$Mpc
+scales.  Energy can be transferred from the ICM into the non-thermal
+component through the interactions between electrons and the
+magnetohydrodynamics (MHD) turbulence, which accelerate the electrons
+to be extremely relativistic and radiate synchrotron emissions.
+%% TODO:
+%% Describe energy transfer: merger -> turbulence -> electrons (eta_turb)
+This scenario of particle re-acceleration by turbulence is the most
+accepted mechanism responsible for the radio halos \citep{feretti2012rev}.
+
+The turbulence re-acceleration likes a second-order Fermi process, i.e.,
+related with a random process, may be effective for only a few $10^8$ yr
+during a merger, and thus not quite efficient
+\citep{feretti2012rev,enblin2011}.
+We approximate the effective acceleration timescale with the merger
+crossing time \citep{cassano2005}:
+\begin{equation}
+  \label{eq:tau-cross}
+  \tau_{\mathrm{cross}} \simeq R_{\mathrm{main}} / v_{\mathrm{imp}}.
+\end{equation}
+In addition, the acceleration efficiency of electrons due to turbulent waves,
+which described by the acceleration timescale, can be then estimated as
+\citep{cassano2005,brunetti2011}:
+\begin{equation}
+  \label{eq:tau-acc}
+  \tau_{\mathrm{acc}}(t) \simeq \left\{
+    \begin{array}{ll}
+      0.1 / \eta_{\mathrm{turb}}, & t \leq t_{\mathrm{merger}} + \tau_{\mathrm{cross}} \\
+      0, & t > t_{\mathrm{merger}} + \tau_{\mathrm{cross}}
+    \end{array}
+  \right. \quad [\mathrm{Gyr}],
+\end{equation}
+where $\eta_{\mathrm{turb}}$ is the fraction of energy of the turbulence
+in the form of magneto-sonic (MS) waves (which interact with electrons
+and transfer the energy to accelerate them),
+$t_{\mathrm{merger}}$ is the cosmic time when the merger begins
+(i.e., at redshift $z_{\mathrm{merger}}$).
+
+The time evolution of relativistic electrons spectrum with isotropic energy
+distribution can be derived by solving the Fokker-Planck equation
+\citep{eilek1991,schlickeiser2002}:
+\begin{equation}
+  \label{eq:fokkerplanck}
+  \pdiff{n(\gamma,t)}{t} = \pdiff{}{\gamma} \left[ n(\gamma,t) \left(
+      \left| \diff{\gamma}{t} \right|_{\mathrm{rad}} +
+      \left| \diff{\gamma}{t} \right|_{\mathrm{ion}} -
+      \frac{2}{\gamma} D_{\mathrm{\gamma\gamma}}(\gamma, t) \right) \right] +
+  \pdiff{}{\gamma} \left[ D_{\mathrm{\gamma\gamma}} \pdiff{n(\gamma,t)}{p} \right] +
+  Q_e(\gamma,t),
+\end{equation}
+where $\gamma = p / m_e c$ is the Lorentz factor of the electrons,
+$n(\gamma, t)$ is the isotropic number density of relativistic
+electrons, $|\mathrm{d}\gamma / \mathrm{d}t|_{(\cdot)}$ terms account for the
+energy losses due to radiation and ionization,
+$D_{\mathrm{\gamma\gamma}}(\gamma, t)$ is the diffusion coefficient describing
+the interaction between electrons and turbulent MS waves, which is given by
+\citep{brunetti2011}:
+\begin{equation}
+  \label{eq:diffusion-coef}
+  D_{\mathrm{\gamma\gamma}}(\gamma, t) =
+    \frac{\gamma^2}{4 \tau_{\mathrm{acc}}(t)},
+\end{equation}
+and $Q_e(\gamma, t)$ describes the electron injection.
+
+The relativistic electrons lose energy via synchrotron radiation
+and inverse Compton scattering off the CMB photons \citep{sarazin1999}:
+\begin{equation}
+  \label{eq:eloss-rad}
+  \left( \diff{\gamma}{t} \right)_{\mathrm{rad}} =
+  -1.37 \times 10^{-20} \gamma^2
+  \left[ \left( \frac{B}{3.25 \,\uG} \right)^2 +
+  (1+z)^4 \right] \quad [\mathrm{s}^{-1}],
+\end{equation}
+where $B$ is the mean magnetic field strength in the ICM.
+Meanwhile, relativistic electrons in the ICM also lose energy through
+ionization losses and Coulomb collisions \citep{sarazin1999}:
+\begin{equation}
+  \label{eq:eloss-ion}
+  \left( \diff{\gamma}{t} \right)_{\mathrm{ion}} =
+  -1.20 \times 10^{-12} n_{\mathrm{th}} \left[ 1 +
+    \frac{\ln(\gamma/n_{\mathrm{th}})}{75} \right] \quad [\mathrm{s}^{-1}],
+\end{equation}
+where $n_{\mathrm{th}}$ is the ICM thermal number density in unit of
+[$\mathrm{cm}^{-3}$]
+[see Equation~(\ref{eq:nth})].
+
+%% TODO: electron injection!
+
+The ICM thermal energy density is:
+\begin{equation}
+  \label{eq:eth}
+  \epsilon_{\mathrm{th}} = \frac{3}{2} n_{\mathrm{th}} k_B T,
+\end{equation}
+where $k_B T$ is the mean temperature of the ICM plasma, which is estimated
+from the cluster mass using this $M$--$T$ scaling relation \citep{arnaud2005}:
+\begin{equation}
+  \label{eq:mt-relation}
+  \left[ \frac{M_{200}}{10^{14} \,\Msun} \right] E(z) = (5.34 \pm 0.22)
+  \left[ \frac{k_B T}{5 \,\mathrm{keV}} \right]^{(1.72 \pm 0.10)},
+\end{equation}
+where $E(z)$ is the redshift evolution factor [see Equation~(\ref{eq:ez-func})].
+Note that we approximate the cluster virial mass with $M_{200}$ here.
+
+For simplicity, we assume an uniform magnetic field throughout the ICM,
+but allow it scales with the cluster mass as \citep{cassano2012}:
+\begin{equation}
+  \label{eq:magfield-mass}
+  \left[ \frac{B}{\uG} \right] = \left[ \frac{B_{\langle {M} \rangle}}{\uG} \right]
+  \left( \frac{M}{\langle {M} \rangle} \right)^b,
+\end{equation}
+where $\langle {M} \rangle = 1.6 \times 10^{15} \,\Msun$, and we take
+$B_{\langle {M} \rangle} = 1.9 \,\uG$ and $b = 1.5$ for our simulations.
+
+Observations show that radio halos have a radial size
+$R_{\mathrm{halo}} \sim$ 3--6 times smaller than the virial radius
+$R_{\mathrm{vir}}$, therefore we estimate the halo radius by
+\citep{cassano2007,zandanel2014}:
+\begin{equation}
+  \label{eq:rhalo-rvir}
+  R_{\mathrm{halo}} = \frac{1}{4} R_{\mathrm{vir}},
+\end{equation}
+
+%% TODO:
+%% Fokker-Planck numerical solving scheme
+%% initial electron spectrum
+%% boundary condition & fix
+
+
+\subsubsection{Radio Relics}
+\label{sec:relic}
+
+\citet[their Table 1]{nuza2017} compiled a collection of currently observed
+radio relics.
 
 \subsection{Extragalactic Point Sources}
+\label{sec:pointsources}
 
-See Wang et al. 2010???
+Follow \citet{wang2010}???
 
+\subsection{The \texttt{fg21sim} Simulation Software}
+\label{sec:fg21sim}
+
+We have implemented the above foreground simulation methods in the
+\texttt{fg21sim} open-source software available at
+\url{https://github.com/liweitianux/fg21sim}.
 
 \section{Results}
 \label{sec:results}
@@ -205,17 +546,17 @@ TODO!!!
 
 Simulated images, scaling relations???
 
-Radio halos + clusters: compare with observations!!!
+Radio halos (+relics): compare with observations!!!
 
 
-\section{Discussion}
-\label{sec:discussion}
+\section{Discussions}
+\label{sec:discussions}
 
 TODO!!!
 
 
-\section{Conclusion}
-\label{sec:conclusion}
+\section{Conclusions}
+\label{sec:conclusions}
 
 TODO!!!
 
@@ -225,16 +566,13 @@ TODO!!!
 \acknowledgments
 
 TODO!!!
-We thank all the people that have made this AASTeX what it is today.  This
-includes but not limited to Bob Hanisch, Chris Biemesderfer, Lee Brotzman,
-Pierre Landau, Arthur Ogawa, Maxim Markevitch, Alexey Vikhlinin and Amy
-Hendrickson. Also special thanks to David Hogg and Daniel Foreman-Mackey
-for the new ``modern'' style design. It is super cool!
+We acknowledge ...
 
 
 %% To help institutions obtain information on the effectiveness of their
 %% telescopes the AAS Journals has created a group of keywords for telescope
-%% facilities.
+%% facilities:
+%% http://journals.aas.org/authors/aastex/facility.html
 %
 %% Following the acknowledgments section, use the following syntax and the
 %% \facility{} or \facilities{} macros to list the keywords of facilities used
@@ -244,7 +582,7 @@ for the new ``modern'' style design. It is super cool!
 
 \vspace{5mm}
 
-\facilities{???}
+% \facilities{???}
 
 %% Similar to \facility{}, there is the optional \software command to allow
 %% authors a place to specify which programs were used during the creation of
@@ -268,7 +606,51 @@ for the new ``modern'' style design. It is super cool!
 %% command and will number appendix equations (A1), (A2), etc. The
 %% Figure and Table counter will not reset.
 
-% \appendix
+\appendix
+
+\section{Press-Schechter Formalism}
+\label{sec:psf}
+
+The Press-Schechter (PS) formalism is one of the standard method to predict
+the mass function of galaxy clusters and its evolution as the cosmology.
+It is originally developed by \citet{press1974}, and later extended to combine
+with the cold dark matter (CDM) model \citep[e.g.,][]{bond1991,lacey1993}.
+
+
+\section{Useful Formulas}
+\label{sec:formulas}
+
+In this section we collect some useful formulas we made use of in our
+simulations.
+
+Redshift evolution factor (flat \lcdm{} cosmology):
+\begin{equation}
+  \label{eq:ez-func}
+  E(z) = \sqrt{\Omega_m(1+z)^3 + \Omega_{\Lambda}}.
+\end{equation}
+
+The virial radius of a cluster:
+\begin{equation}
+  \label{eq:radius-virial}
+  R_{\mathrm{vir}} = \left[
+    \frac{3 M_{\mathrm{vir}}}{4\pi \Delta_c(z) \rho_{\mathrm{crit}}(z)} \right],
+\end{equation}
+where $M_{\mathrm{vir}}$ is the virial mass (can also be regarded as
+the total mass) of the cluster,
+$\rho_{\mathrm{crit}}(z)$ is the cosmological critical density at redshift $z$,
+$\Delta_c(z)$ is the average overdensity of the cluster at redshift $z$.
+
+The thermal number density of the cluster ICM is approximately given by:
+\begin{equation}
+  \label{eq:nth}
+  n_{\mathrm{th}} \simeq
+    \frac{3 M_{\mathrm{baryon}}}{4\pi \mu m_u R_{\mathrm{vir}}^3},
+\end{equation}
+where $\mu \simeq 0.6$ is the mean molecular weight \citep{ettori2013},
+$m_u$ is the atomic mass unit,
+and $M_{\mathrm{baryon}} \simeq M_{\mathrm{vir}} f_b$ is the baryon mass
+of the cluster with $f_b \simeq \Omega_b / \Omega_m$ the mean baryon
+fraction assumed for clusters.
 
 
 %%%%%%%%%%%%%
