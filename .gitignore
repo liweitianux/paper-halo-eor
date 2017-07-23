@@ -16,3 +16,8 @@
 # Emacs
 .#*
 auto/
+*Notes.bib
+
+#
+docs/
+reports/
