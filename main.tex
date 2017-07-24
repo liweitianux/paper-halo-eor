@@ -41,15 +41,22 @@
 %%                 affiliation information after each name. Creates a much
 %%                 long author list but may be desirable for short author papers
 
+%% Extra packages
+\usepackage{amsmath}
+
 %% Custom macros
 \newcommand{\etal}{\textit{et al.}}
-\newcommand{\D}[1]{\mathrm{d} #1}
+\newcommand{\R}[1]{\mathrm{#1}}
+\newcommand{\D}[1]{\R{d} #1}
 \newcommand{\diff}[2]{\frac{\D{#1}}{\D{#2}}}
 \newcommand{\pdiff}[2]{\frac{\partial #1}{\partial #2}}
-\newcommand{\uG}{\mathrm{\mu G}}
-\newcommand{\Msun}{\mathrm{M}_{\odot}}
+\newcommand{\uG}{\R{\mu G}}
+\newcommand{\Msun}{\R{M}_{\odot}}
 \newcommand{\lcdm}{$\Lambda$CDM}
 
+%% Requires `amsmath' package
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\erfc}{erfc}
 
 %% Journal information
 \received{xxx, 2017}
@@ -173,7 +180,7 @@ luminous galaxy clusters, and they can be classified into several types
 \end{description}
 
 We adopt a flat \lcdm{} cosmology with
-$H_0 = 100 h = 71 \,\mathrm{km}\,\mathrm{s}^{-1}\,\mathrm{Mpc}^{-1}$,
+$H_0 = 100 h = 71 \,\R{km}\,\R{s}^{-1}\,\R{Mpc}^{-1}$,
 $\Omega_m = 0.27$, $\Omega_{\Lambda} = 1 - \Omega_m = 0.73$,
 $\Omega_b = 0.046$, and $\sigma_8 = 0.81$ \citep{komatsu2011}.
 
@@ -220,22 +227,22 @@ We present our improved simulation method to the galaxy clusters in this
 section.
 
 \subsubsection{Distributions}
-\label{sec:cluster-dist}
+\label{sec:distributions}
 
 For a patch of sky, we first want to determine the mass and redshift
 distributions of the galaxy clusters, which can be sampled from the
 Press-Schechter (PS) mass function \citep{press1974}:
 \begin{equation}
   \label{eq:ps-mass-func}
-  n(M, z) \D{M} = \sqrt{\frac{2}{\pi}} \frac{\langle{\rho}\rangle}{M}
+  n(M, z) \,\D{M} = \sqrt{\frac{2}{\pi}} \frac{\langle{\rho}\rangle}{M}
   \frac{\delta_c(z)}{\sigma^2(M)} \left| \diff{\sigma(M)}{M} \right|
-  \exp\left[ -\frac{\delta_c^2(z)}{2\sigma^2{M}} \right] \D{M},
+  \exp\!\left[ -\frac{\delta_c^2(z)}{2\sigma^2{M}} \right] \D{M},
 \end{equation}
 where
 $M$ is the cluster mass,
 $\langle {\rho} \rangle$ is the current mean density of the Universe,
 $\delta_c(z)$ is the critical linear overdensity for a region to collapse
-at redshift $z$,
+at redshift $z$ [see Equation~(\ref{eq:delta-crit})],
 and $\sigma(M)$ is the current rms density fluctuations within a sphere
 of mean mass $M$.
 
@@ -248,7 +255,7 @@ for the density perturbations \citep{sarazin2002,randall2002}:
 \end{equation}
 where $\sigma_8$ is the present-day rms density fluctuations on a
 scale of $8 h^{-1}$ Mpc,
-$M_8 = (4\pi/3)(8 h^{-1} \,\mathrm{Mpc})^3 \langle{\rho}\rangle$
+$M_8 = (4\pi/3)(8 h^{-1} \,\R{Mpc})^3 \langle{\rho}\rangle$
 is the mass contained in a sphere of radius $8 h^{-1}$ Mpc.
 The exponent $\alpha$ is given by $\alpha = (n+3)/6$, where
 the power spectrum of fluctuations varies with wavenumber $k$
@@ -278,17 +285,17 @@ with $M_2 > M_1$ and $t_2 > t_1$, is given by
 \citep{lacey1993,randall2002}:
 \begin{equation}
   \label{eq:eps-condprob}
-  P(M_1, t_1 | M_2, t_2) \D{M_1} = \frac{1}{\sqrt{2\pi}} \frac{M_2}{M_1}
+  P(M_1, t_1 | M_2, t_2) \,\D{M_1} = \frac{1}{\sqrt{2\pi}} \frac{M_2}{M_1}
   \frac{\delta_{c1} - \delta_{c2}}{(\sigma_1^2 - \sigma_2^2)^{3/2}}
   \left| \diff{\sigma_1^2}{M_1} \right|
-  \exp \left[ -\frac{(\delta_{c1} - \delta_{c2})^2}
+  \exp \!\left[ -\frac{(\delta_{c1} - \delta_{c2})^2}
     {2(\sigma_1^2 - \sigma_2^2)} \right] \D{M_1},
 \end{equation}
 where
 $\delta_{c1} \equiv \delta_c(t_1)$ and $\sigma_1 \equiv \sigma(M_1)$,
 with similar definitions for $\delta_{c2}$ and $\sigma_2$.
 By further defining $S \equiv \sigma^2(M)$ and $\omega \equiv \delta_c(t)$,
-and let $K(\Delta S, \Delta \omega) \D{\Delta S}$ be the probability
+and let $K(\Delta S, \Delta \omega) \,\D{\Delta S}$ be the probability
 that a cluster had a progenitor with a mass corresponding to a change
 in $S$ of $\Delta S = \sigma_1^2 - \sigma_2^2$ in the range
 $\Delta S \rightarrow \Delta S + \D{\Delta S}$ at an earlier time
@@ -296,9 +303,9 @@ corresponding to $\Delta \omega = \delta_{c1} - \delta_{c2}$,
 then Equation~(\ref{eq:eps-condprob}) is simplified into:
 \begin{equation}
   \label{eq:eps-condprob-simp}
-  K(\Delta S, \Delta \omega) \D{\Delta S} = \frac{1}{\sqrt{2\pi}}
+  K(\Delta S, \Delta \omega) \,\D{\Delta S} = \frac{1}{\sqrt{2\pi}}
   \frac{\Delta\omega}{(\Delta S)^{3/2}}
-  \exp \left[ -\frac{(\Delta\omega)^2}{2 \Delta S} \right] \D{\Delta S}.
+  \exp \!\left[ -\frac{(\Delta\omega)^2}{2 \Delta S} \right] \D{\Delta S}.
 \end{equation}
 
 We employ the standard Monte Carlo technique to build the merger trees,
@@ -308,7 +315,7 @@ We trace each cluster back in time, using a step size $\Delta\omega$
 adaptively determined by:
 \begin{equation}
   \label{sec:dw-step}
-  (\Delta\omega)_{\mathrm{step}} = \frac{1}{2} \sqrt{
+  (\Delta\omega)_{\R{step}} \simeq \frac{1}{2} \sqrt{
     \left| \diff{\ln \sigma^2}{\ln M} \right|
     \left( \frac{\Delta M_c}{M} \right) S},
 \end{equation}
@@ -321,37 +328,37 @@ $\Delta S$ (i.e., $\Delta M$), we sample the cumulative probability
 distribution of the sub-cluster masses:
 \begin{equation}
   \label{sec:cdf-sub-masses}
-  P(<\Delta S, \Delta\omega) =
-  \int_0^{\Delta S} K(\Delta S', \Delta\omega) \D{\Omega S'} =
-  \mathrm{erfc} \left( \frac{\Delta \omega}{\sqrt{2 \Delta S}} \right),
+  P(<\!\Delta S, \Delta\omega) =
+  \int_0^{\Delta S} K(\Delta S', \Delta\omega) \,\D{\Delta S'} =
+  \erfc \!\left( \frac{\Delta \omega}{\sqrt{2 \Delta S}} \right),
 \end{equation}
-where $\mathrm{erfc}(x) = 1 - \mathrm{erf}(x)$ is the complementary error
+where $\erfc(x) = 1 - \erf(x)$ is the complementary error
 function whose inversion is also analytical.
 With a random $\Delta S$ drawn from this probability distribution,
 the value of $S_1$ of the progenitor is then $S_1 = S_2 + \Delta S$,
 and the mass of one of the progenitors is determined by
 $\sigma^2(M_1) = S_1$, while for the other is $\Delta M = M_2 - M_1$.
 
-Let $M_{\mathrm{main}} \equiv \mathrm{max}(M_1, \Delta M)$ and
-$M_{\mathrm{sub}} \equiv \mathrm{min}(M_1, \Delta M)$.
-If $M_{\mathrm{sub}} \leq \Delta M_c$, we regard this change in mass
+Let $M_{\R{main}} \equiv \max(M_1, \Delta M)$ and
+$M_{\R{sub}} \equiv \min(M_1, \Delta M)$.
+If $M_{\R{sub}} \leq \Delta M_c$, we regard this change in mass
 to be due to accretion, and we continue build the merger tree from
-$M_{\mathrm{main}}$ with the sub-cluster been ignored.
+$M_{\R{main}}$ with the sub-cluster been ignored.
 On the other hand, it is identified as a merger event if
-$M_{\mathrm{sub}} > \Delta M_c$, then we trace both the main cluster
+$M_{\R{sub}} > \Delta M_c$, then we trace both the main cluster
 and the sub-cluster separately.
 
 Considering that radio halos are only observed in
 a fraction of massive merging clusters, suggesting they are closely
 related to the recent major mergers, and have a lifetime
-$\tau_{\mathrm{halo}}$ shorter than the timescale $\tau_m$ ($\sim$ 2--3 Gyr)
+$\tau_{\R{halo}}$ shorter than the timescale $\tau_m$ ($\sim$2--3 Gyr)
 for the duration of merger-induced disturbance \citep{cassano2016}.
 Therefore we only trace the merging history of the main cluster
 to a maximum backward time of 3 Gyr.
 Then we identify the most recent major merger for each cluster,
-which is defined as $M_{\mathrm{main}}/M_{\mathrm{sub}} < 3$
+which is defined as $M_{\R{main}}/M_{\R{sub}} < 3$
 \citep[e.g.,][]{wetzel2009},
-and extract the $(M_{\mathrm{main}}, M_{\mathrm{sub}}, z_{\mathrm{merger}})$
+and extract the $(M_{\R{main}}, M_{\R{sub}}, z_{\R{merger}})$
 data for use in the following radio halos simulation.
 Meanwhile, those clusters without a recent major merger found
 are thought to not host radio halos, and thus been ignored.
@@ -378,28 +385,26 @@ made various modifications as well as simplifications for our needs.
 For each cluster associated with a recent major merger, we assume that
 the two sub-clusters undergo only central collisions.
 Starting from an initial distance $d_0$ with zero velocity,
-the relative impact velocity of two sub-clusters with mass
-$M_{\mathrm{main}}$ and $M_{\mathrm{sub}}$ upon collide (at a distance
-$R_{\mathrm{main}}$ between the centers) is given by
+the relative impact velocity of two merging clusters with mass
+$M_{\R{main}}$ and $M_{\R{sub}}$ upon collision (at a distance
+$R_{\R{main}}$ between the centers) is given by
 \citep{cassano2005,sarazin2002}:
 \begin{equation}
   \label{eq:v-imp}
-  v_{\mathrm{imp}} \simeq \left[
-    \frac{2G (M_{\mathrm{main}} + M_{\mathrm{sub}})}{R_{\mathrm{main}}}
+  v_{\R{imp}} \simeq \left[
+    \frac{2G (M_{\R{main}} + M_{\R{sub}})}{R_{\R{main}}}
     \left( 1 - \frac{1}{\eta_v} \right)\right]^{1/2},
 \end{equation}
-where $d_0 = \eta_v R_{\mathrm{main}}$,
-$\eta_v \simeq 4 (1 + M_{\mathrm{sub}}/M_{\mathrm{main}})^{1/3}$,
-and $R_{\mathrm{main}}$ is the virial radius of the main cluster
+where $d_0 = \eta_v R_{\R{main}}$,
+$\eta_v \simeq 4 (1 + M_{\R{sub}}/M_{\R{main}})^{1/3}$,
+and $R_{\R{main}}$ is the virial radius of the main cluster
 [see Equation~(\ref{eq:radius-virial})].
 
 Cluster mergers generate turbulence throughout the cluster over $\sim$Mpc
 scales.  Energy can be transferred from the ICM into the non-thermal
 component through the interactions between electrons and the
-magnetohydrodynamics (MHD) turbulence, which accelerate the electrons
+magneto-hydrodynamics (MHD) turbulence, which accelerate the electrons
 to be extremely relativistic and radiate synchrotron emissions.
-%% TODO:
-%% Describe energy transfer: merger -> turbulence -> electrons (eta_turb)
 This scenario of particle re-acceleration by turbulence is the most
 accepted mechanism responsible for the radio halos \citep{feretti2012rev}.
 
@@ -411,25 +416,26 @@ We approximate the effective acceleration timescale with the merger
 crossing time \citep{cassano2005}:
 \begin{equation}
   \label{eq:tau-cross}
-  \tau_{\mathrm{cross}} \simeq R_{\mathrm{main}} / v_{\mathrm{imp}}.
+  \tau_{\R{cross}} \simeq R_{\R{main}} / v_{\R{imp}},
 \end{equation}
+which is typically $\lesssim$1 Gyr.
 In addition, the acceleration efficiency of electrons due to turbulent waves,
 which described by the acceleration timescale, can be then estimated as
 \citep{cassano2005,brunetti2011}:
 \begin{equation}
   \label{eq:tau-acc}
-  \tau_{\mathrm{acc}}(t) \simeq \left\{
+  \tau_{\R{acc}}(t) \simeq \left\{
     \begin{array}{ll}
-      0.1 / \eta_{\mathrm{turb}}, & t \leq t_{\mathrm{merger}} + \tau_{\mathrm{cross}} \\
-      0, & t > t_{\mathrm{merger}} + \tau_{\mathrm{cross}}
+      0.1 / \beta_{\R{turb}}, & t \leq t_{\R{merger}} + \tau_{\R{cross}} \\
+      +\infty, & t > t_{\R{merger}} + \tau_{\R{cross}}
     \end{array}
-  \right. \quad [\mathrm{Gyr}],
+  \right. \quad [\R{Gyr}],
 \end{equation}
-where $\eta_{\mathrm{turb}}$ is the fraction of energy of the turbulence
-in the form of magneto-sonic (MS) waves (which interact with electrons
-and transfer the energy to accelerate them),
-$t_{\mathrm{merger}}$ is the cosmic time when the merger begins
-(i.e., at redshift $z_{\mathrm{merger}}$).
+where $\beta_{\R{turb}} \lesssim 1$ is a free parameter describing the
+intensity of the turbulence acceleration
+(we assume $\beta_{\R{turb}} = 0.3$ (???) in this work),
+and $t_{\R{merger}}$ is the cosmic time when the merger begins
+(i.e., at redshift $z_{\R{merger}}$).
 
 The time evolution of relativistic electrons spectrum with isotropic energy
 distribution can be derived by solving the Fokker-Planck equation
@@ -437,92 +443,179 @@ distribution can be derived by solving the Fokker-Planck equation
 \begin{equation}
   \label{eq:fokkerplanck}
   \pdiff{n(\gamma,t)}{t} = \pdiff{}{\gamma} \left[ n(\gamma,t) \left(
-      \left| \diff{\gamma}{t} \right|_{\mathrm{rad}} +
-      \left| \diff{\gamma}{t} \right|_{\mathrm{ion}} -
-      \frac{2}{\gamma} D_{\mathrm{\gamma\gamma}}(\gamma, t) \right) \right] +
-  \pdiff{}{\gamma} \left[ D_{\mathrm{\gamma\gamma}} \pdiff{n(\gamma,t)}{p} \right] +
+      \left| \diff{\gamma}{t} \right|_{\R{rad}} +
+      \left| \diff{\gamma}{t} \right|_{\R{ion}} -
+      \frac{2}{\gamma} D_{\R{\gamma\gamma}}(\gamma, t) \right) \right] +
+  \pdiff{}{\gamma} \left[ D_{\R{\gamma\gamma}} \pdiff{n(\gamma,t)}{p} \right] +
   Q_e(\gamma,t),
 \end{equation}
 where $\gamma = p / m_e c$ is the Lorentz factor of the electrons,
 $n(\gamma, t)$ is the isotropic number density of relativistic
-electrons, $|\mathrm{d}\gamma / \mathrm{d}t|_{(\cdot)}$ terms account for the
+electrons, $Q_e(\gamma, t)$ describes the electron injection,
+$|\R{d}\gamma / \R{d}t|_{(\cdot)}$ terms account for the
 energy losses due to radiation and ionization,
-$D_{\mathrm{\gamma\gamma}}(\gamma, t)$ is the diffusion coefficient describing
-the interaction between electrons and turbulent MS waves, which is given by
-\citep{brunetti2011}:
+and $D_{\R{\gamma\gamma}}(\gamma, t)$ is the diffusion coefficient
+describing the interactions between electrons and turbulent waves,
+which is given by \citep{brunetti2011}:
 \begin{equation}
   \label{eq:diffusion-coef}
-  D_{\mathrm{\gamma\gamma}}(\gamma, t) =
-    \frac{\gamma^2}{4 \tau_{\mathrm{acc}}(t)},
+  D_{\R{\gamma\gamma}}(\gamma, t) =
+    \frac{\gamma^2}{4 \tau_{\R{acc}}(t)}.
 \end{equation}
-and $Q_e(\gamma, t)$ describes the electron injection.
+In some energy ranges (e.g., $\gamma \sim 1000$), the diffusion may
+contribute more energies than those lost, therefore can accelerate electrons
+to higher energies, making them synchrotron bright.
 
-The relativistic electrons lose energy via synchrotron radiation
-and inverse Compton scattering off the CMB photons \citep{sarazin1999}:
+The electrons that will be re-accelerated \emph{in situ}
+by the turbulence permeate the cluster ICM, which are thought to be
+injected by AGN activities (quasars, radio galaxies, etc.), or by
+star formation in normal galaxies (supernovae, galactic winds, etc.)
+during the cluster life \citep[see][for a review]{blasi2007rev}.
+The electrons can be reasonably assumed to be constantly injected
+into the cluster ICM with a power-law spectrum of index $s$
+\citep{cassano2005,sarazin1999}:
 \begin{equation}
-  \label{eq:eloss-rad}
-  \left( \diff{\gamma}{t} \right)_{\mathrm{rad}} =
-  -1.37 \times 10^{-20} \gamma^2
-  \left[ \left( \frac{B}{3.25 \,\uG} \right)^2 +
-  (1+z)^4 \right] \quad [\mathrm{s}^{-1}],
+  \label{eq:electron-inj}
+  Q_e(\gamma, t) = Q_e(\gamma) = K_e \gamma^{-s},
 \end{equation}
-where $B$ is the mean magnetic field strength in the ICM.
-Meanwhile, relativistic electrons in the ICM also lose energy through
-ionization losses and Coulomb collisions \citep{sarazin1999}:
+where $K_e$ is the constant injection rate, which can be parametrized
+by assuming that the total energy injected in the electrons during
+the cluster life is a fraction, $\eta_e$, of the total thermal energy
+of the cluster \citep{cassano2005}:
 \begin{equation}
-  \label{eq:eloss-ion}
-  \left( \diff{\gamma}{t} \right)_{\mathrm{ion}} =
-  -1.20 \times 10^{-12} n_{\mathrm{th}} \left[ 1 +
-    \frac{\ln(\gamma/n_{\mathrm{th}})}{75} \right] \quad [\mathrm{s}^{-1}],
+  \label{eq:injrate-param}
+  \left( \frac{4\pi}{3} R_{\R{halo}}^3 \right) \tau_{\R{cluster}}
+  \int_{\gamma_{\R{min}}}^{\gamma_{\R{max}}}
+  Q_e(\gamma') \gamma' \epsilon_e \,\D{\gamma'} \simeq
+  \eta_e \epsilon_{\R{th}} \left( \frac{4\pi}{3} R_{\R{vir}}^3 \right),
 \end{equation}
-where $n_{\mathrm{th}}$ is the ICM thermal number density in unit of
-[$\mathrm{cm}^{-3}$]
-[see Equation~(\ref{eq:nth})].
+where $R_{\R{halo}}$ and $R_{\R{vir}}$ are the radius of the radio halo
+will be generated and the virial radius of the cluster, respectively,
+$\tau_{\R{cluster}} \simeq t_0$ is the cluster age at redshift $z_0$ as
+simulated in Section~\ref{sec:distributions},
+$\epsilon_e = m_e c^2$ is the energy of one electron at still,
+$\epsilon_{\R{th}}$ is the thermal energy density of the cluster ICM,
+and we adopt $\gamma_{\R{max}} = 10^5 \gg \gamma_{\R{\min}} = 50$
+for our simulation configurations.
+Therefore we derive the electron injection rate as:
+\begin{equation}
+  \label{eq:injrate}
+  K_e \simeq \frac{(s-2)\eta_e\epsilon_{\R{th}}}{\epsilon_e\tau_{\R{cluster}}}
+  \left( \frac{R_{\R{vir}}}{R_{\R{halo}}} \right)^3 \gamma_{\R{min}}^{s-2}.
+\end{equation}
 
-%% TODO: electron injection!
-
-The ICM thermal energy density is:
+The ICM thermal energy density is calculated as:
 \begin{equation}
   \label{eq:eth}
-  \epsilon_{\mathrm{th}} = \frac{3}{2} n_{\mathrm{th}} k_B T,
+  \epsilon_{\R{th}} = \frac{3}{2} n_{\R{th}} k_B T,
 \end{equation}
-where $k_B T$ is the mean temperature of the ICM plasma, which is estimated
-from the cluster mass using this $M$--$T$ scaling relation \citep{arnaud2005}:
+where $n_{\R{th}}$ is the thermal number density [see Equation~(\ref{eq:nth})],
+and $k_B T$ is the ICM mean temperature, which is estimated
+from the cluster mass using this $M \!-\! T$ scaling relation
+\citep{arnaud2005}:
 \begin{equation}
   \label{eq:mt-relation}
   \left[ \frac{M_{200}}{10^{14} \,\Msun} \right] E(z) = (5.34 \pm 0.22)
-  \left[ \frac{k_B T}{5 \,\mathrm{keV}} \right]^{(1.72 \pm 0.10)},
+  \left[ \frac{k_B T}{5 \,\R{keV}} \right]^{(1.72 \pm 0.10)},
 \end{equation}
 where $E(z)$ is the redshift evolution factor [see Equation~(\ref{eq:ez-func})].
 Note that we approximate the cluster virial mass with $M_{200}$ here.
 
-For simplicity, we assume an uniform magnetic field throughout the ICM,
-but allow it scales with the cluster mass as \citep{cassano2012}:
+Observations show that radio halos have a radial size
+$R_{\R{halo}} \sim$ 3--6 times smaller than the virial radius
+$R_{\R{vir}}$, therefore we estimate the halo radius by
+\citep{cassano2007,zandanel2014}:
+\begin{equation}
+  \label{eq:rhalo-rvir}
+  R_{\R{halo}} = \frac{1}{4} R_{\R{vir}}.
+\end{equation}
+The weak $\uG$-level magnetic fields are also observed in clusters.
+We assume an uniform magnetic field throughout the ICM,
+but allow its strength to scale with the cluster mass as \citep{cassano2012}:
 \begin{equation}
   \label{eq:magfield-mass}
   \left[ \frac{B}{\uG} \right] = \left[ \frac{B_{\langle {M} \rangle}}{\uG} \right]
   \left( \frac{M}{\langle {M} \rangle} \right)^b,
 \end{equation}
 where $\langle {M} \rangle = 1.6 \times 10^{15} \,\Msun$, and we take
-$B_{\langle {M} \rangle} = 1.9 \,\uG$ and $b = 1.5$ for our simulations.
+$B_{\langle {M} \rangle} = 1.9 \,\uG$ and $b = 1.5$ in this work.
 
-Observations show that radio halos have a radial size
-$R_{\mathrm{halo}} \sim$ 3--6 times smaller than the virial radius
-$R_{\mathrm{vir}}$, therefore we estimate the halo radius by
-\citep{cassano2007,zandanel2014}:
+On the other hand,
+relativistic electrons lose energy via synchrotron radiation
+and inverse Compton scattering off the CMB photons \citep{sarazin1999}:
 \begin{equation}
-  \label{eq:rhalo-rvir}
-  R_{\mathrm{halo}} = \frac{1}{4} R_{\mathrm{vir}},
+  \label{eq:eloss-rad}
+  \left( \diff{\gamma}{t} \right)_{\R{rad}} =
+  -1.37 \times 10^{-20} \gamma^2
+  \left[ \left( \frac{B}{3.25 \,\uG} \right)^2 +
+  (1+z)^4 \right] \quad [\R{s}^{-1}],
+\end{equation}
+where $B$ is the magnetic field strength in the ICM.
+Meanwhile, electrons in the ICM also lose energy through
+ionization and Coulomb collisions \citep{sarazin1999}:
+\begin{equation}
+  \label{eq:eloss-ion}
+  \left( \diff{\gamma}{t} \right)_{\R{ion}} =
+  -1.20 \times 10^{-12} n_{\R{th}} \left[ 1 +
+    \frac{\ln(\gamma/n_{\R{th}})}{75} \right] \quad [\R{s}^{-1}],
+\end{equation}
+with $n_{\R{th}}$ in unit of [$\R{cm}^{-3}$].
+
+Having all the coefficients of the Fokker-Planck
+equation~(\ref{eq:fokkerplanck}) been determined, we can now derive
+the time evolution of the electron spectrum.
+An efficient numerical method proposed by \citet{chang1970} is
+utilized to solve the Fokker-Planck equation, under the no-flux boundary
+condition \citep{park1996}.
+However, to avoid unphysical pile-up of electrons at the lower boundary,
+we define a ``buffer'' region below $\gamma_{\R{buf}}$, within which
+the spectrum are replaced by extrapolating as a power law, based on
+the spectrum above $\gamma_{\R{buf}}$ \citep{donnert2014}.
+We adopt a logarithmic grid for $\gamma \in [10, 10^5]$ with 200 cells,
+and let the lower buffer region span 5 cells.
+
+We solve the Fokker-Planck equation from the time $t_{\R{merger}}$
+(i.e., $z_{\R{merger}}$) when the identified major merger begins,
+until to the time $t_0$ (i.e., $z_0$) which corresponds to the current
+time of our simulated ``observations.''
+The low-energy electrons (e.g., $\gamma \sim 300$) have very long
+lifetimes, they may be accumulated and retained as the cluster
+grows \citep{sarazin1999}.
+We therefore estimate the initial electron spectrum at $t_{\R{merger}}$ as:
+\begin{equation}
+  \label{eq:ne-init}
+  n(\gamma, t=t_{\R{merger}}) = t_{\R{merger}} K_e \gamma^{-s}.
 \end{equation}
 
-%% TODO:
-%% Fokker-Planck numerical solving scheme
-%% initial electron spectrum
-%% boundary condition & fix
+Once the current electron spectrum $n(\gamma, t_0)$ been derived,
+the synchrotron emissivity in unit of
+[$\R{erg}\,\R{s}^{-1}\,\R{cm}^{-3}\,\R{Hz}^{-1}$],
+is determined by \citep{rybicki1979}:
+\begin{equation}
+  \label{sec:jnu-sync}
+  J_{\R{syn}}(\nu, t_0) = \frac{\sqrt{3}e^3 B}{c}
+  \int_{\gamma_{\R{min}}}^{\gamma_{\R{max}}} \int_0^{\pi/2}
+  \sin^2 \!\theta \,n(\gamma, t_0) F\!\left( \frac{\nu}{\nu_c} \right)
+  \,\D{\theta} \,\D{\gamma},
+\end{equation}
+where $F(\nu/\nu_c)$ is the synchrotron kernel:
+\begin{equation}
+  \label{eq:sync-kernel}
+  F\!\left( \frac{\nu}{\nu_c} \right) = \frac{\nu}{\nu_c}
+  \int_{\nu/\nu_c}^{\infty} K_{5/3}(y) \,\D{y},
+\end{equation}
+with $K_{5/3}(x)$ the modified Bessel function of 5/3 order,
+$\nu_c = (3/2) \gamma^2 \nu_L \sin\theta$ the critical frequency,
+and $\nu_L = e B / (2\pi m_e c)$ the Larmor frequency.
 
+%% TODO:
+%% radio halo brightness profile (exponential shape)
+%% create elliptical halo images
 
 \subsubsection{Radio Relics}
 \label{sec:relic}
+
+TODO!!!
 
 \citet[their Table 1]{nuza2017} compiled a collection of currently observed
 radio relics.
@@ -611,6 +704,8 @@ We acknowledge ...
 \section{Press-Schechter Formalism}
 \label{sec:psf}
 
+Necessary???
+
 The Press-Schechter (PS) formalism is one of the standard method to predict
 the mass function of galaxy clusters and its evolution as the cosmology.
 It is originally developed by \citet{press1974}, and later extended to combine
@@ -623,34 +718,95 @@ with the cold dark matter (CDM) model \citep[e.g.,][]{bond1991,lacey1993}.
 In this section we collect some useful formulas we made use of in our
 simulations.
 
-Redshift evolution factor (flat \lcdm{} cosmology):
+The Hubble parameter at redshift $z$:
+\begin{equation}
+  \label{eq:hubble-z}
+  H(z) = H_0 E(z),
+\end{equation}
+where $H_0$ is the present-day Hubble value,
+and $E(z)$ is the redshift evolution factor given by:
 \begin{equation}
   \label{eq:ez-func}
   E(z) = \sqrt{\Omega_m(1+z)^3 + \Omega_{\Lambda}}.
 \end{equation}
+(Note that we adopt a flat \lcdm{} cosmology so that
+$\Omega_k = 1 - \Omega_m - \Omega_{\Lambda} = 0$.)
 
-The virial radius of a cluster:
+The critical density of the Universe at redshift $z$ is:
+\begin{equation}
+  \label{eq:rho-crit}
+  \rho_{\R{crit}}(z) = \frac{3 H(z)^2}{8 \pi G},
+\end{equation}
+where $G$ is the gravitational constant.
+
+On the other hand, the critical linear overdensity as a function of
+redshift $z$ is \citep{kitayama1996,randall2002}:
+\begin{equation}
+  \label{eq:delta-crit}
+  \delta_c(z) = \frac{D(z=0)}{D(z)}
+  \left[ \frac{3 (12\pi)^{2/3}}{20} \right]
+  \left[1 + 0.0123 \log_{10} \Omega_f(z) \right],
+\end{equation}
+where $\Omega_f(z)$ is the mass density ratio at redshift $z$:
+\begin{equation}
+  \label{eq:omega-fz}
+  \Omega_f(z) = \frac{\Omega_m(1+z)^3}{\Omega_m(1+z)^3 + \Omega_{\Lambda}},
+\end{equation}
+and $D(z)$ is the growth factor given by
+\citep[Equation~(13.6)]{peebles1980}:
+\begin{equation}
+  \label{eq:growth-factor}
+  D(x) = \frac{(x^3 + 2)^{1/2}}{x^{3/2}}
+    \int_0^x y^{3/2} (y^3 + 2)^{-3/2} \,\D{y},
+\end{equation}
+with $x_0 \equiv (2\Omega_{\Lambda}/\Omega_m)^{1/3}$ and
+$x = x_0 / (1+z)$.
+
+The virial radius of a cluster is:
 \begin{equation}
   \label{eq:radius-virial}
-  R_{\mathrm{vir}} = \left[
-    \frac{3 M_{\mathrm{vir}}}{4\pi \Delta_c(z) \rho_{\mathrm{crit}}(z)} \right],
+  R_{\R{vir}} = \left[
+    \frac{3 M_{\R{vir}}}{4\pi \Delta_{\R{vir}}(z) \rho_{\R{crit}}(z)}
+  \right]^{1/3},
 \end{equation}
-where $M_{\mathrm{vir}}$ is the virial mass (can also be regarded as
+where $M_{\R{vir}}$ is the virial mass (can also be regarded as
 the total mass) of the cluster,
-$\rho_{\mathrm{crit}}(z)$ is the cosmological critical density at redshift $z$,
-$\Delta_c(z)$ is the average overdensity of the cluster at redshift $z$.
+$\rho_{\R{crit}}(z)$ is the critical density at redshift $z$,
+and $\Delta_{\R{vir}}(z)$ is the average overdensity of the cluster
+at redshift $z$ given by \citep{kitayama1996,cassano2005}:
+\begin{equation}
+  \label{eq:delta-vir}
+  \Delta_{\R{vir}}(z) = 18\pi^2 \left[ 1 + 0.4093 \, w(z)^{0.9052} \right],
+\end{equation}
+where $w(z) \equiv \Omega_f(z)^{-1} - 1$.
 
 The thermal number density of the cluster ICM is approximately given by:
 \begin{equation}
   \label{eq:nth}
-  n_{\mathrm{th}} \simeq
-    \frac{3 M_{\mathrm{baryon}}}{4\pi \mu m_u R_{\mathrm{vir}}^3},
+  n_{\R{th}} \simeq
+    \frac{3 M_{\R{baryon}}}{4\pi \mu m_u R_{\R{vir}}^3},
 \end{equation}
 where $\mu \simeq 0.6$ is the mean molecular weight \citep{ettori2013},
 $m_u$ is the atomic mass unit,
-and $M_{\mathrm{baryon}} \simeq M_{\mathrm{vir}} f_b$ is the baryon mass
+and $M_{\R{baryon}} \simeq M_{\R{vir}} f_b$ is the baryon mass
 of the cluster with $f_b \simeq \Omega_b / \Omega_m$ the mean baryon
 fraction assumed for clusters.
+
+In a flat \lcdm{} cosmology as we adopted, the age of the Universe
+at redshift $z$ takes an analytical form
+\citep[their Equation~(18)]{thomas2000}:
+\begin{align}
+  \label{eq:universe-age}
+  t(z; \Omega_m, \Omega_{\Lambda}=1-\Omega_m)
+    & = \frac{1}{H_0} \int_z^{\infty}
+      \frac{\D{z'}}{(1+z')\sqrt{1 + \Omega_m z' (3+3z'+z'^2)}} \nonumber \\
+    & = \frac{2}{3 H_0 \sqrt{1-\Omega_m}} \sinh^{-1} \left(
+      \sqrt{\frac{\Omega_m^{-1} - 1}{(1+z)^3}} \right).
+\end{align}
+This formula can also be inverted analytically to derive the redshift
+$z$ corresponding to a cosmic time $t$ (i.e., age of the Universe),
+which is used in our building of cluster merger trees
+in Section~\ref{sec:merging-history}.
 
 
 %%%%%%%%%%%%%
