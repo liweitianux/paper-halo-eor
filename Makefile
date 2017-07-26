@@ -12,6 +12,9 @@ DATE:=		$(shell date +'%Y%m%d')
 ROOT_DIR:=	$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 PROJNAME:=	$(shell basename $(ROOT_DIR))
 
+# Environment variables
+TEXINPUTS:= .:aastex:revtex:$(TEXINPUTS)
+BSTINPUTS:= .:aastex:revtex:$(BSTINPUTS)
 
 default: main.pdf
 
@@ -23,7 +26,7 @@ report: main.pdf
 	done
 
 main.pdf: main.tex references.bib
-	latexmk -pdf $<
+	env TEXINPUTS=$(TEXINPUTS) BSTINPUTS=$(BSTINPUTS) latexmk -pdf $<
 
 clean:
 	latexmk -c main.tex
