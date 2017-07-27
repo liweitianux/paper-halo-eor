@@ -45,6 +45,12 @@
 \usepackage{amsmath}
 \usepackage{xfrac}  % split-level fractions
 \usepackage{bm}  % bold math
+\usepackage{savesym}
+
+\savesymbol{tablenum}  % workaround symbol confliction
+                       % credit: https://tex.stackexchange.com/a/269074
+\usepackage{siunitx}  % typeset units; from `texlive-science'
+\restoresymbol{SIX}{tablenum}  % `tablenum' from `siunitx' becomes `SIXtablenum'
 
 %% Custom macros
 \newcommand{\etal}{\textit{et al.}}
