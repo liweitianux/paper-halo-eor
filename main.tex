@@ -44,6 +44,7 @@
 %% Extra packages
 \usepackage{amsmath}
 \usepackage{xfrac}  % split-level fractions
+\usepackage{bm}  % bold math
 
 %% Custom macros
 \newcommand{\etal}{\textit{et al.}}
@@ -55,7 +56,7 @@
 \newcommand{\Msun}{\R{M}_{\odot}}
 \newcommand{\lcdm}{$\Lambda$CDM}
 
-%% Requires `amsmath' package
+%% Custom math operators (requires `amsmath' package)
 \DeclareMathOperator{\erf}{erf}
 \DeclareMathOperator{\erfc}{erfc}
 
@@ -151,6 +152,7 @@ TODO!!!
 %% keywords and the rules for their use.
 %% http://journals.aas.org/authors/keywords2013.html
 \keywords{
+  %% TODO: update this!
   dark ages, reionization, first stars ---
   galaxies: clusters: intracluster medium ---
   galaxies: halos ---
@@ -166,7 +168,7 @@ TODO!!!
 
 TODO!!!
 
-Extended radio emissions are only detected in a fraction of massive and
+Extended radio emissions are only detected in a small fraction of massive and
 luminous galaxy clusters, and they can be classified into several types
 \citep[see][for recent reviews]{feretti2012rev,brunetti2014rev}:
 \begin{description}
@@ -237,7 +239,7 @@ Press-Schechter (PS) mass function \citep{press1974}:
   \label{eq:ps-mass-func}
   n(M, z) \,\D{M} = \sqrt{\frac{2}{\pi}} \frac{\langle{\rho}\rangle}{M}
   \frac{\delta_c(z)}{\sigma^2(M)} \left| \diff{\sigma(M)}{M} \right|
-  \exp\!\left[ -\frac{\delta_c^2(z)}{2\sigma^2{M}} \right] \D{M},
+  \exp\!\left[ -\frac{\delta_c^2(z)}{2\sigma^2(M)} \right] \D{M},
 \end{equation}
 where
 $M$ is the cluster mass,
@@ -262,7 +264,8 @@ The exponent $\alpha$ is given by $\alpha = (n+3)/6$, where
 the power spectrum of fluctuations varies with wavenumber $k$
 as $k^n$, and we adopt $n = -7/5$ for this work \citep{randall2002}.
 
-We place a lower mass limit of $2 \times 10^{14} \,\Msun$ for clusters,
+We place a lower mass limit of $M_{\R{min}} = 2 \times 10^{14} \,\Msun$
+for clusters,
 determine the expected total number of clusters within our simulation
 sky patch, and then derive the mass and redshift for each cluster by
 sampling from the PS mass function using Monte Carlo method
@@ -281,7 +284,7 @@ generate the merger trees.
 
 The conditional probability that a ``parent'' cluster of mass $M_2$ at
 a time $t_2$ had a ``progenitor'' of mass in the range
-$M_1 \rightarrow M_1 + \D{M_1}$ at some earlier time $t_1$,
+$M_1 \to M_1 + \D{M_1}$ at some earlier time $t_1$,
 with $M_2 > M_1$ and $t_2 > t_1$, is given by
 \citep{lacey1993,randall2002}:
 \begin{equation}
@@ -299,7 +302,7 @@ By further defining $S \equiv \sigma^2(M)$ and $\omega \equiv \delta_c(t)$,
 and let $K(\Delta S, \Delta \omega) \,\D{\Delta S}$ be the probability
 that a cluster had a progenitor with a mass corresponding to a change
 in $S$ of $\Delta S = \sigma_1^2 - \sigma_2^2$ in the range
-$\Delta S \rightarrow \Delta S + \D{\Delta S}$ at an earlier time
+$\Delta S \to \Delta S + \D{\Delta S}$ at an earlier time
 corresponding to $\Delta \omega = \delta_{c1} - \delta_{c2}$,
 then Equation~(\ref{eq:eps-condprob}) is simplified into:
 \begin{equation}
@@ -313,12 +316,12 @@ We employ the standard Monte Carlo technique to build the merger trees,
 with each of them starts with a cluster with an initial mass $M_0$
 and redshift $z_0$ simulated in the last section.
 We trace each cluster back in time, using a step size $\Delta\omega$
-adaptively determined by:
+adaptively determined by \citep{randall2002}:
 \begin{equation}
   \label{sec:dw-step}
-  (\Delta\omega)_{\R{step}} \simeq \frac{1}{2} \sqrt{
-    \left| \diff{\ln \sigma^2}{\ln M} \right|
-    \left( \frac{\Delta M_c}{M} \right) S},
+  (\Delta\omega)_{\R{step}} \lesssim \frac{1}{2} \left[
+    S \left| \diff{\ln \sigma^2}{\ln M} \right|
+    \left( \frac{\Delta M_c}{M} \right) \right]^{1/2},
 \end{equation}
 where $M$ is the cluster mass at the current time step,
 $\Delta M_c$ is the minimum mass change indicating the smallest
@@ -432,9 +435,12 @@ which described by the acceleration timescale, can be then estimated as
     \end{array}
   \right. \quad [\R{Gyr}],
 \end{equation}
-where $\beta_{\R{turb}} \lesssim 1$ is a free parameter describing the
+%% TODO:
+%% add a footnote about tau = infty, which is actually ~100 Gyr implemented
+%% in the software, to avoid numerical instabilities when solving FP equation.
+where $\beta_{\R{turb}} \sim 1$ is a free parameter describing the
 intensity of the turbulence acceleration
-(we assume $\beta_{\R{turb}} = 0.3$ (???) in this work),
+(we assume $\beta_{\R{turb}} = 1$ in this work),
 and $t_{\R{merger}}$ is the cosmic time when the merger begins
 (i.e., at redshift $z_{\R{merger}}$).
 
@@ -594,9 +600,9 @@ the synchrotron emissivity in unit of
 is determined by \citep{rybicki1979}:
 \begin{equation}
   \label{sec:jnu-sync}
-  J_{\R{syn}}(\nu, t_0) = \frac{\sqrt{3}e^3 B}{c}
+  J_{\R{syn}}(\nu, t_0) = \frac{\sqrt{3}e^3 B}{m c^2}
   \int_{\gamma_{\R{min}}}^{\gamma_{\R{max}}} \int_0^{\pi/2}
-  \sin^2 \!\theta \,n(\gamma, t_0) F\!\left( \frac{\nu}{\nu_c} \right)
+  n(\gamma, t_0) F\!\left( \frac{\nu}{\nu_c} \right) \sin^2 \!\theta
   \,\D{\theta} \,\D{\gamma},
 \end{equation}
 where $F(\nu/\nu_c)$ is the synchrotron kernel:
@@ -607,7 +613,33 @@ where $F(\nu/\nu_c)$ is the synchrotron kernel:
 \end{equation}
 with $K_{5/3}(x)$ the modified Bessel function of \sfrac{5}{3} order,
 $\nu_c = (3/2) \gamma^2 \nu_L \sin\theta$ the critical frequency,
-and $\nu_L = e B / (2\pi m_e c)$ the Larmor frequency.
+and $\nu_L = e B / (2\pi m_e c)$ the Larmor frequency of electrons.
+Observations suggest that radio halos have average synchrotron emissivity
+$\langle {J_{\R{syn}}} \rangle \sim 10^{-42}
+\,\R{erg}\,\R{s}^{-1}\,\R{cm}^{-3}\,\R{Hz}^{-1}$
+at 1.4 GHz \citep{murgia2009,feretti2012rev}.
+
+The synchrotron emissivity is the same throughout the radio halo,
+according to our previous assumptions, we can then calculate the radio
+power at a specific frequency (i.e., spectral luminosity) as:
+\begin{equation}
+  \label{eq:halo-power}
+  P_{\nu} \equiv P(\nu) = \frac{4\pi}{3} R_{\R{halo}}^3 J_{\R{syn}}(\nu).
+\end{equation}
+We adopt the exponential profile for the azimuthally averaged brightness
+distribution of radio halos, which is expressed as \citep{murgia2009}:
+\begin{equation}
+  \label{eq:halo-exprofile}
+  I_{\nu}(R) = I_{\nu,0} \exp(-R/R_e),
+\end{equation}
+where $R_e \simeq R_{\R{halo}}/3$ is the $e$-folding radius,
+and $I_{\nu,0}$ is the central brightness, which is determined by the
+above radio power $P_{\nu}$ as:
+\begin{equation}
+  \label{eq:halo-i0}
+  P_{\nu} = \int_{\R{halo}} I_{\nu}(\bm{\sigma}) \,\D{\bm{\sigma}}
+    = I_{\nu,0} \int_0^{R_{\R{halo}}} \exp(-r/R_e) \,2\pi r \,\D{r}.
+\end{equation}
 
 %% TODO:
 %% radio halo brightness profile (exponential shape)
@@ -633,12 +665,18 @@ We have implemented the above foreground simulation methods in the
 \texttt{fg21sim} open-source software available at
 \url{https://github.com/liweitianux/fg21sim}.
 
+TODO: more introduction to our software, features (and limitations?)
+
 \section{Results}
 \label{sec:results}
 
 TODO!!!
 
-Simulated images, scaling relations???
+simulation parameters
+
+input data/templates (link to a page on software repository)
+
+simulated images, scaling relations???
 
 Radio halos (+relics): compare with observations!!!
 
@@ -647,6 +685,10 @@ Radio halos (+relics): compare with observations!!!
 \label{sec:discussions}
 
 TODO!!!
+
+Current limitations
+
+Future work/improvements
 
 
 \section{Conclusions}
@@ -736,7 +778,7 @@ $\Omega_k = 1 - \Omega_m - \Omega_{\Lambda} = 0$.)
 The critical density of the Universe at redshift $z$ is:
 \begin{equation}
   \label{eq:rho-crit}
-  \rho_{\R{crit}}(z) = \frac{3 H(z)^2}{8 \pi G},
+  \rho_{\R{crit}}(z) = \frac{3 H^2(z)}{8 \pi G},
 \end{equation}
 where $G$ is the gravitational constant.
 
@@ -779,7 +821,7 @@ at redshift $z$ given by \citep{kitayama1996,cassano2005}:
   \label{eq:delta-vir}
   \Delta_{\R{vir}}(z) = 18\pi^2 \left[ 1 + 0.4093 \, w(z)^{0.9052} \right],
 \end{equation}
-where $w(z) \equiv \Omega_f(z)^{-1} - 1$.
+where $w(z) \equiv \Omega_f^{-1}(z) - 1$.
 
 The thermal number density of the cluster ICM is approximately given by:
 \begin{equation}
@@ -801,13 +843,42 @@ at redshift $z$ takes an analytical form
   t(z; \Omega_m, \Omega_{\Lambda}=1-\Omega_m)
     & = \frac{1}{H_0} \int_z^{\infty}
       \frac{\D{z'}}{(1+z')\sqrt{1 + \Omega_m z' (3+3z'+z'^2)}} \nonumber \\
-    & = \frac{2}{3 H_0 \sqrt{1-\Omega_m}} \sinh^{-1} \left(
+    & = \frac{2}{3 H_0 \sqrt{1-\Omega_m}} \sinh^{-1} \!\left(
       \sqrt{\frac{\Omega_m^{-1} - 1}{(1+z)^3}} \right).
 \end{align}
 This formula can also be inverted analytically to derive the redshift
 $z$ corresponding to a cosmic time $t$ (i.e., age of the Universe),
 which is used in our building of cluster merger trees
 in Section~\ref{sec:merging-history}.
+
+The \emph{angular diameter distance} $D_A$ is defined as the ratio of
+an object's physical transverse size to its (observed) angular size
+(in radians).  Note that it does \emph{not} increases indefinitely
+as $z \to \infty$, therefore more distant (e.g., $z > 1$)
+objects of same physical size may actually appear larger!
+The angular diameter distance is used to convert the observed angular
+separations between sources into their proper separations, and it is
+related to the \emph{transverse comoving distance} $D_M$ by
+\citep{weinberg1972,peebles1993,hogg1999}:
+\begin{equation}
+  \label{eq:da-dm}
+  D_A(z) = \frac{D_M(z)}{1 + z}.
+\end{equation}
+
+The \emph{luminosity distance} $D_L$ is defined by the relationship
+between the measured bolometric (i.e., integrated over all frequencies)
+flux $S_{\R{bolo}}$ and the object's intrinsic bolometric luminosity
+$L_{\R{bolo}}$:
+\begin{equation}
+  \label{eq:dl-def}
+  D_L \equiv \sqrt{\frac{L_{\R{bolo}}}{4\pi S_{\R{bolo}}}}.
+\end{equation}
+And it is related to the transverse comoving distance and angular
+diameter distance by \citep{weinberg1972,hogg1999,ellis2007}:
+\begin{equation}
+  \label{eq:dl-dm-da}
+  D_L(z) = (1+z) D_M(z) = (1+z)^2 D_A(z).
+\end{equation}
 
 
 %%%%%%%%%%%%%
