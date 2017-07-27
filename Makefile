@@ -13,8 +13,8 @@ ROOT_DIR:=	$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 PROJNAME:=	$(shell basename $(ROOT_DIR))
 
 # Environment variables
-TEXINPUTS:= .:aastex:revtex:$(TEXINPUTS)
-BSTINPUTS:= .:aastex:revtex:$(BSTINPUTS)
+TEXINPUTS:= .:aastex:revtex:texmf:$(TEXINPUTS)
+BSTINPUTS:= .:aastex:revtex:texmf:$(BSTINPUTS)
 
 default: main.pdf
 
