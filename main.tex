@@ -58,13 +58,26 @@
 \newcommand{\D}[1]{\R{d} #1}
 \newcommand{\diff}[2]{\frac{\D{#1}}{\D{#2}}}
 \newcommand{\pdiff}[2]{\frac{\partial #1}{\partial #2}}
-\newcommand{\uG}{\R{\mu G}}
-\newcommand{\Msun}{\R{M}_{\odot}}
 \newcommand{\lcdm}{$\Lambda$CDM}
 
 %% Custom math operators (requires `amsmath' package)
 \DeclareMathOperator{\erf}{erf}
 \DeclareMathOperator{\erfc}{erfc}
+
+%% Custom units (requires `siunitx' package)
+\DeclareSIUnit\erg{erg}
+\DeclareSIUnit\gauss{G}
+\DeclareSIUnit\hubble{\text{$h$}}
+\DeclareSIUnit\jansky{Jy}
+\DeclareSIUnit\lightyear{ly}
+\DeclareSIUnit\parsec{pc}
+\DeclareSIUnit\solarmass{\text{M$_{\odot}$}}
+\DeclareSIUnit\year{yr}
+%
+\DeclareSIUnit\keV{\kilo\electronvolt}
+\DeclareSIUnit\uG{\micro\gauss}
+\DeclareSIUnit\Gyr{\giga\year}
+\DeclareSIUnit\Mpc{\mega\parsec}
 
 %% Journal information
 \received{xxx, 2017}
@@ -179,7 +192,7 @@ luminous galaxy clusters, and they can be classified into several types
 \citep[see][for recent reviews]{feretti2012rev,brunetti2014rev}:
 \begin{description}
 \item[halo]
-  Giant radio halos extending on $\sim$Mpc scales;
+  Giant radio halos extending on $\sim \!\si{\Mpc}$ scales;
   only appear in merging clusters;
 \item[mini-halo]
   Radio mini-halos, smaller than the above giant halos (usually several
@@ -189,7 +202,7 @@ luminous galaxy clusters, and they can be classified into several types
 \end{description}
 
 We adopt a flat \lcdm{} cosmology with
-$H_0 = 100 h = 71 \,\R{km}\,\R{s}^{-1}\,\R{Mpc}^{-1}$,
+$H_0 = 100 h = 71 \,\si{\km\per\second\per\Mpc}$,
 $\Omega_m = 0.27$, $\Omega_{\Lambda} = 1 - \Omega_m = 0.73$,
 $\Omega_b = 0.046$, and $\sigma_8 = 0.81$ \citep{komatsu2011}.
 
@@ -263,14 +276,14 @@ for the density perturbations \citep{sarazin2002,randall2002}:
   \sigma(M) = \sigma_8 \left( \frac{M}{M_8} \right)^{-\alpha},
 \end{equation}
 where $\sigma_8$ is the present-day rms density fluctuations on a
-scale of $8 h^{-1}$ Mpc,
-$M_8 = (4\pi/3)(8 h^{-1} \,\R{Mpc})^3 \langle{\rho}\rangle$
-is the mass contained in a sphere of radius $8 h^{-1}$ Mpc.
+scale of \SI{8}{\per\hubble\Mpc},
+$M_8 = (4\pi/3)(8 \,\si{\per\hubble\Mpc})^3 \langle{\rho}\rangle$
+is the mass contained in a sphere of radius \SI{8}{\per\hubble\Mpc}.
 The exponent $\alpha$ is given by $\alpha = (n+3)/6$, where
 the power spectrum of fluctuations varies with wavenumber $k$
 as $k^n$, and we adopt $n = -7/5$ for this work \citep{randall2002}.
 
-We place a lower mass limit of $M_{\R{min}} = 2 \times 10^{14} \,\Msun$
+We place a lower mass limit of $M_{\R{min}} = \SI{2e14}{\solarmass}$
 for clusters,
 determine the expected total number of clusters within our simulation
 sky patch, and then derive the mass and redshift for each cluster by
@@ -332,7 +345,7 @@ adaptively determined by \citep{randall2002}:
 where $M$ is the cluster mass at the current time step,
 $\Delta M_c$ is the minimum mass change indicating the smallest
 merging sub-cluster can be resolved in the merger trees;
-and we choose $\Delta M_c = 10^{12} \,\Msun$.
+and we choose $\Delta M_c = \SI{e12}{\solarmass}$.
 In order to obey the probability distribution of mergers of different
 $\Delta S$ (i.e., $\Delta M$), we sample the cumulative probability
 distribution of the sub-cluster masses:
@@ -361,10 +374,10 @@ and the sub-cluster separately.
 Considering that radio halos are only observed in
 a fraction of massive merging clusters, suggesting they are closely
 related to the recent major mergers, and have a lifetime
-$\tau_{\R{halo}}$ shorter than the timescale $\tau_m$ ($\sim$2--3 Gyr)
+$\tau_{\R{halo}}$ shorter than the timescale $\tau_m$ ($\sim\,$2--3 \si{\Gyr})
 for the duration of merger-induced disturbance \citep{cassano2016}.
 Therefore we only trace the merging history of the main cluster
-to a maximum backward time of 3 Gyr.
+to a maximum backward time of \SI{3}{\Gyr}.
 Then we identify the most recent major merger for each cluster,
 which is defined as $M_{\R{main}}/M_{\R{sub}} < 3$
 \citep[e.g.,][]{wetzel2009},
@@ -410,8 +423,9 @@ $\eta_v \simeq 4 (1 + M_{\R{sub}}/M_{\R{main}})^{1/3}$,
 and $R_{\R{main}}$ is the virial radius of the main cluster
 [see Equation~(\ref{eq:radius-virial})].
 
-Cluster mergers generate turbulence throughout the cluster over $\sim$Mpc
-scales.  Energy can be transferred from the ICM into the non-thermal
+Cluster mergers generate turbulence throughout the cluster over
+$\sim \!\si{\Mpc}$ scales.
+Energy can be transferred from the ICM into the non-thermal
 component through the interactions between electrons and the
 magneto-hydrodynamics (MHD) turbulence, which accelerate the electrons
 to be extremely relativistic and radiate synchrotron emissions.
@@ -419,8 +433,8 @@ This scenario of particle re-acceleration by turbulence is the most
 accepted mechanism responsible for the radio halos \citep{feretti2012rev}.
 
 The turbulence re-acceleration likes a second-order Fermi process, i.e.,
-related with a random process, may be effective for only a few $10^8$ yr
-during a merger, and thus not quite efficient
+related with a random process, may be effective for only a few
+\SI{e8}{\year} during a merger, and thus not quite efficient
 \citep{feretti2012rev,enblin2011}.
 We approximate the effective acceleration timescale with the merger
 crossing time \citep{cassano2005}:
@@ -428,7 +442,7 @@ crossing time \citep{cassano2005}:
   \label{eq:tau-cross}
   \tau_{\R{cross}} \simeq R_{\R{main}} / v_{\R{imp}},
 \end{equation}
-which is typically $\lesssim$1 Gyr.
+which is typically $\lesssim \SI{1}{\Gyr}$.
 In addition, the acceleration efficiency of electrons due to turbulent waves,
 which described by the acceleration timescale, can be then estimated as
 \citep{cassano2005,brunetti2011}:
@@ -439,7 +453,7 @@ which described by the acceleration timescale, can be then estimated as
       0.1 / \beta_{\R{turb}}, & t \leq t_{\R{merger}} + \tau_{\R{cross}} \\
       +\infty, & t > t_{\R{merger}} + \tau_{\R{cross}}
     \end{array}
-  \right. \quad [\R{Gyr}],
+  \right. \quad [\si{\Gyr}],
 \end{equation}
 %% TODO:
 %% add a footnote about tau = infty, which is actually ~100 Gyr implemented
@@ -528,30 +542,31 @@ from the cluster mass using this $M \!-\! T$ scaling relation
 \citep{arnaud2005}:
 \begin{equation}
   \label{eq:mt-relation}
-  \left[ \frac{M_{200}}{10^{14} \,\Msun} \right] E(z) = (5.34 \pm 0.22)
-  \left[ \frac{k_B T}{5 \,\R{keV}} \right]^{(1.72 \pm 0.10)},
+  \left[ \frac{M_{200}}{\SI{e14}{\solarmass}} \right] E(z) = (5.34 \pm 0.22)
+  \left[ \frac{k_B T}{\SI{5}{\keV}} \right]^{(1.72 \pm 0.10)},
 \end{equation}
 where $E(z)$ is the redshift evolution factor [see Equation~(\ref{eq:ez-func})].
 Note that we approximate the cluster virial mass with $M_{200}$ here.
 
 Observations show that radio halos have a radial size
-$R_{\R{halo}} \sim$ 3--6 times smaller than the virial radius
+$R_{\R{halo}} \sim\,$3--6 times smaller than the virial radius
 $R_{\R{vir}}$, therefore we estimate the halo radius by
 \citep{cassano2007,zandanel2014}:
 \begin{equation}
   \label{eq:rhalo-rvir}
   R_{\R{halo}} = \frac{1}{4} R_{\R{vir}}.
 \end{equation}
-The weak $\uG$-level magnetic fields are also observed in clusters.
+The weak \si{\uG}-level magnetic fields are also observed in clusters.
 We assume an uniform magnetic field throughout the ICM,
 but allow its strength to scale with the cluster mass as \citep{cassano2012}:
 \begin{equation}
   \label{eq:magfield-mass}
-  \left[ \frac{B}{\uG} \right] = \left[ \frac{B_{\langle {M} \rangle}}{\uG} \right]
-  \left( \frac{M}{\langle {M} \rangle} \right)^b,
+  \left[ \frac{B}{\si{\uG}} \right] =
+    \left[ \frac{B_{\langle {M} \rangle}}{\si{\uG}} \right]
+    \left( \frac{M}{\langle {M} \rangle} \right)^b,
 \end{equation}
-where $\langle {M} \rangle = 1.6 \times 10^{15} \,\Msun$, and we take
-$B_{\langle {M} \rangle} = 1.9 \,\uG$ and $b = 1.5$ in this work.
+where $\langle {M} \rangle = \SI{1.6e15}{\solarmass}$, and we take
+$B_{\langle {M} \rangle} = \SI{1.9}{\uG}$ and $b = 1.5$ in this work.
 
 On the other hand,
 relativistic electrons lose energy via synchrotron radiation
@@ -559,9 +574,9 @@ and inverse Compton scattering off the CMB photons \citep{sarazin1999}:
 \begin{equation}
   \label{eq:eloss-rad}
   \left( \diff{\gamma}{t} \right)_{\R{rad}} =
-  -1.37 \times 10^{-20} \gamma^2
-  \left[ \left( \frac{B}{3.25 \,\uG} \right)^2 +
-  (1+z)^4 \right] \quad [\R{s}^{-1}],
+  \num{-1.37e-20} \,\gamma^2
+  \left[ \left( \frac{B}{\SI{3.25}{\uG}} \right)^2 +
+  (1+z)^4 \right] \quad [\si{\per\second}],
 \end{equation}
 where $B$ is the magnetic field strength in the ICM.
 Meanwhile, electrons in the ICM also lose energy through
@@ -569,10 +584,10 @@ ionization and Coulomb collisions \citep{sarazin1999}:
 \begin{equation}
   \label{eq:eloss-ion}
   \left( \diff{\gamma}{t} \right)_{\R{ion}} =
-  -1.20 \times 10^{-12} n_{\R{th}} \left[ 1 +
-    \frac{\ln(\gamma/n_{\R{th}})}{75} \right] \quad [\R{s}^{-1}],
+  \num{-1.20e-12} \,n_{\R{th}} \left[ 1 +
+    \frac{\ln(\gamma/n_{\R{th}})}{75} \right] \quad [\si{\per\second}],
 \end{equation}
-with $n_{\R{th}}$ in unit of [$\R{cm}^{-3}$].
+with $n_{\R{th}}$ in unit of [\si{\per\cm\cubed}].
 
 Having all the coefficients of the Fokker-Planck
 equation~(\ref{eq:fokkerplanck}) been determined, we can now derive
@@ -602,7 +617,7 @@ We therefore estimate the initial electron spectrum at $t_{\R{merger}}$ as:
 
 Once the current electron spectrum $n(\gamma, t_0)$ been derived,
 the synchrotron emissivity in unit of
-[$\R{erg}\,\R{s}^{-1}\,\R{cm}^{-3}\,\R{Hz}^{-1}$],
+[\si{\erg\per\second\per\cm\cubed\per\hertz}],
 is determined by \citep{rybicki1979}:
 \begin{equation}
   \label{sec:jnu-sync}
@@ -621,8 +636,7 @@ with $K_{5/3}(x)$ the modified Bessel function of \sfrac{5}{3} order,
 $\nu_c = (3/2) \gamma^2 \nu_L \sin\theta$ the critical frequency,
 and $\nu_L = e B / (2\pi m_e c)$ the Larmor frequency of electrons.
 Observations suggest that radio halos have average synchrotron emissivity
-$\langle {J_{\R{syn}}} \rangle \sim 10^{-42}
-\,\R{erg}\,\R{s}^{-1}\,\R{cm}^{-3}\,\R{Hz}^{-1}$
+$\langle {J_{\R{syn}}} \rangle \sim \SI{e-42}{\erg\per\second\per\cm\cubed\per\hertz}$
 at 1.4 GHz \citep{murgia2009,feretti2012rev}.
 
 The synchrotron emissivity is the same throughout the radio halo,
