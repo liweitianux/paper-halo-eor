@@ -7,10 +7,6 @@
 %% 2017-07-18
 %%
 
-%%%%%%%%%%%
-%% Preamble
-%%%%%%%%%%%
-
 \documentclass[modern]{aastex61}
 %%
 %% Defaults: single spaced, 10 point font article
@@ -53,18 +49,25 @@
 \restoresymbol{SIX}{tablenum}  % `tablenum' from `siunitx' becomes `SIXtablenum'
 
 %% Custom macros
-\newcommand{\etal}{\textit{et al.}}
+\newcommand{\etal}{\textit{et~al.}}
 \newcommand{\R}[1]{\mathrm{#1}}
 \newcommand{\D}[1]{\R{d} #1}
 \newcommand{\diff}[2]{\frac{\D{#1}}{\D{#2}}}
 \newcommand{\pdiff}[2]{\frac{\partial #1}{\partial #2}}
 \newcommand{\lcdm}{$\Lambda$CDM}
+\newcommand{\Hi}{H\textsc{i}}
+%
+\newcommand{\NOTE}[1]{\textcolor{olive}{\textbf{NOTE:}}~\uwave{#1}}
+\newcommand{\TODO}[1]{\textcolor{magenta}{\textbf{TODO:}}~\uuline{#1}}
+\newcommand{\OK}[1]{\textcolor{cyan}{\textbf{OK:}}~\uline{#1}}
 
 %% Custom math operators (requires `amsmath' package)
 \DeclareMathOperator{\erf}{erf}
 \DeclareMathOperator{\erfc}{erfc}
 
 %% Custom units (requires `siunitx' package)
+\DeclareSIUnit\arcsec{arcsec}
+\DeclareSIUnit\arcmin{arcmin}
 \DeclareSIUnit\erg{erg}
 \DeclareSIUnit\gauss{G}
 \DeclareSIUnit\hubble{\text{$h$}}
@@ -97,9 +100,7 @@
 %% where dimension is any recognized LaTeX dimension, e.g. pt, in, etc.
 
 
-%%%%%%%%%%%
-%% Document
-%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
@@ -159,12 +160,10 @@
   800 Dongchuan Road, Shanghai 200240, China}
 
 
-%%
-%% Abstract
-%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{abstract}
-TODO!!!
+\TODO{write abstract!!!}
 \end{abstract}
 
 %% See the online documentation for the full list of available subject
@@ -178,14 +177,13 @@ TODO!!!
   radio continuum: galaxies
 }
 
-%%%%%%%
-%% Body
-%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Introduction}
 \label{sec:intro}
 
-TODO!!!
+\TODO{REWRITE, add more citations!!!}
+
 
 Extended radio emissions are only detected in a small fraction of massive and
 luminous galaxy clusters, and they can be classified into several types
@@ -207,34 +205,50 @@ $\Omega_m = 0.27$, $\Omega_{\Lambda} = 1 - \Omega_m = 0.73$,
 $\Omega_b = 0.046$, and $\sigma_8 = 0.81$ \citep{komatsu2011}.
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Foregrounds Simulation}
 \label{sec:fg-simu}
 
-TODO: OVERVIEW!!!
+\TODO{OVERVIEW!!!}
 
+\OK{FINISHED :-)}
+
+\NOTE{Take a note.}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Galactic Synchrotron Emission}
 \label{sec:fg-gsync}
 
-TODO!!!
+\TODO{Write!!!}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Galactic Free-free Emission}
 \label{sec:fg-gfree}
 
-TODO!!!
+\TODO{Write!!!}
 
+\NOTE{Whether to incorporate some works from Lian Xiaoli??}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Galactic Supernova Remnants}
 \label{sec:fg-gsnr}
 
-TODO!!!
+\TODO{Write!!!}
 
 Update to use a empirical model about the total number of Galactic SNRs
 and their spatial distributions.  Meanwhile derive necessary scaling
 relations from the current observed catalog maintained by Green.
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Clusters of Galaxies}
 \label{sec:fg-clusters}
 
-TODO: OVERVIEW!
+\TODO{Rewrite this overview!!!}
 
 In the framework of low-frequency radio foregrounds simulation for the
 EoR signal detection, the most realistic consideration to the galaxy
@@ -248,6 +262,8 @@ evolution of relativistic electrons within the cluster ICM;
 We present our improved simulation method to the galaxy clusters in this
 section.
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Distributions}
 \label{sec:distributions}
 
@@ -291,6 +307,8 @@ sampling from the PS mass function using Monte Carlo method
 \citep{wang2010}.
 The clusters are randomly distributed within the sky patch.
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Merging History}
 \label{sec:merging-history}
 
@@ -389,6 +407,8 @@ are thought to not host radio halos, and thus been ignored.
 We also note that this technique allows only binary mergers,
 but it is sufficient for our use here.
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Radio Halos}
 \label{sec:halo}
 
@@ -665,19 +685,24 @@ above radio power $P_{\nu}$ as:
 %% radio halo brightness profile (exponential shape)
 %% create elliptical halo images
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Radio Relics}
 \label{sec:relic}
 
-TODO!!!
+\TODO{Whether to include relics???}
 
 \citet[their Table 1]{nuza2017} compiled a collection of currently observed
 radio relics.
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Extragalactic Point Sources}
 \label{sec:pointsources}
 
-Follow \citet{wang2010}???
+\TODO{Whether to follow Wang2010???}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The \texttt{fg21sim} Simulation Software}
 \label{sec:fg21sim}
 
@@ -685,12 +710,14 @@ We have implemented the above foreground simulation methods in the
 \texttt{fg21sim} open-source software available at
 \url{https://github.com/liweitianux/fg21sim}.
 
-TODO: more introduction to our software, features (and limitations?)
+\TODO{more introduction to our software, features (and limitations??)}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results}
 \label{sec:results}
 
-TODO!!!
+\TODO{Write!!!}
 
 simulation parameters
 
@@ -701,27 +728,32 @@ simulated images, scaling relations???
 Radio halos (+relics): compare with observations!!!
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussions}
 \label{sec:discussions}
 
-TODO!!!
+\TODO{Write!!!}
 
-Current limitations
+\NOTE{Current limitations???}
 
-Future work/improvements
+%% TODO: future works/improvements:
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusions}
 \label{sec:conclusions}
 
-TODO!!!
+\TODO{Write!!!}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% If you wish to include an acknowledgments section in your paper,
 %% separate it off from the body of the text using the \acknowledgments
 %% command.
 \acknowledgments
 
-TODO!!!
+\TODO{Write acknowledgments ...}
+
 We acknowledge ...
 
 
@@ -753,21 +785,23 @@ We acknowledge ...
 }
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
 %% Appendix material should be preceded with a single \appendix command.
 %% There should be a \section command for each appendix. Mark appendix
 %% subsections with the same markup you use in the main body of the paper.
-
+%%
 %% Each Appendix (indicated with \section) will be lettered A, B, C, etc.
 %% The equation counter will reset when it encounters the \appendix
 %% command and will number appendix equations (A1), (A2), etc. The
 %% Figure and Table counter will not reset.
-
+%%
 \appendix
 
 \section{Press-Schechter Formalism}
 \label{sec:psf}
 
-Necessary???
+\TODO{Is this appendix necessary???}
 
 The Press-Schechter (PS) formalism is one of the standard method to predict
 the mass function of galaxy clusters and its evolution as the cosmology.
@@ -775,6 +809,7 @@ It is originally developed by \citet{press1974}, and later extended to combine
 with the cold dark matter (CDM) model \citep[e.g.,][]{bond1991,lacey1993}.
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Useful Formulas}
 \label{sec:formulas}
 
@@ -901,10 +936,8 @@ diameter distance by \citep{weinberg1972,hogg1999,ellis2007}:
 \end{equation}
 
 
-%%%%%%%%%%%%%
-%% References
-%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \bibliography{references}
 
 
