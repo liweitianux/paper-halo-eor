@@ -184,23 +184,109 @@
 
 \TODO{REWRITE, add more citations!!!}
 
+The epoch of reionization (EoR) and cosmic dawn are one of the periods
+that totally lack observational evidences, while a better understanding
+of these important stages will greatly help us comprehend the whole
+evolution of the Universe, especially the formation of large-scale structures,
+and evolution of galaxy clusters.
+The \SI{21}{\cm} line emission from the neutral hydrogen (\Hi) throughout
+the Universe provides us with an excellent means to probe these ``dark''
+stages.
+However, the current generation of low-frequency facilities,
+e.g., LOFAR\footnote{LOFAR: LOw-Frequency ARray; \url{http://lofar.org/}}
+\citep{vanHaarlem2013},
+MWA\footnote{MWA: Murchison Widefield Array;
+  \url{http://www.mwatelescope.org/}} \citep{tingay2013},
+PAPER\footnote{PAPER: Precision Array for Probing the Epoch of Reionization;
+  \url{http://eor.berkeley.edu/}} \citep{parsons2010},
+are lacking the sensitivity to detect the very faint \Hi{} EoR signals.
+The next-generation SKA\footnote{SKA: Square Kilometre Array;
+  \url{https://skatelescope.org/}} \citep{koopmans2015}
+with its unprecedented power, will enable
+us not only to successfully detect them through power spectrum measurements,
+but also to reveal the appearance of the reionization processes.
+
+The greatest challenge to make the successful detection of the EoR signals
+is the overwhelming foreground pollution, which is generally 4--5 orders of
+magnitude in strength with respect to the target EoR signals.
+To accurately remove or separate such strong foregrounds, a realistic
+foregrounds model is of great importance, and is very necessary to help
+develop and evaluate foreground removal methods, since very small residuals
+will damage the faint signal or bias its measurements \citep{procopio2017}.
+In the framework of EoR detection, the galaxy clusters as one of the
+major foreground contamination components lacks enough attentions in the
+literature,
+but we believe that it requires a much more serious treatment:
+\begin{itemize}
+  \item bright: $\sim\,$2--3 orders of magnitude stronger than the EoR signals;
+  \item extended: relatively large angular sizes, may extend to several tens
+    of arcminutes, corrupting the EoR signals underneath;
+  \item complicated morphology: very hard to model and subtract them,
+    and may severely suffers from various point spread function (PSF) fringes
+    due to interferometers' incomplete $(u,v)$-plane coverage, and all kinds
+    of instrumental effects;
+  \item varying spectral indexes/shapes across the extended emission;
+  \item different types of extended emission, e.g., giant halo, mini-halo,
+    and relics;
+  \item highly-polarized radio relics may cause more troubles both in the
+    image domain and in the power spectra.
+\end{itemize}
+
+In addition, galaxy clusters are also important objects of study in their
+own right:
+\begin{itemize}
+  \item elements to form the large-scale structures, key to understand the
+    structure formation and evolution of the Universe;
+  \item merger-induced turbulence and shocks accelerate electrons to produce
+    extended halos and relics, respectively, enable us to trace cluster
+    mergers and formations with radio techniques;
+  \item great laboratory to study the origin of cosmic rays, particle
+    acceleration, magnetic growth and distribution, etc.
+\end{itemize}
 
 Extended radio emissions are only detected in a small fraction of massive and
 luminous galaxy clusters, and they can be classified into several types
 \citep[see][for recent reviews]{feretti2012rev,brunetti2014rev}:
 \begin{description}
-\item[halo]
-  Giant radio halos extending on $\sim \!\si{\Mpc}$ scales;
-  only appear in merging clusters;
-\item[mini-halo]
-  Radio mini-halos, smaller than the above giant halos (usually several
-  hundreds of kpc); can be found in cool-core clusters;
-\item[relic]
-  Elongated relics, and roundish relics;
+  %% TODO:
+  %% improve the descriptions
+  %% switch to a table???
+  \item[halo]
+    Giant radio halos extending on $\sim \!\si{\Mpc}$ scales;
+    only appear in merging clusters;
+  \item[mini-halo]
+    Radio mini-halos, smaller than the above giant halos (usually several
+    hundreds of kpc); can be found in cool-core clusters;
+  \item[relic]
+    Elongated relics, and roundish relics;
 \end{description}
 
-We adopt a flat \lcdm{} cosmology with
-$H_0 = 100 h = 71 \,\si{\km\per\second\per\Mpc}$,
+Due to their low surface brightness and steep spectra, radio halos and
+relics are difficult to find at middle- or high-frequency ranges
+(e.g., \SI{1.4}{\GHz}), and currently only $\sim\,$??? halos and
+$\sim\,$??? relics have been found \citep[e.g.,][]{duchesne2017,nuza2017}.
+However, in the low-frequency radio band, radio halos and relics become
+brighter and easier to be detected.  The large field of view (FoV) of
+low-frequency interferometer also helps discover more halos and relics more
+efficiently.
+Furthermore, owing to its excellent sensitivity, the SKA will possibly
+discover more than several thousands of halos and relics, providing us with
+invaluable data to understand and solve the puzzles with regard to galaxy
+clusters.
+The faint radio sky can be very different, and we may have unexpected
+findings as we go deeper \citep{padovani2016rev,herreraRuiz2017}.
+
+In this work, we develop a new low-frequency radio foregrounds simulation
+technique, with a specific focus on a physically motivated simulation method
+for radio halos from galaxy clusters,
+meanwhile we bear in mind that the SKA has the unparalleled sensitivity,
+large FoV, and much finer angular resolution.
+And we implemented the foregrounds simulation technique in the
+\texttt{fg21sim} open-source software available at
+\url{https://github.com/liweitianux/fg21sim}.
+
+We adopt a flat \lcdm{} cosmology throughout this work with
+$H_0 = \SI{100}{\hubble} = \SI{71}{\km\per\second\per\Mpc}$,
 $\Omega_m = 0.27$, $\Omega_{\Lambda} = 1 - \Omega_m = 0.73$,
 $\Omega_b = 0.046$, and $\sigma_8 = 0.81$ \citep{komatsu2011}.
 
@@ -351,7 +437,7 @@ then Equation~(\ref{eq:eps-condprob}) is simplified into:
 
 We employ the standard Monte Carlo technique to build the merger trees,
 with each of them starts with a cluster with an initial mass $M_0$
-and redshift $z_0$ simulated in the last section.
+and redshift $z_0$ simulated in the last Section.
 We trace each cluster back in time, using a step size $\Delta\omega$
 adaptively determined by \citep{randall2002}:
 \begin{equation}
@@ -664,26 +750,35 @@ according to our previous assumptions, we can then calculate the radio
 power at a specific frequency (i.e., spectral luminosity) as:
 \begin{equation}
   \label{eq:halo-power}
-  P_{\nu} \equiv P(\nu) = \frac{4\pi}{3} R_{\R{halo}}^3 J_{\R{syn}}(\nu).
+  P_{\nu} \equiv P(\nu) = \frac{4\pi}{3} R_{\R{halo}}^3 J_{\R{syn}}(\nu),
 \end{equation}
+and the halo flux density $S_{\nu}$ is given by:
+\begin{equation}
+  \label{eq:halo-flux-density}
+  S_{\nu} = \frac{P_{\nu}}{4\pi D_L^2},
+\end{equation}
+where $D_L$ is the luminosity distance to the halo at redshift $z_0$.
 We adopt the exponential profile for the azimuthally averaged brightness
 distribution of radio halos, which is expressed as \citep{murgia2009}:
 \begin{equation}
   \label{eq:halo-exprofile}
-  I_{\nu}(R) = I_{\nu,0} \exp(-R/R_e),
+  I_{\nu}(\theta) = I_{\nu,0} \exp(-\theta/\theta_e),
 \end{equation}
-where $R_e \simeq R_{\R{halo}}/3$ is the $e$-folding radius,
-and $I_{\nu,0}$ is the central brightness, which is determined by the
-above radio power $P_{\nu}$ as:
+where $\theta = R / D_A$ is the angular radius from the halo center,
+with $D_A$ the angular diameter distance to the halo,
+$\theta_e \simeq \theta_{\R{halo}}/3$ is the $e$-folding radius,
+and $I_{\nu,0}$ is the central brightness, which is constrained by the
+above flux density $S_{\nu}$ and can be derived to be:
 \begin{equation}
-  \label{eq:halo-i0}
-  P_{\nu} = \int_{\R{halo}} I_{\nu}(\bm{\sigma}) \,\D{\bm{\sigma}}
-    = I_{\nu,0} \int_0^{R_{\R{halo}}} \exp(-r/R_e) \,2\pi r \,\D{r}.
+  \label{eq:central-brightness}
+  I_{\nu,0} = \frac{S_{\nu}}{2\pi \,\theta_e^2}.
 \end{equation}
 
-%% TODO:
-%% radio halo brightness profile (exponential shape)
-%% create elliptical halo images
+Finally, we simulate the appearance of each radio halo as an ellipse by
+randomly assigning an ellipticity $f_e$ and a rotation angle $\phi$,
+and then superimpose all the halo images to the sky patch to obtain the
+simulated images of radio halos at each frequency of interest.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Radio Relics}
@@ -709,6 +804,13 @@ radio relics.
 We have implemented the above foreground simulation methods in the
 \texttt{fg21sim} open-source software available at
 \url{https://github.com/liweitianux/fg21sim}.
+The software is written in the Python programming language from scratch.
+It is well designed and implemented, and we keep in mind that it should
+be easy to use and to extend in the future.
+The overall simulation speed is satisfactory,
+and the Numba\footnote{Numba: A compiler for Python array and numerical
+  functions; \url{http://numba.pydata.org/}} compiler
+is used to optimize the speed of some codes when necessary.
 
 \TODO{more introduction to our software, features (and limitations??)}
 
@@ -737,6 +839,31 @@ Radio halos (+relics): compare with observations!!!
 \NOTE{Current limitations???}
 
 %% TODO: future works/improvements:
+One of the main purposes of our foregrounds simulation is to support
+the development and evaluation of foregrounds removal or separation
+methods in our forthcoming works.
+We will combine our foregrounds simulation with interferometric
+observation simulation, to generate the ``observed'' visibility data
+as well as images (e.g., by using the \textsc{clean} algorithm).
+In this way, we incorporate the realistic instrumental effects into
+our simulation pipeline, making our developed methods more versatile
+and prepare for future real observations.
+
+In addition to the foregrounds removal aiming at the EoR signal
+detection, the methods to effectively identify and extract the faint
+extended radio emissions (e.g., halos, relics) from observation images
+is of the same importance.
+With future more sensitive observations combined with a better detection
+method, we are able to build a big sample of galaxy clusters, which
+may provide us with plenty of opportunities to study them in the radio
+regime.
+
+Moreover, there is still much room to improve the current foregrounds
+simulation, e.g., taking radio relics into account, more realistic
+source morphologies by utilizing the deep learning techniques,
+full polarization support.
+We will continue to improve our foregrounds simulation works and make
+them available in our public software \texttt{fg21sim} in the future.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -935,6 +1062,14 @@ diameter distance by \citep{weinberg1972,hogg1999,ellis2007}:
   D_L(z) = (1+z) D_M(z) = (1+z)^2 D_A(z).
 \end{equation}
 
+In the radio frequency regime, the Rayleigh-Jeans approximation
+always holds, therefore the spectral brightness $I_{\nu}$ can be
+equivalently expressed by \emph{brightness temperature} $T_b(\nu)$
+through the relation \citep{condon2016}:
+\begin{equation}
+  \label{eq:brightness-temp}
+  T_b(\nu) \equiv \frac{I_{\nu} c^2}{2 k_B \nu^2}.
+\end{equation}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
