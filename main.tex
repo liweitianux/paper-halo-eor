@@ -65,6 +65,10 @@
 \DeclareMathOperator{\erf}{erf}
 \DeclareMathOperator{\erfc}{erfc}
 
+%% Settings for package `siunitx'
+% credit: https://tex.stackexchange.com/a/194042
+\sisetup{range-phrase=\text{--}}
+%
 %% Custom units (requires `siunitx' package)
 \DeclareSIUnit\arcsec{arcsec}
 \DeclareSIUnit\arcmin{arcmin}
@@ -81,6 +85,7 @@
 \DeclareSIUnit\uG{\micro\gauss}
 \DeclareSIUnit\Gyr{\giga\year}
 \DeclareSIUnit\Mpc{\mega\parsec}
+
 
 %% Journal information
 \received{xxx, 2017}
@@ -207,8 +212,8 @@ us not only to successfully detect them through power spectrum measurements,
 but also to reveal the appearance of the reionization processes.
 
 The greatest challenge to make the successful detection of the EoR signals
-is the overwhelming foreground pollution, which is generally 4--5 orders of
-magnitude in strength with respect to the target EoR signals.
+is the overwhelming foreground pollution, which is generally \numrange{4}{5}
+orders of magnitude in strength with respect to the target EoR signals.
 To accurately remove or separate such strong foregrounds, a realistic
 foregrounds model is of great importance, and is very necessary to help
 develop and evaluate foreground removal methods, since very small residuals
@@ -218,7 +223,8 @@ major foreground contamination components lacks enough attentions in the
 literature,
 but we believe that it requires a much more serious treatment:
 \begin{itemize}
-  \item bright: $\sim\,$2--3 orders of magnitude stronger than the EoR signals;
+  \item bright: $\sim\! \numrange{2}{3}$ orders of magnitude stronger
+    than the EoR signals;
   \item extended: relatively large angular sizes, may extend to several tens
     of arcminutes, corrupting the EoR signals underneath;
   \item complicated morphology: very hard to model and subtract them,
