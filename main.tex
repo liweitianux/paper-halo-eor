@@ -55,7 +55,9 @@
 \newcommand{\diff}[2]{\frac{\D{#1}}{\D{#2}}}
 \newcommand{\pdiff}[2]{\frac{\partial #1}{\partial #2}}
 \newcommand{\lcdm}{$\Lambda$CDM}
+\newcommand{\Halpha}{\text{H$\alpha$}}
 \newcommand{\Hi}{H\textsc{i}}
+\newcommand{\Hii}{H\textsc{ii}}
 %
 \newcommand{\NOTE}[1]{\textcolor{olive}{\textbf{NOTE:}}~\uwave{#1}}
 \newcommand{\TODO}[1]{\textcolor{magenta}{\textbf{TODO:}}~\uuline{#1}}
@@ -78,12 +80,14 @@
 \DeclareSIUnit\jansky{Jy}
 \DeclareSIUnit\lightyear{ly}
 \DeclareSIUnit\parsec{pc}
+\DeclareSIUnit\rayleigh{Rayleigh}
 \DeclareSIUnit\solarmass{\text{M$_{\odot}$}}
 \DeclareSIUnit\year{yr}
 %
 \DeclareSIUnit\keV{\kilo\electronvolt}
 \DeclareSIUnit\uG{\micro\gauss}
 \DeclareSIUnit\Gyr{\giga\year}
+\DeclareSIUnit\MHz{\mega\hertz}
 \DeclareSIUnit\Mpc{\mega\parsec}
 
 
@@ -189,6 +193,10 @@
 
 \TODO{REWRITE, add more citations!!!}
 
+\OK{This is OK :-)}
+
+\NOTE{Take a note.}
+
 The epoch of reionization (EoR) and cosmic dawn are one of the periods
 that totally lack observational evidences, while a better understanding
 of these important stages will greatly help us comprehend the whole
@@ -196,7 +204,7 @@ evolution of the Universe, especially the formation of large-scale structures,
 and evolution of galaxy clusters.
 The \SI{21}{\cm} line emission from the neutral hydrogen (\Hi) throughout
 the Universe provides us with an excellent means to probe these ``dark''
-stages.
+stages \citep[see][for a recent review]{zaroubi2013rev}.
 However, the current generation of low-frequency facilities,
 e.g., LOFAR\footnote{LOFAR: LOw-Frequency ARray; \url{http://lofar.org/}}
 \citep{vanHaarlem2013},
@@ -206,7 +214,7 @@ PAPER\footnote{PAPER: Precision Array for Probing the Epoch of Reionization;
   \url{http://eor.berkeley.edu/}} \citep{parsons2010},
 are lacking the sensitivity to detect the very faint \Hi{} EoR signals.
 The next-generation SKA\footnote{SKA: Square Kilometre Array;
-  \url{https://skatelescope.org/}} \citep{koopmans2015}
+  \url{https://skatelescope.org/}} \citep{mellema2013rev,koopmans2015rev}
 with its unprecedented power, will enable
 us not only to successfully detect them through power spectrum measurements,
 but also to reveal the appearance of the reionization processes.
@@ -302,27 +310,113 @@ $\Omega_b = 0.046$, and $\sigma_8 = 0.81$ \citep{komatsu2011}.
 \section{Foregrounds Simulation}
 \label{sec:fg-simu}
 
-\TODO{OVERVIEW!!!}
+\TODO{improve this overview!!!}
 
-\OK{FINISHED :-)}
+The low-frequency radio foregrounds overwhelming stronger than the EoR
+signals of our interest, making foreground removal an extreme challenge.
+To develop such a targeted and ambitious foreground removal method,
+an as realistic as possible simulation of the radio foregrounds is of
+great importance, which can provide both instructions and evaluation data.
 
-\NOTE{Take a note.}
+In this section, we first briefly introduce the simulation methods for
+Galactic synchrotron (unpolarized) emission, Galactic free-free emission,
+Galactic supernova remnants (SNRs) emission,
+and extragalactic point sources emission.
+Then we describe in details the physically motivated method we proposed
+to simulate the extended radio halos emission from galaxy clusters.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Galactic Synchrotron Emission}
 \label{sec:fg-gsync}
 
-\TODO{Write!!!}
+The diffuse Galactic synchrotron emission dominates the low-frequency
+radio sky and accounts for $\sim\,$70\% of the foregrounds,
+It has a power-law spectrum\footnote{We adopt the power-law
+  spectrum of form: $S(\nu) \propto \nu^{-\alpha}$.}
+with the spectral index $\alpha_{\R{syn}}$ varying as sky positions.
+
+We simulate the Galactic synchrotron emission at desirable low frequency
+$\nu$ based on the Haslam \SI{408}{\MHz} all-sky map \citep{haslam1982},
+using the improved source-removed and destriped version reprocessed by
+\citet{remazeilles2015}.
+We then extrapolate from this template to lower frequencies by assuming
+a power-law spectrum \citep{wang2010,bonaldi2015}:
+\begin{equation}
+  \label{eq:gsync-extrap}
+  T_b(\bm{r}; \nu) = T_b(\bm{r}; \nu=\SI{408}{\MHz})
+    \left( \frac{\nu}{\SI{408}{\MHz}} \right)^{-\alpha(\bm{r})},
+\end{equation}
+where $T_b(\bm{r}; \nu)$ is the Galactic synchrotron intensity expressed
+in brightness temperature at sky position $\bm{r}$ and frequency $\nu$,
+and $\alpha(\bm{r}) \sim \numrange{2.7}{3.2}$ is the position-dependent
+synchrotron spectral index \citep{davies1996}.
+We use the all-sky map of synchrotron spectral index provided by the
+Planck Sky Model\footnote{Planck Sky Model:
+  \url{http://www.apc.univ-paris7.fr/~delabrou/PSM/psm.html}}
+\citep{delabrouille2013,alonso2015}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Galactic Free-free Emission}
 \label{sec:fg-gfree}
 
-\TODO{Write!!!}
-
 \NOTE{Whether to incorporate some works from Lian Xiaoli??}
+
+The diffuse Galactic free-free emission due to the bremsstrahlung
+radiation from diffuse ionized interstellar medium (ISM),
+e.g., \Hii{} regions, contributes only $\sim\,$1\% of the total
+foregrounds in the low frequencies of interest.
+It cannot be directly measured by current facilities since it is too
+weak compared to the above synchrotron emission.
+Nevertheless, the ionized ISM generates both radio free-free continuum
+and \Halpha{} emission, and the relationship between these two kinds of
+emissions can be determined under certain assumptions \citep{dickinson2003}.
+Therefore we can derive the Galactic free-free emission based on the
+all-sky \Halpha{} survey data.
+However, the \Halpha{} emission suffers from dust absorption, which
+may be very serious near the Galactic plane (e.g., $|b| < \SI{5}{\degree}$).
+So dust correction should be applied to the \Halpha{} emission first.
+
+We follow the approach proposed by \citet{dickinson2003} to obtain
+the Galactic free-free emission maps.
+The observed \Halpha{} maps can be corrected for dust absorption by:
+\begin{equation}
+  \label{eq:halpha-dust-corr}
+  I_{\Halpha}^{\R{corr}}(\bm{r}) = I_{\Halpha}(\bm{r}) \times
+    10^{D(\bm{r}) \times 0.0185 \times f_d},
+\end{equation}
+where $I_{\Halpha}(\bm{r})$ is the observed \Halpha{} intensity at sky
+position $\bm{r}$ in units of \si{\rayleigh},
+$D(\bm{r})$ is the measured dust column density in units of
+\si{\mega\jansky\per\steradian},
+and $f_d$ is the effective dust fraction in the line of sight actually
+absorbing the \Halpha{}.
+
+Then we can convert the absorption-corrected \Halpha{} intensity
+$I_{\Halpha}$ to the free-free emission brightness temperature $T_b$
+using the relationship \citet{dickinson2003}
+\footnote{Their formula has a superfluous factor of $10^3$.}:
+\begin{equation}
+  \label{eq:halpha-ff}
+  \left[ \frac{T_b}{\si{\kelvin}} \right] = \num{9.068e-3}
+  \, a(T_e, \nu) \left[ \frac{\nu}{\si{\GHz}} \right]^{-2.1}
+  \left[ \frac{T_e}{\SI{e4}{\kelvin}} \right] 10^{(\SI{290}{\kelvin} / T_e)},
+\end{equation}
+where $T_e$ is the electron temperature in units of \si{\kelvin},
+and the factor $a(T_e, \nu)$ is given by:
+\begin{equation}
+  a(T_e, \nu) = 0.366 \left[ \frac{\nu}{\si{\GHz}} \right]^{0.1}
+  \left[ \frac{T_e}{\si{\kelvin}} \right]^{-0.15}
+  \left[ 1.5 \ln \left[ \frac{T_e}{\si{\kelvin}} \right] +
+    \ln \left[ \frac{\SI{4.995e-2}{\GHz}}{\nu} \right]\right].
+\end{equation}
+
+In this work, we use the all-sky \Halpha{} map from \citet{finkbeiner2003},
+the all-sky dust map from \citet{schlegel1998}, and
+adopt effective dust fraction $f_d = 0.33$ and
+electron temperature $T_e = \SI{7000}{\kelvin}$
+as suggested \citep{dickinson2003}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -337,10 +431,10 @@ relations from the current observed catalog maintained by Green.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Clusters of Galaxies}
+\subsection{Galaxy Clusters}
 \label{sec:fg-clusters}
 
-\TODO{Rewrite this overview!!!}
+\TODO{rewrite this overview!!!}
 
 In the framework of low-frequency radio foregrounds simulation for the
 EoR signal detection, the most realistic consideration to the galaxy
@@ -443,7 +537,7 @@ then Equation~(\ref{eq:eps-condprob}) is simplified into:
 
 We employ the standard Monte Carlo technique to build the merger trees,
 with each of them starts with a cluster with an initial mass $M_0$
-and redshift $z_0$ simulated in the last Section.
+and redshift $z_0$ simulated in the last section.
 We trace each cluster back in time, using a step size $\Delta\omega$
 adaptively determined by \citep{randall2002}:
 \begin{equation}
@@ -801,6 +895,8 @@ radio relics.
 \label{sec:pointsources}
 
 \TODO{Whether to follow Wang2010???}
+
+\NOTE{Whether move this sub-section before the galaxy clusters???}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
