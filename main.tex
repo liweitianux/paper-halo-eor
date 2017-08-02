@@ -1,8 +1,8 @@
 %%
 %% Copyright (c) 2017 The Authors.  All Rights Reserved.
 %%
-%% Weitian LI, Haiguang XU, et al.
-%% Department of Astronomy, Shanghai Jiao Tong University
+%% Weitian LI <liweitianux@sjtu.edu.cn>, Haiguang XU <hgxu@sjtu.edu.cn>, et al.
+%% Department of Astronomy, Shanghai Jiao Tong University, Shanghai, China.
 %%
 %% 2017-07-18
 %%
@@ -43,7 +43,7 @@
 \usepackage{bm}  % bold math
 \usepackage{savesym}
 
-\savesymbol{tablenum}  % workaround symbol confliction
+\savesymbol{tablenum}  % workaround symbol conflict
                        % credit: https://tex.stackexchange.com/a/269074
 \usepackage{siunitx}  % typeset units; from `texlive-science'
 \restoresymbol{SIX}{tablenum}  % `tablenum' from `siunitx' becomes `SIXtablenum'
@@ -59,7 +59,7 @@
 \newcommand{\Hi}{H\textsc{i}}
 \newcommand{\Hii}{H\textsc{ii}}
 %
-\newcommand{\NOTE}[1]{\textcolor{olive}{\textbf{NOTE:}}~\uwave{#1}}
+\newcommand{\NOTE}[1]{\textcolor{violet}{\textbf{NOTE:}}~\uwave{#1}}
 \newcommand{\TODO}[1]{\textcolor{magenta}{\textbf{TODO:}}~\uuline{#1}}
 \newcommand{\OK}[1]{\textcolor{cyan}{\textbf{OK:}}~\uline{#1}}
 
@@ -172,17 +172,22 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{abstract}
-\TODO{write abstract!!!}
+\TODO{write the abstract!!!}
 \end{abstract}
 
+%% Authors should select subject keywords from the given list.  No more
+%% than 6 keywords should be given, and they should be listed in
+%% alphabetical order.
+%%
 %% See the online documentation for the full list of available subject
 %% keywords and the rules for their use.
 %% http://journals.aas.org/authors/keywords2013.html
 \keywords{
-  %% TODO: update this!
+  \TODO{update ($\leqslant 6$)!}
   dark ages, reionization, first stars ---
   galaxies: clusters: intracluster medium ---
   galaxies: halos ---
+  methods: numerical ---
   radio continuum: galaxies
 }
 
@@ -226,10 +231,10 @@ To accurately remove or separate such strong foregrounds, a realistic
 foregrounds model is of great importance, and is very necessary to help
 develop and evaluate foreground removal methods, since very small residuals
 will damage the faint signal or bias its measurements \citep{procopio2017}.
-In the framework of EoR detection, the galaxy clusters as one of the
-major foreground contamination components lacks enough attentions in the
+In the framework of EoR detection, the galaxy clusters, as one of the
+major foreground contamination components, lack enough attentions in the
 literature,
-but we believe that it requires a much more serious treatment:
+but we believe that they are worth a much more serious treatment:
 \begin{itemize}
   \item bright: $\sim\! \numrange{2}{3}$ orders of magnitude stronger
     than the EoR signals;
@@ -258,46 +263,84 @@ own right:
     acceleration, magnetic growth and distribution, etc.
 \end{itemize}
 
-Extended radio emissions are only detected in a small fraction of massive and
-luminous galaxy clusters, and they can be classified into several types
+Extended radio emissions are only observed in a small fraction of massive
+and luminous galaxy clusters, and they are more rarely found in smaller
+clusters.
+These extended radio emissions can be roughly classified into three types
 \citep[see][for recent reviews]{feretti2012rev,brunetti2014rev}:
 \begin{description}
-  %% TODO:
-  %% improve the descriptions
-  %% switch to a table???
-  \item[halo]
-    Giant radio halos extending on $\sim \!\si{\Mpc}$ scales;
-    only appear in merging clusters;
-  \item[mini-halo]
-    Radio mini-halos, smaller than the above giant halos (usually several
-    hundreds of kpc); can be found in cool-core clusters;
-  \item[relic]
-    Elongated relics, and roundish relics;
+  \item[Halos]
+    giant and extend on $\sim \!\si{\Mpc}$ scales;
+    They are only found at the center of galaxy clusters showing major
+    merging features, and have regular morphology without significant
+    polarization.
+
+    The \emph{turbulence re-acceleration model} (also known as the
+    \emph{primary electrons model}) is the most accepted model to explain
+    the origin of radio halos.
+    In this model, major mergers between clusters generate turbulence
+    throughout the cluster ICM, which interact with the existing low-energy
+    electrons to accelerate them to higher energies (e.g., $\gamma > 1000$),
+    and then these relativistic electrons radiate synchrotron emissions
+    within ICM's \si{\uG}-level magnetic field, to be responsible for the
+    radio halos.
+    On the other hand, there is the \emph{hadronic model}, which is also
+    known as the \emph{secondary electrons model}.
+
+    Currently we have only discovered $\lesssim\,$80 radio halos
+    \citep{kale2016rev,duchesne2017}, and a much larger sample is a
+    necessity to well constrain the halo models, in order to further reveal
+    the physical processes.
+
+  \item[Mini-halos]
+    smaller than the above giant halos (usually several hundreds of kpc);
+    currently only $\sim\,$20 of them have been found, generally located
+    at the center of relaxed cool-core clusters \citep{bravi2016};
+    their origin is still poorly known, but is different to that of giant
+    halos, and is argued to be related with the turbulence in the cool-core
+    region and AGN feedback \citep{gitti2015rev}.
+
+  \item[Relics]
+    typically are elongated and may stretch over $\sim \!\si{\Mpc}$ scales;
+    located in cluster peripheral regions of both merging and relaxed
+    clusters, suggesting that they may be related to minor or off-axis
+    mergers, as well as to major mergers \citep{feretti2012rev}.
+    The strongly polarized ($\sim\,$20--30\%) emission is one of the
+    most important distinction compared to halos and mini-halos.
+
+    Apart from the typical elongated relics, there are also the so-called
+    roundish relics, showing a more regular and roundish morphology,
+    and they are generally distributed closer to the cluster center.
+    Their different properties with respect to the elongated relics
+    suggest a different origin.
+
+    Only in $\sim\,$70 clusters have been observed radio relics
+    \citep[their Table 1]{nuza2017} for the moment, and more observational
+    evidences are required to better understand their nature.
 \end{description}
 
-Due to their low surface brightness and steep spectra, radio halos and
-relics are difficult to find at middle- or high-frequency ranges
-(e.g., \SI{1.4}{\GHz}), and currently only $\sim\,$??? halos and
-$\sim\,$??? relics have been found \citep[e.g.,][]{duchesne2017,nuza2017}.
-However, in the low-frequency radio band, radio halos and relics become
-brighter and easier to be detected.  The large field of view (FoV) of
-low-frequency interferometer also helps discover more halos and relics more
-efficiently.
-Furthermore, owing to its excellent sensitivity, the SKA will possibly
-discover more than several thousands of halos and relics, providing us with
-invaluable data to understand and solve the puzzles with regard to galaxy
-clusters.
-The faint radio sky can be very different, and we may have unexpected
-findings as we go deeper \citep{padovani2016rev,herreraRuiz2017}.
+Due to their low surface brightness and steep spectra, these extended
+radio emissions from galaxy clusters are difficult to find at middle-
+or high-frequency ranges (e.g., \SI{1.4}{\GHz}).
+However, they become much brighter and thus easier to be detected in
+the low-frequency radio band.  The large field of view (FoV) of the
+low-frequency interferometer also helps discover them more efficiently.
+Owing to its excellent sensitivity, the SKA will possibly discover more
+than several thousands of halos and relics, providing us with invaluable
+data to understand and solve the puzzles with regard to galaxy clusters.
+Furthermore, the faint radio sky can be very different, and we may have
+unexpected findings as we go deeper \citep{padovani2016rev,herreraRuiz2017}.
 
 In this work, we develop a new low-frequency radio foregrounds simulation
 technique, with a specific focus on a physically motivated simulation method
 for radio halos from galaxy clusters,
 meanwhile we bear in mind that the SKA has the unparalleled sensitivity,
 large FoV, and much finer angular resolution.
-And we implemented the foregrounds simulation technique in the
-\texttt{fg21sim} open-source software available at
-\url{https://github.com/liweitianux/fg21sim}.
+We implemented the proposed foregrounds simulation technique in the
+\texttt{fg21sim} open-source software, which is written in Python and
+is available at \url{https://github.com/liweitianux/fg21sim}.
+
+\TODO{Continue with radio halos' possible impacts on EoR detection!!!}
 
 We adopt a flat \lcdm{} cosmology throughout this work with
 $H_0 = \SI{100}{\hubble} = \SI{71}{\km\per\second\per\Mpc}$,
@@ -320,10 +363,14 @@ great importance, which can provide both instructions and evaluation data.
 
 In this section, we first briefly introduce the simulation methods for
 Galactic synchrotron (unpolarized) emission, Galactic free-free emission,
-Galactic supernova remnants (SNRs) emission,
-and extragalactic point sources emission.
+Galactic supernova remnants (SNRs) emission (\TODO{ignore this???}),
+and extragalactic point sources emission (\TODO{ignore this???}).
 Then we describe in details the physically motivated method we proposed
 to simulate the extended radio halos emission from galaxy clusters.
+
+Since we focus on simulating the radio halos from galaxy clusters and
+evaluating their impacts on the EoR detection experiments, we leave out
+the Galactic SNRs and extragalactic point sources in this work.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -339,18 +386,19 @@ with the spectral index $\alpha_{\R{syn}}$ varying as sky positions.
 We simulate the Galactic synchrotron emission at desirable low frequency
 $\nu$ based on the Haslam \SI{408}{\MHz} all-sky map \citep{haslam1982},
 using the improved source-removed and destriped version reprocessed by
-\citet{remazeilles2015}.
+\citet{remazeilles2015}\footnote{The 2014 reprocessed Haslam \SI{408}{\MHz}
+  map: \url{http://www.jb.man.ac.uk/research/cosmos/haslam_map/}}.
 We then extrapolate from this template to lower frequencies by assuming
 a power-law spectrum \citep{wang2010,bonaldi2015}:
 \begin{equation}
   \label{eq:gsync-extrap}
-  T_b(\bm{r}; \nu) = T_b(\bm{r}; \nu=\SI{408}{\MHz})
-    \left( \frac{\nu}{\SI{408}{\MHz}} \right)^{-\alpha(\bm{r})},
+  T_b^{\R{syn}}(\bm{r}, \nu) = T_b^{\R{Haslam}}(\bm{r})
+    \left( \frac{\nu}{\SI{408}{\MHz}} \right)^{-\alpha_{\R{syn}}(\bm{r})},
 \end{equation}
-where $T_b(\bm{r}; \nu)$ is the Galactic synchrotron intensity expressed
-in brightness temperature at sky position $\bm{r}$ and frequency $\nu$,
-and $\alpha(\bm{r}) \sim \numrange{2.7}{3.2}$ is the position-dependent
-synchrotron spectral index \citep{davies1996}.
+where $T_b^{\R{syn}}(\bm{r}, \nu)$ is the Galactic synchrotron intensity
+expressed in brightness temperature at sky position $\bm{r}$ and
+frequency $\nu$, and $\alpha_{\R{syn}}(\bm{r}) \sim \numrange{2.7}{3.2}$ is
+the position-dependent synchrotron spectral index \citep{davies1996}.
 We use the all-sky map of synchrotron spectral index provided by the
 Planck Sky Model\footnote{Planck Sky Model:
   \url{http://www.apc.univ-paris7.fr/~delabrou/PSM/psm.html}}
@@ -390,26 +438,27 @@ where $I_{\Halpha}(\bm{r})$ is the observed \Halpha{} intensity at sky
 position $\bm{r}$ in units of \si{\rayleigh},
 $D(\bm{r})$ is the measured dust column density in units of
 \si{\mega\jansky\per\steradian},
-and $f_d$ is the effective dust fraction in the line of sight actually
-absorbing the \Halpha{}.
+and $f_d$ is the effective dust fraction along the line of sight actually
+absorbing the \Halpha{} emission.
 
 Then we can convert the absorption-corrected \Halpha{} intensity
-$I_{\Halpha}$ to the free-free emission brightness temperature $T_b$
-using the relationship \citet{dickinson2003}
+$I_{\Halpha}^{\R{corr}}(\bm{r})$ to the free-free emission brightness
+temperature $T_b^{\R{ff}}(\bm{r}, \nu)$
+using the relationship \citep{dickinson2003}
 \footnote{Their formula has a superfluous factor of $10^3$.}:
 \begin{equation}
   \label{eq:halpha-ff}
-  \left[ \frac{T_b}{\si{\kelvin}} \right] = \num{9.068e-3}
-  \, a(T_e, \nu) \left[ \frac{\nu}{\si{\GHz}} \right]^{-2.1}
-  \left[ \frac{T_e}{\SI{e4}{\kelvin}} \right] 10^{(\SI{290}{\kelvin} / T_e)},
+  T_b^{\R{ff}}(\bm{r}, \nu) = 38.86 \, a(\nu, T_e) \nu^{-2.1}
+    10^{(290 / T_e)} \, T_e^{0.667}
+    \left[ \frac{I_{\Halpha}^{\R{corr}}(\bm{r})}{\si{\rayleigh}} \right]
+    \quad [\si{\kelvin}],
 \end{equation}
-where $T_e$ is the electron temperature in units of \si{\kelvin},
-and the factor $a(T_e, \nu)$ is given by:
+where $\nu$ is the target frequency in units of \si{\MHz},
+$T_e$ is the electron temperature in units of \si{\kelvin},
+and the factor $a(\nu, T_e)$ is given by:
 \begin{equation}
-  a(T_e, \nu) = 0.366 \left[ \frac{\nu}{\si{\GHz}} \right]^{0.1}
-  \left[ \frac{T_e}{\si{\kelvin}} \right]^{-0.15}
-  \left[ 1.5 \ln \left[ \frac{T_e}{\si{\kelvin}} \right] +
-    \ln \left[ \frac{\SI{4.995e-2}{\GHz}}{\nu} \right]\right].
+  a(\nu, T_e) = 0.183 \,\nu^{0.1} T_e^{-0.15}
+    \, [ 3.91 - \ln \nu + 1.5 \ln T_e ].
 \end{equation}
 
 In this work, we use the all-sky \Halpha{} map from \citet{finkbeiner2003},
@@ -423,7 +472,10 @@ as suggested \citep{dickinson2003}.
 \subsection{Galactic Supernova Remnants}
 \label{sec:fg-gsnr}
 
-\TODO{Write!!!}
+\TODO{Write!!!  Or ignore this minor component???}
+
+\NOTE{Cannot find references describing the surface brightness (profile)
+of SNRs!}
 
 Update to use a empirical model about the total number of Galactic SNRs
 and their spatial distributions.  Meanwhile derive necessary scaling
@@ -431,20 +483,27 @@ relations from the current observed catalog maintained by Green.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Extragalactic Point Sources}
+\label{sec:pointsources}
+
+\TODO{To follow Wang2010???  Or ignore this component???}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Galaxy Clusters}
 \label{sec:fg-clusters}
 
-\TODO{rewrite this overview!!!}
+\TODO{Rewrite this overview!!!}
 
 In the framework of low-frequency radio foregrounds simulation for the
 EoR signal detection, the most realistic consideration to the galaxy
-clusters component until now is our work in \citeyear{wang2010} \citep{wang2010}.
+clusters component to date is our previous work in \citeyear{wang2010}
+\citep{wang2010}.
 In this work, we continue to improve our simulation method in several
 ways:
 (1) Predict radio halos by tracing the most recent major merger of clusters;
 (2) Determine the halo brightness and spectrum by solving the time
-evolution of relativistic electrons within the cluster ICM;
-(3) Preliminary inclusion of radio relics (???).
+evolution of relativistic electrons within the cluster ICM.
 We present our improved simulation method to the galaxy clusters in this
 section.
 
@@ -578,7 +637,8 @@ and the sub-cluster separately.
 Considering that radio halos are only observed in
 a fraction of massive merging clusters, suggesting they are closely
 related to the recent major mergers, and have a lifetime
-$\tau_{\R{halo}}$ shorter than the timescale $\tau_m$ ($\sim\,$2--3 \si{\Gyr})
+$\tau_{\R{halo}}$ shorter than the timescale
+$\tau_m$ ($\sim\! \SIrange[range-units=single]{2}{3}{\Gyr}$)
 for the duration of merger-induced disturbance \citep{cassano2016}.
 Therefore we only trace the merging history of the main cluster
 to a maximum backward time of \SI{3}{\Gyr}.
@@ -717,9 +777,9 @@ the cluster life is a fraction, $\eta_e$, of the total thermal energy
 of the cluster \citep{cassano2005}:
 \begin{equation}
   \label{eq:injrate-param}
-  \left( \frac{4\pi}{3} R_{\R{halo}}^3 \right) \tau_{\R{cluster}}
+  \left( \frac{4\pi}{3} R_{\R{halo}}^3 \right) \epsilon_e \tau_{\R{cluster}}
   \int_{\gamma_{\R{min}}}^{\gamma_{\R{max}}}
-  Q_e(\gamma') \gamma' \epsilon_e \,\D{\gamma'} \simeq
+  Q_e(\gamma') \gamma' \,\D{\gamma'} \simeq
   \eta_e \epsilon_{\R{th}} \left( \frac{4\pi}{3} R_{\R{vir}}^3 \right),
 \end{equation}
 where $R_{\R{halo}}$ and $R_{\R{vir}}$ are the radius of the radio halo
@@ -755,7 +815,7 @@ where $E(z)$ is the redshift evolution factor [see Equation~(\ref{eq:ez-func})].
 Note that we approximate the cluster virial mass with $M_{200}$ here.
 
 Observations show that radio halos have a radial size
-$R_{\R{halo}} \sim\,$3--6 times smaller than the virial radius
+$R_{\R{halo}} \sim\! \numrange{3}{6}$ times smaller than the virial radius
 $R_{\R{vir}}$, therefore we estimate the halo radius by
 \citep{cassano2007,zandanel2014}:
 \begin{equation}
@@ -767,9 +827,7 @@ We assume an uniform magnetic field throughout the ICM,
 but allow its strength to scale with the cluster mass as \citep{cassano2012}:
 \begin{equation}
   \label{eq:magfield-mass}
-  \left[ \frac{B}{\si{\uG}} \right] =
-    \left[ \frac{B_{\langle {M} \rangle}}{\si{\uG}} \right]
-    \left( \frac{M}{\langle {M} \rangle} \right)^b,
+  B = B_{\langle{M}\rangle} \left( \frac{M}{\langle{M}\rangle} \right)^b,
 \end{equation}
 where $\langle {M} \rangle = \SI{1.6e15}{\solarmass}$, and we take
 $B_{\langle {M} \rangle} = \SI{1.9}{\uG}$ and $b = 1.5$ in this work.
@@ -793,7 +851,7 @@ ionization and Coulomb collisions \citep{sarazin1999}:
   \num{-1.20e-12} \,n_{\R{th}} \left[ 1 +
     \frac{\ln(\gamma/n_{\R{th}})}{75} \right] \quad [\si{\per\second}],
 \end{equation}
-with $n_{\R{th}}$ in unit of [\si{\per\cm\cubed}].
+with $n_{\R{th}}$ in units of [\si{\per\cm\cubed}].
 
 Having all the coefficients of the Fokker-Planck
 equation~(\ref{eq:fokkerplanck}) been determined, we can now derive
@@ -822,7 +880,7 @@ We therefore estimate the initial electron spectrum at $t_{\R{merger}}$ as:
 \end{equation}
 
 Once the current electron spectrum $n(\gamma, t_0)$ been derived,
-the synchrotron emissivity in unit of
+the synchrotron emissivity in units of
 [\si{\erg\per\second\per\cm\cubed\per\hertz}],
 is determined by \citep{rybicki1979}:
 \begin{equation}
@@ -881,25 +939,6 @@ simulated images of radio halos at each frequency of interest.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Radio Relics}
-\label{sec:relic}
-
-\TODO{Whether to include relics???}
-
-\citet[their Table 1]{nuza2017} compiled a collection of currently observed
-radio relics.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Extragalactic Point Sources}
-\label{sec:pointsources}
-
-\TODO{Whether to follow Wang2010???}
-
-\NOTE{Whether move this sub-section before the galaxy clusters???}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The \texttt{fg21sim} Simulation Software}
 \label{sec:fg21sim}
 
@@ -918,18 +957,74 @@ is used to optimize the speed of some codes when necessary.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{EoR Signal Simulation}
+\label{sec:eor-simulation}
+
+\TODO{Write!!!}
+
+We simulate the cosmological EoR signal using \texttt{SimFast21}\footnote{
+  SimFast21: \url{https://github.com/mariogrs/Simfast21}}
+\citep{santos2010,hassan2016}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Observation Simulation}
+\label{sec:obs-simulation}
+
+\TODO{Write!!!}
+
+\begin{enumerate}
+\item Generate the SKA1-low configuration\footnote{
+    SKA-TEL-SKO-0000422: SKA1-low Configuration Coordinates: \url{https://astronomers.skatelescope.org/wp-content/uploads/2016/09/SKA-TEL-SKO-0000422_02_SKA1_LowConfigurationCoordinates-1.pdf}};
+
+  \item Simulate the visibility data for the sky image/model at each
+    frequency channel using \texttt{OSKAR}\footnote{
+      OSKAR: A GPU accelerated simulator for SKA;
+      \url{https://github.com/OxfordSKA/OSKAR}} \citep{mort2010};
+
+  \item Create image cube with CLEAN algorithm using
+    \texttt{WSClean}\footnote{WSClean: A fast widefield interferometric
+      imager; \url{https://sourceforge.net/p/wsclean/}} \citep{offringa2014}.
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results}
 \label{sec:results}
 
 \TODO{Write!!!}
 
-simulation parameters
+\TODO{Distribute the results (e.g., simulated images) into previous sections,
+  and then merge this section (e.g., scaling relations and comparisons)
+  with the next ``discussions'' section???}
 
-input data/templates (link to a page on software repository)
+\NOTE{Collect all the parameters (e.g., fg21sim, SimFast21, OSKAR, WSClean)
+  as well as the input data/templates into to the Appendix!
+  Also create a page in the software repository to hold further information.}
 
-simulated images, scaling relations???
+On the foregrounds simulation part, compare our simulated radio halos with
+current observations as well as previous results,
+e.g., halo luminosity function, (and ???).
 
-Radio halos (+relics): compare with observations!!!
+Then we evaluate the impacts of radio halos on EoR detection in both the
+image domain and the (2D) power spectrum domain:
+\begin{description}
+  \item[Image]
+    Take the above simulated image cube, subtract the spectral-smooth
+    foregrounds fitting a smooth polynomial along the frequency axis,
+    evaluate the loss of EoR signals (use image-domain indexes???
+    can also use the total power spectrum???)
+
+    May consider too cases: (1) only radio halos is superimposed onto the
+    EoR signals; (2) radio halos as well as Galactic foregrounds are
+    added to the EoR signals.
+
+  \item[Power spectrum]
+    Take the above simulated image cube, calculate the 2D
+    (i.e., cylindrically averaged) power spectrum, evaluate the foregrounds
+    contamination within the (theoretically predicted) EoR window,
+    compare to the case that only EoR signals exist in the EoR windows.
+\end{description}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -950,6 +1045,7 @@ as well as images (e.g., by using the \textsc{clean} algorithm).
 In this way, we incorporate the realistic instrumental effects into
 our simulation pipeline, making our developed methods more versatile
 and prepare for future real observations.
+(\NOTE{Move this paragraph to above simulation section?})
 
 In addition to the foregrounds removal aiming at the EoR signal
 detection, the methods to effectively identify and extract the faint
