@@ -1,12 +1,16 @@
 #
 # Weitian LI, et al.
 # 2017-07-18
-# Updated: 2017-07-27
+# Updated: 2017-08-06
 #
 # Credit:
 # [1] How to get current relative directory of your Makefile?
 #     https://stackoverflow.com/a/23324703
 #
+
+# Whether CJK support required (will use `xelatex`)
+# Comment out this to disable CJK support.
+CJK:= ON
 
 DATE:=		$(shell date +'%Y%m%d')
 ROOT_DIR:=	$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
@@ -26,7 +30,13 @@ report: main.pdf
 	done
 
 main.pdf: main.tex references.bib
+ifeq ($(CJK),ON)
+	# XeLaTeX with CJK support
+	env TEXINPUTS=$(TEXINPUTS) BSTINPUTS=$(BSTINPUTS) latexmk -xelatex $<
+else
+	# pdfLaTeX
 	env TEXINPUTS=$(TEXINPUTS) BSTINPUTS=$(BSTINPUTS) latexmk -pdf $<
+endif
 
 clean:
 	latexmk -c main.tex

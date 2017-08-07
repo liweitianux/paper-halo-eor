@@ -48,6 +48,12 @@
 \usepackage{siunitx}  % typeset units; from `texlive-science'
 \restoresymbol{SIX}{tablenum}  % `tablenum' from `siunitx' becomes `SIXtablenum'
 
+%% Chinese
+\usepackage{xeCJK}
+\setCJKmainfont{SimSun}
+\setCJKsansfont{KaiTi}
+\setCJKmonofont{KaiTi}
+
 %% Custom macros
 \newcommand{\etal}{\textit{et~al.}}
 \newcommand{\R}[1]{\mathrm{#1}}
@@ -58,7 +64,6 @@
 \newcommand{\Halpha}{\text{H$\alpha$}}
 \newcommand{\Hi}{H\textsc{i}}
 \newcommand{\Hii}{H\textsc{ii}}
-%
 \newcommand{\NOTE}[1]{\textcolor{violet}{\textbf{NOTE:}}~\uwave{#1}}
 \newcommand{\TODO}[1]{\textcolor{magenta}{\textbf{TODO:}}~\uuline{#1}}
 \newcommand{\OK}[1]{\textcolor{cyan}{\textbf{OK:}}~\uline{#1}}
