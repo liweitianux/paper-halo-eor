@@ -2,7 +2,7 @@
 %% Copyright (c) 2017 The Authors.  All Rights Reserved.
 %%
 %% Weitian LI <liweitianux@sjtu.edu.cn>, Haiguang XU <hgxu@sjtu.edu.cn>, et al.
-%% Department of Astronomy, Shanghai Jiao Tong University, Shanghai, China.
+%% School of Physics and Astronomy, Shanghai Jiao Tong University, Shanghai, China.
 %%
 %% 2017-07-18
 %%
@@ -83,6 +83,7 @@
 %% Custom units (requires `siunitx' package)
 \DeclareSIUnit\arcsec{arcsec}
 \DeclareSIUnit\arcmin{arcmin}
+\DeclareSIUnit\deg{deg}
 \DeclareSIUnit\erg{erg}
 \DeclareSIUnit\gauss{G}
 \DeclareSIUnit\hubble{\text{$h$}}
@@ -170,11 +171,11 @@
 
 \author[0000-0002-7527-380X]{Weitian Li}
 \email{liweitianux@sjtu.edu.cn}
-\affil{Department of Astronomy, Shanghai Jiao Tong University,
+\affil{School of Physics Astronomy, Shanghai Jiao Tong University,
   800 Dongchuan Road, Shanghai 200240, China}
 
 \author{Haiguang Xu}
-\affil{Department of Astronomy, Shanghai Jiao Tong University,
+\affil{School of Physics Astronomy, Shanghai Jiao Tong University,
   800 Dongchuan Road, Shanghai 200240, China}
 
 
@@ -224,6 +225,7 @@ PAPER\footnote{PAPER: Precision Array for Probing the Epoch of Reionization;
 are lacking the sensitivity to detect the very faint \Hi{} EoR signals.
 The next-generation SKA\footnote{SKA: Square Kilometre Array;
   \url{https://skatelescope.org/}} \citep{mellema2013rev,koopmans2015rev}
+\LI{[How to also include HERA?]}
 with its unprecedented power, will enable
 us not only to successfully detect them through power spectrum measurements,
 but also to reveal the pictures of the whole reionization process.
@@ -239,8 +241,9 @@ In the framework of EoR detection, the galaxy clusters, as one of the
 major foreground contamination components, lack enough attentions in the
 literature,
 but we believe that they are worth a much more serious treatment:
+\LI{[需精练]}
 \begin{itemize}
-  \item bright: $\sim\! \numrange{2}{3}$ orders of magnitude stronger
+  \item bright: \numrange{\sim 2}{3} orders of magnitude stronger
     than the EoR signals;
   \item extended: relatively large angular sizes, may extend to several tens
     of arcminutes, corrupting the underlying EoR signal, which appears
@@ -258,6 +261,7 @@ but we believe that they are worth a much more serious treatment:
 
 In addition, galaxy clusters are also important objects of study in their
 own right:
+\LI{[需增强/突出]}
 \begin{itemize}
   \item elements to form the large-scale structures, key to understand the
     structure formation and evolution of the Universe;
@@ -275,7 +279,7 @@ These extended radio emissions can be roughly classified into three types
 \citep[see][for recent reviews]{feretti2012rev,brunetti2014rev}:
 \begin{description}
   \item[Halos]
-    giant and extend on $\sim \!\si{\Mpc}$ scales;
+    giant and extend on \si{\sim \Mpc} scales;
     They are only found at the center of galaxy clusters showing major
     merging features, and have regular morphology without significant
     polarization.
@@ -299,19 +303,19 @@ These extended radio emissions can be roughly classified into three types
 
   \item[Mini-halos]
     smaller than the above giant halos (usually several hundreds of kpc);
-    currently only $\sim\,$20 of them have been found, generally located
+    currently only \num{\sim 20} of them have been found, generally located
     at the center of relaxed cool-core clusters \citep{bravi2016};
     their origin is still poorly known, but is different to that of giant
     halos, and is argued to be related with the turbulence in the cool-core
     region and AGN feedback \citep{gitti2015rev}.
 
   \item[Relics]
-    typically are elongated and may stretch over $\sim \!\si{\Mpc}$ scales;
+    typically are elongated and may stretch over \si{\sim \Mpc} scales;
     located in cluster peripheral regions of both merging and relaxed
     clusters, suggesting that they may be related to minor or off-axis
     mergers, as well as to major mergers \citep{feretti2012rev}.
-    The strongly polarized ($\sim\,$20--30\%) emission is one of the
-    most important distinction compared to halos and mini-halos.
+    The strongly polarized (\SIrange{\sim 20}{30}{\percent}) emission is
+    one of the most important distinction compared to halos and mini-halos.
 
     Apart from the typical elongated relics, there are also the so-called
     roundish relics, showing a more regular and roundish morphology,
@@ -319,7 +323,7 @@ These extended radio emissions can be roughly classified into three types
     Their different properties with respect to the elongated relics
     suggest a different origin.
 
-    Only in $\sim\,$70 clusters have been observed radio relics
+    Only in \num{\sim 70} clusters have been observed radio relics
     \citep[their Table 1]{nuza2017} for the moment, and more observational
     evidences are required to better understand their nature.
 \end{description}
@@ -370,12 +374,15 @@ $\Omega_b = 0.046$, and $\sigma_8 = 0.81$ \citep{komatsu2011}.
 \section{Foreground Simulation}
 \label{sec:fg-simu}
 
+\XU{目标之中: 多大范围? 什么尺度? 应描写前景模拟软件... 并加以量化,
+  说明此工作的重大进步/意义.}
+
 \LI{[Rewritten]}
 At the low-frequency radio band, the foreground emission of various
 origins is generally \numrange{4}{5} orders of magnitude stronger
 than the EoR signal of our interest.
 The diffuse Galactic synchrotron and free-free emissions contaminate
-the target signal at large spatial scales ($\sim\,$ degrees),
+the target signal at large spatial scales ($\sim\,$degrees),
 meanwhile the radio halos and extragalactic point sources affect the
 small spatial scales ($\sim\,$arcminutes to arcseconds).
 Fortunately, all these kinds of foreground emissions posses a smooth
@@ -401,7 +408,7 @@ clusters and evaluating their impacts on the EoR detection experiments,
 we have left out the foreground emissions from Galactic supernova remnants
 (SNRs) and extragalactic point sources in this work.
 Although Galactic SNRs may have large angular sizes and complicated
-morphologies, the total number is only $\sim\,$1000 \citep{li1991,anderson2017}
+morphologies, the total number is only \num{\sim 1000} \citep{li1991,anderson2017}
 and they are mostly distributed around the Galactic plane.
 The EoR target fields are at high Galactic places, where the
 Galactic synchrotron intensity is also much lower, we argue that
@@ -410,7 +417,7 @@ With regard to the extragalactic point sources, they are the second
 dominant foreground component next to the Galactic synchrotron emission,
 and a careful simulation to this component is also important.
 We are developing a better simulation method by making use of the
-deep learning and convolutional auto-encoders algorithms, for the
+deep learning and convolutional auto-encoders (CAE) algorithms, for the
 sake of achieving a more rational classification and more sophisticated
 morphologies for the point sources
 (Ma et al. in preparation; Shan et al. in preparation).
@@ -432,16 +439,19 @@ We also make use of the Numba\footnote{Numba: A compiler for Python
 just-in-time compiler to optimize overall foreground simulation
 speed of the our software.
 
-\LI{[New]} \TODO{Add references and update numbers.}
-According to the current published specifications (citations???)
+\LI{[New]} \TODO{[Needs improvements!]}
+According to the current published specifications \citep{dewdney2015ska},
 the SKA1-Low interferometer consists of antenna stations of \SI{35}{\meter}
-in diameter, and has baselines up to $\sim\,$\SI{65}{\kilo\meter},
-which corresponding to a FoV of $\sim\,$\SI{4.5}{\degree} and angular
-resolution of $\sim\,$\SI{7}{\arcsec} at $\sim\,$\SI{150}{\MHz}.
-The SKA1-Low covers the frequency band of \SIrange{50}{350}{\MHz}
-with a channel width of ??.
-\TODO{Selected foreground sky patch: EoR0 field by MWA; simulation
-FoV, resolution, frequencies, etc...}
+in diameter, and has baselines up to \SI{\sim 65}{\kilo\meter},
+which corresponds to a FoV of \SI[product-units=power]{\sim 4 x 4}{\deg}
+and angular resolution of \SI{\sim 7}{\arcsec} at \SI{158}{\MHz}.
+In this work, we simulate the foreground emissions within a sky
+patch of \SI[product-units=power]{10 x 10}{\deg} centered at
+(R.A., Dec.) = (\SI{0}{\degree}, \SI{-27}{\degree}), the ``EoR0'' field
+identified by the MWA \citep{beardsley2016}.
+The simulated foreground sky is large enough to not only take into
+account the side lobes of the interferometer, but also help the
+imaging procedure in the observation simulation stage.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -449,21 +459,40 @@ FoV, resolution, frequencies, etc...}
 \label{sec:fg-gsync}
 
 The diffuse Galactic synchrotron emission dominates the low-frequency
-radio sky and accounts for $\sim\,$70\% of the foreground intensity
-at $\sim \!\SI{150}{\MHz}$ \citep{shaver1999}.
+radio sky and accounts for \SI{\sim 70}{\percent} of the foreground
+intensity at \SI{\sim 150}{\MHz} \citep{shaver1999}.
 It has a power-law spectrum\footnote{We adopt the power-law
   spectrum of form: $S(\nu) \propto \nu^{-\alpha}$.}
 with the spectral index $\alpha_{\R{syn}}$ varying as sky positions.
+We can simulate this foreground component at wanted low frequencies
+by extrapolating from the Haslam \SI{408}{\MHz} all-sky template
+\citep{haslam1982}.
 
-\TODO{Describe how the small-scale fluctuations been added to the
-original Haslam 408 MHz map, which has resolution of about 56 arcmin.}
+\LI{[New]}
+The Haslam \SI{408}{\MHz} all-sky map is one of the most important
+observations at the low-frequency regime, though has a rather limited
+resolution of \SI{\sim 56}{\arcmin}.
+\citet{remazeilles2015} have reprocessed the rawest available data
+and obtained a much improved Haslam \SI{408}{\MHz} map\footnote{
+  The 2014 reprocessed Haslam \SI{408}{\MHz} map:
+  \url{http://www.jb.man.ac.uk/research/cosmos/haslam_map/}}
+with significantly better calibration and extragalactic source removal,
+they also produced the higher resolution maps with mock small-scale
+fluctuations added, which were simulated by extrapolating the observed
+angular power spectrum to small scales.
+The all-sky maps are pixelized using the HEALPix algorithm \citep{gorski2005}.
+We use the $N_{\R{side}} = 2048$ (i.e., pixel size \SI{\sim 1.72}{\arcmin})
+Haslam \SI{408}{\MHz} map released by \citet{remazeilles2015} as the
+template in this work.
+At even smaller scales, we do not have sufficient observational
+evidences to guide or constrain the simulation.  In addition, there
+are galaxy clusters and extragalactic point sources contaminating
+the EoR signal at such small scales, we therefore argue that our
+treatment to the Galactic synchrotron emission should be enough in
+the current simulation framework.
 
-We simulate the Galactic synchrotron emission at desirable low frequency
-$\nu$ based on the Haslam \SI{408}{\MHz} all-sky map \citep{haslam1982},
-using the improved source-removed and destriped version reprocessed by
-\citet{remazeilles2015}\footnote{The 2014 reprocessed Haslam \SI{408}{\MHz}
-  map: \url{http://www.jb.man.ac.uk/research/cosmos/haslam_map/}}.
-We then extrapolate from this template to lower frequencies by assuming
+We extrapolate from the adopted Haslam \SI{408}{\MHz} template map
+$T_b^{\R{Haslam}}(\bm{r})$ to the wanted lower frequency $nu$ by assuming
 a power-law spectrum \citep{wang2010,bonaldi2015}:
 \begin{equation}
   \label{eq:gsync-extrap}
@@ -479,16 +508,20 @@ Planck Sky Model\footnote{Planck Sky Model:
   \url{http://www.apc.univ-paris7.fr/~delabrou/PSM/psm.html}}
 \citep{delabrouille2013,alonso2015}.
 
+\NOTE{I have asked G. Giardino for the all-sky spectral index map
+  they derived using the 408, 1420, and 2326 MHz surveys, which I think
+  is more appropriate for the low frequencies than the  PSM's one.
+  Already got a basic reply, waiting for her sending me the spectral
+  index map in about a week ...}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Galactic Free-free Emission}
 \label{sec:fg-gfree}
 
-\NOTE{Whether to incorporate some works from Lian Xiaoli??}
-
 The diffuse Galactic free-free emission due to the bremsstrahlung
 radiation from diffuse ionized interstellar medium (ISM),
-e.g., \Hii{} regions, contributes only $\sim\,$1\% of the total
+e.g., \Hii{} regions, contributes only \SI{\sim 1}{\percent} of the total
 foreground emission in the low frequencies of interest.
 It cannot be directly measured by current facilities since it is too
 weak compared to the above synchrotron emission.
@@ -501,14 +534,22 @@ However, the \Halpha{} emission suffers from the dust absorption, which
 may be very severe for regions near the Galactic plane
 (e.g., $|b| < \SI{5}{\degree}$).
 
-\TODO{Introduce that we are also working on a more sophisticated and
-  physical model to simulate the Galactic free-free emission at the low
-  frequency regime (Lian et al. in preparation).}
+\LI{[New]}
+Compared to our previous work \citep{wang2010}, we account for the
+dust absorption of the \Halpha{} emission by following the approach
+proposed by \citet{dickinson2003}.
+As we mentioned before, the EoR detection experiments mainly target
+the high Galactic regions, so we can ignore the absorption correction
+problems around the Galactic plane.
+Nevertheless, we are also working on a more sophisticated and
+physical model to simulate the Galactic free-free emission at the low
+frequency regime (Lian et al. in preparation).
 
-We follow the approach proposed by \citet{dickinson2003} to obtain
-the Galactic free-free emission map.
+\NOTE{连: (1) 请补充一下你的研究内容和目标;
+  (2) 请检查此小节内容是否有正确; (3) 请帮忙适当增强/改进. 谢谢.}
+
 First, the observed \Halpha{} map should be corrected for the dust
-absorption:
+absorption \citep{dickinson2003}:
 \begin{equation}
   \label{eq:halpha-dust-corr}
   I_{\Halpha}^{\R{corr}}(\bm{r}) = I_{\Halpha}(\bm{r}) \times
@@ -552,6 +593,8 @@ as suggested \citep{dickinson2003}.
 \subsection{Galaxy Clusters}
 \label{sec:fg-clusters}
 
+\XU{(1) 简要说明此工作的重大改进; (2) 说明算法及指标, 并适当量化.}
+
 \TODO{Rewrite this overview!!!}
 
 In the framework of low-frequency radio foregrounds simulation for the
@@ -559,7 +602,7 @@ EoR signal detection, the most realistic consideration to the galaxy
 clusters component to date is our previous work in \citeyear{wang2010}
 \citep{wang2010}.
 In this work, we continue to improve our simulation method in several
-ways:
+ways: \LI{[需改进]}
 (1) Predict radio halos by tracing the most recent major merger of clusters;
 (2) Determine the halo brightness and spectrum by solving the time
 evolution of relativistic electrons within the cluster ICM.
@@ -571,9 +614,15 @@ section.
 \subsubsection{Distributions}
 \label{sec:distributions}
 
-For a patch of sky, we first want to determine the mass and redshift
-distributions of the galaxy clusters, which can be sampled from the
-Press-Schechter (PS) mass function \citep{press1974}:
+\LI{[Improved]}
+The Press-Schechter formalism is one of the standard method to predict
+the mass function of galaxy clusters and its evolution as the Universe.
+It is originally developed by \citet{press1974}, and later extended to
+combine with the cold dark matter (CDM) models
+\citep[e.g.,][]{bond1991,lacey1993}.
+The Press-Schechter mass function $n(M, z)$ describes the cluster
+number density (i.e., number per unit comoving volume) per unit mass
+at a redshift of $z$, and is given by \citep{press1974}:
 \begin{equation}
   \label{eq:ps-mass-func}
   n(M, z) \,\D{M} = \sqrt{\frac{2}{\pi}} \frac{\langle{\rho}\rangle}{M}
@@ -585,11 +634,11 @@ $M$ is the cluster mass,
 $\langle {\rho} \rangle$ is the current mean density of the Universe,
 $\delta_c(z)$ is the critical linear overdensity for a region to collapse
 at redshift $z$ [see Equation~(\ref{eq:delta-crit})],
-and $\sigma(M)$ is the current rms density fluctuations within a sphere
-of mean mass $M$.
+and $\sigma(M)$ is the current rms (root-mean-square) density fluctuations
+within a sphere of mean mass $M$.
 
-In cold dark matter (CDM) models and over the range of scales covered
-by clusters, it is generally sufficient to consider a power-law spectrum
+In CDM models and within the range of scales covered by clusters,
+it is generally sufficient to consider a power-law spectrum
 for the density perturbations \citep{sarazin2002,randall2002}:
 \begin{equation}
   \label{eq:sigma-mass}
@@ -603,12 +652,13 @@ The exponent $\alpha$ is given by $\alpha = (n+3)/6$, where
 the power spectrum of fluctuations varies with wavenumber $k$
 as $k^n$, and we adopt $n = -7/5$ for this work \citep{randall2002}.
 
+\LI{[Improved]}
 We place a minimum mass limit of $M_{\R{min}} \simeq \SI{1.4e14}{\solarmass}$
-for galaxy clusters \citep{zandanel2014},
-determine the expected total number of clusters within our simulation
-sky patch, and then derive the mass and redshift for each cluster by
-sampling from the PS mass function using Monte Carlo method
-\citep{wang2010}.
+for the galaxy clusters \citep{zandanel2014}.
+The total number of clusters within a certain sky patch can be
+determined by the Press-Schechter mass function, and then the mass
+$M_0$ and redshift $z_0$ of each cluster can be drawn from the mass
+function using Monte Carlo method \citep{wang2010}.
 The clusters are randomly distributed within the sky patch.
 
 
@@ -620,8 +670,8 @@ Galaxy clusters are formed hierarchically by merging from smaller (i.e.,
 lower mass) clusters, groups, and galaxies.
 And the PS formalism provides a way to infer the formation history
 of a cluster from its current status.
-We follow the extended PS (EPS) method outlined by \citet{lacey1993} to
-generate the merger trees.
+We follow the extended Press-Schechter method outlined by \citet{lacey1993}
+to generate the merger trees.
 
 The conditional probability that a ``parent'' cluster of mass $M_2$ at
 a time $t_2$ had a ``progenitor'' of mass in the range
@@ -749,7 +799,7 @@ and $R_{\R{main}}$ is the virial radius of the main cluster
 [see Equation~(\ref{eq:radius-virial})].
 
 Cluster mergers generate turbulence throughout the cluster over
-$\sim \!\si{\Mpc}$ scales.
+\si{\sim \Mpc} scales.
 Energy can be transferred from the ICM into the non-thermal
 component through the interactions between electrons and the
 magneto-hydrodynamics (MHD) turbulence, which accelerate the electrons
@@ -765,7 +815,7 @@ We approximate the effective acceleration timescale with the merger
 crossing time \citep{cassano2005}:
 \begin{equation}
   \label{eq:tau-cross}
-  \tau_{\R{cross}} \simeq R_{\R{main}} / v_{\R{imp}},
+  \tau_{\R{cross}} \simeq \frac{R_{\R{main}}}{v_{\R{imp}}},
 \end{equation}
 which is typically $\lesssim \SI{1}{\Gyr}$.
 In addition, the acceleration efficiency of electrons due to turbulent waves,
@@ -781,8 +831,8 @@ which described by the acceleration timescale, can be then estimated as
   \right. \quad [\si{\Gyr}],
 \end{equation}
 where $\beta_{\R{turb}} \sim 1$ is a free parameter describing the
-intensity of the turbulence acceleration
-(we assume $\beta_{\R{turb}} = 1$ in this work),
+relative intensity of the turbulence acceleration
+(we assume $\beta_{\R{turb}} = 1$ in this work \LI{[Update parameter]}),
 and $t_{\R{merger}}$ is the cosmic time when the merger begins
 (i.e., at redshift $z_{\R{merger}}$).
 
@@ -809,7 +859,7 @@ which is given by \citep{brunetti2011}:
 \begin{equation}
   \label{eq:diffusion-coef}
   D_{\R{\gamma\gamma}}(\gamma, t) =
-    \frac{\gamma^2}{4 \tau_{\R{acc}}(t)}.
+    \frac{\gamma^2}{4 \,\tau_{\R{acc}}(t)}.
 \end{equation}
 In some energy ranges (e.g., $\gamma \sim 1000$), the diffusion may
 contribute more energies than those lost, therefore can accelerate electrons
@@ -864,14 +914,14 @@ from the cluster mass using this $M \!-\! T$ scaling relation
 \citep{arnaud2005}:
 \begin{equation}
   \label{eq:mt-relation}
-  \left[ \frac{M_{200}}{\SI{e14}{\solarmass}} \right] E(z) = (5.34 \pm 0.22)
-  \left[ \frac{k_B T}{\SI{5}{\keV}} \right]^{(1.72 \pm 0.10)},
+  \left( \frac{M_{200}}{\SI{e14}{\solarmass}} \right) E(z) = (5.34 \pm 0.22)
+  \left( \frac{k_B T}{\SI{5}{\keV}} \right)^{(1.72 \pm 0.10)},
 \end{equation}
 where $E(z)$ is the redshift evolution factor [see Equation~(\ref{eq:ez-func})].
 Note that we approximate the cluster virial mass with $M_{200}$ here.
 
 Observations show that radio halos have a radial size
-$R_{\R{halo}} \sim\! \numrange{3}{6}$ times smaller than the virial radius
+$R_{\R{halo}} \sim \numrange{3}{6}$ times smaller than the virial radius
 $R_{\R{vir}}$, we then estimate the halo radius by
 \citep{cassano2007,zandanel2014}:
 \begin{equation}
@@ -941,7 +991,7 @@ the synchrotron emissivity in units of
 is determined by \citep{rybicki1979}:
 \begin{equation}
   \label{sec:jnu-sync}
-  J_{\R{syn}}(\nu, t_0) = \frac{\sqrt{3}e^3 B}{m c^2}
+  J_{\R{syn}}(\nu, t_0) = \frac{\sqrt{3} \, e^3 B}{m_e c^2}
   \int_{\gamma_{\R{min}}}^{\gamma_{\R{max}}} \int_0^{\pi/2}
   n(\gamma, t_0) F\!\left( \frac{\nu}{\nu_c} \right) \sin^2 \!\theta
   \,\D{\theta} \,\D{\gamma},
@@ -952,7 +1002,7 @@ where $F(\nu/\nu_c)$ is the synchrotron kernel:
   F\!\left( \frac{\nu}{\nu_c} \right) = \frac{\nu}{\nu_c}
   \int_{\nu/\nu_c}^{\infty} K_{5/3}(y) \,\D{y},
 \end{equation}
-with $K_{5/3}(x)$ the modified Bessel function of \sfrac{5}{3} order,
+with $K_{5/3}(x)$ the modified Bessel function of 5/3 order,
 $\nu_c = (3/2) \gamma^2 \nu_L \sin\theta$ the critical frequency,
 and $\nu_L = e B / (2\pi m_e c)$ the Larmor frequency of electrons.
 Observations suggest that radio halos have average synchrotron emissivity
