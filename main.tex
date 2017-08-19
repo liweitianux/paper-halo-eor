@@ -46,7 +46,7 @@
 \savesymbol{tablenum}  % workaround symbol conflict
                        % credit: https://tex.stackexchange.com/a/269074
 \usepackage{siunitx}  % typeset units; from `texlive-science'
-\restoresymbol{SIX}{tablenum}  % `tablenum' from `siunitx' becomes `SIXtablenum'
+\restoresymbol{SI}{tablenum}  % `tablenum' from `siunitx' becomes `SItablenum'
 
 %% Chinese
 \usepackage{xeCJK}
@@ -95,6 +95,7 @@
 \DeclareSIUnit\year{yr}
 %
 \DeclareSIUnit\keV{\kilo\electronvolt}
+\DeclareSIUnit\kpc{\kilo\parsec}
 \DeclareSIUnit\uG{\micro\gauss}
 \DeclareSIUnit\Gyr{\giga\year}
 \DeclareSIUnit\MHz{\mega\hertz}
@@ -436,7 +437,7 @@ software with the subsequent observation simulation, as we described
 in Section~\ref{sec:obs-simulation}.
 We also make use of the Numba\footnote{Numba: A compiler for Python
   array and numerical functions; \url{http://numba.pydata.org/}}
-just-in-time compiler to optimize overall foreground simulation
+just-in-time compiler to optimize the overall foreground simulation
 speed of the our software.
 
 \LI{[New]} \TODO{[Needs improvements!]}
@@ -449,6 +450,7 @@ In this work, we simulate the foreground emissions within a sky
 patch of \SI[product-units=power]{10 x 10}{\deg} centered at
 (R.A., Dec.) = (\SI{0}{\degree}, \SI{-27}{\degree}), the ``EoR0'' field
 identified by the MWA \citep{beardsley2016}.
+\NOTE{[10 deg may be too small to account for the side lobes!]}
 The simulated foreground sky is large enough to not only take into
 account the side lobes of the interferometer, but also help the
 imaging procedure in the observation simulation stage.
@@ -810,7 +812,8 @@ accepted mechanism responsible for the radio halos \citep{feretti2012rev}.
 The turbulence re-acceleration likes a second-order Fermi process, i.e.,
 related with a random process, may be effective for only a few
 \SI{e8}{\year} during a merger, and thus not quite efficient
-\citep{feretti2012rev,enblin2011}.
+\citep{feretti2012rev,ensslin2011}.
+\LI{[Updated]}
 We approximate the effective acceleration timescale with the merger
 crossing time \citep{cassano2005}:
 \begin{equation}
@@ -818,23 +821,24 @@ crossing time \citep{cassano2005}:
   \tau_{\R{cross}} \simeq \frac{R_{\R{main}}}{v_{\R{imp}}},
 \end{equation}
 which is typically $\lesssim \SI{1}{\Gyr}$.
-In addition, the acceleration efficiency of electrons due to turbulent waves,
-which described by the acceleration timescale, can be then estimated as
-\citep{cassano2005,brunetti2011}:
+That means that the merger-induced turbulence is assumed to only accelerate
+the electrons from time $t_{\R{merger}}$ (when the merger begins at the
+redshift $z_{\R{merger}}$) to $t_{\R{merger}} + \tau_{\R{cross}}$.
+In addition, we can estimate the electron acceleration coefficient
+according to \citep{cassano2005}:
 \begin{equation}
-  \label{eq:tau-acc}
-  \tau_{\R{acc}}(t) \simeq \left\{
-    \begin{array}{ll}
-      0.1 / \beta_{\R{turb}}, & t \leq t_{\R{merger}} + \tau_{\R{cross}} \\
-      +\infty, & t > t_{\R{merger}} + \tau_{\R{cross}}
-    \end{array}
-  \right. \quad [\si{\Gyr}],
+  \label{eq:electron-acc}
+  \chi(t) \simeq 6.3 \,\eta_{\R{turb}}
+      \left( \frac{M_{\R{main}} + M_{\R{sub}}}{\SI{2e15}{\solarmass}} \right)^{3/2}
+      \left( \frac{k_BT}{\SI{7}{\keV}} \right)^{-1/2}
+      \left( \frac{R_{\R{halo}}}{\SI{500}{\kpc}} \right)^{-1}
+  \quad [\si{\per\Gyr}],
 \end{equation}
-where $\beta_{\R{turb}} \sim 1$ is a free parameter describing the
-relative intensity of the turbulence acceleration
-(we assume $\beta_{\R{turb}} = 1$ in this work \LI{[Update parameter]}),
-and $t_{\R{merger}}$ is the cosmic time when the merger begins
-(i.e., at redshift $z_{\R{merger}}$).
+where $\eta_{\R{turb}}$ is a free parameter roughly describing the fraction
+of the turbulence energy transformed into accelerating the electrons (i.e.,
+an index of the turbulence acceleration efficiency);
+and $k_BT$ and $R_{\R{halo}}$ are the mean temperature of the cluster ICM
+and the radio halo radius, respectively, which will be explained later.
 
 The time evolution of relativistic electrons spectrum with isotropic energy
 distribution can be derived by solving the Fokker-Planck equation
@@ -858,8 +862,7 @@ describing the interactions between electrons and turbulent waves,
 which is given by \citep{brunetti2011}:
 \begin{equation}
   \label{eq:diffusion-coef}
-  D_{\R{\gamma\gamma}}(\gamma, t) =
-    \frac{\gamma^2}{4 \,\tau_{\R{acc}}(t)}.
+  D_{\R{\gamma\gamma}}(\gamma, t) = \frac{\gamma^2}{4} \chi(t).
 \end{equation}
 In some energy ranges (e.g., $\gamma \sim 1000$), the diffusion may
 contribute more energies than those lost, therefore can accelerate electrons
@@ -936,7 +939,8 @@ but allow its strength to scale with the cluster mass as \citep{cassano2012}:
   B = B_{\langle{M}\rangle} \left( \frac{M}{\langle{M}\rangle} \right)^b,
 \end{equation}
 where $\langle {M} \rangle = \SI{1.6e15}{\solarmass}$, and we take
-$B_{\langle {M} \rangle} = \SI{1.9}{\uG}$ and $b = 1.5$ in this work.
+$B_{\langle {M} \rangle} = \SI{1.9}{\uG}$ and $b = 1.5$ in this work
+as suggested by \citet{cassano2006}.
 
 On the other hand,
 relativistic electrons lose energy via synchrotron radiation
@@ -944,9 +948,9 @@ and inverse Compton scattering off the CMB photons \citep{sarazin1999}:
 \begin{equation}
   \label{eq:eloss-rad}
   \left( \diff{\gamma}{t} \right)_{\R{rad}} =
-  \num{-1.37e-20} \,\gamma^2
+  \num{-4.32e-4} \,\gamma^2
   \left[ \left( \frac{B}{\SI{3.25}{\uG}} \right)^2 +
-  (1+z)^4 \right] \quad [\si{\per\second}],
+  (1+z)^4 \right] \quad [\si{\per\Gyr}],
 \end{equation}
 where $B$ is the magnetic field strength in the ICM.
 Meanwhile, electrons in the ICM also lose energy through
@@ -954,8 +958,8 @@ ionization and Coulomb collisions \citep{sarazin1999}:
 \begin{equation}
   \label{eq:eloss-ion}
   \left( \diff{\gamma}{t} \right)_{\R{ion}} =
-  \num{-1.20e-12} \,n_{\R{th}} \left[ 1 +
-    \frac{\ln(\gamma/n_{\R{th}})}{75} \right] \quad [\si{\per\second}],
+  \num{-3.79e4} \,n_{\R{th}} \left[ 1 +
+    \frac{\ln(\gamma/n_{\R{th}})}{75} \right] \quad [\si{\per\Gyr}],
 \end{equation}
 with $n_{\R{th}}$ in units of [\si{\per\cm\cubed}].
 
@@ -1054,6 +1058,9 @@ We simulate the cosmological EoR signal using \texttt{SimFast21}\footnote{
   SimFast21: \url{https://github.com/mariogrs/Simfast21}}
 \citep{santos2010,hassan2016}.
 
+We create the ``observed'' light-cone cube from the simulated coeval cubes
+following the procedure outlined by \citet{datta2012}.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Observation Simulation}
@@ -1075,6 +1082,7 @@ We simulate the cosmological EoR signal using \texttt{SimFast21}\footnote{
       imager; \url{https://sourceforge.net/p/wsclean/}} \citep{offringa2014}.
 \end{enumerate}
 
+\texttt{chandra\_repro}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results}
