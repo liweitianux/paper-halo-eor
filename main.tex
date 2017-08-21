@@ -64,6 +64,8 @@
 \newcommand{\Halpha}{\text{H$\alpha$}}
 \newcommand{\Hi}{H\textsc{i}}
 \newcommand{\Hii}{H\textsc{ii}}
+\newcommand{\klos}{$k_{\parallel}$}
+\newcommand{\kperp}{$k_{\bot}$}
 
 %% Marks
 \newcommand{\NOTE}[1]{\textcolor{violet}{\textbf{NOTE:}}~\uwave{#1}}
@@ -206,181 +208,171 @@
 \section{Introduction}
 \label{sec:intro}
 
-\noindent\hrulefill~\XU{[BEGIN]}~\hrulefill
-
-【 自 17-08-17 13:50 】
-
-The Epoch of Reionization (EoR) is a cosmological periodization referring to
-a period of our universe preceded by the dark age. During EoR, which lasted
-from about 150 million to 1 billion years after the Big Bang (i.e., at a
-redshift $?? < z < ??$; ref??), reionization primarily caused by the $uv$
-and soft X-ray photons from the first generation celestial objects surpassed
-the cooling of the gas through recombination of electrons and protons. As a
-result the majority of baryonic matter was again in highly ionized state.
+The Epoch of Reionization (EoR; $z \sim \numrange{15}{6}$) is a
+cosmological periodization referring to a period of our Universe preceded
+by the Cosmic Dawn ($z \sim \numrange{30}{15}$) and the Dark Ages
+($z \sim \numrange{200}{30}$).
+During the EoR, which lasted from about 300 million to 1 billion years
+after the Big Bang, the reionization of neutral hydrogen (\Hi) primarily
+caused by the ultra-violet and soft X-ray photons from the first
+generation celestial objects surpassed the cooling of the gas through
+recombination of electrons and protons.
+As a result the majority of baryonic matter was again in highly ionized state.
 Comparing with the observations of distant quasars and cosmic microwave
 background (CMB), which have provided some loose constraints on the
-reionization process, the detection the redshifted 21 cm emission from
-neutral hydrogen, especially those from the adjacent regions of the ionized
-bubbles, is recognized to be the decisive tool to directly reveal this epoch
-(ref??).
+reionization process, the detection the redshifted 21 cm line emission
+from \Hi, especially those from the adjacent regions of the ionized bubbles,
+is recognized to be the decisive tool to directly reveal this epoch
+\citep[see][for reviews]{zaroubi2013rev,furlanetto2016rev}.
 
-In order to probe EoR a number of radio interferometric experiments working
-in $\sim 100 - 200$ MHz have been designed to target the redshifted 21 cm
-signals. These include the LOw Frequency ARray (LOFAR; Harker et al. 2010;
-Jelic et al. 2008; Labropoulos et al. 2009; Yatawatta et al. 2013; van
-Haarlem et al. 2013), 21 CentiMeter Array (21CMA; Zheng et al. 2012), the
-Giant Meterwave Radio Telescope (GMRT; Pen et al. 2009; Paciga et al. 2010;
-Paciga et al. 2013), the MIT Epoch of Reionization Experiment (MITEoR; Zheng
-et al. 2014), the Donald C. Backer Precision Array for Probing the Epoch of
-Reionization (PAPER; Backer et al. 2007; Parsons et al. 2010) the Murchison
-Widefield Array (MWA; Mitchell et al. 2008; Lonsdale et al. 2009; Bowman et
-al. 2006; Lonsdale et al. 2009; Tingay et al. 2013; Bowman et al. 2013), and
-those to be built and operated in the near future, such as the Square
-Kilometre Array (SKA; ref??) and the Hydrogen Epoch of Reionization Arrays
-(HERA; ref??)
-% 【每个实验均书写冠名全称，引用最原始的1-2篇文献】.
+In order to probe the EoR, a number of radio interferometric experiments
+working at the \SIrange[range-units=single]{\sim 100}{200}{\MHz}
+low-frequency band have been designed to target the redshifted 21 cm signals.
+These include the LOw Frequency ARray (LOFAR; \citealt{vanHaarlem2013}),
+the 21 CentiMeter Array (21CMA; \citealt{zheng2016}),
+the Giant Meterwave Radio Telescope (GMRT; \citealt{paciga2011}),
+the MIT Epoch of Reionization Experiment (MITEoR; \citealt{zheng2014}),
+the Donald C. Backer Precision Array for Probing the Epoch of
+Reionization (PAPER; \citealt{parsons2010}),
+the Murchison Widefield Array (MWA; \citealt{bowman2013,tingay2013}),
+and those to be built and operated in the near future, such as the Square
+Kilometre Array (SKA; \citealt{mellema2013rev,koopmans2015rev}) and
+the Hydrogen Epoch of Reionization Arrays (HERA; \citealt{deboer2017}).
 
-The challenges in these experiments, however, are particularly significant
-due to a variety of complex instrumental effects (gain, chromatic point
-spread function, polarization effects, sidelobe, noise, etc), ionospheric
-distortions, radio frequency interference (RFI【如果只出现一次似无需缩写】),
-and strong celestial foregrounds. For example, the magnitude of the
-cumulative foreground sources, which is mainly contributed by the diffuse
-polarized synchrotron radiation from the Milky Way and is complicated by
-other components, such as the non-thermal continuum radiation of numerous
-extragalactic radio sources, overwhelms the 21 cm signals by $4 - 5$ orders
-(ref??), indicating that even a sub-percent-level bias in modeling the
-foreground is sufficient to impede any attempt to recover the 21 cm signals
-(e.g., Beardsley et al. 2016 ApJ??; ??; ??
-% 【最好引用MWA、PAPER等实测、且谈及前景的文献】).
+The challenges in these EoR experiments, however, are particularly
+significant due to a variety of complicated instrumental effects
+(e.g., intrinsic chromaticity, direction-dependent response, side lobes,
+polarization leakages, noises), ionospheric distortions, radio frequency
+interference, and the strong celestial foreground contamination.
+For example, the intensity of the cumulative foreground sources, which
+is mainly contributed by the diffuse polarized synchrotron radiation from
+our Milky Way and is complicated by other components, such as the
+non-thermal continuum radiation of numerous extragalactic radio sources,
+overwhelms the redshifted 21 cm signals by \numrange{4}{5} orders of
+magnitude, indicating that even a sub-percent-level bias in modeling
+the foreground is sufficient to impede any attempt to recover the EoR
+signals \citep[e.g.,][]{beardsley2016,murray2017,procopio2017}.
 
-A variety of statistical and blind source separation approaches have been
-proposed to remove one or more foreground components that contaminate the
-EoR signals, and they can be classified into two broad categories:
-foreground removal (ref??) and foreground avoidance (ref??). Foreground
-removal refers to the approaches with which the foreground components are
-directly separated from EoR signals by applying appropriate foreground
-models. Foreground avoidance, on the other hand, offers an opportunity to
-recover a significant part of the EoR signals by abandoning a wedge-shaped
-region in the Fourier $k_{\bot} - k_{\parallel}$ space (i.e., cylindrical
-power spectrum; The subscript $\bot$ denotes the direction along the line of
-sight, and $\parallel$ the direction perpendicular to $\bot$), where the
-contamination of the spectrally smooth foreground signals dominate the data
-only on small $k_{\parallel}$ scales
-% 【视场的问题-大k_//时三角形形状的由来-是否也请用简练词语补上】.
-In the latter case the region free of foreground is
-defined as the EoR window, which has been explored recently both by
-simulations (e.g., ref??) and by analyzing actual data acquired with, e.g.,
-the PAPER1 (Ali et al. 2015) and MWA (Paul et al. 2016)
-% 【近期是否还有其它观测??】.
+A variety of approaches have been proposed to tackle the overwhelming
+foreground in order to uncover the EoR signals, and they can be classified
+into two broad categories: foreground removal (or subtraction) and
+foreground avoidance.
+Foreground removal refers to the approaches with which the foreground
+components are directly separated from EoR signals by applying appropriate
+foreground models.
+These approaches can be further divided into two families:
+the parametric ones \citep[e.g.,][]{wang2006,jelic2008,liu2009,wang2013}
+and the non-parametric ones
+\citep[e.g.,][]{harker2009,wang2010,chapman2012,chapman2013,gu2013}.
+\TODO{[needs improve]}
+Foreground avoidance, on the other hand, carries out the EoR analyses
+inside the so-called ``EoR window'' to avoid the severe foreground
+contamination in the 2D cylindrical power spectrum in (\kperp, \klos)
+domain, which represent the wavenumbers perpendicular and along the
+line of sight, respectively.
+In such 2D cylindrical power spectrum, the spectrally smooth foreground
+will reside in a well-defined region at small \klos.
+The intrinsic chromaticity and other instrumental effects of the
+interferometer can throw the angular (i.e., \kperp) foregrounds into
+the frequency (i.e., \klos) direction, resulting a wedge-shaped foreground
+contaminating region.
+Fortunately, an uncontaminated region is expected and dominated by the
+EoR signal, defining the ``EoR window'', which has been explored recently
+both by simulations
+\citep[e.g.,][]{datta2010,thyagarajan2013,thyagarajan2015,barry2016},
+by theoretical analyses \citep[e.g.,][]{morales2012,hazelton2013,liu2014},
+and by analyzing real observations acquired with, e.g.,
+the PAPER \citep{pober2013,ali2015},
+the LOFAR \citep{patil2017},
+and the MWA \citep{dillon2015,beardsley2016,procopio2017}.
 
 Note, however, that there are advantages and disadvantages for both
-approaches (e.g., Pober et al. 2013; Chapman et al. 2016; Jensen et al.
-2016). For example, foreground removal approaches keep complete information
-of EoR in the study, but have to minimize the risk of suffering severe
-foreground residuals. Foreground aoidance approaches, on the other hand,
-deal with the data free of foreground, but lose all of the modes outside the
-EoR window. Also, foreground avoidance strongly depends on the assumption
-that the wedge-shaped region can be well-defined, i.e., no significant
-foreground signals leak into the window.
+approaches
+\citep[see][and references therein]{chapman2016}.
+For example, foreground removal approaches can keep the information
+of EoR at all scales (i.e., all $k$ modes) in the study, but have to
+minimize the risk of suffering severe foreground residuals, which is
+quite challenging.
+Foreground avoidance approaches, on the other hand, deal with the
+data free of foreground contamination, but lose a significant part of
+the EoR information outside the EoR window.
+Also, foreground avoidance strongly depends on the assumption
+that the foreground wedge can be well-defined, which may not hold
+since the foreground contamination can leak into the EoR window due
+to the complicated instrumental and observational effects and
+calibration imperfections
+\citep[e.g.,][]{barry2016,pober2016,jacobs2016,nunhokee2017}.
+Thus the foreground avoidance strategy is by no means optimal, and
+removal algorithms are still an active field of research.
+\TODO{[补充一两句关于 hybrid method]}
 
+\TODO{[问题: foreground avoidance 与 cluster subtraction 矛盾，需要
+  改写该段说法. 我们将采用的评估方法类似 hybrid method.
+  补充文献支持我们的方法是合适的...]}
 In this paper we attempt to investigate the effects of the contamination
-contributed by galaxy clusters in foreground avoidance, 【and discuss how
-they can be removed safely in upcoming SKA experiment是否可能谈及??】. Among
-various celestial foreground components, the cluster component is relatively
-less discussed, although it may contribution about ??\% of the extragalactic
-foreground power in $50 - 200$ MHz, where the EoR signals are expected to
-appear. As of today, limited by the insufficient sensitivity and the
-relatively small sample (about ?? diffuse giant/mini radio halos and ??
-enlongated radio relics), the origin of the low frequency radio emission of
-galaxy clusters, mostly in the form of synchrotron emission, is still poorly
-understood. The task of correctly modeling the radio emission of galaxy
-clusters becomes more challenging when we extend our consideration to either
-the faint end or higher redshifts ($1 < z < 3$??). Obviously, if the
-cumulative contribution of both the low-flux cluster sources and the
-residuals caused by missubtraction of the brightest clusters, which is
-estimated to be about/at least 2?? orders of magnitude above the EoR
-signals,
-is not properly treated, it will interact with instrumental effects and
-leave intangible noise-like contamination in foreground avoidance
-(i.e., mode mixing) as an impediment to detection of EoR signals (e.g.,
-Datta et al. 2010; Pober 2013 PAPER results文; Beardsley et al. 2016 MWA初步
-结果文; Morales 2012; ).
+contributed by galaxy clusters (in foreground avoidance???), and discuss
+how they can be removed safely in the upcoming SKA experiment.
+Among various celestial foreground components, the cluster component is
+relatively less discussed, although it may contribute about ??\%
+\LI{[星系团对前景的总强度贡献很小，考虑到其数目相对少，覆盖率很低.]}
+of the extragalactic foreground power in $50 - 200$ MHz, where the
+EoR signals are expected to appear.
+As of today, limited by the insufficient sensitivity and the relatively
+small sample (about 100 giant/mini radio halos and 70 radio relics),
+the origin of the low frequency radio emission of galaxy clusters,
+mostly in the form of synchrotron emission, is still poorly understood.
+The task of correctly modeling the radio emission of galaxy clusters
+becomes more challenging \LI{[为什么??]} when we extend our consideration
+to either the faint end or higher redshifts ($z \gtrsim 1$).
+\TODO{[问题: 星系团的亮度约为 EoR 信号的 100 倍，但由于覆盖程度低，
+  其视场内的总强度不会明显强于 EoR 信号的总强度.]}
+Obviously, if the cumulative contribution of both the low-flux cluster
+sources and the residuals caused by inaccurate subtraction of the
+bright clusters, which is estimated to be about/at least 2?? orders
+of magnitude above the EoR signals, is not properly treated, its contamination
+will leak into the EoR window due to the interact with instrumental effects
+and calibration issues, which becomes an impediment to detection of EoR
+signals \citep[e.g.,][]{datta2010,pober2013,beardsley2016,procopio2017}.
 
-This paper is organized as follows. In \S?? we describe the details of our
-new software name?? v??【加注脚注；网址】, which has been developed to
-simulate the low frequency sky based on the works of Wang et al. (2010,
-2013??). Comparing with our previous works, the simulations of the Galactic,
-extragalactic point source, and ?? components have been improved. In
-particular, we have significantly enhanced the modeling of galaxy clusters
-by applying ?? and ??new model/theory/algorithm??. In \S?? we model a
-$10^{\circ} \times 10^{\circ}$ deep sky region in $?? - ??$ MHz, which is
-analogous to those be observed with SKA1-low (see ref?? for updated SKA
-observing strategy), with oursoftwarename?? v??, and incorporate the
-obtained sky model with the SKA instrumental responses available at ?? into
-the OSKAR software v?? (ref??; 同时脚注网址) to simulate visibility data
-sets. Then we create sky images using CASA v?? (ref??), construct the
-residual dirty maps by applying the name?? cleaning algorithm (ref??), and
-calculate cylindrical power spectra via 3D Fourier transform of the dirty
-maps. In \S?? we quantitatively examine to what extent the EoR window is
-contaminated by the residuals contributed by missubtracted and un-subtracted
+This paper is organized as follows.
+In Section~\ref{sec:fg-simu} we describe the details of our new software
+\texttt{fg21sim}\footnote{FG21sim: \url{https://github.com/liweitianux/fg21sim}}
+(version 1) \LI{[release this version on submission]},
+which has been developed to simulate the low frequency sky based on the
+works of \citet{wang2010,wang2013}.
+Comparing to our previous works, the simulations of the Galactic,
+and galaxy clusters components have been improved.
+In particular, we have significantly enhanced the modeling of galaxy clusters'
+emission by applying a merger-induced turbulence re-acceleration model.
+Section~\ref{sec:eor-simulation} gives the cosmological EoR signal simulation
+using the \texttt{SimFast21}\footnote{SimFast21:
+  \url{https://github.com/mariogrs/Simfast21}} (version 20170627)
+software \citep{santos2010,hassan2016}.
+In Section~??? we model a \SI[product-units=power]{10 x 10}{\deg} deep sky
+patch among a \SI{8}{\MHz} band centered at \SI{158}{\MHz}, which is
+analogous to those will be observed with SKA1-Low
+\citep[see][for updated SKA observing strategies]{koopmans2015rev},
+with our software \texttt{fg21sim},
+and input the obtained sky model as well as EoR signals into the
+\texttt{OSKAR}\footnote{OSKAR: \url{https://github.com/OxfordSKA/OSKAR}}
+(version 20170619) with the current available SKA1-Low configuration to
+simulate the visibility data sets \citep{mort2010}.
+Then we create ``observed'' sky images using the
+\texttt{WSClean}\footnote{WSClean: \url{https://sourceforge.net/p/wsclean/}}
+(version 2.2.1) with the joined-channel deconvolution
+\citep{offringa2014,offringa2017}, from which the 2D cylindrical power spectra
+are calculated by fast Fourier transformation.
+In Section~??? we quantitatively examine to what extent the EoR window is
+contaminated by the residuals contributed by mis-subtracted and un-subtracted
 galaxy clusters.
 
-【 至 17-08-19 17:20 】
+We adopt a flat \lcdm{} cosmology throughout this work with
+$H_0 = \SI{100}{\hubble} = \SI{71}{\km\per\second\per\Mpc}$,
+$\Omega_m = 0.27$, $\Omega_{\Lambda} = 1 - \Omega_m = 0.73$,
+$\Omega_b = 0.046$, $n_s = 0.96$, and $\sigma_8 = 0.81$
+\citep{komatsu2011}.
 
-\noindent\dotfill~\XU{[END]}~\dotfill
-
-The epoch of reionization (EoR) and cosmic dawn are one of the periods
-that totally lack observational evidences, while a better understanding
-of these important stages will greatly help us comprehend the whole
-evolution of the Universe, especially the formation of large-scale structures,
-and evolution of galaxy clusters.
-The \SI{21}{\cm} line emission from the neutral hydrogen (\Hi) throughout
-the Universe provides us with an excellent means to probe these ``dark''
-stages \citep[see][for a recent review]{zaroubi2013rev}.
-However, the current generation of low-frequency facilities,
-e.g., LOFAR\footnote{LOFAR: LOw-Frequency ARray; \url{http://lofar.org/}}
-\citep{vanHaarlem2013},
-MWA\footnote{MWA: Murchison Widefield Array;
-  \url{http://www.mwatelescope.org/}} \citep{tingay2013},
-PAPER\footnote{PAPER: Precision Array for Probing the Epoch of Reionization;
-  \url{http://eor.berkeley.edu/}} \citep{parsons2010},
-are lacking the sensitivity to detect the very faint \Hi{} EoR signals.
-The next-generation SKA\footnote{SKA: Square Kilometre Array;
-  \url{https://skatelescope.org/}} \citep{mellema2013rev,koopmans2015rev}
-\LI{[How to also include HERA?]}
-with its unprecedented power, will enable
-us not only to successfully detect them through power spectrum measurements,
-but also to reveal the pictures of the whole reionization process.
-
-The greatest challenge to make the successful detection of the EoR signals
-is the overwhelming foreground pollution, which is generally \numrange{4}{5}
-orders of magnitude in strength with respect to the target EoR signals.
-To accurately remove or separate such strong foregrounds, a realistic
-foregrounds model is of great importance, and is very necessary to help
-develop and evaluate foreground removal methods, since very small residuals
-will damage the faint signal or bias its measurements \citep{procopio2017}.
-In the framework of EoR detection, the galaxy clusters, as one of the
-major foreground contamination components, lack enough attentions in the
-literature,
-but we believe that they are worth a much more serious treatment:
-\XU{[引言之中不能如此详细列表]}
-\begin{itemize}
-  \item bright: \numrange{\sim 2}{3} orders of magnitude stronger
-    than the EoR signals;
-  \item extended: relatively large angular sizes, may extend to several tens
-    of arcminutes, corrupting the underlying EoR signal, which appears
-    at similar scales;
-  \item complicated morphology: very hard to model and subtract them,
-    and may severely suffers from various point spread function (PSF) fringes
-    due to interferometers' incomplete $(u,v)$-plane coverage, and all kinds
-    of instrumental effects;
-  \item varying spectral indexes/shapes across the extended emission;
-  \item different types of extended emission, e.g., giant halo, mini-halo,
-    and relics;
-  \item highly-polarized radio relics may cause more troubles both in the
-    image domain and in the power spectra.
-\end{itemize}
+\noindent\hrulefill~\LI{[OLD]}~\hrulefill
 
 In addition, galaxy clusters are also important objects of study in their
 own right:
@@ -490,11 +482,6 @@ effects into account.
 From the simulate image cube, we investigate how radio halos impact
 the detection of EoR signal, in both the image domain and the (2D)
 power spectrum domain.
-
-We adopt a flat \lcdm{} cosmology throughout this work with
-$H_0 = \SI{100}{\hubble} = \SI{71}{\km\per\second\per\Mpc}$,
-$\Omega_m = 0.27$, $\Omega_{\Lambda} = 1 - \Omega_m = 0.73$,
-$\Omega_b = 0.046$, and $\sigma_8 = 0.81$ \citep{komatsu2011}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1173,6 +1160,13 @@ Finally, we simulate the appearance of each radio halo as an ellipse by
 randomly assigning an ellipticity $f_e$ and a rotation angle $\phi$,
 and then superimpose all the halo images to the sky patch to obtain the
 simulated images of radio halos at each frequency of interest.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Radio Relics}
+\label{sec:relic}
+
+\TODO{Simulate (elongated) radio relics...}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
