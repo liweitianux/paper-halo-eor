@@ -40,6 +40,7 @@ endif
 
 clean:
 	latexmk -c main.tex
+	touch main.tex
 
 cleanall:
 	latexmk -C main.tex
