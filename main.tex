@@ -85,7 +85,11 @@
 
 %% Settings for package `siunitx'
 % credit: https://tex.stackexchange.com/a/194042
-\sisetup{range-phrase=\text{--}}
+\sisetup{
+  range-phrase=\text{--},
+  range-units=single,
+  product-units=power
+}
 %
 %% Custom units (requires `siunitx' package)
 \DeclareSIUnit\arcsec{arcsec}
@@ -94,6 +98,7 @@
 \DeclareSIUnit\deg{deg}
 \DeclareSIUnit\erg{erg}
 \DeclareSIUnit\gauss{G}
+\DeclareSIUnit\hour{hr}  % overwrite hour from 'h' to 'hr'
 \DeclareSIUnit\hubble{\text{$h$}}
 \DeclareSIUnit\jansky{Jy}
 \DeclareSIUnit\lightyear{ly}
@@ -232,8 +237,8 @@ is recognized to be the decisive tool to directly reveal this epoch
 \citep[see][for reviews]{zaroubi2013rev,furlanetto2016rev}.
 
 In order to probe the EoR, a number of radio interferometric experiments
-working at the \SIrange[range-units=single]{\sim 100}{200}{\MHz}
-low-frequency band have been designed to target the redshifted 21 cm signals.
+working at the \SIrange{\sim 100}{200}{\MHz} low-frequency band have been
+designed to target the redshifted 21 cm signals.
 These include the LOw Frequency ARray (LOFAR; \citealt{vanHaarlem2013}),
 the 21 CentiMeter Array (21CMA; \citealt{zheng2016}),
 the Giant Meterwave Radio Telescope (GMRT; \citealt{paciga2011}),
@@ -498,7 +503,6 @@ power spectrum domain.
 \XU{目标之中: 多大范围? 什么尺度? 应描写前景模拟软件... 并加以量化,
   说明此工作的重大进步/意义.}
 
-\LI{[Rewritten]}
 At the low-frequency radio band, the foreground emission of various
 origins is generally \numrange{4}{5} orders of magnitude stronger
 than the EoR signal of our interest.
@@ -519,11 +523,11 @@ emissions on the one hand, and provide us with both guidelines for
 developing targeted foreground removal methods as well as the
 evaluation data on the other hand.
 
-\LI{[Rewritten]}
 In this section, we first introduce how to simulate the Galactic
 synchrotron (unpolarized) emission, and Galactic free-free emission.
 Then we describe in details the physically motivated method we proposed
 to simulate the extended radio halos from galaxy clusters.
+\LI{[add radio relics]}
 Considering that we focus on simulating the radio halos from galaxy
 clusters and evaluating their impacts on the EoR detection experiments,
 we have left out the foreground emissions from Galactic supernova remnants
@@ -543,7 +547,7 @@ sake of achieving a more rational classification and more sophisticated
 morphologies for the point sources
 (Ma et al. in preparation; Shan et al. in preparation).
 
-\LI{[Moved]}
+\LI{[needs update]}
 We have implemented the proposed foreground simulation techniques in the
 \texttt{fg21sim} open-source software available at
 \url{https://github.com/liweitianux/fg21sim}.
@@ -555,25 +559,6 @@ more thoroughly, or have access to better observational evidences.
 We also provide some utilities to make it easier to integrate the
 software with the subsequent observation simulation, as we described
 in Section~\ref{sec:obs-simulation}.
-We also make use of the Numba\footnote{Numba: A compiler for Python
-  array and numerical functions; \url{http://numba.pydata.org/}}
-just-in-time compiler to optimize the overall foreground simulation
-speed of the our software.
-
-\LI{[New]} \TODO{[Needs improvements!]}
-According to the current published specifications \citep{dewdney2015ska},
-the SKA1-Low interferometer consists of antenna stations of \SI{35}{\meter}
-in diameter, and has baselines up to \SI{\sim 65}{\kilo\meter},
-which corresponds to a FoV of \SI[product-units=power]{\sim 4 x 4}{\deg}
-and angular resolution of \SI{\sim 7}{\arcsec} at \SI{158}{\MHz}.
-In this work, we simulate the foreground emissions within a sky
-patch of \SI[product-units=power]{10 x 10}{\deg} centered at
-(R.A., Dec.) = (\SI{0}{\degree}, \SI{-27}{\degree}), the \enquote{EoR0}
-field identified by the MWA \citep{beardsley2016}.
-\NOTE{[10 deg may be too small to account for the side lobes!]}
-The simulated foreground sky is large enough to not only take into
-account the side lobes of the interferometer, but also help the
-imaging procedure in the observation simulation stage.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -724,7 +709,7 @@ evolution of relativistic electrons within the cluster ICM.
 We present our improved simulation method to the galaxy clusters in this
 section.
 
-\TODO{[Include radio relics.]}
+\TODO{[Include radio relics, and update the descriptions.]}
 \TODO{[Explain the exclusion of mini-halos and roundish relics!]}
 
 
@@ -1185,12 +1170,12 @@ the \SI{21}{\cm} signal is obtained \citep{santos2010}.
 In this work, we simulated a cube of \SI{500}{\cMpc} (comoving \si{\Mpc})
 and 500 cells along each side.  \texttt{SimFast21} performed the
 simulation from redshift $z=9$ to $z=7$ with a step of $\Delta z = 0.1$,
-and produced a set of so-called coeval cubes containing the \SI{21}{\cm}
-signal brightness temperature distribution at a single look-back time
-(i.e., same cosmological redshift) for each of them.
+and produced a set of so-called \enquote{coeval cubes} containing the
+\SI{21}{\cm} signal brightness temperature distribution at a single
+look-back time (i.e., same cosmological redshift) for each of them.
 These simulated coeval cubes cannot been observed in practice, but the
-observable light-cone cube can be created from them using the method
-outlined by \citet{datta2012}.
+observable \enquote{light-cone cube} can be created from them using the
+method outlined by \citet{datta2012}.
 From the light-cone cube, we extract the brightness temperature slices
 at requested frequencies by interpolating along the comoving distance
 (i.e., redshift).
@@ -1204,18 +1189,49 @@ them have the same angular and image sizes as our foreground maps.
 \section{Observation Simulation}
 \label{sec:obs-simulation}
 
-\TODO{Write!!!}
+To investigate the practical contamination in the EoR window due to the
+galaxy clusters, we need to simulate the \enquote{observed} images of
+the above simulated foreground sky and EoR signal.
+For this purpose,
+we adopt the latest SKA1-Low layout configuration\footnote{%
+  SKA-TEL-SKO-0000422: SKA1-low Configuration Coordinates: \url{https://astronomers.skatelescope.org/wp-content/uploads/2016/09/SKA-TEL-SKO-0000422_02_SKA1_LowConfigurationCoordinates-1.pdf}}
+released on 2016 May 21.
+The SKA1-Low interferometer consists of 512 stations, with 224 of them
+randomly distributed within the \enquote{core} of \SI{1000}{\meter} in
+diameter, while rest of the stations are grouped into \enquote{clusters}
+and arranged on 3 spiral arms extending up to a radius of
+\SI{\sim 35}{\kilo\meter}.
+Each station has 256 antennas randomly distributed with a minimum separation
+of $d_{\R{min}} = \SI{1.5}{\meter}$ inside a circular region of
+\SI{35}{\meter} in diameter.
+With this layout configuration, the dense core makes the SKA1-Low very
+sensitive to the EoR signal, while the long baselines greatly help the
+foreground characterization and removal, as well as other scientific goals.
+For example, at \SI{158}{\MHz}, the SKA1-Low has a FoV of
+\SI{\sim 4 x 4}{\deg}, and angular resolution of \SI{\sim 7}{\arcsec}.
 
-\begin{enumerate}
-\item Generate the SKA1-low configuration\footnote{%
-    SKA-TEL-SKO-0000422: SKA1-low Configuration Coordinates: \url{https://astronomers.skatelescope.org/wp-content/uploads/2016/09/SKA-TEL-SKO-0000422_02_SKA1_LowConfigurationCoordinates-1.pdf}};
+Both the observation simulation and imaging are very computational
+intensive, but our computing resources are rather limited, so we can
+only choose a set of conservative parameters.
+The \SIrange{154}{162}{\MHz} band of our interest is divided into 51
+channels with a frequency channel width of \SI{160}{\kilo\hertz}.
+The sky maps simulated in previous sections are centered at (R.A., Dec.)
+= (\SI{0}{\degree}, \SI{-27}{\degree}), such that the observing field
+will pass through the zenith of the interferometer, and this position
+is also the center of the \enquote{EoR0} field identified by the MWA
+\citep{beardsley2016}.
+At each frequency channel, the sky map is tapered by a Tukey window
+function to suppress the side-lobe impacts, and then input into the
+\texttt{OSKAR} simulator \citep{mort2010} to perform the observation
+for \SI{6}{\hour} ($\pm \SI{3}{\hour}$ in Hour Angle) with a time
+averaging step of \SI{2}{\minute}.
 
-  \item Simulate the visibility data for the sky image/model at each
-    frequency channel using \texttt{OSKAR} \citep{mort2010};
-
-  \item Create image cube with CLEAN algorithm using
-    \texttt{WSClean} \citep{offringa2014}.
-\end{enumerate}
+The simulated visibility data at each frequency channel are combined
+to create the \enquote{observed} image cube using the \texttt{WSClean}
+imager \citep{offringa2014} with Briggs weighting and joined-channel
+deconvolution \citep{offringa2017}.
+We then crop out the central \SI{4 x 4}{\deg} to create the 2D cylindrical
+power spectrum, as described in Appendix~\ref{sec:power-spectrum}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1346,7 +1362,7 @@ This work is supported by the National Science Foundation of China
   NumPy (\url{http://www.numpy.org/}),
   Vim (\url{http://www.vim.org/}),
   Emacs (\url{https://www.gnu.org/s/emacs/}),
-  OSKAR, WSClean, IPython, Jupyter Notebook, ...
+  OSKAR, WSClean, IPython, Jupyter Notebook, Matplotlib, ...
 }
 
 
