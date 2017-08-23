@@ -90,6 +90,7 @@
 %% Custom units (requires `siunitx' package)
 \DeclareSIUnit\arcsec{arcsec}
 \DeclareSIUnit\arcmin{arcmin}
+\DeclareSIUnit\cMpc{cMpc}  % comoving Mpc
 \DeclareSIUnit\deg{deg}
 \DeclareSIUnit\erg{erg}
 \DeclareSIUnit\gauss{G}
@@ -1178,14 +1179,32 @@ simulated images of radio halos at each frequency of interest.
 \section{EoR Signal Simulation}
 \label{sec:eor-simulation}
 
-\TODO{Write!!!}
+We simulate the cosmological EoR signal using the \texttt{SimFast21}
+(version 20170627) software, which can perform fast simulations to the
+\Hi{} \SI{21}{\cm} signal during and prior to the EoR by utilizing a
+semi-numerical scheme \citep{santos2010,hassan2016}.
+\texttt{SimFast21} generates 3D realizations of the dark matter density
+fields and models their evolution to determine the collapsed dark matter
+halos using an excursion-set algorithm, then derives the ionizing sources
+and their time evolution, from which the final brightness temperature of
+the \SI{21}{\cm} signal is obtained \citep{santos2010}.
 
-We simulate the cosmological EoR signal using \texttt{SimFast21}\footnote{
-  SimFast21: \url{https://github.com/mariogrs/Simfast21}}
-\citep{santos2010,hassan2016}.
-
-We create the ``observed'' light-cone cube from the simulated coeval cubes
-following the procedure outlined by \citet{datta2012}.
+In this work, we simulated a cube of \SI{500}{\cMpc} (comoving \si{\Mpc})
+and 500 cells along each side.  \texttt{SimFast21} performed the
+simulation from redshift $z=9$ to $z=7$ with a step of $\Delta z = 0.1$,
+and produced a set of so-called coeval cubes containing the \SI{21}{\cm}
+signal brightness temperature distribution at a single look-back time
+(i.e., same cosmological redshift) for each of them.
+These simulated coeval cubes cannot been observed in practice, but the
+observable light-cone cube can be created from them using the method
+outlined by \citet{datta2012}.
+From the light-cone cube, we extract the brightness temperature slices
+at requested frequencies by interpolating along the comoving distance
+(i.e., redshift).
+We note that these extracted slices only have an angular size of
+\SI{\sim 3}{\deg} (observed at \SI{158}{\MHz}), which is much smaller
+than our needs.  Therefore, we tile and re-scale these slices to make
+them have the same angular and image sizes as our foreground maps.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
