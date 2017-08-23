@@ -365,7 +365,7 @@ and input the obtained sky model as well as EoR signals into the
 simulate the visibility data sets \citep{mort2010}.
 Then we create \enquote{observed} sky images using the
 \texttt{WSClean}\footnote{WSClean: \url{https://sourceforge.net/p/wsclean/}}
-(version 2.2.1) with the joined-channel deconvolution
+(version 2.4) with the joined-channel deconvolution
 \citep{offringa2014,offringa2017}, from which the 2D cylindrical power spectra
 are calculated by fast Fourier transformation.
 In Section~??? we quantitatively examine to what extent the EoR window is
@@ -595,7 +595,7 @@ The Haslam \SI{408}{\MHz} all-sky map is one of the most important
 observations at the low-frequency regime, though has a rather limited
 resolution of \SI{\sim 56}{\arcmin}.
 \citet{remazeilles2015} have reprocessed the rawest available data
-and obtained a much improved Haslam \SI{408}{\MHz} map\footnote{
+and obtained a much improved Haslam \SI{408}{\MHz} map\footnote{%
   The 2014 reprocessed Haslam \SI{408}{\MHz} map:
   \url{http://www.jb.man.ac.uk/research/cosmos/haslam_map/}}
 with significantly better calibration and extragalactic source removal,
@@ -623,18 +623,13 @@ a power-law spectrum \citep{wang2010,bonaldi2015}:
 \end{equation}
 where $T_b^{\R{syn}}(\bm{r}, \nu)$ is the Galactic synchrotron intensity
 expressed in brightness temperature at sky position $\bm{r}$ and
-frequency $\nu$, and $\alpha_{\R{syn}}(\bm{r}) \sim \numrange{2.7}{3.2}$ is
-the position-dependent synchrotron spectral index \citep{davies1996}.
-We use the all-sky map of synchrotron spectral index provided by the
-Planck Sky Model\footnote{Planck Sky Model:
-  \url{http://www.apc.univ-paris7.fr/~delabrou/PSM/psm.html}}
-\citep{delabrouille2013,alonso2015}.
-
-\NOTE{I have asked G. Giardino for the all-sky spectral index map
-  they derived using the 408, 1420, and 2326 MHz surveys, which I think
-  is more appropriate for the low frequencies than the  PSM's one.
-  Already got a basic reply, waiting for her sending me the spectral
-  index map in about a week ...}
+frequency $\nu$, and $\alpha_{\R{syn}}(\bm{r}) \sim 2.7$ is
+the position-dependent synchrotron spectral index.
+We use the all-sky map of synchrotron spectral index made by
+\citet{giardino2002}, which was derived from the Haslam \SI{408}{\MHz}
+all-sky survey and the northern sky continuum survey at \SI{1420}{\MHz}
+\citep{reich1986} combined with the southern sky survey at
+\SI{2326}{\MHz} \citep{jonas1998}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1214,20 +1209,16 @@ them have the same angular and image sizes as our foreground maps.
 \TODO{Write!!!}
 
 \begin{enumerate}
-\item Generate the SKA1-low configuration\footnote{
+\item Generate the SKA1-low configuration\footnote{%
     SKA-TEL-SKO-0000422: SKA1-low Configuration Coordinates: \url{https://astronomers.skatelescope.org/wp-content/uploads/2016/09/SKA-TEL-SKO-0000422_02_SKA1_LowConfigurationCoordinates-1.pdf}};
 
   \item Simulate the visibility data for the sky image/model at each
-    frequency channel using \texttt{OSKAR}\footnote{
-      OSKAR: A GPU accelerated simulator for SKA;
-      \url{https://github.com/OxfordSKA/OSKAR}} \citep{mort2010};
+    frequency channel using \texttt{OSKAR} \citep{mort2010};
 
   \item Create image cube with CLEAN algorithm using
-    \texttt{WSClean}\footnote{WSClean: A fast widefield interferometric
-      imager; \url{https://sourceforge.net/p/wsclean/}} \citep{offringa2014}.
+    \texttt{WSClean} \citep{offringa2014}.
 \end{enumerate}
 
-\texttt{chandra\_repro}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results}
@@ -1237,7 +1228,7 @@ them have the same angular and image sizes as our foreground maps.
 
 \TODO{Distribute the results (e.g., simulated images) into previous sections,
   and then merge this section (e.g., scaling relations and comparisons)
-  with the next ``discussions'' section???}
+  with the next `discussions' section???}
 
 \NOTE{Collect all the parameters (e.g., fg21sim, SimFast21, OSKAR, WSClean)
   as well as the input data/templates into to the Appendix!
@@ -1318,9 +1309,18 @@ them available in our public software \texttt{fg21sim} in the future.
 %% command.
 \acknowledgments
 
-\TODO{Write acknowledgments ...}
-
+\TODO{[update]}
 We acknowledge ...
+We give thanks
+to Mathieu Remazeilles for making us the high-resolution Haslam \SI{408}{\MHz}
+Galactic synchrotron map with small-scale fluctuations added,
+to Giovanna Giardino for providing us with the all-sky Galactic synchrotron
+spectral index map,
+to Fred Dulwich for sharing the latest SKA1-Low layout configuration as well
+as the guidance on using the \texttt{OSKAR} simulator.
+We also thank Andr\'e Offringa and Emma Chapman for their help.
+This work is supported by the National Science Foundation of China
+(grant Nos. xxx, xxx).
 
 
 %% To help institutions obtain information on the effectiveness of their
@@ -1347,7 +1347,8 @@ We acknowledge ...
   Astropy \citep{astropy2013},
   NumPy (\url{http://www.numpy.org/}),
   Vim (\url{http://www.vim.org/}),
-  Emacs (\url{https://www.gnu.org/s/emacs/})
+  Emacs (\url{https://www.gnu.org/s/emacs/}),
+  OSKAR, WSClean, IPython, Jupyter Notebook, ...
 }
 
 
