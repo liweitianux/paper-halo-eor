@@ -560,6 +560,25 @@ We also provide some utilities to make it easier to integrate the
 software with the subsequent observation simulation, as we described
 in Section~\ref{sec:obs-simulation}.
 
+%% BEGIN: [7th->8th]
+\color{magenta}\sout{%
+According to the current published specifications \mbox{\citep{dewdney2015ska}},
+the SKA1-Low interferometer consists of antenna stations of \mbox{\SI{35}{\meter}}
+in diameter, and has baselines up to \mbox{\SI{\sim 65}{\kilo\meter}},
+which corresponds to a FoV of \mbox{\SI{\sim 4 x 4}{\deg}}
+and angular resolution of \mbox{\SI{\sim 7}{\arcsec}} at \mbox{\SI{158}{\MHz}}.
+In this work, we simulate the foreground emissions within a sky
+patch of \mbox{\SI{10 x 10}{\deg}} centered at
+(R.A., Dec.) = (\mbox{\SI{0}{\degree}}, \mbox{\SI{-27}{\degree}}),
+the \mbox{\enquote{EoR0}}
+field identified by the MWA \mbox{\citep{beardsley2016}}.
+\NOTE{[10 deg may be too small to account for the side lobes!]}
+The simulated foreground sky is large enough to not only take into
+account the side lobes of the interferometer, but also help the
+imaging procedure in the observation simulation stage.
+}\color{black}
+%% END: [7th->8th]
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Galactic Synchrotron Emission}
@@ -598,7 +617,7 @@ treatment to the Galactic synchrotron emission should be enough in
 the current simulation framework.
 
 We extrapolate from the adopted Haslam \SI{408}{\MHz} template map
-$T_b^{\R{Haslam}}(\bm{r})$ to the wanted lower frequency $nu$ by assuming
+$T_b^{\R{Haslam}}(\bm{r})$ to the wanted lower frequency $\nu$ by assuming
 a power-law spectrum \citep{wang2010,bonaldi2015}:
 \begin{equation}
   \label{eq:gsync-extrap}
@@ -607,13 +626,18 @@ a power-law spectrum \citep{wang2010,bonaldi2015}:
 \end{equation}
 where $T_b^{\R{syn}}(\bm{r}, \nu)$ is the Galactic synchrotron intensity
 expressed in brightness temperature at sky position $\bm{r}$ and
-frequency $\nu$, and $\alpha_{\R{syn}}(\bm{r}) \sim 2.7$ is
+frequency $\nu$,
+%% BEGIN: [7th->8th]
+\color{magenta}
+and $\alpha_{\R{syn}}(\bm{r}) \sim 2.7$ is
 the position-dependent synchrotron spectral index.
 We use the all-sky map of synchrotron spectral index made by
 \citet{giardino2002}, which was derived from the Haslam \SI{408}{\MHz}
 all-sky survey and the northern sky continuum survey at \SI{1420}{\MHz}
 \citep{reich1986} combined with the southern sky survey at
 \SI{2326}{\MHz} \citep{jonas1998}.
+\color{black}
+%% END: [7th->8th]
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1154,6 +1178,8 @@ simulated images of radio halos at each frequency of interest.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% BEGIN: [7th->8th]
+\color{magenta}
 \section{EoR Signal Simulation}
 \label{sec:eor-simulation}
 
@@ -1232,6 +1258,9 @@ imager \citep{offringa2014} with Briggs weighting and joined-channel
 deconvolution \citep{offringa2017}.
 Finally, we crop out the central \SI{4 x 4}{\deg} to create the 2D
 cylindrical power spectrum, as described in Appendix~\ref{sec:power-spectrum}.
+
+\color{black}
+%% END: [7th->8th]
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1325,6 +1354,8 @@ them available in our public software \texttt{fg21sim} in the future.
 
 \TODO{[update]}
 We acknowledge ...
+%% BEGIN: [7th->8th]
+\color{magenta}
 We give thanks
 to Mathieu Remazeilles for making us the high-resolution Haslam \SI{408}{\MHz}
 Galactic synchrotron map with small-scale fluctuations added,
@@ -1335,6 +1366,8 @@ as the guidance on using the \texttt{OSKAR} simulator.
 We also thank Andr\'e Offringa and Emma Chapman for their help.
 This work is supported by the National Science Foundation of China
 (grant Nos. xxx, xxx).
+\color{black}
+%% END: [7th->8th]
 
 
 %% To help institutions obtain information on the effectiveness of their
@@ -1522,6 +1555,8 @@ through the relation \citep{condon2016}:
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% BEGIN: [7th->8th]
+\color{magenta}
 \section{EoR Signal Power Spectrum}
 \label{sec:power-spectrum}
 
@@ -1572,6 +1607,9 @@ EoR window.
 
 \TODO{Collect and explain the simulation parameters ...}
 
+
+\color{black}
+%% END: [7th->8th]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \bibliography{references}
