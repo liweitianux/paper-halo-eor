@@ -214,10 +214,11 @@
   radio continuum: galaxies
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%########################################################################
 \section{Introduction}
 \label{sec:intro}
+%########################################################################
 
 The Epoch of Reionization (EoR; $z \sim \numrange{15}{6}$) is a
 cosmological periodization referring to a period of our Universe preceded
@@ -383,7 +384,9 @@ $\Omega_m = 0.27$, $\Omega_{\Lambda} = 1 - \Omega_m = 0.73$,
 $\Omega_b = 0.046$, $n_s = 0.96$, and $\sigma_8 = 0.81$
 \citep{komatsu2011}.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \noindent\hrulefill~\LI{[OLD]}~\hrulefill
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 In addition, galaxy clusters are also important objects of study in their
 own right:
@@ -495,10 +498,47 @@ the detection of EoR signal, in both the image domain and the (2D)
 power spectrum domain.
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Foreground Simulation}
+%########################################################################
+% \section{Foreground Simulation}
+\section{SIMULATION OF $?? - ??$ MHz SKY WITH fg21sim}
 \label{sec:fg-simu}
+%########################################################################
+
+Based on the work of Wang et al. (2010), we have used the Python programming
+language to develop a tool fg21sim【斜体??黑体??】 to simulate the
+low-frequency radio sky by taking into account the contributions of Our
+Galaxy, discrete extragalactic sources, galaxy clusters, epoch of
+reionization, and instrument noise. The software is public to the community
+and can be downloaded at https://github.com/liweitianux/fg21sim, where
+technical details, a user manual and other auxiliary documents are also
+provided. An interface?? is designed in the software to employ instrumental
+responses of different low-frequency radio facilities. In this work we use
+its latest version fg21sim【斜体??黑体??】 v?? to generate sky images and
+evaluate the effects of the contamination caused by galaxy clusters. By
+consulting the plan/white book/guid??【SKA相关文献的正式官方名称、版本】
+(ref??), we perform the simulations in $?? - ??$ MHz for a
+$10^{\circ} \times 10^{\circ}$??【先写大的模拟区域；其中取出多少计算，后面再提】
+sky region at a high galactic latitude of ??, which resembles those that will
+be observed with SKA array in the future 【虽然可以引述MWA文献，但必须以
+SKA为重!!；脚注：This covers the same sky field as MWA (EoR0 field;
+Beardsley et al. 2016】, and only incorporate the Galactic and cluster
+foreground components in the simulated sky maps. The contamination of the
+extragalactic sources are neglected,
+because to ?? (ref??) 【说明：1、21cm信号应存在，否则后面也无法比较——只是
+后文在谈前景时，必要时说明那里只计算了前景、未含21cm信号即可；2、河外点源略
+去会有什么影响、略去的依据是什么，要做清晰简略的说明，并引用文献；3、马、单
+的论文是否提及，待定。可做一标记以提示】. When we model the Galactic
+contamination, the emission from supernova remnants (SNRs), some of which
+may have a large angular size and a complex morphology, is also neglected
+because the total number of these sources is small (about 1000; Li et al.
+1991; Anderson et al. 2017) and they prefer to reside in the Galactic plane.
+We project the sky maps to a flat plane using the azimuthal equidistant
+projection??, and the obtained images are overlaid with grids of 1024 ×
+1024 pixels, each pixel covering approximately a $?? \times ??$?? patch.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent\hrulefill~\LI{[OLD]}~\hrulefill
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \XU{目标之中: 多大范围? 什么尺度? 应描写前景模拟软件... 并加以量化,
   说明此工作的重大进步/意义.}
@@ -580,9 +620,48 @@ imaging procedure in the observation simulation stage.
 %% END: [7th->8th]
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%========================================================================
 \subsection{Galactic Synchrotron Emission}
 \label{sec:fg-gsync}
+%========================================================================
+
+The diffuse Galactic synchrotron emission, the spectrum of which can be well
+characterized by a power-law with
+the index $\alpha_{\rm syn}$ varying with the position in the sky, is the
+dominating foreground component in detection
+of EoR signals. For example, at about 150 MHz this emission component
+accounts for about ??\% of the Galactic contamination
+and about 70\% of the total foreground intensity (ref??; Shaver et al.
+1999). To simulate this foreground component
+we employ the improved 408 MHz sky map provided in Remazeilles et al.
+(2015), which was obtained by applying
+significantly better instrument calibration and more accurate subtraction of
+extragalactic sources, and calculate
+the Galactic synchrotron emission map as
+\begin{equation}
+  %\label{eq:gsync-extrap}
+  T_b^{\R{syn}}(\bm{r}, \nu) = T_b^{\R{Haslam}}(\bm{r})
+    \left( \frac{\nu}{\SI{408}{\MHz}} \right)^{-\alpha_{\R{syn}}(\bm{r})},
+\end{equation}
+where $T_b^{\R{syn}}(\bm{r}, \nu)$ is the emission intensity expressed in
+brightness temperature at sky position $\bm{r}$ and
+frequency $\nu$, and $\alpha_{\rm syn} \sim ?? -??$ is the
+position-dependent synchrotron spectral index. $\alpha_{\rm syn}$
+is determinged by adopting the all-sky synchrotron spectral index map of
+Giardino et al. (2002), which was derived by
+comparing the Haslam 408 MHz all-sky survey with the northern sky continuum
+survey at 1420 MHz (Reich \& Reich 1986) and
+the southern sky survey at 2326 MHz (Jonas et al. 1998). The resulting
+$?? - ??$ MHz Galactic synchrotron emission maps
+are pixelized using the HEALPix algorithm (Gorski et al. 2005) and keep the
+same spatial resolution (about 1.72 arcmin) as
+the improved 408MHz map of Remazeilles et al. (2015), which is achieved by
+by extrapolating the observed angular power spectrum
+to small scales.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent\hrulefill~\LI{[OLD]}~\hrulefill
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The diffuse Galactic synchrotron emission dominates the low-frequency
 radio sky and accounts for \SI{\sim 70}{\percent} of the foreground
@@ -640,9 +719,48 @@ all-sky survey and the northern sky continuum survey at \SI{1420}{\MHz}
 %% END: [7th->8th]
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Galactic Free-free Emission}
+%========================================================================
+\subsection{Galactic Free-Free Emission}
 \label{sec:fg-gfree}
+%========================================================================
+
+Observations of diffuse H$_{\alpha}$ and radio recombination line emissions
+from both the Galactic plane and high galactic latitudes
+indicate the existance of a population of free electrons, which is generated
+by processes such as star formation and supernova explosions.
+The bremsstrahlung radiation of these free electrons is expected to
+contribute about ??\% of the total Galactic foreground in
+$?? - ??$ MHz (ref??). Thus, similar to, e.g., Wang et al. (2010), we
+calculate the Galactic free-free emission map $T_b^{\R{ff}}(\bm{r}, \nu)$
+by using the relation given in Dickinson et al. (2003)
+\begin{equation}
+  %\label{eq:halpha-ff}
+  T_b^{\R{ff}}(\bm{r}, \nu) = 38.86 \, a(\nu, T_e) \nu^{-2.1}
+    10^{(290 / T_e)} \, T_e^{0.667}
+    \left[ \frac{I_{\Halpha}^{\R{corr}}(\bm{r})}{\si{\rayleigh}} \right]
+    \quad [\si{\kelvin}],
+\end{equation}
+where $\nu$ is the target frequency in units of \si{\MHz}, $T_e$ is the
+electron temperature in units of \si{\kelvin},
+the factor $a(\nu, T_e) = 0.183 \,\nu^{0.1} T_e^{-0.15} [ 3.91 - \ln \nu +
+1.5 \ln T_e ]$ is ??【如is the correction for.../is used to compensate
+for...】,
+and $I_{\Halpha}^{\R{corr}}$ is the H$_{\alpha}$ map corrected for dust
+absorption. According Dickinson et al. (2003) is calculated as
+\begin{equation}
+  %\label{eq:halpha-dust-corr}
+  I_{\Halpha}^{\R{corr}}(\bm{r}) = I_{\Halpha}(\bm{r}) \times
+    10^{D(\bm{r}) \times 0.0185 \times f_d},
+\end{equation}
+where $I_{\Halpha}(\bm{r})$ is the observed \Halpha{} intensity at sky
+position $\bm{r}$ in units of \si{\rayleigh},
+$D(\bm{r})$ is the measured dust column density in units of
+\si{\mega\jansky\per\steradian},
+and $f_d$ is the effective dust fraction along the line of sight.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent\hrulefill~\LI{[OLD]}~\hrulefill
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The diffuse Galactic free-free emission due to the bremsstrahlung
 radiation from diffuse ionized interstellar medium (ISM),
@@ -713,9 +831,23 @@ electron temperature $T_e = \SI{7000}{\kelvin}$
 as suggested \citep{dickinson2003}.
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%========================================================================
 \subsection{Galaxy Clusters}
 \label{sec:fg-clusters}
+%========================================================================
+
+We have significantly improved the model in our previous work (Wang et al.
+2010) to simulate the contribution of galaxy clusters
+to the EoR foreground by taking into account detailed merging history of
+clusters, which is established within the frame of
+the extended Press-Schechter theory (e.g., Bond et al. 1991; Lacey \& Cole
+1993; see also Press \& Schechter 1974), and by
+tracing the evolution of a radio halo or a radio relic via solving the
+Fokker-Planck equation.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent\hrulefill~\LI{[OLD]}~\hrulefill
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \XU{(1) 简要说明此工作的重大改进; (2) 说明算法及指标, 并适当量化.}
 
@@ -737,9 +869,59 @@ section.
 \TODO{[Explain the exclusion of mini-halos and roundish relics!]}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Distributions}
+%------------------------------------------------------------------------
+%\subsubsection{Distributions}
+\subsubsection{Halo Distribution}
 \label{sec:distributions}
+%------------------------------------------------------------------------
+
+The Press-Schechter formalism was originally advanced as one of the standard
+method to predict the mass function of galaxy clusters and its evolution
+in the Universe (\citet{press1974}), and has been extended to combine with
+the cold dark matter (CDM) models \citep[e.g.,][]{bond1991,lacey1993}.
+According to the extended Press-Schechter theory, the number density (i.e.,
+the number per unit comoving volume per unit mass) of galaxy clusters
+at a certain redshift $z$ is given by
+\begin{equation}
+  %\label{eq:ps-mass-func}
+  n(M, z) \,\D{M} = \sqrt{\frac{2}{\pi}} \frac{\langle{\rho}\rangle}{M}
+  \frac{\delta_c(z)}{\sigma^2(M)} \left| \diff{\sigma(M)}{M} \right|
+  \exp\!\left[ -\frac{\delta_c^2(z)}{2\sigma^2(M)} \right] \D{M},
+\end{equation}
+where
+$M$ is the cluster mass,
+$\langle {\rho} \rangle$ is the current mean density of the Universe,
+$\delta_c(z)$ is the critical linear overdensity for a region to collapse
+at redshift $z$ [see Equation~(\ref{eq:delta-crit})],
+and $\sigma(M)$ is the current rms (root-mean-square) density fluctuations
+within a sphere of mean mass $M$.
+
+Considering the CDM model and the halo mass range covered by galaxy
+clusters, it is reasonable to adopte a power-law distribtuion
+for the density perturbations (Sarazin 2002; Randall et al. 2002), i.e.,
+\begin{equation}
+  %\label{eq:sigma-mass}
+  \sigma(M) = \sigma_8 \left( \frac{M}{M_8} \right)^{-\alpha},
+\end{equation}
+where $\sigma_8$ is the present-day rms density fluctuations on a
+scale of \SI{8}{\per\hubble\Mpc},
+$M_8 = (4\pi/3)(8 \,\si{\per\hubble\Mpc})^3 \langle{\rho}\rangle$
+is the mass contained in a sphere of a radius \SI{8}{\per\hubble\Mpc},
+and the exponent $\alpha = (n+3)/6$ is related to the pattern of
+fluctuations
+as the power spectrum of fluctuations varies with wavenumber $k$ as $k^n$.
+Here we follow \citep{randall2002} and adopt $n = -7/5$.
+
+Then, by placed a conservative minimum mass cut of $M_{\R{min}} \simeq
+\SI{1.4e14}{\solarmass}$ \citep{zandanel2014},
+we are able to use Eq. ?? to calculate both the total number and the
+distribution of galaxy clusters for any given sky patch.
+The mass, redshift, and sky position of each simulated cluster can be
+determined randomly using Monte Carlo method \citep{wang2010}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent\hrulefill~\LI{[OLD]}~\hrulefill
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The Press-Schechter formalism is one of the standard method to predict
 the mass function of galaxy clusters and its evolution as the Universe.
