@@ -1028,8 +1028,7 @@ we sample the cumulative probability distribution of $\Delta M$ with
   \int_0^{\Delta S} \R{Pr}(\Delta S', \Delta\omega) \,\D{\Delta S'} =
   \erfc \!\left( \frac{\Delta \omega}{\sqrt{2 \Delta S}} \right),
 \end{equation}
-where $\erfc(x) = 1 - \erf(x)$ is the complementary error function whose
-inversion is also analytical (ref??).
+where $\erfc(x) = 1 - \erf(x)$ is the complementary error function.
 With a random $\Delta S$ (i.e., $M_{\rm sub}$) drawn from this probability
 distribution, the values of $S_1$ and $M_{1}$
 are derived for the progenitor in each merger.
@@ -1230,7 +1229,7 @@ distribution can be derived by solving the Fokker-Planck equation
   \pdiff{}{\gamma} \left[ D_{\R{\gamma\gamma}} \pdiff{n(\gamma,t)}{p} \right] +
   Q_e(\gamma,t),
 \end{equation}
-where $\gamma = p / m_e c$ is the Lorentz factor of the electrons,
+where $\gamma = p / (m_e c)$ is the Lorentz factor of the electrons,
 $n(\gamma, t)$ is the isotropic number density of relativistic
 electrons, $Q_e(\gamma, t)$ describes the electron injection,
 $|\R{d}\gamma / \R{d}t|_{(\cdot)}$ terms account for the
@@ -1240,7 +1239,7 @@ describing the interactions between electrons and turbulent waves,
 which is given by \citep{brunetti2011}:
 \begin{equation}
   \label{eq:diffusion-coef}
-  D_{\R{\gamma\gamma}}(\gamma, t) = \frac{\gamma^2}{4} \chi(t).
+  D_{\R{\gamma\gamma}}(\gamma, t) = \frac{1}{4} \,\gamma^2\,\chi(t).
 \end{equation}
 In some energy ranges (e.g., $\gamma \sim 1000$), the diffusion may
 contribute more energies than those lost, therefore can accelerate electrons
@@ -1256,7 +1255,7 @@ into the cluster ICM with a power-law spectrum of index $s$
 \citep{cassano2005,sarazin1999}:
 \begin{equation}
   \label{eq:electron-inj}
-  Q_e(\gamma, t) = Q_e(\gamma) = K_e \gamma^{-s},
+  Q_e(\gamma, t) = Q_e(\gamma) = K_e \,\gamma^{-s},
 \end{equation}
 where $K_e$ is the constant injection rate, which can be parametrized
 by assuming that the total energy injected in the electrons during
@@ -1264,30 +1263,26 @@ the cluster life is a fraction, $\eta_e$, of the total thermal energy
 of the cluster \citep{cassano2005}:
 \begin{equation}
   \label{eq:injrate-param}
-  \left( \frac{4\pi}{3} R_{\R{halo}}^3 \right) \epsilon_e \tau_{\R{cluster}}
-  \int_{\gamma_{\R{min}}}^{\gamma_{\R{max}}}
-  Q_e(\gamma') \gamma' \,\D{\gamma'} \simeq
-  \eta_e \epsilon_{\R{th}} \left( \frac{4\pi}{3} R_{\R{vir}}^3 \right),
+  \epsilon_e \,\tau_{\R{cluster}} \int_{\gamma_{\R{min}}}^{\gamma_{\R{max}}}
+  Q_e(\gamma') \gamma' \,\D{\gamma'} \simeq \eta_e \,\epsilon_{\R{th}},
 \end{equation}
-where $R_{\R{halo}}$ and $R_{\R{vir}}$ are the radius of the radio halo
-will be generated and the virial radius of the cluster, respectively,
-$\tau_{\R{cluster}} \simeq t_0$ is the cluster age at redshift $z_0$ as
-simulated in Section~\ref{sec:distributions},
+where $\tau_{\R{cluster}} \simeq t_0$ is the cluster age at redshift
+$z_0$ as simulated in Section~\ref{sec:distributions},
 $\epsilon_e = m_e c^2$ is the energy of one electron at still,
 $\epsilon_{\R{th}}$ is the thermal energy density of the cluster ICM,
-and we adopt $\gamma_{\R{max}} = 10^5 \gg \gamma_{\R{\min}} = 50$
-for our simulation configurations.
+and $\gamma_{\R{min}} \ll \gamma_{\R{\max}}$ are the minimum and maximum
+Lorentz factors of the injected electrons, respectively.
 Therefore we derive the electron injection rate to be:
 \begin{equation}
   \label{eq:injrate}
-  K_e \simeq \frac{(s-2)\eta_e\epsilon_{\R{th}}}{\epsilon_e\tau_{\R{cluster}}}
-  \left( \frac{R_{\R{vir}}}{R_{\R{halo}}} \right)^3 \gamma_{\R{min}}^{s-2}.
+  K_e \simeq \frac{(s-2)\,\eta_e\,\epsilon_{\R{th}}}{\epsilon_e\,\tau_{\R{cluster}}}
+    \gamma_{\R{min}}^{s-2}.
 \end{equation}
 
 The ICM thermal energy density is calculated as:
 \begin{equation}
   \label{eq:eth}
-  \epsilon_{\R{th}} = \frac{3}{2} n_{\R{th}} k_B T,
+  \epsilon_{\R{th}} = \frac{3}{2} \,n_{\R{th}} \,k_B T,
 \end{equation}
 where $n_{\R{th}}$ is the thermal number density [see Equation~(\ref{eq:nth})],
 and $k_B T$ is the ICM mean temperature, which is estimated
@@ -1364,7 +1359,7 @@ grows \citep{sarazin1999}.
 We therefore estimate the initial electron spectrum at $t_{\R{merger}}$ as:
 \begin{equation}
   \label{eq:ne-init}
-  n(\gamma, t=t_{\R{merger}}) = t_{\R{merger}} K_e \gamma^{-s}.
+  n(\gamma, t=t_{\R{merger}}) = t_{\R{merger}} K_e \,\gamma^{-s}.
 \end{equation}
 
 Once the current electron spectrum $n(\gamma, t_0)$ been derived,
@@ -1385,7 +1380,7 @@ where $F(\nu/\nu_c)$ is the synchrotron kernel:
   \int_{\nu/\nu_c}^{\infty} K_{5/3}(y) \,\D{y},
 \end{equation}
 with $K_{5/3}(x)$ the modified Bessel function of 5/3 order,
-$\nu_c = (3/2) \gamma^2 \nu_L \sin\theta$ the critical frequency,
+$\nu_c = (3/2) \,\gamma^2 \nu_L \sin\theta$ the critical frequency,
 and $\nu_L = e B / (2\pi m_e c)$ the Larmor frequency of electrons.
 Observations suggest that radio halos have average synchrotron emissivity
 $\langle {J_{\R{syn}}} \rangle \sim \SI{e-42}{\erg\per\second\per\cm\cubed\per\hertz}$
