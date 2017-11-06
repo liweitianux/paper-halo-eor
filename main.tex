@@ -384,68 +384,6 @@ $\Omega_m = 0.27$, $\Omega_{\Lambda} = 1 - \Omega_m = 0.73$,
 $\Omega_b = 0.046$, $n_s = 0.96$, and $\sigma_8 = 0.81$
 \citep{komatsu2011}.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\noindent\hrulefill~\LI{[OLD]}~\hrulefill
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Extended radio emissions are only observed in a small fraction of massive
-and luminous galaxy clusters, and they are more rarely found in smaller
-clusters.
-These extended radio emissions can be roughly classified into three types
-\citep[see][for recent reviews]{feretti2012rev,brunetti2014rev}:
-\XU{[模拟之中务必包含这几类. 另, 有多少既亮又延展的 cluster 源会出现在
-  视场之中? 这个数字(比例)也许应该体现在 introduction 之中.]}
-\begin{description}
-  \item[Halos]
-    giant and extend on \si{\sim \Mpc} scales;
-    They are only found at the center of galaxy clusters showing major
-    merging features, and have regular morphology without significant
-    polarization.
-
-    The \emph{turbulence re-acceleration model} (also known as the
-    \emph{primary electrons model}) is the most accepted model to explain
-    the origin of radio halos.
-    In this model, major mergers between clusters generate turbulence
-    throughout the cluster ICM, which interact with the existing low-energy
-    electrons to accelerate them to higher energies (e.g., $\gamma > 1000$),
-    and then these relativistic electrons radiate synchrotron emissions
-    within ICM's \si{\uG}-level magnetic field, to be responsible for the
-    radio halos.
-    On the other hand, there is the \emph{hadronic model}, which is also
-    known as the \emph{secondary electrons model}.
-
-    Currently we have only discovered $\lesssim\,$80 radio halos
-    \citep{kale2016rev,duchesne2017}, and a much larger sample is a
-    necessity to well constrain the halo models, in order to further reveal
-    the physical processes.
-
-  \item[Mini-halos]
-    smaller than the above giant halos (usually several hundreds of kpc);
-    currently only \num{\sim 20} of them have been found, generally located
-    at the center of relaxed cool-core clusters \citep{bravi2016};
-    their origin is still poorly known, but is different to that of giant
-    halos, and is argued to be related with the turbulence in the cool-core
-    region and AGN feedback \citep{gitti2015rev}.
-
-  \item[Relics]
-    typically are elongated and may stretch over \si{\sim \Mpc} scales;
-    located in cluster peripheral regions of both merging and relaxed
-    clusters, suggesting that they may be related to minor or off-axis
-    mergers, as well as to major mergers \citep{feretti2012rev}.
-    The strongly polarized (\SIrange{\sim 20}{30}{\percent}) emission is
-    one of the most important distinction compared to halos and mini-halos.
-
-    Apart from the typical elongated relics, there are also the so-called
-    roundish relics, showing a more regular and roundish morphology,
-    and they are generally distributed closer to the cluster center.
-    Their different properties with respect to the elongated relics
-    suggest a different origin.
-
-    Only in \num{\sim 70} clusters have been observed radio relics
-    \citep[their Table 1]{nuza2017} for the moment, and more observational
-    evidences are required to better understand their nature.
-\end{description}
-
 
 %########################################################################
 \section{Low-Frequency Sky Simulation With FG21sim}
@@ -795,9 +733,28 @@ evolution of relativistic electrons within the cluster ICM.
 We present our improved simulation method to the galaxy clusters in this
 section.
 
-\TODO{[Include radio relics, and update the descriptions.]}
-\TODO{[Explain the exclusion of mini-halos and roundish relics!]}
+Radio halos are giant and extend on \si{\sim \Mpc} scales;
+They are only found at the center of galaxy clusters showing major
+merging features, and have regular morphology without significant
+polarization.
 
+The \emph{turbulence re-acceleration model} (also known as the
+\emph{primary electrons model}) is the most accepted model to explain
+the origin of radio halos.
+In this model, major mergers between clusters generate turbulence
+throughout the cluster ICM, which interact with the existing low-energy
+electrons to accelerate them to higher energies (e.g., $\gamma > 1000$),
+and then these relativistic electrons radiate synchrotron emissions
+within ICM's \si{\uG}-level magnetic field, to be responsible for the
+radio halos.
+On the other hand, there is the \emph{hadronic model}, which is also
+known as the \emph{secondary electrons model}.
+\citep[see][for recent reviews]{feretti2012rev,brunetti2014rev}.
+
+Currently we have only discovered $\lesssim\,$80 radio halos
+\citep{kale2016rev,duchesne2017}, and a much larger sample is a
+necessity to well constrain the halo models, in order to further reveal
+the physical processes.
 
 %------------------------------------------------------------------------
 %\subsubsection{Distributions}
