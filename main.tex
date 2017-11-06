@@ -448,40 +448,43 @@ These extended radio emissions can be roughly classified into three types
 
 
 %########################################################################
-% \section{Foreground Simulation}
-\section{SIMULATION OF $?? - ??$ MHz SKY WITH fg21sim}
+\section{Low-Frequency Sky Simulation With FG21sim}
 \label{sec:fg-simu}
 %########################################################################
 
-Based on the work of Wang et al. (2010), we have used the Python programming
-language to develop a tool fg21sim【斜体??黑体??】 to simulate the
-low-frequency radio sky by taking into account the contributions of Our
-Galaxy, discrete extragalactic sources, galaxy clusters, epoch of
-reionization, and instrument noise. The software is public to the community
-and can be downloaded at https://github.com/liweitianux/fg21sim, where
-technical details, a user manual and other auxiliary documents are also
-provided. An interface?? is designed in the software to employ instrumental
-responses of different low-frequency radio facilities. In this work we use
-its latest version fg21sim【斜体??黑体??】 v?? to generate sky images and
-evaluate the effects of the contamination caused by galaxy clusters. By
-consulting the plan/white book/guid??【SKA相关文献的正式官方名称、版本】
+Based on our previous work \citep{wang2010}, we have used the Python
+programming language to develop the \texttt{FG21sim} software to simulate
+the low-frequency radio sky by taking into account the contributions of
+Our Galaxy, discrete extragalactic sources, galaxy clusters,
+\sout{epoch of reionization, and instrument noise}.
+The software is public to the community and can be downloaded at
+\url{https://github.com/liweitianux/fg21sim},
+where technical details (???), a user manual (???), and other auxiliary
+data and documents are also provided.
+[An interface?? is designed in the software to employ instrumental
+responses of different low-frequency radio facilities.](???)
+In this work we use the latest \texttt{FG21sim} version 1.0
+\LI{[release this version on submission]} to generate sky images and
+evaluate the effects of the contamination caused by galaxy clusters.
+By consulting the plan/white book/guide??【SKA相关文献的正式官方名称、版本】
 (ref??), we perform the simulations in $?? - ??$ MHz for a
 $10^{\circ} \times 10^{\circ}$??【先写大的模拟区域；其中取出多少计算，后面再提】
 sky region at a high galactic latitude of ??, which resembles those that will
 be observed with SKA array in the future 【虽然可以引述MWA文献，但必须以
 SKA为重!!；脚注：This covers the same sky field as MWA (EoR0 field;
 Beardsley et al. 2016】, and only incorporate the Galactic and cluster
-foreground components in the simulated sky maps. The contamination of the
-extragalactic sources are neglected,
+foreground components in the simulated sky maps.
+The contamination of the extragalactic sources are neglected,
 because to ?? (ref??) 【说明：1、21cm信号应存在，否则后面也无法比较——只是
 后文在谈前景时，必要时说明那里只计算了前景、未含21cm信号即可；2、河外点源略
 去会有什么影响、略去的依据是什么，要做清晰简略的说明，并引用文献；3、马、单
-的论文是否提及，待定。可做一标记以提示】. When we model the Galactic
-contamination, the emission from supernova remnants (SNRs), some of which
-may have a large angular size and a complex morphology, is also neglected
-because the total number of these sources is small (about 1000; Li et al.
-1991; Anderson et al. 2017) and they prefer to reside in the Galactic plane.
-We project the sky maps to a flat plane using the azimuthal equidistant
+的论文是否提及，待定。可做一标记以提示】.
+When we model the Galactic contamination, the emission from supernova
+remnants (SNRs), some of which may have a large angular size and a
+complex morphology, is also neglected because the total number of these
+sources is small (about 1000; \citealt{li1991,anderson2017}), and they
+prefer to reside in the Galactic plane.
+[???] We project the sky maps to a flat plane using the azimuthal equidistant
 projection??, and the obtained images are overlaid with grids of 1024 ×
 1024 pixels, each pixel covering approximately a $?? \times ??$?? patch.
 
@@ -548,25 +551,6 @@ more thoroughly, or have access to better observational evidences.
 We also provide some utilities to make it easier to integrate the
 software with the subsequent observation simulation, as we described
 in Section~\ref{sec:obs-simulation}.
-
-%% BEGIN: [7th->8th]
-\color{magenta}\sout{%
-According to the current published specifications \mbox{\citep{dewdney2015ska}},
-the SKA1-Low interferometer consists of antenna stations of \mbox{\SI{35}{\meter}}
-in diameter, and has baselines up to \mbox{\SI{\sim 65}{\kilo\meter}},
-which corresponds to a FoV of \mbox{\SI{\sim 4 x 4}{\deg}}
-and angular resolution of \mbox{\SI{\sim 7}{\arcsec}} at \mbox{\SI{158}{\MHz}}.
-In this work, we simulate the foreground emissions within a sky
-patch of \mbox{\SI{10 x 10}{\deg}} centered at
-(R.A., Dec.) = (\mbox{\SI{0}{\degree}}, \mbox{\SI{-27}{\degree}}),
-the \mbox{\enquote{EoR0}}
-field identified by the MWA \mbox{\citep{beardsley2016}}.
-\NOTE{[10 deg may be too small to account for the side lobes!]}
-The simulated foreground sky is large enough to not only take into
-account the side lobes of the interferometer, but also help the
-imaging procedure in the observation simulation stage.
-}\color{black}
-%% END: [7th->8th]
 
 
 %========================================================================
@@ -735,9 +719,6 @@ problems around the Galactic plane.
 Nevertheless, we are also working on a more sophisticated and
 physical model to simulate the Galactic free-free emission at the low
 frequency regime (Lian et al. in preparation).
-
-\NOTE{[连: (1) 请补充一下你的研究内容和目标;
-  (2) 请检查此小节内容是否有正确; (3) 请帮忙适当增强/改进.]}
 
 First, the observed \Halpha{} map should be corrected for the dust
 absorption \citep{dickinson2003}:
@@ -1206,7 +1187,9 @@ into the cluster ICM with a power-law spectrum of index $s$
   \label{eq:electron-inj}
   Q_e(\gamma, t) = Q_e(\gamma) = K_e \,\gamma^{-s},
 \end{equation}
-where $K_e$ is the constant injection rate, which can be parametrized
+where $K_e$ is the constant injection rate,
+\color{magenta}
+which can be parametrized
 by assuming that the total energy injected in the electrons during
 the cluster life is a fraction, $\eta_e$, of the total thermal energy
 of the cluster \citep{cassano2005}:
@@ -1227,6 +1210,7 @@ Therefore we derive the electron injection rate to be:
   K_e \simeq \frac{(s-2)\,\eta_e\,\epsilon_{\R{th}}}{\epsilon_e\,\tau_{\R{cluster}}}
     \gamma_{\R{min}}^{s-2}.
 \end{equation}
+\color{black}
 
 The ICM thermal energy density is calculated as:
 \begin{equation}
@@ -1322,13 +1306,14 @@ is determined by \citep{rybicki1979}:
   n(\gamma, t_0) F\!\left( \frac{\nu}{\nu_c} \right) \sin^2 \!\theta
   \,\D{\theta} \,\D{\gamma},
 \end{equation}
-where $F(\nu/\nu_c)$ is the synchrotron kernel:
+where $\theta$ is the pitch angle of the electron,
+and $F(\nu/\nu_c)$ is the synchrotron kernel:
 \begin{equation}
   \label{eq:sync-kernel}
   F\!\left( \frac{\nu}{\nu_c} \right) = \frac{\nu}{\nu_c}
-  \int_{\nu/\nu_c}^{\infty} K_{5/3}(y) \,\D{y},
+  \int_{\nu/\nu_c}^{\infty} K_{5/3}(x) \,\D{x},
 \end{equation}
-with $K_{5/3}(x)$ the modified Bessel function of 5/3 order,
+with $K_{5/3}(x)$ the modified Bessel function of order 5/3,
 $\nu_c = (3/2) \,\gamma^2 \nu_L \sin\theta$ the critical frequency,
 and $\nu_L = e B / (2\pi m_e c)$ the Larmor frequency of electrons.
 Observations suggest that radio halos have average synchrotron emissivity
