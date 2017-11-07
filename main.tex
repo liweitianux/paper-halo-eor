@@ -540,67 +540,17 @@ their different forming mechanisms.
 
 
 %------------------------------------------------------------------------
-%\subsubsection{Distributions}
-\subsubsection{Halo Distribution}
+\subsubsection{Dark Matter Halo Distributions}
 \label{sec:distributions}
 %------------------------------------------------------------------------
 
 The Press-Schechter formalism was originally advanced as one of the standard
 method to predict the mass function of galaxy clusters and its evolution
-in the Universe (\citet{press1974}), and has been extended to combine with
+in the Universe \citep{press1974}, and has been extended to combine with
 the cold dark matter (CDM) models \citep[e.g.,][]{bond1991,lacey1993}.
-According to the extended Press-Schechter theory, the number density (i.e.,
-the number per unit comoving volume per unit mass) of galaxy clusters
-at a certain redshift $z$ is given by
-\begin{equation}
-  %\label{eq:ps-mass-func}
-  n(M, z) \,\D{M} = \sqrt{\frac{2}{\pi}} \frac{\langle{\rho}\rangle}{M}
-  \frac{\delta_c(z)}{\sigma^2(M)} \left| \diff{\sigma(M)}{M} \right|
-  \exp\!\left[ -\frac{\delta_c^2(z)}{2\sigma^2(M)} \right] \D{M},
-\end{equation}
-where
-$M$ is the cluster mass,
-$\langle {\rho} \rangle$ is the current mean density of the Universe,
-$\delta_c(z)$ is the critical linear overdensity for a region to collapse
-at redshift $z$ [see Equation~(\ref{eq:delta-crit})],
-and $\sigma(M)$ is the current rms (root-mean-square) density fluctuations
-within a sphere of mean mass $M$.
-
-Considering the CDM model and the halo mass range covered by galaxy
-clusters, it is reasonable to adopte a power-law distribtuion
-for the density perturbations (Sarazin 2002; Randall et al. 2002), i.e.,
-\begin{equation}
-  %\label{eq:sigma-mass}
-  \sigma(M) = \sigma_8 \left( \frac{M}{M_8} \right)^{-\alpha},
-\end{equation}
-where $\sigma_8$ is the present-day rms density fluctuations on a
-scale of \SI{8}{\per\hubble\Mpc},
-$M_8 = (4\pi/3)(8 \,\si{\per\hubble\Mpc})^3 \langle{\rho}\rangle$
-is the mass contained in a sphere of a radius \SI{8}{\per\hubble\Mpc},
-and the exponent $\alpha = (n+3)/6$ is related to the pattern of
-fluctuations
-as the power spectrum of fluctuations varies with wavenumber $k$ as $k^n$.
-Here we follow \citep{randall2002} and adopt $n = -7/5$.
-
-Then, by placed a conservative minimum mass cut of $M_{\R{min}} \simeq
-\SI{1.4e14}{\solarmass}$ \citep{zandanel2014},
-we are able to use Eq. ?? to calculate both the total number and the
-distribution of galaxy clusters for any given sky patch.
-The mass, redshift, and sky position of each simulated cluster can be
-determined randomly using Monte Carlo method \citep{wang2010}.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\noindent\hrulefill~\LI{[OLD]}~\hrulefill
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-The Press-Schechter formalism is one of the standard method to predict
-the mass function of galaxy clusters and its evolution as the Universe.
-It is originally developed by \citet{press1974}, and later extended to
-combine with the cold dark matter (CDM) models
-\citep[e.g.,][]{bond1991,lacey1993}.
-The Press-Schechter mass function $n(M, z)$ describes the cluster
-number density (i.e., number per unit comoving volume) per unit mass
-at a redshift of $z$, and is given by \citep{press1974}:
+The number density (i.e., the number per unit comoving volume per unit
+mass) of dark matter halos (i.e., galaxy clusters) at a certain redshift
+$z$ is predicted by the Press-Schechter mass function \citep{press1974}:
 \begin{equation}
   \label{eq:ps-mass-func}
   n(M, z) \,\D{M} = \sqrt{\frac{2}{\pi}} \frac{\langle{\rho}\rangle}{M}
@@ -608,15 +558,16 @@ at a redshift of $z$, and is given by \citep{press1974}:
   \exp\!\left[ -\frac{\delta_c^2(z)}{2\sigma^2(M)} \right] \D{M},
 \end{equation}
 where
-$M$ is the cluster mass,
+$M = (1 - \Omega_b/\Omega_m) M_{\R{cluster}}$ is the dark matter halo mass
+with $M_{\R{cluster}}$ the cluster mass,
 $\langle {\rho} \rangle$ is the current mean density of the Universe,
 $\delta_c(z)$ is the critical linear overdensity for a region to collapse
 at redshift $z$ [see Equation~(\ref{eq:delta-crit})],
 and $\sigma(M)$ is the current rms (root-mean-square) density fluctuations
 within a sphere of mean mass $M$.
 
-In CDM models and within the range of scales covered by clusters,
-it is generally sufficient to consider a power-law spectrum
+Considering the CDM model and the halo mass range covered by galaxy
+clusters, it is reasonable to adopt such a power-law distribtuion
 for the density perturbations \citep{sarazin2002,randall2002}:
 \begin{equation}
   \label{eq:sigma-mass}
@@ -625,18 +576,19 @@ for the density perturbations \citep{sarazin2002,randall2002}:
 where $\sigma_8$ is the present-day rms density fluctuations on a
 scale of \SI{8}{\per\hubble\Mpc},
 $M_8 = (4\pi/3)(8 \,\si{\per\hubble\Mpc})^3 \langle{\rho}\rangle$
-is the mass contained in a sphere of radius \SI{8}{\per\hubble\Mpc}.
-The exponent $\alpha$ is given by $\alpha = (n+3)/6$, where
-the power spectrum of fluctuations varies with wavenumber $k$
-as $k^n$, and we adopt $n = -7/5$ for this work \citep{randall2002}.
+is the mass contained in a sphere of a radius \SI{8}{\per\hubble\Mpc},
+and the exponent $\alpha = (n+3)/6$ is related to the fluctuations
+pattern whose power spectrum varies with wavenumber $k$ as $k^n$.
+Here we follow \citep{randall2002} and adopt $n = -7/5$.
 
-We place a minimum mass limit of $M_{\R{min}} \simeq \SI{1.4e14}{\solarmass}$
-\LI{[update this parameter]} for the galaxy clusters \citep{zandanel2014}.
-The total number of clusters within a certain sky patch can be
-determined by the Press-Schechter mass function, and then the mass
-$M_0$ and redshift $z_0$ of each cluster can be drawn from the mass
-function using Monte Carlo method \citep{wang2010}.
-The clusters are randomly distributed within the sky patch.
+Then, by placed a conservative minimum cluster mass cut of
+$M_{\R{min}} \simeq \SI{e14}{\solarmass}$ and a maximum redshift cut
+at $z_{\R{max}} \simeq 4$, we are able to use Equation~(\ref{eq:ps-mass-func})
+to calculate both the total number and the distribution of galaxy
+clusters for any given sky patch.
+The mass $M_0$, redshift $z_0$, and sky position of each simulated
+galaxy cluster can be randomly sampled using the Monte Carlo method
+\citep{wang2010}.
 
 
 %------------------------------------------------------------------------
