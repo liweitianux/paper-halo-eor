@@ -432,98 +432,40 @@ projection??, and the obtained images are overlaid with grids of 1024 ×
 \label{sec:fg-gsync}
 %========================================================================
 
-The diffuse Galactic synchrotron emission, the spectrum of which can be well
-characterized by a power-law with
-the index $\alpha_{\rm syn}$ varying with the position in the sky, is the
-dominating foreground component in detection
-of EoR signals. For example, at about 150 MHz this emission component
-accounts for about ??\% of the Galactic contamination
-and about 70\% of the total foreground intensity (ref??; Shaver et al.
-1999). To simulate this foreground component
-we employ the improved 408 MHz sky map provided in Remazeilles et al.
-(2015), which was obtained by applying
-significantly better instrument calibration and more accurate subtraction of
-extragalactic sources, and calculate
-the Galactic synchrotron emission map as
+The diffuse Galactic synchrotron emission, the spectrum of which can be
+well characterized by a power-law\footnote{We adopt the power-law spectrum
+  of form: $S(\nu) \propto \nu^{-\alpha}$.} with
+the index $\alpha_{\R{syn}}$ varying with the position in the sky, is the
+dominating foreground component in detection of EoR signals.
+For example, at about 150 MHz this emission component accounts for about
+\SI{99}{\percent} of the Galactic contamination and about \SI{70}{\percent}
+of the total foreground intensity \citep{shaver1999,jelic2008}.
+To simulate this foreground component we employ the improved
+Haslam \SI{408}{\MHz} all-sky map\footnote{%
+  The 2014 reprocessed Haslam \SI{408}{\MHz} map:
+  \url{http://www.jb.man.ac.uk/research/cosmos/haslam_map/}.
+  We use the $N_{\R{side}} = 2048$ (i.e., pixel size \SI{\sim 1.72}{\arcmin})
+  high resolution map achieved by extrapolating the observed power spectrum
+  to small scales.}
+provided by \citealt{remazeilles2015}, which was obtained by applying
+significantly better instrument calibration and more accurate subtraction
+of extragalactic sources.
+The Galactic synchrotron emission map at lower frequencies is derived
+by extrapolating the Haslam template map $T_b^{\R{H408}}(\bm{r})$ as:
 \begin{equation}
-  %\label{eq:gsync-extrap}
-  T_b^{\R{syn}}(\bm{r}, \nu) = T_b^{\R{Haslam}}(\bm{r})
+  \label{eq:gsync-extrap}
+  T_b^{\R{syn}}(\bm{r}, \nu) = T_b^{\R{H408}}(\bm{r})
     \left( \frac{\nu}{\SI{408}{\MHz}} \right)^{-\alpha_{\R{syn}}(\bm{r})},
 \end{equation}
 where $T_b^{\R{syn}}(\bm{r}, \nu)$ is the emission intensity expressed in
-brightness temperature at sky position $\bm{r}$ and
-frequency $\nu$, and $\alpha_{\rm syn} \sim ?? -??$ is the
-position-dependent synchrotron spectral index. $\alpha_{\rm syn}$
-is determinged by adopting the all-sky synchrotron spectral index map of
-Giardino et al. (2002), which was derived by
-comparing the Haslam 408 MHz all-sky survey with the northern sky continuum
-survey at 1420 MHz (Reich \& Reich 1986) and
-the southern sky survey at 2326 MHz (Jonas et al. 1998). The resulting
-$?? - ??$ MHz Galactic synchrotron emission maps
-are pixelized using the HEALPix algorithm (Gorski et al. 2005) and keep the
-same spatial resolution (about 1.72 arcmin) as
-the improved 408MHz map of Remazeilles et al. (2015), which is achieved by
-by extrapolating the observed angular power spectrum
-to small scales.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\noindent\hrulefill~\LI{[OLD]}~\hrulefill
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-The diffuse Galactic synchrotron emission dominates the low-frequency
-radio sky and accounts for \SI{\sim 70}{\percent} of the foreground
-intensity at \SI{\sim 150}{\MHz} \citep{shaver1999}.
-It has a power-law spectrum\footnote{We adopt the power-law
-  spectrum of form: $S(\nu) \propto \nu^{-\alpha}$.}
-with the spectral index $\alpha_{\R{syn}}$ varying as sky positions.
-We can simulate this foreground component at wanted low frequencies
-by extrapolating from the Haslam \SI{408}{\MHz} all-sky template
-\citep{haslam1982}.
-
-The Haslam \SI{408}{\MHz} all-sky map is one of the most important
-observations at the low-frequency regime, though has a rather limited
-resolution of \SI{\sim 56}{\arcmin}.
-\citet{remazeilles2015} have reprocessed the rawest available data
-and obtained a much improved Haslam \SI{408}{\MHz} map\footnote{%
-  The 2014 reprocessed Haslam \SI{408}{\MHz} map:
-  \url{http://www.jb.man.ac.uk/research/cosmos/haslam_map/}}
-with significantly better calibration and extragalactic source removal,
-they also produced the higher resolution maps with mock small-scale
-fluctuations added, which were simulated by extrapolating the observed
-angular power spectrum to small scales.
-The all-sky maps are pixelized using the HEALPix algorithm \citep{gorski2005}.
-We use the $N_{\R{side}} = 2048$ (i.e., pixel size \SI{\sim 1.72}{\arcmin})
-Haslam \SI{408}{\MHz} map released by \citet{remazeilles2015} as the
-template in this work.
-At even smaller scales, we do not have sufficient observational
-evidences to guide or constrain the simulation.  In addition, there
-are galaxy clusters and extragalactic point sources contaminating
-the EoR signal at such small scales, we therefore argue that our
-treatment to the Galactic synchrotron emission should be enough in
-the current simulation framework.
-
-We extrapolate from the adopted Haslam \SI{408}{\MHz} template map
-$T_b^{\R{Haslam}}(\bm{r})$ to the wanted lower frequency $\nu$ by assuming
-a power-law spectrum \citep{wang2010,bonaldi2015}:
-\begin{equation}
-  \label{eq:gsync-extrap}
-  T_b^{\R{syn}}(\bm{r}, \nu) = T_b^{\R{Haslam}}(\bm{r})
-    \left( \frac{\nu}{\SI{408}{\MHz}} \right)^{-\alpha_{\R{syn}}(\bm{r})},
-\end{equation}
-where $T_b^{\R{syn}}(\bm{r}, \nu)$ is the Galactic synchrotron intensity
-expressed in brightness temperature at sky position $\bm{r}$ and
-frequency $\nu$,
-%% BEGIN: [7th->8th]
-\color{magenta}
-and $\alpha_{\R{syn}}(\bm{r}) \sim 2.7$ is
-the position-dependent synchrotron spectral index.
-We use the all-sky map of synchrotron spectral index made by
-\citet{giardino2002}, which was derived from the Haslam \SI{408}{\MHz}
-all-sky survey and the northern sky continuum survey at \SI{1420}{\MHz}
-\citep{reich1986} combined with the southern sky survey at
-\SI{2326}{\MHz} \citep{jonas1998}.
-\color{black}
-%% END: [7th->8th]
+brightness temperature at sky position $\bm{r}$ and frequency $\nu$,
+and $\alpha_{\R{syn}}(\bm{r}) \sim 2.5-2.9$ is the position-dependent
+synchrotron spectral index.
+$\alpha_{\R{syn}}(\bm{r})$ is determined by adopting the all-sky
+synchrotron spectral index map made by \citet{giardino2002},
+which was derived by comparing the Haslam \SI{408}{\MHz} all-sky survey
+with the northern sky continuum survey at \SI{1420}{\MHz} \citep{reich1986}
+and the southern sky survey at \SI{2326}{\MHz} \citep{jonas1998}.
 
 
 %========================================================================
