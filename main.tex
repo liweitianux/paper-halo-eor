@@ -596,29 +596,30 @@ galaxy cluster can be randomly sampled using the Monte Carlo method
 \label{sec:merging-history}
 %------------------------------------------------------------------------
 
-We employ the extended Press-Schechter theory and the method outlined in
-\citet{lacey1993} to generate merger trees,
-and will use them to describe the merging history of galaxy clusters in
-\S??. For each merger tree to be built,
-we start with an initial cluster, whose redshift $z_{0}$ and mass $M_{0}$
-are randomly determined by applying Eq.??【上一节密度分布公式】.
-We trace the merging history of this cluster back in time by running
-Monte-Carlo simulations to randomly determine the mass increase
-$\Delta M$ at each step, which may be caused either by a real merger (if
-$\Delta M > \Delta M_c$, where $\Delta M_c = \SI{e12}{\solarmass}$
-is the minimum mass change in the merger tree, i.e., the smallest infalling
-sub-cluster that can be resolved)
-or by accretion  (if $\Delta M \leq \Delta M_c$). Whenever a real merger
-occurs, we also begin to trace the merging history
-of new sub-cluster.
+Galaxy clusters are formed hierarchically by accretion and merging from
+smaller clusters, groups, and galaxies.
+The extended Press-Schechter theory outlined in \citet{lacey1993} provide
+us with a way to simulate the growth history of a cluster (i.e., merger tree).
+For each merger tree to be built, we start with the cluster's present
+mass $M_0$ and redshift $z_0$, which are randomly sampled from the
+mass function [Equation~(\ref{eq:ps-mass-func})].
+We trace the growth history of this cluster back in time by running
+Monte Carlo simulations to randomly determine the mass increase
+$\Delta M$ at each step, which may be regarded either as a merger event
+(if $\Delta M > \Delta M_c$, where $\Delta M_c = \SI{e12}{\solarmass}$
+is the assumed minimum mass change for a merger, i.e., the smallest infalling
+sub-cluster to be resolved) or as an accretion event
+(if $\Delta M \leq \Delta M_c$).
+Whenever a merger event occurs, we also begin to trace the growth history
+of the new sub-cluster.
 
-We assume that during each step of mass increase the mass of the cluster
-increases from $M_{1}$ at time $t_{1}$ to $M_{2}$ at $t_{2}$.
-Given $M_{2}$, the conditionl probability of the cluster's progenitor being
-in the mass range $M_{1} \to M_{1} + \D{M_{1}}$
-can be expressed as
+We assume that during each growth step the cluster mass increases from
+$M_1$ at time $t_1$ (earlier) to $M_2$ at $t_2$ (later).
+Given $M_2$ and $t_2$, the conditional probability of the cluster had
+a progenitor being in the mass range $M_1 \to M_1 + \D{M_1}$ at a
+earlier time $t_1$ can be expressed as
 \begin{equation}
-  %\label{eq:eps-condprob}
+  \label{eq:eps-condprob}
   \R{Pr}(M_1, t_1 | M_2, t_2) \,\D{M_1} = \frac{1}{\sqrt{2\pi}}
 \frac{M_2}{M_1}
   \frac{\delta_{c1} - \delta_{c2}}{(\sigma_1^2 - \sigma_2^2)^{3/2}}
@@ -628,76 +629,10 @@ can be expressed as
 \end{equation}
 where
 $\delta_{ci} \equiv \delta_c(t_i)$, $\sigma_i \equiv \sigma(M_i)$, and $i =
-1, 2$ is used to denote parameters defined at the time $t_{1}$ and $t_{2}$,
-respectively (\citep{lacey1993,randall2002}).
-If we further introduce $S \equiv \sigma^2(M)$ and $\omega \equiv
-\delta_c(t)$, whose differences between $t_{1}$ and $t_{2}$
-are $\Delta S = \sigma_1^2 - \sigma_2^2$ and $\Delta S \to \Delta S +
-\D{\Delta S}$, Equation~(\ref{eq:eps-condprob}) reduces to
-\begin{equation}
-  %\label{eq:eps-condprob-simp}
-  \R{Pr}(\Delta S, \Delta \omega) \,\D{\Delta S} = \frac{1}{\sqrt{2\pi}}
-  \frac{\Delta\omega}{(\Delta S)^{3/2}}
-  \exp \!\left[ -\frac{(\Delta\omega)^2}{2 \Delta S} \right] \D{\Delta S}.
-\end{equation}
-
-In order to obey the probability distribution of mergers with different
-$\Delta M$ (i.e., $\Delta S$),
-we sample the cumulative probability distribution of $\Delta M$ with
-\begin{equation}
-  %\label{sec:cdf-sub-masses}
-  \R{Pr}(<\!\Delta S, \Delta\omega) =
-  \int_0^{\Delta S} \R{Pr}(\Delta S', \Delta\omega) \,\D{\Delta S'} =
-  \erfc \!\left( \frac{\Delta \omega}{\sqrt{2 \Delta S}} \right),
-\end{equation}
-where $\erfc(x) = 1 - \erf(x)$ is the complementary error function.
-With a random $\Delta S$ (i.e., $M_{\rm sub}$) drawn from this probability
-distribution, the values of $S_1$ and $M_{1}$
-are derived for the progenitor in each merger.
-In the calculation, the step size $\Delta\omega$ is chosen adaptively
-\citep{randall2002} using
-\begin{equation}
-  %\label{sec:dw-step}
-  (\Delta\omega)_{\R{step}} \lesssim \frac{1}{2} \left[
-    S \left| \diff{\ln \sigma^2}{\ln M} \right|
-    \left( \frac{\Delta M_c}{M} \right) \right]^{1/2},
-\end{equation}
-where $M$ is the cluster mass at a certain step.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\noindent\hrulefill~\LI{[OLD]}~\hrulefill
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Galaxy clusters are formed hierarchically by merging from smaller (i.e.,
-lower mass) clusters, groups, and galaxies.
-And the PS formalism provides a way to infer the formation history
-of a cluster from its current status.
-We follow the extended Press-Schechter method outlined by \citet{lacey1993}
-to generate the merger trees.
-
-The conditional probability that a \enquote{parent} cluster of mass $M_2$
-at a time $t_2$ had a \enquote{progenitor} of mass in the range
-$M_1 \to M_1 + \D{M_1}$ at some earlier time $t_1$,
-with $M_2 > M_1$ and $t_2 > t_1$, is given by
-\citep{lacey1993,randall2002}:
-\begin{equation}
-  \label{eq:eps-condprob}
-  \R{Pr}(M_1, t_1 | M_2, t_2) \,\D{M_1} = \frac{1}{\sqrt{2\pi}} \frac{M_2}{M_1}
-  \frac{\delta_{c1} - \delta_{c2}}{(\sigma_1^2 - \sigma_2^2)^{3/2}}
-  \left| \diff{\sigma_1^2}{M_1} \right|
-  \exp \!\left[ -\frac{(\delta_{c1} - \delta_{c2})^2}
-    {2(\sigma_1^2 - \sigma_2^2)} \right] \D{M_1},
-\end{equation}
-where
-$\delta_{c1} \equiv \delta_c(t_1)$ and $\sigma_1 \equiv \sigma(M_1)$,
-with similar definitions for $\delta_{c2}$ and $\sigma_2$.
-By further defining $S \equiv \sigma^2(M)$ and $\omega \equiv \delta_c(t)$,
-and let $\R{Pr}(\Delta S, \Delta \omega) \,\D{\Delta S}$ be the probability
-that a cluster had a progenitor with a mass corresponding to a change
-in $S$ of $\Delta S = \sigma_1^2 - \sigma_2^2$ in the range
-$\Delta S \to \Delta S + \D{\Delta S}$ at an earlier time
-corresponding to $\Delta \omega = \delta_{c1} - \delta_{c2}$,
-then Equation~(\ref{eq:eps-condprob}) is simplified into:
+1, 2$ is used to denote parameters defined at time $t_1$ and $t_2$,
+respectively \citep{lacey1993,randall2002}.
+By further introducing $S \equiv \sigma^2(M)$ and
+$\omega \equiv \delta_c(t)$, this equation reduces to
 \begin{equation}
   \label{eq:eps-condprob-simp}
   \R{Pr}(\Delta S, \Delta \omega) \,\D{\Delta S} = \frac{1}{\sqrt{2\pi}}
@@ -705,64 +640,41 @@ then Equation~(\ref{eq:eps-condprob}) is simplified into:
   \exp \!\left[ -\frac{(\Delta\omega)^2}{2 \Delta S} \right] \D{\Delta S}.
 \end{equation}
 
-We employ the standard Monte Carlo technique to build the merger trees,
-with each of them starts with a cluster with an initial mass $M_0$
-and redshift $z_0$ simulated in the last section.
-We trace each cluster back in time, using a step size $\Delta\omega$
-adaptively determined by \citep{randall2002}:
+During the backward tracing of a cluster, the step size $\Delta\omega$
+is chosen adaptively as \citep{randall2002}:
 \begin{equation}
   \label{sec:dw-step}
   (\Delta\omega)_{\R{step}} \lesssim \frac{1}{2} \left[
     S \left| \diff{\ln \sigma^2}{\ln M} \right|
     \left( \frac{\Delta M_c}{M} \right) \right]^{1/2},
 \end{equation}
-where $M$ is the cluster mass at the current time step,
-$\Delta M_c$ is the minimum mass change indicating the smallest
-merging sub-cluster can be resolved in the merger trees;
-and we choose $\Delta M_c = \SI{e12}{\solarmass}$.
-In order to obey the probability distribution of mergers of different
-$\Delta S$ (i.e., $\Delta M$), we sample the cumulative probability
-distribution of the sub-cluster masses:
+where $M$ is the cluster mass at the corresponding step.
+In order to obey the probability distribution of mergers with different
+mass changes (i.e., $\Delta S$),
+we sample the cumulative probability distribution of the sub-cluster masses
+to determine $\Delta S$ (i.e., $\Delta M$) at each step:
 \begin{equation}
   \label{sec:cdf-sub-masses}
   \R{Pr}(<\!\Delta S, \Delta\omega) =
   \int_0^{\Delta S} \R{Pr}(\Delta S', \Delta\omega) \,\D{\Delta S'} =
   \erfc \!\left( \frac{\Delta \omega}{\sqrt{2 \Delta S}} \right),
 \end{equation}
-where $\erfc(x) = 1 - \erf(x)$ is the complementary error
-function whose inversion is also analytical.
-With a random $\Delta S$ drawn from this probability distribution,
-the value of $S_1$ of the progenitor is then $S_1 = S_2 + \Delta S$,
-and the mass of one of the progenitors is determined by
-$\sigma^2(M_1) = S_1$, while for the other is $\Delta M = M_2 - M_1$.
+where $\erfc(x) = 1 - \erf(x)$ is the complementary error function.
+With a random $\Delta S$ (i.e., $M_{\R{sub}}$) drawn from this probability
+distribution, the mass of the cluster's progenitor $M_1$ is obtained from
+$S_1 = S_2 + \Delta S$.
 
-Let $M_{\R{main}} \equiv \max(M_1, \Delta M)$ and
-$M_{\R{sub}} \equiv \min(M_1, \Delta M)$.
-If $M_{\R{sub}} \leq \Delta M_c$, we regard this change in mass
-to be due to accretion, and we continue build the merger tree from
-$M_{\R{main}}$ with the sub-cluster been ignored.
-On the other hand, it is identified as a merger event if
-$M_{\R{sub}} > \Delta M_c$, then we trace both the main cluster
-and the sub-cluster separately.
-
-Considering that radio halos are only observed in
-a fraction of massive merging clusters, suggesting they are closely
-related to the recent major mergers, and have a lifetime
-$\tau_{\R{halo}}$ shorter than the timescale
-$\tau_m$ ($\sim\! \SIrange[range-units=single]{2}{3}{\Gyr}$)
-for the duration of merger-induced disturbance \citep{cassano2016}.
-Therefore we only trace the merging history of the main cluster
+Considering that radio halos are associated to recent major mergers
+and have a lifetime $\tau_{\R{halo}}$ much shorter than the
+merger-induced disturbance timescale $\tau_m$ (\SIrange{2}{3}{\Gyr})
+\citep{cassano2016},
+we only trace the merging history of the main cluster
 to a maximum backward time of \SI{3}{\Gyr}.
-Then we identify the most recent major merger for each cluster,
-which is defined as $M_{\R{main}}/M_{\R{sub}} < 3$
-\citep[e.g.,][]{wetzel2009},
+Then for each cluster we identify the most recent major merger
+($M_{\R{main}}/M_{\R{sub}} < 5$)
 and extract the $(M_{\R{main}}, M_{\R{sub}}, z_{\R{merger}})$
 data for use in the following radio halos simulation.
-Meanwhile, those clusters without a recent major merger found
-are thought to not host radio halos, and thus been ignored.
 
-We also note that this technique allows only binary mergers,
-but it is sufficient for our use here.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
