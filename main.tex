@@ -1369,64 +1369,6 @@ through the relation \citep{condon2016}:
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% BEGIN: [7th->8th]
-\color{magenta}
-\section{EoR Signal Power Spectrum}
-\label{sec:power-spectrum}
-
-\TODO{draw a diagram}
-
-The EoR signal is the redshifted \SI{21}{\cm} line emission from \Hi{},
-which is observed by a radio interferometer and form an image cube
-$I(\bm{\theta}, \nu)$, where the two angular dimensions $\bm{\theta}$
-translate into the transverse distances $\bm{r}_{\bot}$ on the sky plane,
-and the spectral dimension $\nu$ represents the line-of-sight distance
-$r_{\parallel}$.
-
-First, we take the 3D Fourier transform on the image cube:
-\begin{equation}
-  \label{eq:ps-3d-ft}
-  V(\bm{u}, \eta) = \bm{\mathrm{F}}(\{\bm{u}, \eta\}, \{\bm{\theta}, \nu\})
-    I(\bm{\theta}, \nu),
-\end{equation}
-where $\bm{\theta}$ is the angular sizes on the sky plane, $\nu$ is the
-frequency, and $(\bm{u}, \eta)$ are the Fourier duals to
-$(\bm{\theta}, \nu)$, respectively.
-Then we transform the coordinate from $(\bm{u}, \eta)$ into the
-cosmological coordinate $\bm{k} = (k_x, k_y, k_z)$
-(in units of \si{\per\cMpc}):
-\begin{equation}
-  \label{eq:coordinate-transform}
-  V(\bm{k}) = \bm{\mathrm{J}}(\bm{k}, \{\bm{u}, \eta\}) V(\bm{u}, \eta).
-\end{equation}
-\TODO{[add coordinate transformation]}
-We therefore obtain the 3D power spectrum by:
-\begin{equation}
-  \label{eq:3d-ps}
-  P(\bm{k}) = |V(\bm{k})|^2.
-\end{equation}
-
-Considering that the signal is isotropic among the sky plane, we can
-squeeze these two dimensions into $\kperp \equiv \sqrt{k_x^2 + k_y^2}$ by
-cylindrically averaging the 3D power spectrum, and obtained the 2D
-cylindrical power spectrum $P(\kperp, \klos)$ with $\klos \equiv k_z$.
-The 2D cylindrical power spectrum has the advantage to better separate
-the EoR signal from the foreground contamination, which is supposed to
-be reside in the lower-right wedge-shape region, therefore defining the
-EoR window.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Simulation Parameters}
-\label{sec:parameters}
-
-\TODO{Collect and explain the simulation parameters ...}
-
-
-\color{black}
-%% END: [7th->8th]
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \bibliography{references}
 
 
