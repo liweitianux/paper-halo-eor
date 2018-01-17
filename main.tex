@@ -185,11 +185,11 @@
 
 \author[0000-0002-7527-380X]{Weitian Li}
 \email{liweitianux@sjtu.edu.cn}
-\affil{School of Physics Astronomy, Shanghai Jiao Tong University,
+\affil{School of Physics and Astronomy, Shanghai Jiao Tong University,
   800 Dongchuan Road, Shanghai 200240, China}
 
 \author{Haiguang Xu}
-\affil{School of Physics Astronomy, Shanghai Jiao Tong University,
+\affil{School of Physics and Astronomy, Shanghai Jiao Tong University,
   800 Dongchuan Road, Shanghai 200240, China}
 
 
@@ -207,7 +207,7 @@
 %% keywords and the rules for their use.
 %% http://journals.aas.org/authors/keywords2013.html
 \keywords{
-  \TODO{[update]}
+  \TODO{[update]};
   dark ages, reionization, first stars ---
   galaxies: clusters: intracluster medium ---
   methods: numerical ---
@@ -257,7 +257,7 @@ significant due to a variety of complicated instrumental effects
 polarization leakages, noises), ionospheric distortions, radio frequency
 interference, and the strong celestial foreground contamination.
 For example, the intensity of the cumulative foreground sources, which
-is mainly contributed by the diffuse polarized synchrotron radiation from
+is mainly contributed by the diffuse synchrotron radiation from
 our Milky Way and is complicated by other components, such as the
 non-thermal continuum radiation of numerous extragalactic radio sources,
 overwhelms the redshifted 21 cm signals by \numrange{4}{5} orders of
@@ -276,14 +276,13 @@ These approaches can be further divided into two families:
 the parametric ones \citep[e.g.,][]{wang2006,jelic2008,liu2009,wang2013}
 and the non-parametric ones
 \citep[e.g.,][]{harker2009,wang2010,chapman2012,chapman2013,gu2013}.
-\TODO{[needs improve]}
 Foreground avoidance, on the other hand, carries out the EoR analyses
 inside the so-called \enquote{EoR window} to avoid the severe foreground
 contamination in the 2D cylindrical power spectrum in (\kperp, \klos)
 domain, which represent the wavenumbers perpendicular and along the
 line of sight, respectively.
 In such 2D cylindrical power spectrum, the spectrally smooth foreground
-will reside in a well-defined region at small \klos.
+is expected to reside in a well-defined region at small \klos.
 The intrinsic chromaticity and other instrumental effects of the
 interferometer can throw the angular (i.e., \kperp) foregrounds into
 the frequency (i.e., \klos) direction, resulting a wedge-shaped foreground
@@ -316,28 +315,23 @@ calibration imperfections
 \citep[e.g.,][]{barry2016,pober2016,jacobs2016,nunhokee2017}.
 Thus the foreground avoidance strategy is by no means optimal, and
 removal algorithms are still an active field of research.
-\TODO{[补充一两句关于 hybrid method]}
 
-\TODO{[问题: foreground avoidance 与 cluster subtraction 矛盾，需要
-  改写该段说法. 我们将采用的评估方法类似 hybrid method.
-  补充文献支持我们的方法是合适的...]}
 In this paper we attempt to investigate the effects of the contamination
 contributed by galaxy clusters (in foreground avoidance???), and discuss
 how they can be removed safely in the upcoming SKA experiment.
 Among various celestial foreground components, the cluster component is
 relatively less discussed, although it may contribute about ??\%
-\LI{[星系团对前景的总强度贡献很小，考虑到其数目相对少，覆盖率很低.]}
+\LI{[如何描述星系团的影响程度？]}
 of the extragalactic foreground power in $50 - 200$ MHz, where the
 EoR signals are expected to appear.
-As of today, limited by the insufficient sensitivity and the relatively
+As of today, limited by the insufficient sensitivity and the
 small sample (about 100 giant/mini radio halos and 70 radio relics),
 the origin of the low frequency radio emission of galaxy clusters,
 mostly in the form of synchrotron emission, is still poorly understood.
 The task of correctly modeling the radio emission of galaxy clusters
-becomes more challenging \LI{[为什么??]} when we extend our consideration
+becomes more challenging when we extend our consideration
 to either the faint end or higher redshifts ($z \gtrsim 1$).
-\TODO{[问题: 星系团的亮度约为 EoR 信号的 100 倍，但由于覆盖程度低，
-  其视场内的总强度不会明显强于 EoR 信号的总强度.]}
+\TODO{[如何描述星系团的影响？与前面的说明合并？]}
 Obviously, if the cumulative contribution of both the low-flux cluster
 sources and the residuals caused by inaccurate subtraction of the
 bright clusters, which is estimated to be about/at least 2?? orders
@@ -348,8 +342,8 @@ signals \citep[e.g.,][]{datta2010,pober2013,beardsley2016,procopio2017}.
 
 This paper is organized as follows.
 In Section~\ref{sec:fg-simu} we describe the details of our new software
-\texttt{fg21sim}\footnote{FG21sim: \url{https://github.com/liweitianux/fg21sim}}
-(version 1) \LI{[release this version on submission]},
+\texttt{FG21sim}\footnote{FG21sim: \url{https://github.com/liweitianux/fg21sim}}
+(version ???),
 which has been developed to simulate the low frequency sky based on the
 works of \citet{wang2010,wang2013}.
 Comparing to our previous works, the simulations of the Galactic,
@@ -360,29 +354,29 @@ Section~\ref{sec:eor-simulation} gives the cosmological EoR signal simulation
 using the \texttt{SimFast21}\footnote{SimFast21:
   \url{https://github.com/mariogrs/Simfast21}} (version 20170627)
 software \citep{santos2010,hassan2016}.
-In Section~??? we model a \SI[product-units=power]{10 x 10}{\deg} deep sky
+In Section~??? we model a \SI{10 x 10}{\deg} deep sky
 patch among a \SI{8}{\MHz} band centered at \SI{158}{\MHz}, which is
 analogous to those will be observed with SKA1-Low
 \citep[see][for updated SKA observing strategies]{koopmans2015rev},
-with our software \texttt{fg21sim},
+with our software \texttt{FG21sim},
+(10 deg FoV to consider the first side-lobes)
+\TODO{[Sections: EoR signal simulation; observational simulation]}
 and input the obtained sky model as well as EoR signals into the
 \texttt{OSKAR}\footnote{OSKAR: \url{https://github.com/OxfordSKA/OSKAR}}
 (version 20170619) with the current available SKA1-Low configuration to
 simulate the visibility data sets \citep{mort2010}.
-Then we create \enquote{observed} sky images using the
-\texttt{WSClean}\footnote{WSClean: \url{https://sourceforge.net/p/wsclean/}}
-(version 2.4) with the joined-channel deconvolution
-\citep{offringa2014,offringa2017}, from which the 2D cylindrical power spectra
-are calculated by fast Fourier transformation.
-In Section~??? we quantitatively examine to what extent the EoR window is
-contaminated by the residuals contributed by mis-subtracted and un-subtracted
-galaxy clusters.
+Then we make \enquote{observed} sky images using the
+\texttt{WSClean}\footnote{WSClean: \url{https://sourceforge.net/p/wsclean}}
+(version 20170528) \citep{offringa2014}, from which the 2D cylindrical
+power spectra are calculated by fast Fourier transformation.
+In Section~\ref{sec:results} we quantitatively examine to what extent the
+EoR window is contaminated by the residuals contributed by mis-subtracted
+and un-subtracted galaxy clusters.
 
 We adopt a flat \lcdm{} cosmology throughout this work with
 $H_0 = \SI{100}{\hubble} = \SI{71}{\km\per\second\per\Mpc}$,
 $\Omega_m = 0.27$, $\Omega_{\Lambda} = 1 - \Omega_m = 0.73$,
-$\Omega_b = 0.046$, $n_s = 0.96$, and $\sigma_8 = 0.81$
-\citep{komatsu2011}.
+$\Omega_b = 0.046$, $n_s = 0.96$, and $\sigma_8 = 0.81$.
 
 
 %########################################################################
@@ -390,41 +384,41 @@ $\Omega_b = 0.046$, $n_s = 0.96$, and $\sigma_8 = 0.81$
 \label{sec:fg-simu}
 %########################################################################
 
-Based on our previous work \citep{wang2010}, we have used the Python
+Based on our previous works \citep{wang2010,wang2013}, we have used the Python
 programming language to develop the \texttt{FG21sim} software to simulate
 the low-frequency radio sky by taking into account the contributions of
-Our Galaxy, discrete extragalactic sources, galaxy clusters,
-\sout{epoch of reionization, and instrument noise}.
+Our Galaxy, extragalactic point sources, and galaxy clusters.
 The software is public to the community and can be downloaded at
 \url{https://github.com/liweitianux/fg21sim},
 where technical details (???), a user manual (???), and other auxiliary
-data and documents are also provided.
-[An interface?? is designed in the software to employ instrumental
-responses of different low-frequency radio facilities.](???)
-In this work we use the latest \texttt{FG21sim} version 1.0
-\LI{[release this version on submission]} to generate sky images and
+data and documents are provided.
+Additional tools are also developed to aid the observational simulations
+in order to integrate the instrumental responses of low-frequency radio
+facilities.
+In this work we use \texttt{FG21sim} to simulate sky images and
 evaluate the effects of the contamination caused by galaxy clusters.
-By consulting the plan/white book/guide??【SKA相关文献的正式官方名称、版本】
-(ref??), we perform the simulations in $?? - ??$ MHz for a
-$10^{\circ} \times 10^{\circ}$??【先写大的模拟区域；其中取出多少计算，后面再提】
-sky region at a high galactic latitude of ??, which resembles those that will
-be observed with SKA array in the future 【虽然可以引述MWA文献，但必须以
-SKA为重!!；脚注：This covers the same sky field as MWA (EoR0 field;
-Beardsley et al. 2016】, and only incorporate the Galactic and cluster
-foreground components in the simulated sky maps.
-The contamination of the extragalactic sources are neglected,
-because to ?? (ref??) 【说明：1、21cm信号应存在，否则后面也无法比较——只是
-后文在谈前景时，必要时说明那里只计算了前景、未含21cm信号即可；2、河外点源略
-去会有什么影响、略去的依据是什么，要做清晰简略的说明，并引用文献；3、马、单
-的论文是否提及，待定。可做一标记以提示】.
+By consulting the latest SKA science book on the EoR survey strategies
+\citep{koopmans2015rev}, we perform the simulations within a \SI{8}{\MHz}
+band centered at \SI{158}{\MHz} for a \SI{10 x 10}{\deg} sky region at
+(R.A., Dec.) = (\SI{0}{\degree}, \SI{-27}{\degree}), which locates at a
+high galactic latitude of $b = \SI{-78.5}{\degree}$ and resembles those
+that will be observed with SKA1-Low in the future\footnote{This sky region
+  is also targeted by MWA (EoR0 field; \citealt{beardsley2016}).}.
+Besides the 21 cm signal, we incorporate the Galactic (including both the
+synchrotron and free-free emissions) and galaxy cluster foreground components
+into the simulated sky maps.
+The extragalactic point sources and their contamination are extensively
+investigated in the literature, and they can be well modeled and removed
+\citep[e.g.,][]{trott2012}, so we leave this component out in this work.
+【河外点源略去会有什么影响? 依据是什么? 要做清晰简略的说明，并引用文献;
+马、单的论文是否提及??】.
 When we model the Galactic contamination, the emission from supernova
 remnants (SNRs), some of which may have a large angular size and a
 complex morphology, is also neglected because the total number of these
 sources is small (about 1000; \citealt{li1991,anderson2017}), and they
-prefer to reside in the Galactic plane.
-[???] We project the sky maps to a flat plane using the azimuthal equidistant
-projection??, and the obtained images are overlaid with grids of 1024 ×
-1024 pixels, each pixel covering approximately a $?? \times ??$?? patch.
+prefer to reside in the Galactic disk.
+The sky maps are pixelized into \num{1800 x 1800} with a pixel size of
+\SI{20}{\arcmin}.
 
 
 %========================================================================
@@ -447,7 +441,7 @@ Haslam \SI{408}{\MHz} all-sky map\footnote{%
   We use the $N_{\R{side}} = 2048$ (i.e., pixel size \SI{\sim 1.72}{\arcmin})
   high resolution map achieved by extrapolating the observed power spectrum
   to small scales.}
-provided by \citealt{remazeilles2015}, which was obtained by applying
+provided by \citet{remazeilles2015}, which was obtained by applying
 significantly better instrument calibration and more accurate subtraction
 of extragalactic sources.
 The Galactic synchrotron emission map at lower frequencies is derived
@@ -509,10 +503,9 @@ $D(\bm{r})$ is the measured dust column density in units of
 and $f_d$ is the effective dust fraction along the line of sight.
 
 In this work, we use the all-sky \Halpha{} map from \citet{finkbeiner2003},
-the all-sky dust map from \citet{schlegel1998}, and
-adopt effective dust fraction $f_d = 0.33$ and
-electron temperature $T_e = \SI{7000}{\kelvin}$
-as suggested \citep{dickinson2003}.
+the all-sky dust map from \citet{schlegel1998}, and adopt effective dust
+fraction $f_d = 0.33$ and electron temperature $T_e = \SI{7000}{\kelvin}$
+as suggested by \citet{dickinson2003}.
 
 
 %========================================================================
@@ -600,7 +593,7 @@ Galaxy clusters are formed hierarchically by accretion and merging from
 smaller clusters, groups, and galaxies.
 The extended Press-Schechter theory outlined in \citet{lacey1993} provide
 us with a way to simulate the growth history of a cluster (i.e., merger tree).
-For each merger tree to be built, we start with the cluster's present
+For each merger tree to be built, we start with the cluster's current
 mass $M_0$ and redshift $z_0$, which are randomly sampled from the
 mass function [Equation~(\ref{eq:ps-mass-func})].
 We trace the growth history of this cluster back in time by running
@@ -616,7 +609,7 @@ of the new sub-cluster.
 We assume that during each growth step the cluster mass increases from
 $M_1$ at time $t_1$ (earlier) to $M_2$ at $t_2$ (later).
 Given $M_2$ and $t_2$, the conditional probability of the cluster had
-a progenitor being in the mass range $M_1 \to M_1 + \D{M_1}$ at a
+a progenitor being in the mass range $M_1 \to M_1 + \D{M_1}$ at an
 earlier time $t_1$ can be expressed as
 \begin{equation}
   \label{eq:eps-condprob}
@@ -676,10 +669,10 @@ and extract the $(M_{\R{main}}, M_{\R{sub}}, z_{\R{merger}})$
 data for use in the following radio halos simulation.
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%------------------------------------------------------------------------
 \subsubsection{Radio Halos}
-\label{sec:halo}
+\label{sec:halos}
+%------------------------------------------------------------------------
 
 Giant radio halos in galaxy clusters are associated with the on-going or
 most recent major mergers, and they are widely believed to be radiated from
@@ -759,22 +752,21 @@ distribution can be derived by solving the Fokker-Planck equation
   \pdiff{n(\gamma,t)}{t} = \pdiff{}{\gamma} \left[ n(\gamma,t) \left(
       \left| \diff{\gamma}{t} \right|_{\R{rad}} +
       \left| \diff{\gamma}{t} \right|_{\R{ion}} -
-      \frac{2}{\gamma} D_{\R{\gamma\gamma}}(\gamma, t) \right) \right] +
-  \pdiff{}{\gamma} \left[ D_{\R{\gamma\gamma}} \pdiff{n(\gamma,t)}{p} \right] +
-  Q_e(\gamma,t),
+      \frac{2}{\gamma} D_{\gamma\gamma}(\gamma, t) \right) \right] +
+    \pdiff{}{\gamma} \left[ D_{\gamma\gamma} \pdiff{n(\gamma,t)}{\gamma}
+    \right] + Q_e(\gamma,t),
 \end{equation}
-where $\gamma = p / (m_e c)$ is the Lorentz factor of the electrons,
+where $\gamma \approx p / (m_e c)$ is the Lorentz factor of the
+relativistic electrons with $\gamma \gg 1$,
 $n(\gamma, t)$ is the isotropic number density of relativistic
 electrons, $Q_e(\gamma, t)$ describes the electron injection,
 $|\R{d}\gamma / \R{d}t|_{(\cdot)}$ terms account for the
 energy losses due to radiation and ionization,
-and $D_{\R{\gamma\gamma}}(\gamma, t)$ is the diffusion coefficient
-describing the interactions between electrons and turbulent waves,
-which is given by \citep{brunetti2011}:
-\begin{equation}
-  \label{eq:diffusion-coef}
-  D_{\R{\gamma\gamma}}(\gamma, t) = \frac{1}{4} \,\gamma^2\,\chi(t).
-\end{equation}
+and $D_{\gamma\gamma}(\gamma, t) = \gamma^2\,\chi(t) / 4$ is the
+diffusion coefficient describing the interactions between electrons
+and turbulent waves \citep{brunetti2011}.
+
+[REWRITE!]
 In some energy ranges (e.g., $\gamma \sim 1000$), the diffusion may
 contribute more energies than those lost, therefore can accelerate electrons
 to higher energies, making them synchrotron bright.
@@ -792,7 +784,6 @@ into the cluster ICM with a power-law spectrum of index $s$
   Q_e(\gamma, t) = Q_e(\gamma) = K_e \,\gamma^{-s},
 \end{equation}
 where $K_e$ is the constant injection rate,
-\color{magenta}
 which can be parametrized
 by assuming that the total energy injected in the electrons during
 the cluster life is a fraction, $\eta_e$, of the total thermal energy
@@ -814,7 +805,6 @@ Therefore we derive the electron injection rate to be:
   K_e \simeq \frac{(s-2)\,\eta_e\,\epsilon_{\R{th}}}{\epsilon_e\,\tau_{\R{cluster}}}
     \gamma_{\R{min}}^{s-2}.
 \end{equation}
-\color{black}
 
 The ICM thermal energy density is calculated as:
 \begin{equation}
@@ -871,7 +861,7 @@ ionization and Coulomb collisions \citep{sarazin1999}:
   \num{-3.79e4} \,n_{\R{th}} \left[ 1 +
     \frac{\ln(\gamma/n_{\R{th}})}{75} \right] \quad [\si{\per\Gyr}],
 \end{equation}
-with $n_{\R{th}}$ in units of [\si{\per\cm\cubed}].
+with $n_{\R{th}}$ in units of \si{\per\cm\cubed}.
 
 Having all the coefficients of the Fokker-Planck
 equation~(\ref{eq:fokkerplanck}) been determined, we can now derive
@@ -883,8 +873,8 @@ However, to avoid unphysical pile-up of electrons at the lower boundary,
 we define a \enquote{buffer} region below $\gamma_{\R{buf}}$, within which
 the spectrum are replaced by extrapolating as a power law, based on
 the spectrum above $\gamma_{\R{buf}}$ \citep{donnert2014}.
-We adopt a logarithmic grid for $\gamma \in [10, 10^5]$ with 200 cells,
-and let the lower buffer region span 5 cells.
+We adopt a logarithmic grid for $\gamma \in [1, 10^5]$ with 200 cells,
+and let the lower buffer region span 10 cells.
 
 We solve the Fokker-Planck equation from the time $t_{\R{merger}}$
 (i.e., $z_{\R{merger}}$) when the identified major merger begins,
@@ -906,7 +896,7 @@ is determined by \citep{rybicki1979}:
 \begin{equation}
   \label{sec:jnu-sync}
   J_{\R{syn}}(\nu, t_0) = \frac{\sqrt{3} \, e^3 B}{m_e c^2}
-  \int_{\gamma_{\R{min}}}^{\gamma_{\R{max}}} \int_0^{\pi/2}
+  \int_{\gamma_{\R{min}}}^{\gamma_{\R{max}}} \!\!\int_0^{\pi/2}
   n(\gamma, t_0) F\!\left( \frac{\nu}{\nu_c} \right) \sin^2 \!\theta
   \,\D{\theta} \,\D{\gamma},
 \end{equation}
@@ -920,9 +910,6 @@ and $F(\nu/\nu_c)$ is the synchrotron kernel:
 with $K_{5/3}(x)$ the modified Bessel function of order 5/3,
 $\nu_c = (3/2) \,\gamma^2 \nu_L \sin\theta$ the critical frequency,
 and $\nu_L = e B / (2\pi m_e c)$ the Larmor frequency of electrons.
-Observations suggest that radio halos have average synchrotron emissivity
-$\langle {J_{\R{syn}}} \rangle \sim \SI{e-42}{\erg\per\second\per\cm\cubed\per\hertz}$
-at 1.4 GHz \citep{murgia2009,feretti2012rev}.
 
 The synchrotron emissivity is the same throughout the radio halo,
 according to our previous assumptions, we can then calculate the radio
@@ -945,7 +932,7 @@ distribution of radio halos, which is expressed as \citep{murgia2009}:
 \end{equation}
 where $\theta = R / D_A$ is the angular radius from the halo center,
 with $D_A$ the angular diameter distance to the halo,
-$\theta_e \simeq \theta_{\R{halo}}/3$ is the $e$-folding radius,
+$\theta_e = \theta_{\R{halo}}/3$ is the $e$-folding radius,
 and $I_{\nu,0}$ is the central brightness, which is constrained by the
 above flux density $S_{\nu}$ and can be derived to be:
 \begin{equation}
@@ -959,18 +946,10 @@ and then superimpose all the halo images to the sky patch to obtain the
 simulated images of radio halos at each frequency of interest.
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Radio Relics}
-\label{sec:relic}
-
-\TODO{Simulate (elongated) radio relics...}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% BEGIN: [7th->8th]
-\color{magenta}
+%########################################################################
 \section{EoR Signal Simulation}
 \label{sec:eor-simulation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 We simulate the cosmological EoR signal using the \texttt{SimFast21}
 (version 20170627) software, which can perform fast simulations to the
@@ -1000,9 +979,10 @@ than our needs.  Therefore, we tile and re-scale these slices to make
 them have the same angular and image sizes as our foreground maps.
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Observation Simulation}
+%########################################################################
+\section{Observational Simulation}
 \label{sec:obs-simulation}
+%########################################################################
 
 To investigate the practical contamination in the EoR window due to the
 galaxy clusters, we need to simulate the \enquote{observed} images of
@@ -1025,7 +1005,7 @@ foreground characterization and removal, as well as other scientific goals.
 For example, at \SI{158}{\MHz}, the SKA1-Low has a FoV of
 \SI{\sim 4 x 4}{\deg}, and angular resolution of \SI{\sim 7}{\arcsec}.
 
-Both the observation simulation and imaging are very computational
+Both the observational simulation and imaging are very computational
 intensive, but our computing resources are rather limited, so we can
 only choose a set of conservative parameters.
 The \SIrange{154}{162}{\MHz} band of our interest is divided into 51
@@ -1039,22 +1019,20 @@ At each frequency channel, the sky map is tapered by a Tukey window
 function to suppress the side-lobe impacts, and then input into the
 \texttt{OSKAR} simulator \citep{mort2010} to perform the observation
 for \SI{6}{\hour} ($\pm \SI{3}{\hour}$ in Hour Angle) with a time
-averaging step of \SI{2}{\minute}.
+averaging step of \SI{5}{\minute}.
 
 The simulated visibility data at each frequency channel are combined
 to create the \enquote{observed} image cube using the \texttt{WSClean}
 imager \citep{offringa2014} with Briggs weighting and joined-channel
 deconvolution \citep{offringa2017}.
 Finally, we crop out the central \SI{4 x 4}{\deg} to create the 2D
-cylindrical power spectrum, as described in Appendix~\ref{sec:power-spectrum}.
-
-\color{black}
-%% END: [7th->8th]
+cylindrical and 1D spherical power spectra.
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%########################################################################
 \section{Results}
 \label{sec:results}
+%########################################################################
 
 \TODO{Write!!!}
 
@@ -1079,7 +1057,7 @@ image domain and the (2D) power spectrum domain:
     evaluate the loss of EoR signals (use image-domain indexes???
     can also use the total power spectrum???)
 
-    May consider too cases: (1) only radio halos is superimposed onto the
+    May consider two cases: (1) only radio halos is superimposed onto the
     EoR signals; (2) radio halos as well as Galactic foregrounds are
     added to the EoR signals.
 
@@ -1091,9 +1069,10 @@ image domain and the (2D) power spectrum domain:
 \end{description}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%########################################################################
 \section{Discussions}
 \label{sec:discussions}
+%########################################################################
 
 \TODO{Write!!!}
 
@@ -1104,7 +1083,7 @@ One of the main purposes of our foregrounds simulation is to support
 the development and evaluation of foregrounds removal or separation
 methods in our forthcoming works.
 We will combine our foregrounds simulation with interferometric
-observation simulation, to generate the \enquote{observed} visibility
+observational simulation, to generate the \enquote{observed} visibility
 data as well as images (e.g., by using the \textsc{clean} algorithm).
 In this way, we incorporate the realistic instrumental effects into
 our simulation pipeline, making our developed methods more versatile
@@ -1167,9 +1146,6 @@ unexpected findings as we go deeper \citep{padovani2016rev,herreraRuiz2017}.
 \acknowledgments
 
 \TODO{[update]}
-We acknowledge ...
-%% BEGIN: [7th->8th]
-\color{magenta}
 We give thanks
 to Mathieu Remazeilles for making us the high-resolution Haslam \SI{408}{\MHz}
 Galactic synchrotron map with small-scale fluctuations added,
@@ -1178,10 +1154,9 @@ spectral index map,
 to Fred Dulwich for sharing the latest SKA1-Low layout configuration as well
 as the guidance on using the \texttt{OSKAR} simulator.
 We also thank Andr\'e Offringa and Emma Chapman for their help.
+\TODO{[Keshet]}
 This work is supported by the National Science Foundation of China
 (grant Nos. xxx, xxx).
-\color{black}
-%% END: [7th->8th]
 
 
 %% To help institutions obtain information on the effectiveness of their
