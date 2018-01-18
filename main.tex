@@ -117,6 +117,8 @@
 \def\sectionautorefname{Section}
 \def\figureautorefname{Figure}
 \def\tableautorefname{Table}
+% Credit: https://tex.stackexchange.com/a/66150
+\def\equationautorefname~#1\null{Equation~(#1)\null}
 
 %% Custom settings
 \setlength{\parindent}{1.5em}
@@ -141,7 +143,7 @@
 \begin{document}
 
 \title{%
-  Simulation of Radio Halos from Galaxy Clusters and
+  Simulation of Radio Halos in Galaxy Clusters and
   the Impacts on the Epoch of Reionization Detection
 }
 
@@ -322,7 +324,7 @@ fainter ones waiting to be discovered, therefore the cumulative emission
 of the radio halos may pose a significant impact on the detection of
 21~cm signals, which is lesser discussed.
 In this work, we attempt to investigate the effects of the contamination
-contributed by radio halos from galaxy clusters in the framework of
+contributed by radio halos in galaxy clusters within the framework of
 EoR detection.
 We have developed an open-source software
 \texttt{FG21sim}\footnote{FG21sim: \url{https://github.com/liweitianux/fg21sim}}
@@ -334,12 +336,12 @@ incorporate the practical instrumental effects.
 
 This paper is organized as follows.
 In \autoref{sec:sky-simu} we describe the simulations of the low-frequency
-radio sky, including the radio halos from galaxy clusters, the Galactic
+radio sky, including the radio halos in galaxy clusters, the Galactic
 emissions, the extragalactic point sources, and the cosmological EoR signal.
 In \autoref{sec:obs-simu} we perform the observational simulation of the
 simulated sky in order to account for the practical instrumental effects.
-We quantitatively evaluate the contamination of radio halos on EoR detection
-and discuss the results in \autoref{sec:results},
+We then quantitatively evaluate the contamination of radio halos on EoR
+detection and discuss the results in \autoref{sec:results},
 and finally summarize our work in \autoref{sec:summary}.
 Throughout this work we adopt a flat \lcdm{} cosmology with
 $H_0 = \SI{100}{\hubble} = \SI{71}{\km\per\second\per\Mpc}$,

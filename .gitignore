@@ -19,5 +19,6 @@ auto/
 *Notes.bib
 
 #
+dist/
 docs/
 reports/
