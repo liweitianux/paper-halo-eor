@@ -350,160 +350,60 @@ $\Omega_b = 0.046$, $n_s = 0.96$, and $\sigma_8 = 0.81$.
 
 
 %########################################################################
-\section{Low-Frequency Sky Simulation With FG21sim}
-\label{sec:fg-simu}
+\section{Low-Frequency Sky Simulation}
+\label{sec:sky-simu}
 %########################################################################
 
-Based on our previous works \citep{wang2010,wang2013}, we have used the Python
-programming language to develop the \texttt{FG21sim} software to simulate
-the low-frequency radio sky by taking into account the contributions of
-Our Galaxy, extragalactic point sources, and galaxy clusters.
-The software is public to the community and can be downloaded at
+Based on our previous works \citep{wang2010,wang2013}, we have used the
+Python programming language to develop the \texttt{FG21sim} software to
+simulate the low-frequency radio sky by taking into account the
+contributions of Our Galaxy, extragalactic point sources, and radio halos
+in galaxy clusters.
+The software is open-sourced under the MIT License and is available at
 \url{https://github.com/liweitianux/fg21sim},
-where technical details (???), a user manual (???), and other auxiliary
-data and documents are provided.
+where further documents and auxiliary data are provided.
 Additional tools are also developed to aid the observational simulations
 in order to integrate the instrumental responses of low-frequency radio
-facilities.
-In this work we use \texttt{FG21sim} to simulate sky images and
-evaluate the effects of the contamination caused by galaxy clusters.
+interferometers.
+
+In this work we use \texttt{FG21sim} version 1.0??? to simulate the
+radio sky maps and evaluate the effects of the contamination caused by
+radio halos.
 By consulting the latest SKA science book on the EoR survey strategies
-\citep{koopmans2015rev}, we perform the simulations within a \SI{8}{\MHz}
-band centered at \SI{158}{\MHz} for a \SI{10 x 10}{\deg} sky region at
-(R.A., Dec.) = (\SI{0}{\degree}, \SI{-27}{\degree}), which locates at a
-high galactic latitude of $b = \SI{-78.5}{\degree}$ and resembles those
-that will be observed with SKA1-Low in the future\footnote{This sky region
+\citep[e.g.,][]{koopmans2015rev}, we perform the simulations within
+a \SI{8}{\MHz} band centered at \SI{158}{\MHz} for a \SI{10 x 10}{\deg}
+sky region at (R.A., Dec.) = (\SI{0}{\degree}, \SI{-27}{\degree}),
+which locates at high galactic latitude ($b = \SI{-78.5}{\degree}$)
+and passes through the zenith of SKA1-Low\footnote{This sky region
   is also targeted by MWA (EoR0 field; \citealt{beardsley2016}).}.
-Besides the 21 cm signal, we incorporate the Galactic (including both the
-synchrotron and free-free emissions) and galaxy cluster foreground components
-into the simulated sky maps.
-The extragalactic point sources and their contamination are extensively
-investigated in the literature, and they can be well modeled and removed
-\citep[e.g.,][]{trott2012}, so we leave this component out in this work.
-【河外点源略去会有什么影响? 依据是什么? 要做清晰简略的说明，并引用文献;
-马、单的论文是否提及??】.
-When we model the Galactic contamination, the emission from supernova
-remnants (SNRs), some of which may have a large angular size and a
-complex morphology, is also neglected because the total number of these
-sources is small (about 1000; \citealt{li1991,anderson2017}), and they
-prefer to reside in the Galactic disk.
+The \SI{8}{\MHz} bandwidth is chosen to limit the cosmological evolution
+effect for the 21~cm signal when calculating power spectra (cite???),
+and the large region size of \SI{10 x 10}{\deg} will cover the first
+side-lobe and also help the CLEAN imaging in \autoref{sec:obs-simu}.
+Besides the 21~cm signal and radio halos, we also incorporate the
+Galactic radiation (including both the synchrotron and free-free emissions)
+and extragalactic point sources into the simulated sky maps.
 The sky maps are pixelized into \num{1800 x 1800} with a pixel size of
-\SI{20}{\arcmin}.
+\SI{20}{\arcsec} \TODO{improve to 10 arcsec/pixel???}.
 
 
 %========================================================================
-\subsection{Galactic Synchrotron Emission}
-\label{sec:fg-gsync}
+\subsection{Radio Halos in Galaxy Clusters}
+\label{sec:cluster-halo}
 %========================================================================
 
-The diffuse Galactic synchrotron emission, the spectrum of which can be
-well characterized by a power-law\footnote{We adopt the power-law spectrum
-  of form: $S(\nu) \propto \nu^{-\alpha}$.} with
-the index $\alpha_{\R{syn}}$ varying with the position in the sky, is the
-dominating foreground component in detection of EoR signals.
-For example, at about 150 MHz this emission component accounts for about
-\SI{99}{\percent} of the Galactic contamination and about \SI{70}{\percent}
-of the total foreground intensity \citep{shaver1999,jelic2008}.
-To simulate this foreground component we employ the improved
-Haslam \SI{408}{\MHz} all-sky map\footnote{%
-  The 2014 reprocessed Haslam \SI{408}{\MHz} map:
-  \url{http://www.jb.man.ac.uk/research/cosmos/haslam_map/}.
-  We use the $N_{\R{side}} = 2048$ (i.e., pixel size \SI{\sim 1.72}{\arcmin})
-  high resolution map achieved by extrapolating the observed power spectrum
-  to small scales.}
-provided by \citet{remazeilles2015}, which was obtained by applying
-significantly better instrument calibration and more accurate subtraction
-of extragalactic sources.
-The Galactic synchrotron emission map at lower frequencies is derived
-by extrapolating the Haslam template map $T_b^{\R{H408}}(\bm{r})$ as:
-\begin{equation}
-  \label{eq:gsync-extrap}
-  T_b^{\R{syn}}(\bm{r}, \nu) = T_b^{\R{H408}}(\bm{r})
-    \left( \frac{\nu}{\SI{408}{\MHz}} \right)^{-\alpha_{\R{syn}}(\bm{r})},
-\end{equation}
-where $T_b^{\R{syn}}(\bm{r}, \nu)$ is the emission intensity expressed in
-brightness temperature at sky position $\bm{r}$ and frequency $\nu$,
-and $\alpha_{\R{syn}}(\bm{r}) \sim 2.5-2.9$ is the position-dependent
-synchrotron spectral index.
-$\alpha_{\R{syn}}(\bm{r})$ is determined by adopting the all-sky
-synchrotron spectral index map made by \citet{giardino2002},
-which was derived by comparing the Haslam \SI{408}{\MHz} all-sky survey
-with the northern sky continuum survey at \SI{1420}{\MHz} \citep{reich1986}
-and the southern sky survey at \SI{2326}{\MHz} \citep{jonas1998}.
-
-
-%========================================================================
-\subsection{Galactic Free-Free Emission}
-\label{sec:fg-gfree}
-%========================================================================
-
-Observations of diffuse \Halpha{} and radio recombination line emissions
-from both the Galactic plane and high galactic latitudes indicate the
-existence of a population of free electrons, which is generated by
-processes such as star formation and supernova explosions.
-The bremsstrahlung radiation of these free electrons is expected to
-contribute about \SI{1}{\percent} of the total Galactic foreground in
-\SIrange{100}{200}{\MHz} \citep{shaver1999,jelic2008}.
-We improve from our previous work \citep{wang2010} by taking into account
-of the dust absorption, and calculate the Galactic free-free emission map
-$T_b^{\R{ff}}(\bm{r}, \nu)$ by using the relation given in
-\citet{dickinson2003}:
-\begin{equation}
-  \label{eq:halpha-ff}
-  T_b^{\R{ff}}(\bm{r}, \nu) = 38.86 \, a(\nu, T_e) \nu^{-2.1}
-    10^{(290 / T_e)} \, T_e^{0.667}
-    \left[ \frac{I_{\Halpha}^{\R{corr}}(\bm{r})}{\si{\rayleigh}} \right]
-    \quad [\si{\kelvin}],
-\end{equation}
-where $\nu$ is the target frequency in units of \si{\MHz}, $T_e$ is the
-electron temperature in units of \si{\kelvin}, and the factor
-$a(\nu, T_e) = 0.183 \,\nu^{0.1} T_e^{-0.15} [3.91 - \ln \nu + 1.5 \ln T_e]$
-is a correction to the optical depth approximation adopted in the derivation.
-The $I_{\Halpha}^{\R{corr}}$ is the \Halpha{} intensity corrected for dust
-absorption and is calculated as:
-\begin{equation}
-  \label{eq:halpha-dust-corr}
-  I_{\Halpha}^{\R{corr}}(\bm{r}) = I_{\Halpha}(\bm{r}) \times
-    10^{D(\bm{r}) \times 0.0185 \times f_d},
-\end{equation}
-where $I_{\Halpha}(\bm{r})$ is the observed \Halpha{} intensity at sky
-position $\bm{r}$ in units of \si{\rayleigh},
-$D(\bm{r})$ is the measured dust column density in units of
-[\si{\mega\jansky\per\steradian}],
-and $f_d$ is the effective dust fraction along the line of sight.
-
-In this work, we use the all-sky \Halpha{} map from \citet{finkbeiner2003},
-the all-sky dust map from \citet{schlegel1998}, and adopt effective dust
-fraction $f_d = 0.33$ and electron temperature $T_e = \SI{7000}{\kelvin}$
-as suggested by \citet{dickinson2003}.
-
-
-%========================================================================
-\subsection{Galaxy Clusters}
-\label{sec:fg-clusters}
-%========================================================================
-
-We have significantly improved the model in our previous work \citep{wang2010}
-to simulate the contribution of galaxy clusters to the EoR foreground by
-taking into account detailed merging history of clusters, which is
-established within the frame of the extended Press-Schechter theory
-(e.g., \citealt{bond1991,lacey1993}; see also \citealt{press1974}),
-and by tracing the evolution of their radio emission via solving the
-Fokker-Planck equation for the relativistic electron spectra.
-
-In this work, we employ the merger-induced turbulence re-acceleration
-model, the currently most accepted model to explain the origin of giant
-radio halos observed in clusters
-\citep[see][for recent reviews]{feretti2012rev,brunetti2014rev},
-to simulate the energy evolution of relativistic electrons, from which
-the synchrotron emission of radio halos is determined.
-As for other types of extended emission from galaxy clusters, such as
-radio relics and mini-halos, we leave them in the future works due to
-their different forming mechanisms.
-
+Compared to our previous work \citep{wang2010},
+we have significantly improved the simulation of radio halos by
+employing the merger-induced turbulence re-acceleration model.
+For each galaxy cluster, we first simulate its merging history,
+determine the turbulent acceleration efficiency and duration for each
+merger event, then evolve the relativistic electron spectrum with time
+by considering both the turbulent acceleration and energy losses, and
+finally obtain the synchrotron emission and the radio image of the
+radio halo.
 
 %------------------------------------------------------------------------
-\subsubsection{Dark Matter Halo Distributions}
+\subsubsection{Mass Function}
 \label{sec:distributions}
 %------------------------------------------------------------------------
 
@@ -525,7 +425,7 @@ $M = (1 - \Omega_b/\Omega_m) M_{\R{cluster}}$ is the dark matter halo mass
 with $M_{\R{cluster}}$ the cluster mass,
 $\langle {\rho} \rangle$ is the current mean density of the Universe,
 $\delta_c(z)$ is the critical linear overdensity for a region to collapse
-at redshift $z$ [see Equation~(\ref{eq:delta-crit})],
+at redshift $z$ [see \autoref{eq:delta-crit}],
 and $\sigma(M)$ is the current rms (root-mean-square) density fluctuations
 within a sphere of mean mass $M$.
 
@@ -542,11 +442,11 @@ $M_8 = (4\pi/3)(8 \,\si{\per\hubble\Mpc})^3 \langle{\rho}\rangle$
 is the mass contained in a sphere of a radius \SI{8}{\per\hubble\Mpc},
 and the exponent $\alpha = (n+3)/6$ is related to the fluctuations
 pattern whose power spectrum varies with wavenumber $k$ as $k^n$.
-Here we follow \citep{randall2002} and adopt $n = -7/5$.
+Here we follow \citet{randall2002} and adopt $n = -7/5$.
 
-Then, by placed a conservative minimum cluster mass cut of
-$M_{\R{min}} \simeq \SI{e14}{\solarmass}$ and a maximum redshift cut
-at $z_{\R{max}} \simeq 4$, we are able to use Equation~(\ref{eq:ps-mass-func})
+Then, by placing a conservative minimum cluster mass cut of
+$M_{\R{min}} = \SI{e14}{\solarmass}$ and a maximum redshift cut
+at $z_{\R{max}} = 4$, we are able to use \autoref{eq:ps-mass-func}
 to calculate both the total number and the distribution of galaxy
 clusters for any given sky patch.
 The mass $M_0$, redshift $z_0$, and sky position of each simulated
@@ -565,16 +465,16 @@ The extended Press-Schechter theory outlined in \citet{lacey1993} provide
 us with a way to simulate the growth history of a cluster (i.e., merger tree).
 For each merger tree to be built, we start with the cluster's current
 mass $M_0$ and redshift $z_0$, which are randomly sampled from the
-mass function [Equation~(\ref{eq:ps-mass-func})].
+mass function in \autoref{sec:distributions}.
 We trace the growth history of this cluster back in time by running
-Monte Carlo simulations to randomly determine the mass increase
+Monte Carlo simulations to randomly determine the mass change
 $\Delta M$ at each step, which may be regarded either as a merger event
 (if $\Delta M > \Delta M_c$, where $\Delta M_c = \SI{e12}{\solarmass}$
 is the assumed minimum mass change for a merger, i.e., the smallest infalling
 sub-cluster to be resolved) or as an accretion event
 (if $\Delta M \leq \Delta M_c$).
-Whenever a merger event occurs, we also begin to trace the growth history
-of the new sub-cluster.
+Note that we only trace the merging history of the main cluster, which is
+sufficient for this work.
 
 We assume that during each growth step the cluster mass increases from
 $M_1$ at time $t_1$ (earlier) to $M_2$ at $t_2$ (later).
@@ -627,16 +527,13 @@ With a random $\Delta S$ (i.e., $M_{\R{sub}}$) drawn from this probability
 distribution, the mass of the cluster's progenitor $M_1$ is obtained from
 $S_1 = S_2 + \Delta S$.
 
-Considering that radio halos are associated to recent major mergers
-and have a lifetime $\tau_{\R{halo}}$ much shorter than the
-merger-induced disturbance timescale $\tau_m$ (\SIrange{2}{3}{\Gyr})
-\citep{cassano2016},
-we only trace the merging history of the main cluster
-to a maximum backward time of \SI{3}{\Gyr}.
-Then for each cluster we identify the most recent major merger
-($M_{\R{main}}/M_{\R{sub}} < 5$)
-and extract the $(M_{\R{main}}, M_{\R{sub}}, z_{\R{merger}})$
-data for use in the following radio halos simulation.
+Considering that radio halos are associated to recent major mergers and
+have a lifetime $\tau_{\R{halo}} \lesssim \SI{1}{\Gyr}$
+\citep{cassano2016} \TODO{change citation???},
+we only trace the cluster merging history to a maximum backward time of
+\SI{3}{\Gyr}.
+Then for each cluster we extract the properties of all the merger events
+for the following radio halo simulation.
 
 
 %------------------------------------------------------------------------
