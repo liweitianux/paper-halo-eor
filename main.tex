@@ -1,7 +1,7 @@
 %%
-%% Copyright (c) 2017 The Authors.  All Rights Reserved.
+%% Copyright (c) 2017-2018 The Authors.  All Rights Reserved.
 %%
-%% Weitian LI <liweitianux@sjtu.edu.cn>, Haiguang XU <hgxu@sjtu.edu.cn>, et al.
+%% Weitian LI, et al.
 %% School of Physics and Astronomy, Shanghai Jiao Tong University, Shanghai, China.
 %%
 %% 2017-07-18
@@ -41,7 +41,6 @@
 %% Extra packages
 \usepackage{amsmath}
 \usepackage{csquotes}  % `enquote'
-\usepackage{xfrac}  % split-level fractions
 \usepackage{bm}  % bold math
 \usepackage{savesym}
 
@@ -73,11 +72,11 @@
 \newcommand{\kperp}{\text{$k_{\bot}$}}
 
 %% Marks
-\newcommand{\NOTE}[1]{\textcolor{violet}{\textbf{NOTE:}}~\uwave{#1}}
-\newcommand{\TODO}[1]{\textcolor{magenta}{\textbf{TODO:}}~\uuline{#1}}
-\newcommand{\OK}[1]{\textcolor{cyan}{\textbf{OK:}}~\uline{#1}}
-\newcommand{\XU}[1]{\textcolor{blue}{\textbf{XU:}}~\uline{#1}}
-\newcommand{\LI}[1]{\textcolor{purple}{\textbf{LI:}}~\uline{#1}}
+\newcommand{\NOTE}[1]{\textcolor{violet}{[\textbf{NOTE:}~\uwave{#1}]}}
+\newcommand{\TODO}[1]{\textcolor{magenta}{[\textbf{TODO:}~\uuline{#1}]}}
+\newcommand{\OK}[1]{\textcolor{cyan}{[\textbf{OK:}~\uline{#1}]}}
+\newcommand{\XU}[1]{\textcolor{blue}{[\textbf{XU:}~\uline{#1}]}}
+\newcommand{\LI}[1]{\textcolor{purple}{[\textbf{LI:}~\uline{#1}]}}
 
 %% Custom math operators (requires `amsmath' package)
 \DeclareMathOperator{\erf}{erf}
@@ -114,23 +113,27 @@
 \DeclareSIUnit\MHz{\mega\hertz}
 \DeclareSIUnit\Mpc{\mega\parsec}
 
+%% Hyperref-related settings
+\def\sectionautorefname{Section}
+\def\figureautorefname{Figure}
+\def\tableautorefname{Table}
+
+%% Custom settings
+\setlength{\parindent}{1.5em}
 
 %% Journal information
-\received{xxx, 2017}
-\revised{xxx, 2017}
-\accepted{xxx, 2017}
+\received{xxx, 2018}
+\revised{xxx, 2018}
+\accepted{xxx, 2018}
 \submitjournal{ApJ}
 
 \shorttitle{Low-frequency Radio Foreground Simulation}
-\shortauthors{Li \etal}
+%% Add a light gray and diagonal water-mark to the first page
+\watermark{DRAFT}  % watermark text: DRAFT
+%% Control the water-mark size with:
+%% \setwatermarkfontsize{dimension}
 
-%% You can add a light gray and diagonal water-mark to the first page
-%% with this command:
-\watermark{DRAFT}
-%% where "text", e.g. DRAFT, is the text to appear.  If the text is
-%% long you can control the water-mark size with:
-%  \setwatermarkfontsize{dimension}
-%% where dimension is any recognized LaTeX dimension, e.g. pt, in, etc.
+\shortauthors{Li~\etal}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -150,14 +153,10 @@
 %% during compilation, LaTeX will do some limited checking of the format of
 %% the ID to make sure it is valid.
 %%
-%% Use \affiliation for affiliation information. The old \affil is now aliased
-%% to \affiliation. AASTeX v6.1 will automatically index these in the header.
-%% When a duplicate is found its index will be the same as its previous entry.
-%%
-%% Note that \altaffilmark and \altaffiltext have been removed and thus
-%% can not be used to document secondary affiliations. If they are used latex
-%% will issue a specific error message and quit. Please use multiple
-%% \affiliation calls for to document more than one affiliation.
+%% Use \affiliation for affiliation information.  Please use multiple
+%% \affiliation calls for to document more than one affiliation.  AASTeX v6.1
+%% will automatically index these in the header.  When a duplicate is found
+%% its index will be the same as its previous entry.
 %%
 %% The new \altaffiliation can be used to indicate some secondary information
 %% such as fellowships. This command produces a non-numeric footnote that is
@@ -176,20 +175,48 @@
 %% commands it is better to have a single author for each. This allows for
 %% one to exploit all the new benefits and should make book-keeping easier.
 %%
-%% If done correctly the peer review system will be able to
-%% automatically put the author and affiliation information from the manuscript
-%% and save the corresponding author the trouble of entering it by hand.
+%% If done correctly the peer review system will be able to automatically
+%% put the author and affiliation information from the manuscript and save
+%% the corresponding author the trouble of entering it by hand.
 
 \correspondingauthor{Haiguang Xu}
 \email{hgxu@sjtu.edu.cn}
 
 \author[0000-0002-7527-380X]{Weitian Li}
 \email{liweitianux@sjtu.edu.cn}
-\affil{School of Physics and Astronomy, Shanghai Jiao Tong University,
+\affiliation{School of Physics and Astronomy,
+  Shanghai Jiao Tong University,
   800 Dongchuan Road, Shanghai 200240, China}
 
 \author{Haiguang Xu}
-\affil{School of Physics and Astronomy, Shanghai Jiao Tong University,
+\affiliation{School of Physics and Astronomy,
+  Shanghai Jiao Tong University,
+  800 Dongchuan Road, Shanghai 200240, China}
+\affiliation{Tsung-Dao Lee Institute,
+  Shanghai Jiao Tong University,
+  800 Dongchuan Road, Shanghai 200240, China}
+\affiliation{IFSA Collaborative Innovation Center,
+  Shanghai Jiao Tong University,
+  800 Dongchuan Road, Shanghai 200240, China}
+
+\author{Zhixian Ma}
+\affiliation{Department of Electronic Engineering,
+  Shanghai Jiao Tong University,
+  800 Dongchuan Road, Shanghai 200240, China}
+
+\author{Zhenghao Zhu}
+\affiliation{School of Physics and Astronomy,
+  Shanghai Jiao Tong University,
+  800 Dongchuan Road, Shanghai 200240, China}
+
+\author{Dan Hu}
+\affiliation{School of Physics and Astronomy,
+  Shanghai Jiao Tong University,
+  800 Dongchuan Road, Shanghai 200240, China}
+
+\author{Chenxi Shan}
+\affiliation{School of Physics and Astronomy,
+  Shanghai Jiao Tong University,
   800 Dongchuan Road, Shanghai 200240, China}
 
 
