@@ -223,7 +223,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{abstract}
-\TODO{write the abstract!!!}
+\TODO{write!!!}
 \end{abstract}
 
 %% Authors should select subject keywords from the given list.  No more
@@ -234,7 +234,7 @@
 %% keywords and the rules for their use.
 %% http://journals.aas.org/authors/keywords2013.html
 \keywords{
-  \TODO{[update]};
+  \TODO{update};
   dark ages, reionization, first stars ---
   galaxies: clusters: intracluster medium ---
   methods: numerical ---
@@ -278,129 +278,70 @@ and those to be built and operated in the near future, such as the Square
 Kilometre Array (SKA; \citealt{mellema2013rev,koopmans2015rev}) and
 the Hydrogen Epoch of Reionization Arrays (HERA; \citealt{deboer2017}).
 
-The challenges in these EoR experiments, however, are particularly
-significant due to a variety of complicated instrumental effects
-(e.g., intrinsic chromaticity, direction-dependent response, side lobes,
-polarization leakages, noises), ionospheric distortions, radio frequency
-interference, and the strong celestial foreground contamination.
-For example, the intensity of the cumulative foreground sources, which
-is mainly contributed by the diffuse synchrotron radiation from
-our Milky Way and is complicated by other components, such as the
-non-thermal continuum radiation of numerous extragalactic radio sources,
-overwhelms the redshifted 21 cm signals by \numrange{4}{5} orders of
-magnitude, indicating that even a sub-percent-level bias in modeling
-the foreground is sufficient to impede any attempt to recover the EoR
-signals \citep[e.g.,][]{beardsley2016,murray2017,procopio2017}.
+The challenges in these EoR experiments, however, are immense
+due to a variety of complicated instrumental effects,
+ionospheric distortions, radio frequency interference, and the
+strong celestial foreground contamination, which overwhelms the
+redshifted 21~cm signals by \numrange{4}{5} orders of magnitude
+\citep[e.g.,][]{beardsley2016,murray2017,procopio2017}.
+For a typical region beyond the Galactic plane,
+while the Galactic diffuse radiation (including both the synchrotron
+and free-free emissions) and extragalactic point sources are the two
+most prominent components and contribute about \SI{99}{\percent} of
+the foreground contamination in total, the extragalactic diffuse emissions,
+which stem from galaxy clusters \citep[e.g.,][]{feretti2012rev,kale2016rev},
+intergalactic medium \citep[e.g.,][]{keshet2004}, and large-scale cosmic
+webs \citep[e.g.,][]{arayaMelo2012,vazza2015},
+may be tens to hundreds of stronger than the 21~cm signals,
+and thus can have significant impacts on the EoR detection.
 
-A variety of approaches have been proposed to tackle the overwhelming
-foreground in order to uncover the EoR signals, and they can be classified
-into two broad categories: foreground removal (or subtraction) and
-foreground avoidance.
-Foreground removal refers to the approaches with which the foreground
-components are directly separated from EoR signals by applying appropriate
-foreground models.
-These approaches can be further divided into two families:
-the parametric ones \citep[e.g.,][]{wang2006,jelic2008,liu2009,wang2013}
-and the non-parametric ones
-\citep[e.g.,][]{harker2009,wang2010,chapman2012,chapman2013,gu2013}.
-Foreground avoidance, on the other hand, carries out the EoR analyses
-inside the so-called \enquote{EoR window} to avoid the severe foreground
-contamination in the 2D cylindrical power spectrum in (\kperp, \klos)
-domain, which represent the wavenumbers perpendicular and along the
-line of sight, respectively.
-In such 2D cylindrical power spectrum, the spectrally smooth foreground
-is expected to reside in a well-defined region at small \klos.
-The intrinsic chromaticity and other instrumental effects of the
-interferometer can throw the angular (i.e., \kperp) foregrounds into
-the frequency (i.e., \klos) direction, resulting a wedge-shaped foreground
-contaminating region.
-Fortunately, an uncontaminated region is expected and dominated by the
-EoR signal, defining the \enquote{EoR window}, which has been explored
-recently both by simulations
-\citep[e.g.,][]{datta2010,thyagarajan2013,thyagarajan2015,barry2016},
-by theoretical analyses \citep[e.g.,][]{morales2012,hazelton2013,liu2014},
-and by analyzing real observations acquired with, e.g.,
-the PAPER \citep{pober2013,ali2015},
-the LOFAR \citep{patil2017},
-and the MWA \citep{dillon2015,beardsley2016,procopio2017}.
-
-Note, however, that there are advantages and disadvantages for both
-approaches
-\citep[see][and references therein]{chapman2016}.
-For example, foreground removal approaches can keep the information
-of EoR at all scales (i.e., all $k$ modes) in the study, but have to
-minimize the risk of suffering severe foreground residuals, which is
-quite challenging.
-Foreground avoidance approaches, on the other hand, deal with the
-data free of foreground contamination, but lose a significant part of
-the EoR information outside the EoR window.
-Also, foreground avoidance strongly depends on the assumption
-that the foreground wedge can be well-defined, which may not hold
-since the foreground contamination can leak into the EoR window due
-to the complicated instrumental and observational effects and
-calibration imperfections
-\citep[e.g.,][]{barry2016,pober2016,jacobs2016,nunhokee2017}.
-Thus the foreground avoidance strategy is by no means optimal, and
-removal algorithms are still an active field of research.
-
-In this paper we attempt to investigate the effects of the contamination
-contributed by galaxy clusters (in foreground avoidance???), and discuss
-how they can be removed safely in the upcoming SKA experiment.
-Among various celestial foreground components, the cluster component is
-relatively less discussed, although it may contribute about ??\%
-\LI{[如何描述星系团的影响程度？]}
-of the extragalactic foreground power in $50 - 200$ MHz, where the
-EoR signals are expected to appear.
-As of today, limited by the insufficient sensitivity and the
-small sample (about 100 giant/mini radio halos and 70 radio relics),
-the origin of the low frequency radio emission of galaxy clusters,
-mostly in the form of synchrotron emission, is still poorly understood.
-The task of correctly modeling the radio emission of galaxy clusters
-becomes more challenging when we extend our consideration
-to either the faint end or higher redshifts ($z \gtrsim 1$).
-\TODO{[如何描述星系团的影响？与前面的说明合并？]}
-Obviously, if the cumulative contribution of both the low-flux cluster
-sources and the residuals caused by inaccurate subtraction of the
-bright clusters, which is estimated to be about/at least 2?? orders
-of magnitude above the EoR signals, is not properly treated, its contamination
-will leak into the EoR window due to the interact with instrumental effects
-and calibration issues, which becomes an impediment to detection of EoR
-signals \citep[e.g.,][]{datta2010,pober2013,beardsley2016,procopio2017}.
+Nowadays, diffuse radio emissions are observed in $\gtrsim 100$ galaxy
+clusters, and can be classified into halos, relics, and mini-halos
+according to their location in the cluster and to the cluster type
+(merging or cool-core).
+Radio halos are generally found at the center of merging clusters;
+radio relics are located in peripheral regions of both merging and
+relaxed clusters, and exhibit significant polarization;
+and mini-halos are hosted at the center of cool-core clusters and
+usually surround a powerful radio galaxy \citep{feretti2012rev}.
+All these kinds of diffuse radio emissions are associated with the
+intracluster medium (ICM) since there is no obvious connection to
+the member galaxies.
+This observational evidence reveals the existence of the non-thermal
+component in galaxy clusters, which provides an unique probe to study
+the very energetic processes operating within clusters (e.g., generation
+and transportation of cosmic rays)
+and the physical properties of the ICM (e.g., turbulence, viscosity).
+However, many aspects of the diffuse radio emission are still poorly
+understood, although there are various observational, analytical, and
+simulation works dedicated to such studies
+\citep[see][for a recent review]{brunetti2014rev}.
+On the other hand, the future SKA1-Low is expected to observe several
+thousands of radio halos \citep{cassano2015}, and there are much more
+fainter ones waiting to be discovered, therefore the cumulative emission
+of the radio halos may pose a significant impact on the detection of
+21~cm signals, which is lesser discussed.
+In this work, we attempt to investigate the effects of the contamination
+contributed by radio halos from galaxy clusters in the framework of
+EoR detection.
+We have developed an open-source software
+\texttt{FG21sim}\footnote{FG21sim: \url{https://github.com/liweitianux/fg21sim}}
+to simulate the low frequency sky based on our previous works
+\citep{wang2010,wang2013}, but have significantly enhanced the modeling
+of radio halos by applying a merger-induced turbulence re-acceleration model.
+In addition, we adopt the latest SKA1-Low layout configuration to
+incorporate the practical instrumental effects.
 
 This paper is organized as follows.
-In Section~\ref{sec:fg-simu} we describe the details of our new software
-\texttt{FG21sim}\footnote{FG21sim: \url{https://github.com/liweitianux/fg21sim}}
-(version ???),
-which has been developed to simulate the low frequency sky based on the
-works of \citet{wang2010,wang2013}.
-Comparing to our previous works, the simulations of the Galactic,
-and galaxy clusters components have been improved.
-In particular, we have significantly enhanced the modeling of galaxy clusters'
-emission by applying a merger-induced turbulence re-acceleration model.
-Section~\ref{sec:eor-simulation} gives the cosmological EoR signal simulation
-using the \texttt{SimFast21}\footnote{SimFast21:
-  \url{https://github.com/mariogrs/Simfast21}} (version 20170627)
-software \citep{santos2010,hassan2016}.
-In Section~??? we model a \SI{10 x 10}{\deg} deep sky
-patch among a \SI{8}{\MHz} band centered at \SI{158}{\MHz}, which is
-analogous to those will be observed with SKA1-Low
-\citep[see][for updated SKA observing strategies]{koopmans2015rev},
-with our software \texttt{FG21sim},
-(10 deg FoV to consider the first side-lobes)
-\TODO{[Sections: EoR signal simulation; observational simulation]}
-and input the obtained sky model as well as EoR signals into the
-\texttt{OSKAR}\footnote{OSKAR: \url{https://github.com/OxfordSKA/OSKAR}}
-(version 20170619) with the current available SKA1-Low configuration to
-simulate the visibility data sets \citep{mort2010}.
-Then we make \enquote{observed} sky images using the
-\texttt{WSClean}\footnote{WSClean: \url{https://sourceforge.net/p/wsclean}}
-(version 20170528) \citep{offringa2014}, from which the 2D cylindrical
-power spectra are calculated by fast Fourier transformation.
-In Section~\ref{sec:results} we quantitatively examine to what extent the
-EoR window is contaminated by the residuals contributed by mis-subtracted
-and un-subtracted galaxy clusters.
-
-We adopt a flat \lcdm{} cosmology throughout this work with
+In \autoref{sec:sky-simu} we describe the simulations of the low-frequency
+radio sky, including the radio halos from galaxy clusters, the Galactic
+emissions, the extragalactic point sources, and the cosmological EoR signal.
+In \autoref{sec:obs-simu} we perform the observational simulation of the
+simulated sky in order to account for the practical instrumental effects.
+We quantitatively evaluate the contamination of radio halos on EoR detection
+and discuss the results in \autoref{sec:results},
+and finally summarize our work in \autoref{sec:summary}.
+Throughout this work we adopt a flat \lcdm{} cosmology with
 $H_0 = \SI{100}{\hubble} = \SI{71}{\km\per\second\per\Mpc}$,
 $\Omega_m = 0.27$, $\Omega_{\Lambda} = 1 - \Omega_m = 0.73$,
 $\Omega_b = 0.046$, $n_s = 0.96$, and $\sigma_8 = 0.81$.
