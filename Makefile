@@ -12,6 +12,9 @@
 # Comment out this to disable CJK support.
 CJK:= ON
 
+# Name to identify the reported manuscript
+ID:= lwt
+
 DATE:=		$(shell date +'%Y%m%d')
 ROOT_DIR:=	$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 PROJNAME:=	$(shell basename $(ROOT_DIR))
@@ -22,12 +25,11 @@ BSTINPUTS:= .:aastex:revtex:texmf:$(BSTINPUTS)
 
 default: main.pdf
 
-report: main.pdf
+report: main.pdf main.tex references.bib
 	mkdir reports/v$(DATE)
-	for f in main.pdf main.tex references.bib; do \
-		suffix=`echo $$f | awk -F'.' '{ print $$NF }'`; \
-		cp -v $$f reports/v$(DATE)/$${f%.$$suffix}-$(DATE).$$suffix; \
-	done
+	cp main.pdf reports/v$(DATE)/manuscript-$(ID)-$(DATE).pdf
+	cp main.tex reports/v$(DATE)/manuscript-$(ID)-$(DATE).tex
+	cp references.bib reports/v$(DATE)/references-$(ID)-$(DATE).bib
 
 main.pdf: main.tex references.bib
 ifeq ($(CJK),ON)
