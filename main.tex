@@ -744,57 +744,6 @@ electrons have a very long lifetime and can accumulate in the ICM
 as the cluster grows \citep{sarazin1999}, which may become the fossil
 high-energy electrons to be accelerated \emph{in situ} by turbulence.
 
-In addition, we can estimate the electron acceleration coefficient
-according to \citep{cassano2005}:
-\begin{equation}
-  \label{eq:electron-acc}
-  \chi(t) \simeq 6.3 \,\eta_{\R{turb}}
-      \left( \frac{M_{\R{main}} + M_{\R{sub}}}{\SI{2e15}{\solarmass}} \right)^{3/2}
-      \left( \frac{k_BT}{\SI{7}{\keV}} \right)^{-1/2}
-      \left( \frac{R_{\R{halo}}}{\SI{500}{\kpc}} \right)^{-1}
-  \quad [\si{\per\Gyr}],
-\end{equation}
-where $\eta_{\R{turb}}$ is a free parameter roughly describing the fraction
-of the turbulence energy transformed into accelerating the electrons (i.e.,
-an index of the turbulence acceleration efficiency);
-and $k_BT$ and $R_{\R{halo}}$ are the mean temperature of the cluster ICM
-and the radio halo radius, respectively, which will be explained later.
-
-The time evolution of relativistic electrons spectrum with isotropic energy
-distribution can be derived by solving the Fokker-Planck equation
-\citep{eilek1991,schlickeiser2002}:
-\begin{equation}
-  \label{eq:fokkerplanck}
-  \pdiff{n(\gamma,t)}{t} = \pdiff{}{\gamma} \left[ n(\gamma,t) \left(
-      \left| \diff{\gamma}{t} \right|_{\R{rad}} +
-      \left| \diff{\gamma}{t} \right|_{\R{ion}} -
-      \frac{2}{\gamma} D_{\gamma\gamma}(\gamma, t) \right) \right] +
-    \pdiff{}{\gamma} \left[ D_{\gamma\gamma} \pdiff{n(\gamma,t)}{\gamma}
-    \right] + Q_e(\gamma,t),
-\end{equation}
-where $\gamma \approx p / (m_e c)$ is the Lorentz factor of the
-relativistic electrons with $\gamma \gg 1$,
-$n(\gamma, t)$ is the isotropic number density of relativistic
-electrons, $Q_e(\gamma, t)$ describes the electron injection,
-$|\R{d}\gamma / \R{d}t|_{(\cdot)}$ terms account for the
-energy losses due to radiation and ionization,
-and $D_{\gamma\gamma}(\gamma, t) = \gamma^2\,\chi(t) / 4$ is the
-diffusion coefficient describing the interactions between electrons
-and turbulent waves \citep{brunetti2011}.
-
-[REWRITE!]
-In some energy ranges (e.g., $\gamma \sim 1000$), the diffusion may
-contribute more energies than those lost, therefore can accelerate electrons
-to higher energies, making them synchrotron bright.
-
-The electrons that will be re-accelerated \emph{in situ}
-by the turbulence permeating the cluster ICM, are thought to be
-injected by AGN activities (quasars, radio galaxies, etc.), or by
-star formation in normal galaxies (supernovae, galactic winds, etc.)
-during the cluster life \citep[see][for a review]{blasi2007rev}.
-The electrons can be reasonably assumed to be constantly injected
-into the cluster ICM with a power-law spectrum of index $s$
-\citep{cassano2005,sarazin1999}:
 %%%
 \vspace{1ex}
 \uline{Electron Injection}
@@ -851,46 +800,6 @@ losses \citep[e.g.,][]{brunetti2007}.
 \vspace{1ex}
 \uline{Numerical Method}
 %%%
-
-Observations show that radio halos have a radial size
-$R_{\R{halo}} \sim \numrange{3}{6}$ times smaller than the virial radius
-$R_{\R{vir}}$, we then estimate the halo radius by
-\citep{cassano2007,zandanel2014}:
-\begin{equation}
-  \label{eq:rhalo-rvir}
-  R_{\R{halo}} = \frac{1}{4} R_{\R{vir}}.
-\end{equation}
-The weak \si{\uG}-level magnetic fields are also observed in clusters.
-We assume an uniform magnetic field throughout the ICM,
-but allow its strength to scale with the cluster mass as \citep{cassano2012}:
-\begin{equation}
-  \label{eq:magfield-mass}
-  B = B_{\langle{M}\rangle} \left( \frac{M}{\langle{M}\rangle} \right)^b,
-\end{equation}
-where $\langle {M} \rangle = \SI{1.6e15}{\solarmass}$, and we take
-$B_{\langle {M} \rangle} = \SI{1.9}{\uG}$ and $b = 1.5$ in this work
-as suggested by \citet{cassano2006}.
-
-On the other hand,
-relativistic electrons lose energy via synchrotron radiation
-and inverse Compton scattering off the CMB photons \citep{sarazin1999}:
-\begin{equation}
-  \label{eq:eloss-rad}
-  \left( \diff{\gamma}{t} \right)_{\R{rad}} =
-  \num{-4.32e-4} \,\gamma^2
-  \left[ \left( \frac{B}{\SI{3.25}{\uG}} \right)^2 +
-  (1+z)^4 \right] \quad [\si{\per\Gyr}],
-\end{equation}
-where $B$ is the magnetic field strength in the ICM.
-Meanwhile, electrons in the ICM also lose energy through
-ionization and Coulomb collisions \citep{sarazin1999}:
-\begin{equation}
-  \label{eq:eloss-ion}
-  \left( \diff{\gamma}{t} \right)_{\R{ion}} =
-  \num{-3.79e4} \,n_{\R{th}} \left[ 1 +
-    \frac{\ln(\gamma/n_{\R{th}})}{75} \right] \quad [\si{\per\Gyr}],
-\end{equation}
-with $n_{\R{th}}$ in units of \si{\per\cm\cubed}.
 
 Now with all the coefficients in \autoref{eq:fokkerplanck} been determined,
 we can evolve the initial electron spectrum $n_e(\gamma, t=t_0)$ via
