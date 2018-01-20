@@ -795,49 +795,58 @@ during the cluster life \citep[see][for a review]{blasi2007rev}.
 The electrons can be reasonably assumed to be constantly injected
 into the cluster ICM with a power-law spectrum of index $s$
 \citep{cassano2005,sarazin1999}:
+%%%
+\vspace{1ex}
+\uline{Electron Injection}
+%%%
+
+During the cluster life, high-energy electrons were produced in
+different processes, such as AGN activities and star formations,
+and can be reasonably assumed to be constantly injected into the
+ICM with a power-law spectrum of index $s$ \citep{sarazin1999}:
 \begin{equation}
   \label{eq:electron-inj}
-  Q_e(\gamma, t) = Q_e(\gamma) = K_e \,\gamma^{-s},
+  Q_e(\gamma, t) \equiv Q_e(\gamma) = K_e \,\gamma^{-s}.
 \end{equation}
-where $K_e$ is the constant injection rate,
-which can be parametrized
-by assuming that the total energy injected in the electrons during
-the cluster life is a fraction, $\eta_e$, of the total thermal energy
-of the cluster \citep{cassano2005}:
+By assuming that the total energy of injected electrons is a fraction,
+$\eta_e$, of the total thermal energy \citep{cassano2005}:
 \begin{equation}
-  \label{eq:injrate-param}
-  \epsilon_e \,\tau_{\R{cluster}} \int_{\gamma_{\R{min}}}^{\gamma_{\R{max}}}
-  Q_e(\gamma') \gamma' \,\D{\gamma'} \simeq \eta_e \,\epsilon_{\R{th}},
+  \epsilon_e \,\tau_{\R{cl}} \int_{\gamma_{\R{min}}}^{\gamma_{\R{max}}}
+  Q_e(\gamma') \gamma' \,\D{\gamma'}
+  = \eta_e \,\epsilon_{\R{th}},
 \end{equation}
-where $\tau_{\R{cluster}} \simeq t_0$ is the cluster age at redshift
-$z_0$ as simulated in Section~\ref{sec:distributions},
-$\epsilon_e = m_e c^2$ is the energy of one electron at still,
-$\epsilon_{\R{th}}$ is the thermal energy density of the cluster ICM,
-and $\gamma_{\R{min}} \ll \gamma_{\R{\max}}$ are the minimum and maximum
-Lorentz factors of the injected electrons, respectively.
-Therefore we derive the electron injection rate to be:
+and given $\gamma_{\R{min}} \ll \gamma_{\R{\max}}$,
+the injection rate $K_e$ can be derived to be:
 \begin{equation}
   \label{eq:injrate}
-  K_e \simeq \frac{(s-2)\,\eta_e\,\epsilon_{\R{th}}}{\epsilon_e\,\tau_{\R{cluster}}}
-    \gamma_{\R{min}}^{s-2}.
+  K_e \simeq \frac{(s-2)\,\eta_e\,\epsilon_{\R{th}}}{\epsilon_e\,\tau_{\R{cl}}}
+    \gamma_{\R{min}}^{s-2},
 \end{equation}
+where $\tau_{\R{cl}} \simeq t_{\R{obs}}$ is the cluster's age at the
+\enquote{observed} redshift $z_{\R{obs}}$ as simulated in \autoref{sec:distributions},
+and $\epsilon_e = m_e c^2$ is the electron's still energy.
+In addition, the thermal energy density of the ICM, $\epsilon_{\R{th}}$,
+is calculated as:
+\begin{equation}
+  \label{eq:energy-density-thermal}
+  \epsilon_{\R{th}} = \frac{3}{2} \,n_{\R{th}} \,k_BT_{\R{cl}},
+\end{equation}
+where $n_{\R{th}}$ is the thermal number density given by:
+\begin{equation}
+  \label{eq:number-density-thermal}
+  n_{\R{th}} \simeq \frac{3 f_{\R{gas}} M_{\R{vir}}}{4\pi \mu m_u \,r^3_{\R{vir}}},
+\end{equation}
+and the cluster mean temperature is approximated with the virial temperature:
+$k_BT_{\R{cl}} \simeq k_BT_{\R{vir}} = G M_{\R{vir}} \,\mu m_u / (2 r_{\R{vir}})$,
+where $\mu \simeq 0.6$ is the mean molecular weight
+\citep[e.g.,][]{ettori2013}, and $m_u$ is the atomic mass unit.
 
-The ICM thermal energy density is calculated as:
-\begin{equation}
-  \label{eq:eth}
-  \epsilon_{\R{th}} = \frac{3}{2} \,n_{\R{th}} \,k_B T,
-\end{equation}
-where $n_{\R{th}}$ is the thermal number density [see Equation~(\ref{eq:nth})],
-and $k_B T$ is the ICM mean temperature, which is estimated
-from the cluster mass using this $M \!-\! T$ scaling relation
-\citep{arnaud2005}:
-\begin{equation}
-  \label{eq:mt-relation}
-  \left( \frac{M_{200}}{\SI{e14}{\solarmass}} \right) E(z) = (5.34 \pm 0.22)
-  \left( \frac{k_B T}{\SI{5}{\keV}} \right)^{(1.72 \pm 0.10)},
-\end{equation}
-where $E(z)$ is the redshift evolution factor [see Equation~(\ref{eq:ez-func})].
-Note that we approximate the cluster virial mass with $M_{200}$ here.
+As for the initial spectrum of electrons, $n_e(\gamma, t=t_0)$ with $t_0$
+the cosmic age when the first merger event begins,
+it is derived by evolving the accumulated spectrum
+$n_e'(\gamma) = t_0 K_e \gamma^{-s}$ for \SI{\sim 1}{\Gyr} with only energy
+losses \citep[e.g.,][]{brunetti2007}.
+
 
 Observations show that radio halos have a radial size
 $R_{\R{halo}} \sim \numrange{3}{6}$ times smaller than the virial radius
