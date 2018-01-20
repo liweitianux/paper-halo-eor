@@ -694,14 +694,56 @@ turbulent acceleration turned on together with energy losses among
 periods $[t^{(i)}_{\R{merger}}, t^{(i)}_{\R{merger}}+\tau^{(i)}_{\R{turb}}]$,
 while there is no acceleration at other times.
 
+%%%
+\vspace{1ex}
+\noindent\uline{Energy Losses}
+%%%
+
+There are several different mechanisms through which the relativistic
+electrons in the ICM may lose energies \citep{sarazin1999},
+and we consider the following three major mechanisms in our simulation.
+The first one is the inverse Compton scattering off the CMB photons:
 \begin{equation}
-  \label{eq:tau-cross}
-  \tau_{\R{cross}} \simeq \frac{R_{\R{main}}}{v_{\R{imp}}},
+  \label{eq:eloss-ic}
+  \left( \diff{\gamma}{t} \right)_{\R{IC}} =
+    \num{-4.32e-4} \,\gamma^2 (1+z)^4
+    \quad [\si{\per\Gyr}].
 \end{equation}
-which is typically $\lesssim \SI{1}{\Gyr}$.
-That means that the merger-induced turbulence is assumed to only accelerate
-the electrons from time $t_{\R{merger}}$ (when the merger begins at the
-redshift $z_{\R{merger}}$) to $t_{\R{merger}} + \tau_{\R{cross}}$.
+
+Secondly, the relativistic electrons generate synchrotron radiation
+and the loss rate is given by:
+\begin{equation}
+  \label{eq:eloss-syn}
+  \left( \diff{\gamma}{t} \right)_{\R{rad}} =
+    \num{-4.10e-5} \,\gamma^2 \left( \frac{B}{\SI{1}{\uG}} \right)^2
+    \quad [\si{\per\Gyr}],
+\end{equation}
+where $B$ is the magnetic field strength in the ICM, which is assumed
+to be uniform and has an energy density
+$u_B = B^2 / (8\pi) = \eta_B \epsilon_{\R{th}}$,
+with $\epsilon_{\R{th}}$ being the thermal energy density (see below).
+
+The last mechanism considered here is that electrons lose energy
+by interacting with the thermal ICM via Coulomb collisions, which gives
+the loss rate:
+\begin{equation}
+  \label{eq:eloss-coul}
+  \left( \diff{\gamma}{t} \right)_{\R{Coul}} =
+  \num{-3.79e4} \,n_{\R{th}} \left[ 1 +
+    \frac{\ln(\gamma/n_{\R{th}})}{75} \right] \quad [\si{\per\Gyr}],
+\end{equation}
+where $n_{\R{th}}$ is the thermal electron number density (see below)
+in units of [\si{\per\cm\cubed}].
+
+The inverse Compton scattering and synchrotron radiation dominate
+energy losses at the high-energy regime (e.g., $\gamma > 1000$),
+and Coulomb collisions are the main energy-loss mechanism for lower
+energy electrons (e.g., $\gamma < 100$).
+Therefore, at intermediate energies (e.g., $\gamma \sim 300$),
+electrons have a very long lifetime and can accumulate in the ICM
+as the cluster grows \citep{sarazin1999}, which may become the fossil
+high-energy electrons to be accelerated \emph{in situ} by turbulence.
+
 In addition, we can estimate the electron acceleration coefficient
 according to \citep{cassano2005}:
 \begin{equation}
