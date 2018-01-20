@@ -115,6 +115,8 @@
 
 %% Hyperref-related settings
 \def\sectionautorefname{Section}
+\def\subsectionautorefname{Section}
+\def\subsubsectionautorefname{Section}
 \def\figureautorefname{Figure}
 \def\tableautorefname{Table}
 % Credit: https://tex.stackexchange.com/a/66150
@@ -570,7 +572,7 @@ $R_{\R{main}}$ between the centers) is given by
 where $d_0 = \eta_v R_{\R{main}}$,
 $\eta_v \simeq 4 (1 + M_{\R{sub}}/M_{\R{main}})^{1/3}$,
 and $R_{\R{main}}$ is the virial radius of the main cluster
-[see Equation~(\ref{eq:radius-virial})].
+[see \autoref{eq:radius-virial}].
 
 Cluster mergers generate turbulence throughout the cluster over
 \si{\sim \Mpc} scales.
@@ -848,7 +850,7 @@ them have the same angular and image sizes as our foreground maps.
 
 %########################################################################
 \section{Observational Simulation}
-\label{sec:obs-simulation}
+\label{sec:obs-simu}
 %########################################################################
 
 To investigate the practical contamination in the EoR window due to the
@@ -897,7 +899,7 @@ cylindrical and 1D spherical power spectra.
 
 
 %########################################################################
-\section{Results}
+\section{Results and Discussions}
 \label{sec:results}
 %########################################################################
 
@@ -971,7 +973,7 @@ simulation, e.g., taking radio relics into account, more realistic
 source morphologies by utilizing the deep learning techniques,
 full polarization support.
 We will continue to improve our foregrounds simulation works and make
-them available in our public software \texttt{fg21sim} in the future.
+them available in our public software \texttt{FG21sim} in the future.
 
 In addition, galaxy clusters are also important objects of study in their
 own right:
@@ -1000,30 +1002,26 @@ unexpected findings as we go deeper \citep{padovani2016rev,herreraRuiz2017}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Conclusions}
-\label{sec:conclusions}
+\section{Summary}
+\label{sec:summary}
 
 \TODO{Write!!!}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% If you wish to include an acknowledgments section in your paper,
-%% separate it off from the body of the text using the \acknowledgments
-%% command.
 \acknowledgments
 
-\TODO{[update]}
+\TODO{update}
 We give thanks
-to Mathieu Remazeilles for making us the high-resolution Haslam \SI{408}{\MHz}
-Galactic synchrotron map with small-scale fluctuations added,
-to Giovanna Giardino for providing us with the all-sky Galactic synchrotron
-spectral index map,
+to Mathieu Remazeilles for providing us with the high-resolution Haslam
+\SI{408}{\MHz} Galactic synchrotron map,
+to Giovanna Giardino for the all-sky Galactic synchrotron spectral index map,
 to Fred Dulwich for sharing the latest SKA1-Low layout configuration as well
-as the guidance on using the \texttt{OSKAR} simulator.
-We also thank Andr\'e Offringa and Emma Chapman for their help.
-\TODO{[Keshet]}
+as the guidance on using the \texttt{OSKAR} simulator,
+to Andr\'e Offringa for the help on radio imaging with \texttt{WSClean}.
+We also thank Emma Chapman, and Uri Keshet for their help.
 This work is supported by the National Science Foundation of China
-(grant Nos. xxx, xxx).
+(grant Nos. 11433002, xxx).
 
 
 %% To help institutions obtain information on the effectiveness of their
@@ -1043,15 +1041,19 @@ This work is supported by the National Science Foundation of China
 
 %% Similar to \facility{}, there is the optional \software command to allow
 %% authors a place to specify which programs were used during the creation of
-%% the manusscript. Authors should list each code and include either a
+%% the manuscript. Authors should list each code and include either a
 %% citation or url to the code inside ()s when available.
 
 \software{
-  Astropy \citep{astropy2013},
+  OSKAR \citep{mort2010},
+  WSClean \citep{offringa2014},
+  Astropy \citep{astropy2013,astropy2018},
   NumPy (\url{http://www.numpy.org/}),
-  Vim (\url{http://www.vim.org/}),
-  Emacs (\url{https://www.gnu.org/s/emacs/}),
-  OSKAR, WSClean, IPython, Jupyter Notebook, Matplotlib, ...
+  SciPy (\url{https://scipy.org/}),
+  IPython (\url{https://ipython.org/}),
+  Jupyter Notebook (\url{https://jupyter.org/}),
+  Matplotlib (\url{https://matplotlib.org/}),
+  Pandas (\url{https://pandas.pydata.org/})
 }
 
 
