@@ -927,11 +927,39 @@ above flux density $S_{\nu}$ and can be derived to be:
   \label{eq:central-brightness}
   I_{\nu,0} = \frac{S_{\nu}}{2\pi \,\theta_e^2}.
 \end{equation}
+%========================================================================
+\subsection{Other Foreground Components}
+\label{sec:fg-other}
+%========================================================================
+
+Besides the radio halos in galaxy clusters, we also simulated the sky maps
+of the Galactic synchrotron and free-free emissions, and the extragalactic
+point sources, following our previous work \citep{wang2010}.
+The Galactic synchrotron map was simulated by extrapolating the
+Haslam \SI{408}{\MHz} all-sky map as the template to lower frequencies
+with a power-law spectrum.
+We have made use of the improved Haslam \SI{408}{\MHz} map\footnote{%
+  The 2014 reprocessed Haslam \SI{408}{\MHz} map:
+  \url{http://www.jb.man.ac.uk/research/cosmos/haslam_map/}.
+  We use the $N_{\R{side}} = 2048$ (i.e., pixel size \SI{\sim 1.72}{\arcmin})
+  high resolution map achieved by extrapolating the observed power spectrum
+  to small scales.}
+reprocessed by \citet{remazeilles2015},
+and the all-sky synchrotron spectral index map made by \citet{giardino2002}.
+The Galactic free-free emission was derived from the \Halpha{} survey data
+\citep{finkbeiner2003}, which we corrected for dust absorption first
+\citep{dickinson2003}, by employing the close relation between the \Halpha{}
+and free-free emissions due to their common origins.
+And the extragalactic foreground of point sources is contributed by the
+following different types of sources: star-forming and starburst galaxies,
+radio-quiet AGNs, Fanaroff-Riley class I and class II AGNs, GHz-peaked
+spectrum AGNs, and compact steep spectrum AGNs.
 
 Finally, we simulate the appearance of each radio halo as an ellipse by
 randomly assigning an ellipticity $f_e$ and a rotation angle $\phi$,
 and then superimpose all the halo images to the sky patch to obtain the
 simulated images of radio halos at each frequency of interest.
+\TODO{figures ...}
 
 
 %########################################################################
