@@ -907,26 +907,6 @@ $\zeta = ???$, and $X_{\R{CR}} = ???$.
 
 \TODO{figures ...}
 
-\begin{equation}
-  \label{eq:halo-flux-density}
-  S_{\nu} = \frac{P_{\nu}}{4\pi D_L^2},
-\end{equation}
-where $D_L$ is the luminosity distance to the halo at redshift $z_0$.
-We adopt the exponential profile for the azimuthally averaged brightness
-distribution of radio halos, which is expressed as \citep{murgia2009}:
-\begin{equation}
-  \label{eq:halo-exprofile}
-  I_{\nu}(\theta) = I_{\nu,0} \exp(-\theta/\theta_e),
-\end{equation}
-where $\theta = R / D_A$ is the angular radius from the halo center,
-with $D_A$ the angular diameter distance to the halo,
-$\theta_e = \theta_{\R{halo}}/3$ is the $e$-folding radius,
-and $I_{\nu,0}$ is the central brightness, which is constrained by the
-above flux density $S_{\nu}$ and can be derived to be:
-\begin{equation}
-  \label{eq:central-brightness}
-  I_{\nu,0} = \frac{S_{\nu}}{2\pi \,\theta_e^2}.
-\end{equation}
 %========================================================================
 \subsection{Other Foreground Components}
 \label{sec:fg-other}
@@ -955,10 +935,6 @@ following different types of sources: star-forming and starburst galaxies,
 radio-quiet AGNs, Fanaroff-Riley class I and class II AGNs, GHz-peaked
 spectrum AGNs, and compact steep spectrum AGNs.
 
-Finally, we simulate the appearance of each radio halo as an ellipse by
-randomly assigning an ellipticity $f_e$ and a rotation angle $\phi$,
-and then superimpose all the halo images to the sky patch to obtain the
-simulated images of radio halos at each frequency of interest.
 \TODO{figures ...}
 
 
@@ -1052,10 +1028,6 @@ cylindrical and 1D spherical power spectra.
 
 \TODO{Write!!!}
 
-\TODO{Distribute the results (e.g., simulated images) into previous sections,
-  and then merge this section (e.g., scaling relations and comparisons)
-  with the next `discussions' section???}
-
 \NOTE{Collect all the parameters (e.g., fg21sim, SimFast21, OSKAR, WSClean)
   as well as the input data/templates into to the Appendix!
   Also create a page in the software repository to hold further information.}
@@ -1085,15 +1057,6 @@ image domain and the (2D) power spectrum domain:
 \end{description}
 
 
-%########################################################################
-\section{Discussions}
-\label{sec:discussions}
-%########################################################################
-
-\TODO{Write!!!}
-
-\NOTE{Current limitations???}
-
 %% TODO: future works/improvements:
 One of the main purposes of our foregrounds simulation is to support
 the development and evaluation of foregrounds removal or separation
@@ -1104,7 +1067,6 @@ data as well as images (e.g., by using the \textsc{clean} algorithm).
 In this way, we incorporate the realistic instrumental effects into
 our simulation pipeline, making our developed methods more versatile
 and prepare for future real observations.
-(\NOTE{Move this paragraph to above simulation section?})
 
 In addition to the foregrounds removal aiming at the EoR signal
 detection, the methods to effectively identify and extract the faint
@@ -1124,7 +1086,6 @@ them available in our public software \texttt{FG21sim} in the future.
 
 In addition, galaxy clusters are also important objects of study in their
 own right:
-\LI{[需增强/突出]}
 \begin{itemize}
   \item elements to form the large-scale structures, key to understand the
     structure formation and evolution of the Universe;
@@ -1227,29 +1188,6 @@ This work is supported by the National Science Foundation of China
 \section{Useful Formulas}
 \label{sec:formulas}
 
-In this section we collect some useful formulas we made use of in our
-simulations.
-
-The Hubble parameter at redshift $z$:
-\begin{equation}
-  \label{eq:hubble-z}
-  H(z) = H_0 E(z),
-\end{equation}
-where $H_0$ is the present-day Hubble value,
-and $E(z)$ is the redshift evolution factor given by:
-\begin{equation}
-  \label{eq:ez-func}
-  E(z) = \sqrt{\Omega_m(1+z)^3 + \Omega_{\Lambda}}.
-\end{equation}
-(Note that we adopt a flat \lcdm{} cosmology so that
-$\Omega_k = 1 - \Omega_m - \Omega_{\Lambda} = 0$.)
-
-The critical density of the Universe at redshift $z$ is:
-\begin{equation}
-  \label{eq:rho-crit}
-  \rho_{\R{crit}}(z) = \frac{3 H^2(z)}{8 \pi G},
-\end{equation}
-where $G$ is the gravitational constant.
 
 On the other hand, the critical linear overdensity as a function of
 redshift $z$ is \citep{kitayama1996,randall2002}:
@@ -1292,18 +1230,6 @@ at redshift $z$ given by \citep{kitayama1996,cassano2005}:
 \end{equation}
 where $w(z) \equiv \Omega_f^{-1}(z) - 1$.
 
-The thermal number density of the cluster ICM is approximately given by:
-\begin{equation}
-  \label{eq:nth}
-  n_{\R{th}} \simeq
-    \frac{3 M_{\R{baryon}}}{4\pi \mu m_u R_{\R{vir}}^3},
-\end{equation}
-where $\mu \simeq 0.6$ is the mean molecular weight \citep{ettori2013},
-$m_u$ is the atomic mass unit,
-and $M_{\R{baryon}} \simeq M_{\R{vir}} f_b$ is the baryon mass
-of the cluster with $f_b \simeq \Omega_b / \Omega_m$ the mean baryon
-fraction assumed for clusters.
-
 In a flat \lcdm{} cosmology as we adopted, the age of the Universe
 at redshift $z$ takes an analytical form
 \citep[their Equation~(18)]{thomas2000}:
@@ -1315,48 +1241,6 @@ at redshift $z$ takes an analytical form
     & = \frac{2}{3 H_0 \sqrt{1-\Omega_m}} \sinh^{-1} \!\left(
       \sqrt{\frac{\Omega_m^{-1} - 1}{(1+z)^3}} \right).
 \end{align}
-This formula can also be inverted analytically to derive the redshift
-$z$ corresponding to a cosmic time $t$ (i.e., age of the Universe),
-which is used in our building of cluster merger trees
-in Section~\ref{sec:merging-history}.
-
-The \emph{angular diameter distance} $D_A$ is defined as the ratio of
-an object's physical transverse size to its (observed) angular size
-(in radians).  Note that it does \emph{not} increases indefinitely
-as $z \to \infty$, therefore more distant (e.g., $z > 1$)
-objects of same physical size may actually appear larger!
-The angular diameter distance is used to convert the observed angular
-separations between sources into their proper separations, and it is
-related to the \emph{transverse comoving distance} $D_M$ by
-\citep{weinberg1972,peebles1993,hogg1999}:
-\begin{equation}
-  \label{eq:da-dm}
-  D_A(z) = \frac{D_M(z)}{1 + z}.
-\end{equation}
-
-The \emph{luminosity distance} $D_L$ is defined by the relationship
-between the measured bolometric (i.e., integrated over all frequencies)
-flux $S_{\R{bolo}}$ and the object's intrinsic bolometric luminosity
-$L_{\R{bolo}}$:
-\begin{equation}
-  \label{eq:dl-def}
-  D_L \equiv \sqrt{\frac{L_{\R{bolo}}}{4\pi S_{\R{bolo}}}}.
-\end{equation}
-And it is related to the transverse comoving distance and angular
-diameter distance by \citep{weinberg1972,hogg1999,ellis2007}:
-\begin{equation}
-  \label{eq:dl-dm-da}
-  D_L(z) = (1+z) D_M(z) = (1+z)^2 D_A(z).
-\end{equation}
-
-In the radio frequency regime, the Rayleigh-Jeans approximation
-always holds, therefore the spectral brightness $I_{\nu}$ can be
-equivalently expressed by \emph{brightness temperature} $T_b(\nu)$
-through the relation \citep{condon2016}:
-\begin{equation}
-  \label{eq:brightness-temp}
-  T_b(\nu) \equiv \frac{I_{\nu} c^2}{2 k_B \nu^2}.
-\end{equation}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
