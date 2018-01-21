@@ -869,6 +869,44 @@ brightness.
 In addition, a random ellipticity $f_e$ and a random rotation angle
 $\phi$ are applied to each of the halo images.
 
+%%%
+\vspace{1ex}
+\uline{Parameter Tuning and Results}
+%%%
+
+Our model has the following 6 free parameters:
+(1) fraction of the merger energy transferred into the turbulence:
+$\eta_{\R{turb}} \sim 0.1$;
+(2) relative energy density in the magnetic field:
+$\eta_B \sim \SI{0.1}{\percent}$;
+(3) ratio of the total energy of injected electrons to the total thermal
+energy: $\eta_e \sim \SI{0.1}{\percent}$;
+(4) spectral index of the injected electrons: $s \sim \numrange{2.1}{2.5}$;
+(5) efficiency of the ICM plasma instabilities:
+$\zeta \sim \numrange{0.1}{0.3}$;
+(6) relative energy density in the cosmic rays:
+$X_{\R{CR}} \sim \SI{1}{\percent}$.
+And all of them have reasonable constraints from either observational
+evidences or simulation studies.
+
+To further tune the model parameters in order to achieve good agreements
+with the observations, we have collected all current observed radio halos
+(\autoref{tab:halos-observed}), and compare the integrated flux function
+between our simulated radio halos and the observations.
+We have explored various parameter configurations,
+and for each configuration we have repeated the simulation for 100??? times
+to taking into account the Monte Carlo uncertainties as introduced in
+Sections~\ref{sec:distributions} and \ref{sec:merging-history}.
+Considering that the current observations are far from complete,
+especially in the low-flux regime, our strategy was requiring that the
+integrated flux function of simulations agreed with the observed one
+in the high-flux regime within simulation uncertainties.
+In consequence, we have chosen a set of model parameters with
+$\eta_{\R{turb}} = ???$, $\eta_B = ???$, $\eta_e = ???$, $s = ???$,
+$\zeta = ???$, and $X_{\R{CR}} = ???$.
+
+\TODO{figures ...}
+
 \begin{equation}
   \label{eq:halo-flux-density}
   S_{\nu} = \frac{P_{\nu}}{4\pi D_L^2},
