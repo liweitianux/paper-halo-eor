@@ -109,6 +109,7 @@
 %
 \DeclareSIUnit\keV{\kilo\electronvolt}
 \DeclareSIUnit\kpc{\kilo\parsec}
+\DeclareSIUnit\mJy{\milli\jansky}
 \DeclareSIUnit\uG{\micro\gauss}
 \DeclareSIUnit\Gyr{\giga\year}
 \DeclareSIUnit\MHz{\mega\hertz}
@@ -123,6 +124,15 @@
 \def\tableautorefname{Table}
 % Credit: https://tex.stackexchange.com/a/66150
 \def\equationautorefname~#1\null{Equation~(#1)\null}
+
+%% Custom subsubsubsection ...
+\newcounter{sssseccount}
+\newcommand{\sssseclabel}{\alph{sssseccount}}
+\newcommand{\ssssec}[1]{%
+  \vspace{1ex}%
+  \stepcounter{sssseccount}%
+  \noindent\emph{\sssseclabel. #1}%
+}
 
 %% Custom settings
 \setlength{\parindent}{1.5em}
