@@ -591,6 +591,58 @@ and $Q_e(\gamma, t)$ describes the electron injection.
 %%%
 \setcounter{sssseccount}{0}
 \ssssec{Electron Injection}
+%%%
+
+It is reasonable to assume that the primary electrons were constantly
+injected into the ICM during the cluster life and had a power-law
+spectrum of index $s \sim 2.3$ \citep[e.g.,][]{sarazin1999}
+\begin{equation}
+  \label{eq:electron-inj}
+  Q_e(\gamma, t) \equiv Q_e(\gamma) = K_e \,\gamma^{-s}.
+\end{equation}
+By further assuming that the total energy of injected electrons is a
+fraction, $\eta_e$, of the total thermal energy \citep{cassano2005}
+\begin{equation}
+  \epsilon_e \,\tau_{\R{cl}} \int_{\gamma_{\R{min}}}^{\gamma_{\R{max}}}
+  Q_e(\gamma') \gamma' \,\D{\gamma'}
+  = \eta_e \,\epsilon_{\R{th}},
+\end{equation}
+and given $\gamma_{\R{min}} \ll \gamma_{\R{\max}}$,
+the injection rate $K_e$ can be derived to be
+\begin{equation}
+  \label{eq:injrate}
+  K_e \simeq \frac{(s-2)\,\eta_e\,\epsilon_{\R{th}}}{\epsilon_e\,\tau_{\R{cl}}}
+    \gamma_{\R{min}}^{s-2},
+\end{equation}
+where $\tau_{\R{cl}} \simeq t_{\R{obs}}$ is the cluster's age at the
+\enquote{observed} redshift $z_{\R{obs}}$ as simulated in \autoref{sec:distributions},
+and $\epsilon_e = m_e c^2$ is the electron's still energy.
+In addition, the thermal energy density of the ICM, $\epsilon_{\R{th}}$,
+is calculated as
+\begin{equation}
+  \label{eq:energy-density-thermal}
+  \epsilon_{\R{th}} = \frac{3}{2} \,n_{\R{th}} \,k_BT_{\R{cl}},
+\end{equation}
+and the thermal number density, $n_{\R{th}}$, is given by
+\begin{equation}
+  \label{eq:number-density-thermal}
+  n_{\R{th}} \simeq \frac{3 f_{\R{gas}} M_{\R{vir}}}{4\pi \mu m_u \,r^3_{\R{vir}}},
+\end{equation}
+where
+$r_{\R{vir}}$ is the cluster's virial radius,
+the cluster mean temperature is approximated with the virial temperature:
+$k_BT_{\R{cl}} \simeq k_BT_{\R{vir}} = G M_{\R{vir}} \,\mu m_u / (2 r_{\R{vir}})$,
+$f_{\R{gas}} \simeq \Omega_b/\Omega_m$ is the gas fraction assumed
+for clusters, $\mu \simeq 0.6$ is the mean molecular weight
+\citep[e.g.,][]{ettori2013}, and $m_u$ is the atomic mass unit.
+
+As for the initial spectrum of electrons for solving
+\autoref{eq:fokkerplanck}, it is derived by evolving the accumulated spectrum
+$n_e'(\gamma) = t_0 K_e \gamma^{-s}$ for \SI{\sim 1}{\Gyr} with only energy
+losses, where $t_0$ is the cosmic age when the first merger event begins
+\citep[e.g.,][]{brunetti2007}.
+
+%%%
 \ssssec{Turbulent Acceleration}
 %%%
 
@@ -754,56 +806,6 @@ Therefore, at intermediate energies (e.g., $\gamma \sim 300$),
 electrons have a very long lifetime and can accumulate in the ICM
 as the cluster grows \citep{sarazin1999}, which may become the fossil
 electrons to be accelerated \emph{in situ} by turbulence.
-
-%%%
-%%%
-
-During the cluster life, high-energy electrons were produced in
-different processes, such as AGN activities and star formations,
-and can be reasonably assumed to be constantly injected into the
-ICM with a power-law spectrum of index $s$ \citep{sarazin1999}:
-\begin{equation}
-  \label{eq:electron-inj}
-  Q_e(\gamma, t) \equiv Q_e(\gamma) = K_e \,\gamma^{-s}.
-\end{equation}
-By assuming that the total energy of injected electrons is a fraction,
-$\eta_e$, of the total thermal energy \citep{cassano2005}:
-\begin{equation}
-  \epsilon_e \,\tau_{\R{cl}} \int_{\gamma_{\R{min}}}^{\gamma_{\R{max}}}
-  Q_e(\gamma') \gamma' \,\D{\gamma'}
-  = \eta_e \,\epsilon_{\R{th}},
-\end{equation}
-and given $\gamma_{\R{min}} \ll \gamma_{\R{\max}}$,
-the injection rate $K_e$ can be derived to be:
-\begin{equation}
-  \label{eq:injrate}
-  K_e \simeq \frac{(s-2)\,\eta_e\,\epsilon_{\R{th}}}{\epsilon_e\,\tau_{\R{cl}}}
-    \gamma_{\R{min}}^{s-2},
-\end{equation}
-where $\tau_{\R{cl}} \simeq t_{\R{obs}}$ is the cluster's age at the
-\enquote{observed} redshift $z_{\R{obs}}$ as simulated in \autoref{sec:distributions},
-and $\epsilon_e = m_e c^2$ is the electron's still energy.
-In addition, the thermal energy density of the ICM, $\epsilon_{\R{th}}$,
-is calculated as:
-\begin{equation}
-  \label{eq:energy-density-thermal}
-  \epsilon_{\R{th}} = \frac{3}{2} \,n_{\R{th}} \,k_BT_{\R{cl}},
-\end{equation}
-where $n_{\R{th}}$ is the thermal number density given by:
-\begin{equation}
-  \label{eq:number-density-thermal}
-  n_{\R{th}} \simeq \frac{3 f_{\R{gas}} M_{\R{vir}}}{4\pi \mu m_u \,r^3_{\R{vir}}},
-\end{equation}
-and the cluster mean temperature is approximated with the virial temperature:
-$k_BT_{\R{cl}} \simeq k_BT_{\R{vir}} = G M_{\R{vir}} \,\mu m_u / (2 r_{\R{vir}})$,
-where $\mu \simeq 0.6$ is the mean molecular weight
-\citep[e.g.,][]{ettori2013}, and $m_u$ is the atomic mass unit.
-
-As for the initial spectrum of electrons, $n_e(\gamma, t=t_0)$ with $t_0$
-the cosmic age when the first merger event begins,
-it is derived by evolving the accumulated spectrum
-$n_e'(\gamma) = t_0 K_e \gamma^{-s}$ for \SI{\sim 1}{\Gyr} with only energy
-losses \citep[e.g.,][]{brunetti2007}.
 
 %%%
 \ssssec{Numerical Method}
