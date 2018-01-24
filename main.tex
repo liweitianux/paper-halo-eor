@@ -1185,7 +1185,7 @@ This work is supported by the National Science Foundation of China
 \startlongtable
 \begin{deluxetable*}{lcccr@{$\,\pm\,$}lr@{$\,\pm\,$}lp{12em}l}
 \tabletypesize{\scriptsize}
-\tablewidth{0pt}  % set to table's natural width
+%\tablewidth{0pt}  % set to table's natural width
 \tablecaption{Collection of Current Observed Radio Halos%
   \tablenotemark{a}%
   \label{tab:halos-observed}%  % NOTE: must be placed inside the caption
@@ -1202,9 +1202,9 @@ This work is supported by the National Science Foundation of China
   \colhead{} &  % cluster
   \colhead{} &  % redshift
   \colhead{} &  % kpc/arcsec
-  \colhead{\si{\Mpc}} &  % size
-  \multicolumn{2}{c}{\si{\mJy}} &  % flux
-  \multicolumn{2}{c}{\SI{e24}{\watt\per\hertz}} &  % power
+  \colhead{(\si{\Mpc})} &  % size
+  \multicolumn{2}{c}{(\si{\mJy})} &  % flux
+  \multicolumn{2}{c}{(\SI{e24}{\watt\per\hertz})} &  % power
   \colhead{} &  % notes
   \colhead{} \\
   \colhead{(1)} &
@@ -1238,12 +1238,12 @@ Abell 851 & 0.4069 & 5.40 & 1.08 & 3.7 & 0.3 & 2.14 &  &  & \citet{giovannini200
 Abell 1132 & 0.1369 & 2.39 & 0.74 & 3.3 & 1.5 & 0.16 & 0.07 &  & \citet{wilber2018}  \\
 Abell 1213 & 0.0469 & 0.91 & 0.22 & 72.2 & 3.5 & 0.36 &  &  & \citet{giovannini2009}  \\
 Abell 1300 & 0.3100 & 4.52 & 0.92 & 20.0 & 2.0 & 2.99 &  & With a relic & \citet{reid1999}  \\
-Abell 1351 & 0.3220 & 4.64 & 1.08 & 32.4 &  & 11.37 &  &  & \citet{giacintucci2011b}  \\
+Abell 1351 & 0.3220 & 4.64 & 1.08 & 32.4 & ... & 11.37 &  &  & \citet{giacintucci2011b}  \\
 Abell 1443 & 0.2700 & 4.10 & 1.10 & 11.0 & 1.1 & 2.53 & 0.30 & Halo candidate & \citet{bonafede2015}  \\
 Abell 1451 & 0.1989 & 3.25 & 0.74 & 5.4 & 0.5 & 0.62 & 0.07 & With a relic candidate & \citet{cuciti2018}  \\
 Abell 1550 & 0.2540 & 3.92 & 1.41 & 7.7 & 1.6 & 1.49 &  &  & \citet{govoni2012}  \\
 Abell 1656 & 0.0232 & 0.46 & 0.58 & 530.0 & 50.0 & 0.31 &  & With a relic candidate & \citet{kim1990}  \\
-Abell 1682 & 0.2272 & 3.61 & 0.85 & 14.9 &  & 2.13 &  & Halo candidate & \citet{venturi2008}  \\
+Abell 1682 & 0.2272 & 3.61 & 0.85 & 14.9 & ... & 2.13 &  & Halo candidate & \citet{venturi2008}  \\
 Abell 1689 & 0.1832 & 3.05 & 0.73 & 10.0 & 2.9 & 0.92 &  &  & \citet{vacca2011}  \\
 Abell 1758A & 0.2790 & 4.20 & 0.63 & 3.9 & 0.4 & 0.93 &  & With a relic & \citet{giovannini2009}  \\
 Abell 1914 & 0.1712 & 2.88 & 1.16 & 64.0 & 3.0 & 4.32 &  &  & \citet{bacchi2003}  \\
@@ -1276,7 +1276,7 @@ CIZA J0107.7+5408 & 0.1066 & 1.93 & 1.10 & 55.0 & 5.0 & 1.80 &  &  & \citet{vanW
 CIZA J0638.1+4747 & 0.1740 & 2.92 & 0.59 & 3.6 & 0.2 & 0.30 & 0.02 &  & \citet{cuciti2018}  \\
 CIZA J1938.3+5409 & 0.2600 & 3.99 & 0.72 & 1.6 & 0.2 & 0.36 & 0.05 &  & \citet{bonafede2015}  \\
 CIZA J2242.8+5301 & 0.1921 & 3.16 & 1.77 & 33.5 & 6.2 & 3.40 & 0.97 & With double relics & \citet{govoni2012}  \\
-ClG 0016+16 & 0.5456 & 6.37 & 0.77 & 5.5 &  & 4.42 &  &  & \citet{giovannini2000}  \\
+ClG 0016+16 & 0.5456 & 6.37 & 0.77 & 5.5 & ... & 4.42 &  &  & \citet{giovannini2000}  \\
 ClG 0217+70 & 0.0655 & 1.24 & 0.73 & 58.6 & 0.9 & 0.54 & 0.01 & With double relics & \citet{brown2011}  \\
 ClG 1446+26 & 0.3700 & 5.09 & 1.22 & 7.7 & 2.6 & 3.57 &  & With a relic & \citet{govoni2012}  \\
 ClG 1821+64 & 0.2990 & 4.41 & 1.10 & 13.0 & 0.8 & 3.70 & 0.10 &  & \citet{bonafede2014b}  \\
@@ -1293,7 +1293,7 @@ PLCK G171.9$-$40.7 & 0.2700 & 4.10 & 0.99 & 18.0 & 2.0 & 4.76 & 0.10 &  & \citet
 PLCK G285.0$-$23.7 & 0.3900 & 5.26 & 0.73 & 2.9 & 0.4 & 1.67 & 0.21 &  & \citet{martinezAviles2016}  \\
 PLCK G287.0+32.9 & 0.3900 & 5.26 & 1.30 & 8.8 & 0.9 & 5.10 &  & With double relics & \citet{bonafede2014a}  \\
 PSZ1 G108.18$-$11.53 & 0.3347 & 4.77 & 0.84 & 6.8 & 0.2 & 2.72 & 0.10 & With double relics & \citet{deGasperin2015}  \\
-RXC J1234.2+0947 & 0.2290 & 3.63 & 0.92 & 2.0 &  & 0.30 &  & Halo candidate & \citet{govoni2012}  \\
+RXC J1234.2+0947 & 0.2290 & 3.63 & 0.92 & 2.0 & ... & 0.30 &  & Halo candidate & \citet{govoni2012}  \\
 RXC J1314.4$-$2515 & 0.2474 & 3.85 & 1.27 & 20.3 & 0.8 & 1.45 &  & With double relics & \citet{feretti2005}  \\
 RXC J1514.9$-$1523 & 0.2226 & 3.55 & 1.38 & 10.0 & 2.0 & 1.65 &  &  & \citet{giacintucci2011a}  \\
 RXC J2003.5$-$2323 & 0.3171 & 4.59 & 1.38 & 35.0 & 2.0 & 11.96 &  &  & \citet{giacintucci2009}  \\
