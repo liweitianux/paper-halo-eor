@@ -551,7 +551,7 @@ for the following radio halo simulation.
 
 
 %------------------------------------------------------------------------
-\subsubsection{Radio Halos}
+\subsubsection{Radio Halo Emergence and Evolution}
 \label{sec:halos}
 %------------------------------------------------------------------------
 
@@ -589,8 +589,9 @@ $|\R{d}\gamma / \R{d}t|$ accounts for various energy loss mechanisms,
 and $Q_e(\gamma, t)$ describes the electron injection.
 
 %%%
-\vspace{1ex}
-\uline{Turbulent Acceleration}
+\setcounter{sssseccount}{0}
+\ssssec{Electron Injection}
+\ssssec{Turbulent Acceleration}
 %%%
 
 The interactions between the merger-induced turbulence and the cluster
@@ -674,8 +675,7 @@ $\tau_{\R{acc}} = 4 D_{\gamma\gamma} / \gamma^2 \sim \SI{0.1}{\Gyr}$,
 which is independent of the electron momentum.
 
 %%%
-\vspace{1ex}
-\uline{Acceleration Periods}
+\ssssec{Acceleration Periods}
 %%%
 
 The whole merger process may last for \SIrange{1}{2}{\Gyr} \TODO{ref???},
@@ -707,8 +707,7 @@ periods $[t^{(i)}_{\R{merger}}, t^{(i)}_{\R{merger}}+\tau^{(i)}_{\R{turb}}]$,
 while there is no acceleration at other times.
 
 %%%
-\vspace{1ex}
-\uline{Energy Losses}
+\ssssec{Energy Losses}
 %%%
 
 There are several different mechanisms through which the relativistic
@@ -757,8 +756,6 @@ as the cluster grows \citep{sarazin1999}, which may become the fossil
 electrons to be accelerated \emph{in situ} by turbulence.
 
 %%%
-\vspace{1ex}
-\uline{Electron Injection}
 %%%
 
 During the cluster life, high-energy electrons were produced in
@@ -809,8 +806,7 @@ $n_e'(\gamma) = t_0 K_e \gamma^{-s}$ for \SI{\sim 1}{\Gyr} with only energy
 losses \citep[e.g.,][]{brunetti2007}.
 
 %%%
-\vspace{1ex}
-\uline{Numerical Method}
+\ssssec{Numerical Method}
 %%%
 
 Now with all the coefficients in \autoref{eq:fokkerplanck} been determined,
@@ -828,8 +824,7 @@ We adopt a logarithmic grid for $\gamma \in [1, 10^5]$ with 200 cells,
 and let the lower buffer region span 10 cells.
 
 %%%
-\vspace{1ex}
-\uline{Radio Image}
+\ssssec{Image Generation}
 %%%
 
 After deriving the \enquote{current} electron spectrum
@@ -882,8 +877,7 @@ In addition, a random ellipticity $f_e$ and a random rotation angle
 $\phi$ are applied to each of the halo images.
 
 %%%
-\vspace{1ex}
-\uline{Parameter Tuning and Results}
+\ssssec{Parameters Tuning}
 %%%
 
 Our model has the following 6 free parameters:
