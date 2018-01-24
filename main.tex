@@ -917,27 +917,30 @@ $\zeta = ???$, and $X_{\R{CR}} = ???$.
 \label{sec:fg-other}
 %========================================================================
 
-Besides the radio halos in galaxy clusters, we also simulated the sky maps
-of the Galactic synchrotron and free-free emissions, and the extragalactic
-point sources, following our previous work \citep{wang2010}.
+Besides the radio halos in galaxy clusters, we also simulated the maps of
+several other foreground components, including the Galactic synchrotron
+and free-free emissions, and the extragalactic point sources,
+based on our previous work \citep[and references therein]{wang2010}.
 The Galactic synchrotron map was simulated by extrapolating the
 Haslam \SI{408}{\MHz} all-sky map as the template to lower frequencies
 with a power-law spectrum.
-We have made use of the improved Haslam \SI{408}{\MHz} map\footnote{%
-  The 2014 reprocessed Haslam \SI{408}{\MHz} map:
+We have made use of the $N_{\R{side}} = 2048$ (pixel size \SI{\sim 1.72}{\arcmin})
+high resolution version of the Haslam \SI{408}{\MHz} map\footnote{%
+  The reprocessed Haslam \SI{408}{\MHz} map:
   \url{http://www.jb.man.ac.uk/research/cosmos/haslam_map/}.
-  We use the $N_{\R{side}} = 2048$ (i.e., pixel size \SI{\sim 1.72}{\arcmin})
-  high resolution map achieved by extrapolating the observed power spectrum
-  to small scales.}
-reprocessed by \citet{remazeilles2015},
-and the all-sky synchrotron spectral index map made by \citet{giardino2002}.
+}
+reprocessed by \citet{remazeilles2015}, which had significantly better
+instrument calibration and more accurate subtraction of extragalactic
+sources.
+And we also used the all-sky synchrotron spectral index map made by
+\citet{giardino2002} to account for the index variation with sky positions.
 The Galactic free-free emission was derived from the \Halpha{} survey data
 \citep{finkbeiner2003}, which we corrected for dust absorption first
-\citep{dickinson2003}, by employing the close relation between the \Halpha{}
+\citep{dickinson2003}, by employing the tight relation between the \Halpha{}
 and free-free emissions due to their common origins.
 And the extragalactic foreground of point sources is contributed by the
 following different types of sources: star-forming and starburst galaxies,
-radio-quiet AGNs, Fanaroff-Riley class I and class II AGNs, GHz-peaked
+radio-quiet AGNs, Fanaroff-Riley type I and type II AGNs, GHz-peaked
 spectrum AGNs, and compact steep spectrum AGNs.
 
 \TODO{figures ...}
@@ -948,7 +951,7 @@ spectrum AGNs, and compact steep spectrum AGNs.
 \label{sec:eor-signal}
 %========================================================================
 
-The sky maps of the 21~cm EoR signals were created using the 2016
+The sky maps of the EoR 21~cm signals were created using the 2016
 data release from the Evolution Of 21~cm Structure project\footnote{%
   Evolution Of 21~cm Structure project:
   \url{http://homepage.sns.it/mesinger/EOS.html}},
@@ -956,7 +959,7 @@ which were generated with \texttt{21cmFAST} version 2 \citep{mesinger2011}
 within a cube of 1.6 comoving \si{\Gpc} and 1024 cells along each side,
 and covered a redshift range of \numrange{5.0}{86.5} \citep{mesinger2016}.
 We extracted the image slices at needed frequencies (i.e., redshifts) from
-the \enquote{light-cone cubes} of the recommended \emph{faint galaxies case},
+the \enquote{light-cone cubes} of the recommended \emph{faint galaxies} case,
 and then tiled and re-scaled them to have the same sky coverage and pixel
 size as our foreground maps.
 
