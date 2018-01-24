@@ -1177,11 +1177,134 @@ This work is supported by the National Science Foundation of China
 %%
 \appendix
 
-\section{List of Current Observed Radio Halos}
+%########################################################################
+\section{Collection of Current Observed Radio Halos}
 \label{sec:halos-collection}
+%########################################################################
 
-\TODO{Compile the current observed (giant) radio halos ...}
+\startlongtable
+\begin{deluxetable*}{lcccr@{$\,\pm\,$}lr@{$\,\pm\,$}lp{12em}l}
+\tabletypesize{\scriptsize}
+\tablewidth{0pt}  % set to table's natural width
+\tablecaption{Collection of Current Observed Radio Halos%
+  \tablenotemark{a}%
+  \label{tab:halos-observed}%  % NOTE: must be placed inside the caption
+}
+\tablehead{
+  \colhead{Cluster} &
+  \colhead{Redshift} &
+  \colhead{kpc/arcsec} &
+  \colhead{Size} &
+  \multicolumn{2}{c}{$S_{\SI{1.4}{\GHz}}$} &
+  \multicolumn{2}{c}{$P_{\SI{1.4}{\GHz}}$} &
+  \colhead{Notes} &
+  \colhead{References} \\
+  \colhead{} &  % cluster
+  \colhead{} &  % redshift
+  \colhead{} &  % kpc/arcsec
+  \colhead{\si{\Mpc}} &  % size
+  \multicolumn{2}{c}{\si{\mJy}} &  % flux
+  \multicolumn{2}{c}{\SI{e24}{\watt\per\hertz}} &  % power
+  \colhead{} &  % notes
+  \colhead{} \\
+  \colhead{(1)} &
+  \colhead{(2)} &
+  \colhead{(3)} &
+  \colhead{(4)} &
+  \multicolumn{2}{c}{(5)} &
+  \multicolumn{2}{c}{(6)} &
+  \colhead{(7)} &
+  \colhead{(8)}
+}
 
+\startdata
+1E 0657$-$56 & 0.2960 & 4.38 & 1.48 & 78.0 & 5.0 & 21.33 & 1.49 &  & \citet{liang2000}  \\
+Abell 141 & 0.2300 & 3.64 & 1.20 & 1.3 & 0.1 & 0.25 & 0.02 &  & \citet{duchesne2017}  \\
+Abell 209 & 0.2060 & 3.34 & 1.40 & 16.9 & 1.0 & 2.04 &  & With a relic candidate & \citet{giovannini2009}  \\
+Abell 399 & 0.0718 & 1.35 & 0.57 & 16.0 & 2.0 & 0.20 &  & Double with Abell 401 & \citet{murgia2010}  \\
+Abell 401 & 0.0737 & 1.38 & 0.49 & 17.0 & 1.0 & 0.20 &  & Double with Abell 399 & \citet{bacchi2003}  \\
+Abell 520 & 0.1990 & 3.25 & 0.99 & 34.4 & 1.5 & 3.17 &  &  & \citet{govoni2001}  \\
+Abell 521 & 0.2533 & 3.91 & 1.17 & 5.9 & 0.5 & 1.12 &  & With a relic & \citet{giovannini2009}  \\
+Abell 523 & 0.1000 & 1.82 & 1.30 & 59.0 & 5.0 & 1.47 &  &  & \citet{giovannini2011}  \\
+Abell 545 & 0.1540 & 2.64 & 0.81 & 23.0 & 1.0 & 1.25 &  &  & \citet{bacchi2003}  \\
+Abell 665 & 0.1818 & 3.03 & 1.66 & 43.1 & 2.2 & 3.28 &  &  & \citet{giovannini2000}  \\
+Abell 697 & 0.2820 & 4.23 & 0.75 & 5.2 & 0.5 & 2.20 &  &  & \citet{vanWeeren2011}  \\
+Abell 746 & 0.2320 & 3.67 & 0.85 & 18.0 & 4.0 & 3.80 &  & With a relic & \citet{vanWeeren2011}  \\
+Abell 754 & 0.0542 & 1.04 & 0.95 & 86.0 & 4.0 & 0.56 &  & With a relic & \citet{bacchi2003}  \\
+Abell 773 & 0.2170 & 3.48 & 1.13 & 12.7 & 1.3 & 1.39 &  &  & \citet{govoni2001}  \\
+Abell 781 & 0.3004 & 4.42 & 1.60 & 20.5 & 5.0 & 5.90 &  & With a relic candidate & \citet{govoni2011}  \\
+Abell 800 & 0.2223 & 3.55 & 1.28 & 10.6 & 0.9 & 1.52 &  &  & \citet{govoni2012}  \\
+Abell 851 & 0.4069 & 5.40 & 1.08 & 3.7 & 0.3 & 2.14 &  &  & \citet{giovannini2009}  \\
+Abell 1132 & 0.1369 & 2.39 & 0.74 & 3.3 & 1.5 & 0.16 & 0.07 &  & \citet{wilber2018}  \\
+Abell 1213 & 0.0469 & 0.91 & 0.22 & 72.2 & 3.5 & 0.36 &  &  & \citet{giovannini2009}  \\
+Abell 1300 & 0.3100 & 4.52 & 0.92 & 20.0 & 2.0 & 2.99 &  & With a relic & \citet{reid1999}  \\
+Abell 1351 & 0.3220 & 4.64 & 1.08 & 32.4 &  & 11.37 &  &  & \citet{giacintucci2011b}  \\
+Abell 1443 & 0.2700 & 4.10 & 1.10 & 11.0 & 1.1 & 2.53 & 0.30 & Halo candidate & \citet{bonafede2015}  \\
+Abell 1451 & 0.1989 & 3.25 & 0.74 & 5.4 & 0.5 & 0.62 & 0.07 & With a relic candidate & \citet{cuciti2018}  \\
+Abell 1550 & 0.2540 & 3.92 & 1.41 & 7.7 & 1.6 & 1.49 &  &  & \citet{govoni2012}  \\
+Abell 1656 & 0.0232 & 0.46 & 0.58 & 530.0 & 50.0 & 0.31 &  & With a relic candidate & \citet{kim1990}  \\
+Abell 1682 & 0.2272 & 3.61 & 0.85 & 14.9 &  & 2.13 &  & Halo candidate & \citet{venturi2008}  \\
+Abell 1689 & 0.1832 & 3.05 & 0.73 & 10.0 & 2.9 & 0.92 &  &  & \citet{vacca2011}  \\
+Abell 1758A & 0.2790 & 4.20 & 0.63 & 3.9 & 0.4 & 0.93 &  & With a relic & \citet{giovannini2009}  \\
+Abell 1914 & 0.1712 & 2.88 & 1.16 & 64.0 & 3.0 & 4.32 &  &  & \citet{bacchi2003}  \\
+Abell 1995 & 0.3186 & 4.61 & 0.83 & 4.1 & 0.7 & 1.35 &  &  & \citet{giovannini2009}  \\
+Abell 2034 & 0.1130 & 2.03 & 0.60 & 7.3 & 2.0 & 0.28 &  & With a relic & \citet{vanWeeren2011}  \\
+Abell 2061 & 0.0784 & 1.46 & 1.68 & 16.9 & 4.2 & 0.25 &  & With a relic & \citet{farnsworth2013}  \\
+Abell 2065 & 0.0726 & 1.36 & 1.08 & 32.9 & 11.0 & 0.41 &  &  & \citet{farnsworth2013}  \\
+Abell 2069 & 0.1160 & 2.08 & 0.90 & 6.2 & 2.2 & 0.25 & 0.05 & Halo may have two components & \citet{drabent2015}  \\
+Abell 2142 & 0.0909 & 1.67 & 0.99 & 11.8 & 0.8 & 1.12 &  & Halo has two components & \citet{venturi2017}  \\
+Abell 2163 & 0.2030 & 3.31 & 2.04 & 155.0 & 2.0 & 14.93 & 0.20 & With a relic & \citet{feretti2001}  \\
+Abell 2218 & 0.1710 & 2.88 & 0.35 & 4.7 & 0.1 & 0.32 &  &  & \citet{giovannini2000}  \\
+Abell 2219 & 0.2256 & 3.59 & 1.54 & 81.0 & 4.0 & 9.72 &  &  & \citet{bacchi2003}  \\
+Abell 2254 & 0.1780 & 2.98 & 0.85 & 33.7 & 1.8 & 2.43 &  &  & \citet{govoni2001}  \\
+Abell 2255 & 0.0806 & 1.50 & 0.90 & 56.0 & 3.0 & 0.87 &  & With a relic & \citet{govoni2005}  \\
+Abell 2256 & 0.0594 & 1.13 & 0.81 & 103.4 & 1.1 & 0.82 &  & With a relic & \citet{clarke2006}  \\
+Abell 2294 & 0.1780 & 2.98 & 0.54 & 5.8 & 0.5 & 0.51 &  &  & \citet{giovannini2009}  \\
+Abell 2319 & 0.0524 & 1.01 & 0.93 & 153.0 & 8.0 & 0.54 &  &  & \citet{feretti1997}  \\
+Abell 2680 & 0.1901 & 3.14 & 0.57 & 1.8 & 0.6 & 0.16 & 0.05 & Halo candidate & \citet{duchesne2017}  \\
+Abell 2693 & 0.1730 & 2.91 & 0.65 & 7.7 & 0.9 & 0.61 & 0.07 & Halo candidate & \citet{duchesne2017}  \\
+Abell 2744 & 0.3080 & 4.50 & 1.62 & 57.1 & 2.9 & 12.89 &  & With a relic & \citet{govoni2001}  \\
+Abell 2811 & 0.1080 & 1.95 & 0.48 & 3.4 & 0.7 & 0.10 & 0.02 &  & \citet{duchesne2017}  \\
+Abell 3411 & 0.1687 & 2.85 & 0.90 & 4.8 & 0.5 & 0.46 &  & With a relic & \citet{vanWeeren2013}  \\
+Abell 3562 & 0.0480 & 0.93 & 0.44 & 20.0 & 2.0 & 0.10 &  &  & \citet{venturi2003}  \\
+Abell 3888 & 0.1510 & 2.60 & 0.99 & 27.6 & 3.1 & 1.85 & 0.19 &  & \citet{shakouri2016}  \\
+Abell S84 & 0.1080 & 1.95 & 0.49 & 2.1 & 0.3 & 0.06 & 0.01 & Halo candidate & \citet{duchesne2017}  \\
+Abell S1121 & 0.3580 & 4.98 & 1.25 & 9.8 & 3.1 & 4.54 & 1.44 &  & \citet{duchesne2017}  \\
+ACT-CL J0102$-$4915 & 0.8700 & 7.73 & 2.17 & 10.7 & 1.1 & 44.43 & 1.28 & With double relics & \citet{lindner2014}  \\
+ACT-CL J0256.5+0006 & 0.3430 & 4.84 & 0.79 & 2.1 & 0.5 & 0.97 & 0.29 &  & \citet{knowles2016}  \\
+CIZA J0107.7+5408 & 0.1066 & 1.93 & 1.10 & 55.0 & 5.0 & 1.80 &  &  & \citet{vanWeeren2011}  \\
+CIZA J0638.1+4747 & 0.1740 & 2.92 & 0.59 & 3.6 & 0.2 & 0.30 & 0.02 &  & \citet{cuciti2018}  \\
+CIZA J1938.3+5409 & 0.2600 & 3.99 & 0.72 & 1.6 & 0.2 & 0.36 & 0.05 &  & \citet{bonafede2015}  \\
+CIZA J2242.8+5301 & 0.1921 & 3.16 & 1.77 & 33.5 & 6.2 & 3.40 & 0.97 & With double relics & \citet{govoni2012}  \\
+ClG 0016+16 & 0.5456 & 6.37 & 0.77 & 5.5 &  & 4.42 &  &  & \citet{giovannini2000}  \\
+ClG 0217+70 & 0.0655 & 1.24 & 0.73 & 58.6 & 0.9 & 0.54 & 0.01 & With double relics & \citet{brown2011}  \\
+ClG 1446+26 & 0.3700 & 5.09 & 1.22 & 7.7 & 2.6 & 3.57 &  & With a relic & \citet{govoni2012}  \\
+ClG 1821+64 & 0.2990 & 4.41 & 1.10 & 13.0 & 0.8 & 3.70 & 0.10 &  & \citet{bonafede2014b}  \\
+MACS J0416.1$-$2403 & 0.3960 & 5.31 & 0.64 & 1.7 & 0.8 & 1.26 & 0.29 &  & \citet{pandeyPommier2015}  \\
+MACS J0520.7$-$1328 & 0.3400 & 4.81 & 0.80 & 9.0 & 1.6 & 3.38 &  & Halo candidate & \citet{macario2014}  \\
+MACS J0553.4$-$3342 & 0.4070 & 5.40 & 1.32 & 9.2 & 0.7 & 6.73 & 0.61 &  & \citet{bonafede2012}  \\
+MACS J0717.5+3745 & 0.5458 & 6.37 & 1.20 & 118.0 & 5.0 & 50.00 & 10.00 & With a relic & \citet{vanWeeren2009}  \\
+MACS J0949.8+1708 & 0.3825 & 5.20 & 1.04 & 3.1 & 0.3 & 1.63 & 0.15 &  & \citet{bonafede2015}  \\
+MACS J1149.5+2223 & 0.5444 & 6.36 & 1.32 & 1.2 & 0.5 & 1.95 & 0.93 & Halo candidate; with double relics & \citet{bonafede2012}  \\
+MACS J1752.0+4440 & 0.3660 & 5.05 & 1.65 & 14.2 & 1.4 & 9.50 &  & With double relics & \citet{vanWeeren2012}  \\
+MACS J2243.3$-$0935 & 0.4470 & 5.71 & 0.91 & 3.1 & 0.6 & 3.11 & 0.58 & With a relic candidate & \citet{cantwell2016}  \\
+PLCK G147.3$-$16.6 & 0.6500 & 6.92 & 1.80 & 2.5 & 0.4 & 5.10 & 0.80 &  & \citet{vanWeeren2014}  \\
+PLCK G171.9$-$40.7 & 0.2700 & 4.10 & 0.99 & 18.0 & 2.0 & 4.76 & 0.10 &  & \citet{giacintucci2013}  \\
+PLCK G285.0$-$23.7 & 0.3900 & 5.26 & 0.73 & 2.9 & 0.4 & 1.67 & 0.21 &  & \citet{martinezAviles2016}  \\
+PLCK G287.0+32.9 & 0.3900 & 5.26 & 1.30 & 8.8 & 0.9 & 5.10 &  & With double relics & \citet{bonafede2014a}  \\
+PSZ1 G108.18$-$11.53 & 0.3347 & 4.77 & 0.84 & 6.8 & 0.2 & 2.72 & 0.10 & With double relics & \citet{deGasperin2015}  \\
+RXC J1234.2+0947 & 0.2290 & 3.63 & 0.92 & 2.0 &  & 0.30 &  & Halo candidate & \citet{govoni2012}  \\
+RXC J1314.4$-$2515 & 0.2474 & 3.85 & 1.27 & 20.3 & 0.8 & 1.45 &  & With double relics & \citet{feretti2005}  \\
+RXC J1514.9$-$1523 & 0.2226 & 3.55 & 1.38 & 10.0 & 2.0 & 1.65 &  &  & \citet{giacintucci2011a}  \\
+RXC J2003.5$-$2323 & 0.3171 & 4.59 & 1.38 & 35.0 & 2.0 & 11.96 &  &  & \citet{giacintucci2009}  \\
+RXC J2351.0$-$1954 & 0.2477 & 3.85 & 0.64 & 4.5 & 0.9 & 0.89 & 0.18 & Halo candidate & \citet{duchesne2017}  \\
+\enddata
+
+\tablenotetext{a}{As of 2018 January.}
+\tablecomments{%
+  \uline{Column (1)}: ???
+}
+\end{deluxetable*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Useful Formulas}
