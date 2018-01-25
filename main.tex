@@ -1194,10 +1194,11 @@ This work is supported by the National Science Foundation of China
 \label{sec:halos-collection}
 %########################################################################
 
-\startlongtable
-\begin{deluxetable*}{lcccr@{$\,\pm\,$}lr@{$\,\pm\,$}lp{12em}l}
+\TODO{(1) add footnotes; (2) estimate flux/power uncertainties}
+
+\begin{longrotatetable}
+\begin{deluxetable*}{lcccr@{$\,\pm\,$}lr@{$\,\pm\,$}lll}
 \tabletypesize{\scriptsize}
-%\tablewidth{0pt}  % set to table's natural width
 \tablecaption{Collection of Current Observed Radio Halos%
   \tablenotemark{a}%
   \label{tab:halos-observed}%  % NOTE: must be placed inside the caption
@@ -1205,7 +1206,7 @@ This work is supported by the National Science Foundation of China
 \tablehead{
   \colhead{Cluster} &
   \colhead{Redshift} &
-  \colhead{kpc/arcsec} &
+  \colhead{kpc/\si{\arcsecond}} &
   \colhead{Size} &
   \multicolumn{2}{c}{$S_{\SI{1.4}{\GHz}}$} &
   \multicolumn{2}{c}{$P_{\SI{1.4}{\GHz}}$} &
@@ -1317,6 +1318,7 @@ RXC J2351.0$-$1954 & 0.2477 & 3.85 & 0.64 & 4.5 & 0.9 & 0.89 & 0.18 & Halo candi
   \uline{Column (1)}: ???
 }
 \end{deluxetable*}
+\end{longrotatetable}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Useful Formulas}
