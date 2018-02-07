@@ -987,49 +987,56 @@ size as our foreground maps.
 \label{sec:obs-simu}
 %########################################################################
 
-To investigate the practical contamination in the EoR window due to the
-galaxy clusters, we need to simulate the \enquote{observed} images of
-the above simulated foreground sky and EoR signal.
-For this purpose,
-we adopt the latest SKA1-Low layout configuration\footnote{%
-  SKA-TEL-SKO-0000422: SKA1-low Configuration Coordinates: \url{https://astronomers.skatelescope.org/wp-content/uploads/2016/09/SKA-TEL-SKO-0000422_02_SKA1_LowConfigurationCoordinates-1.pdf}}
-released on 2016 May 21.
-The SKA1-Low interferometer consists of 512 stations, with 224 of them
+It is essential to incorporate the practical instrumental effects of
+radio interferometers in order to properly evaluate the possible
+contamination induced by radio halos on the EoR detection.
+We therefore adopted the latest SKA1-Low layout configuration\footnote{%
+  SKA1-Low Configuration Coordinates:
+  \url{https://astronomers.skatelescope.org/wp-content/uploads/2016/09/SKA-TEL-SKO-0000422_02_SKA1_LowConfigurationCoordinates-1.pdf}
+  (released on 2016 May 21)
+}
+to simulate the \enquote{observed} images for the above simulated sky
+maps of foreground components and EoR signal.
+According to the current configuration,
+the SKA1-Low interferometer consists of 512 stations, with 224 of them
 randomly distributed within the \enquote{core} of \SI{1000}{\meter} in
 diameter, while rest of the stations are grouped into \enquote{clusters}
-and arranged on 3 spiral arms extending up to a radius of
+and placed on 3 spiral arms extending up to a radius of
 \SI{\sim 35}{\kilo\meter}.
 Each station has 256 antennas randomly distributed with a minimum separation
 of $d_{\R{min}} = \SI{1.5}{\meter}$ inside a circular region of
-\SI{35}{\meter} in diameter.
+\SI{35}{\meter} in diameter \citep[e.g.,][]{mort2017}.
 With this layout configuration, the dense core makes the SKA1-Low very
 sensitive to the EoR signal, while the long baselines greatly help the
 foreground characterization and removal, as well as other scientific goals.
-For example, at \SI{158}{\MHz}, the SKA1-Low has a FoV of
-\SI{\sim 4 x 4}{\deg}, and angular resolution of \SI{\sim 7}{\arcsec}.
 
-Both the observational simulation and imaging are very computational
-intensive, but our computing resources are rather limited, so we can
-only choose a set of conservative parameters.
-The \SIrange{154}{162}{\MHz} band of our interest is divided into 51
-channels with a frequency channel width of \SI{160}{\kilo\hertz}.
-The sky maps simulated in previous sections are centered at (R.A., Dec.)
-= (\SI{0}{\degree}, \SI{-27}{\degree}), such that the observing field
-will pass through the zenith of the interferometer, and this position
-is also the center of the \enquote{EoR0} field identified by the MWA
-\citep{beardsley2016}.
-At each frequency channel, the sky map is tapered by a Tukey window
-function to suppress the side-lobe impacts, and then input into the
-\texttt{OSKAR} simulator \citep{mort2010} to perform the observation
-for \SI{6}{\hour} ($\pm \SI{3}{\hour}$ in Hour Angle) with a time
-averaging step of \SI{5}{\minute}.
+We divide the \SIrange{154}{162}{\MHz} band of interest into 51
+channels with a channel width of \SI{160}{\kilo\hertz}.
+For each sky component, we simulate the sky maps at every frequency
+channel, and then use the \texttt{OSKAR}\footnote{%
+  OSKAR: \url{https://github.com/OxfordSKA/OSKAR} (version 2.7.0)}
+simulator \citep{mort2010} to perform observational simulations
+for \SI{6}{\hour} ($\pm \SI{3}{\hour}$ in Hour Angle) with the
+SKA1-Low layout configuration.
+The simulated visibility data are imaged through the
+\texttt{WSClean}\footnote{%
+  WSClean: \url{https://sourceforge.net/p/wsclean} (version 2.5)}
+imager \citep{offringa2014} using Briggs' weighting with
+robustness of 0 \citep{briggs1995},
+and the created images are cropped to keep only the central
+\SI{4 x 4}{\deg} regions for use in subsequent analyses.
 
-The simulated visibility data at each frequency channel are combined
-to create the \enquote{observed} image cube using the \texttt{WSClean}
-imager \citep{offringa2014} with Briggs weighting and joined-channel
-deconvolution \citep{offringa2017}.
-Finally, we crop out the central \SI{4 x 4}{\deg} to create the 2D
-cylindrical and 1D spherical power spectra.
+Considering that the Galactic free-free emission is much weaker
+than the Galactic synchrotron radiation, and both of them have
+similar diffuse structures, we then combine these two components
+for the observational simulation.
+As for the extragalactic point sources, we assume that the brightest
+ones with \SI{158}{\MHz} flux density $S > \SI{10}{\mJy}$ \TODO{check}
+are correctly removed \citep[e.g.,][]{pindor2011}.
+Finally, we obtain the \enquote{observed} images of the Galactic
+diffuse emission (the synchrotron radiation combined with the
+free-free emission), the extragalactic point sources (with the
+brightest ones removed), the radio halos, and the EoR signal.
 
 
 %########################################################################
