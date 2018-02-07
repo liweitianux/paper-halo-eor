@@ -110,6 +110,7 @@
 \DeclareSIUnit\keV{\kilo\electronvolt}
 \DeclareSIUnit\kpc{\kilo\parsec}
 \DeclareSIUnit\mJy{\milli\jansky}
+\DeclareSIUnit\mK{\milli\kelvin}
 \DeclareSIUnit\uG{\micro\gauss}
 \DeclareSIUnit\Gyr{\giga\year}
 \DeclareSIUnit\MHz{\mega\hertz}
@@ -136,6 +137,7 @@
 
 %% Custom settings
 \setlength{\parindent}{1.5em}
+\graphicspath{{figures/}}  % NOTE: the trailing '/' matters
 
 %% Journal information
 \received{xxx, 2018}
@@ -306,7 +308,7 @@ and extragalactic point sources are the two most prominent components,
 which contribute about \SI{71}{\percent} and \SI{27}{\percent} of
 the total foreground contamination at \SI{150}{\MHz}, respectively,
 and have been extensively studied in the literature with regard to
-EoR detection
+the EoR detection
 \citep[e.g.,][]{shaver1999,diMatteo2004,gleser2008,liu2012,murray2017}.
 The less discussed extragalactic diffuse emissions from the
 intracluster medium (ICM) of galaxy clusters,
@@ -396,7 +398,7 @@ Additional tools are also developed to aid the observational simulations
 in order to integrate the instrumental responses of low-frequency radio
 interferometers.
 
-In this work we use \texttt{FG21sim} version 1.0??? to simulate the
+In this work we use \texttt{FG21sim} \TODO{version ???} to simulate the
 radio sky maps and evaluate the effects of the contamination caused by
 radio halos.
 By consulting the latest SKA science book on the EoR survey strategies
@@ -404,17 +406,19 @@ By consulting the latest SKA science book on the EoR survey strategies
 a \SI{8}{\MHz} band centered at \SI{158}{\MHz} for a \SI{10 x 10}{\deg}
 sky region at (R.A., Dec.) = (\SI{0}{\degree}, \SI{-27}{\degree}),
 which locates at high galactic latitude ($b = \SI{-78.5}{\degree}$)
-and passes through the zenith of SKA1-Low\footnote{This sky region
-  is also targeted by MWA (EoR0 field; \citealt{beardsley2016}).}.
+and passes through the zenith of SKA1-Low\footnote{%
+  This sky region is also targeted by MWA (EoR0 field;
+  e.g., \citealt{beardsley2016}).}.
 The \SI{8}{\MHz} bandwidth is chosen to limit the cosmological evolution
-effect for the 21~cm signal when calculating power spectra (cite???),
-and the large region size of \SI{10 x 10}{\deg} will cover the first
+effect for the 21~cm signal when calculating power spectra
+\citep[e.g.][]{wyithe2004,thyagarajan2013},
+and the relatively large region of \SI{10 x 10}{\deg} will cover the first
 side-lobe and also help the CLEAN imaging in \autoref{sec:obs-simu}.
 Besides the 21~cm signal and radio halos, we also incorporate the
 Galactic radiation (including both the synchrotron and free-free emissions)
 and extragalactic point sources into the simulated sky maps.
 The sky maps are pixelized into \num{1800 x 1800} with a pixel size of
-\SI{20}{\arcsec} \TODO{improve to 10 arcsec/pixel???}.
+\SI{20}{\arcsec}.
 
 
 %========================================================================
@@ -456,7 +460,7 @@ is the dark matter halo mass with $M_{\R{cl}}$ the cluster mass,
 $\langle {\rho} \rangle$ is the current mean density of the Universe,
 $\delta_c(z)$ is the critical linear overdensity for a region to collapse
 at redshift $z$ [see \autoref{eq:delta-crit}],
-and $\sigma(M)$ is the current rms (root-mean-square) density fluctuations
+and $\sigma(M)$ is the current r.m.s. (root-mean-square) density fluctuations
 within a sphere of mean mass $M$.
 
 Considering the CDM model and the halo mass range covered by galaxy
@@ -559,7 +563,7 @@ $S_1 = S_2 + \Delta S$.
 
 Considering that radio halos are associated to recent major mergers and
 have a lifetime $\tau_{\R{halo}} \lesssim \SI{1}{\Gyr}$
-\citep{cassano2016} \TODO{change ref???},
+\citep[e.g.,][]{brunetti2009,cassano2016},
 we only trace the cluster merging history to a maximum backward time of
 \SI{3}{\Gyr}.
 Then for each cluster we extract the properties of all the merger events
@@ -743,7 +747,8 @@ which is independent of the electron momentum.
 \ssssec{Acceleration Periods}
 %%%
 
-The whole merger process may last for \SIrange{1}{2}{\Gyr} \TODO{ref???},
+The whole merger process may last for \SIrange{2}{3}{\Gyr}
+\citep[e.g.,][]{tormen2004,cassano2016},
 but only when the strong turbulence exists can the turbulent acceleration
 become effective, which persists for a relatively short period of time:
 $\tau_{\R{turb}} \simeq 2 L_{\R{turb}} / v_{\R{imp}}$,
@@ -779,6 +784,7 @@ There are several different mechanisms through which the relativistic
 electrons in the ICM may lose energies \citep{sarazin1999},
 and we consider the following three major mechanisms in our simulation.
 The first one is the inverse Compton scattering off the CMB photons
+whose energy loss rate is
 \begin{equation}
   \label{eq:eloss-ic}
   \left( \diff{\gamma}{t} \right)_{\R{IC}} =
@@ -825,9 +831,9 @@ electrons to be accelerated \emph{in situ} by turbulence.
 %%%
 
 Now with all the coefficients in \autoref{eq:fokkerplanck} been determined,
-we can evolve the initial electron spectrum $n_e(\gamma, t=t_0)$ via
+we can evolve the initial electron spectrum $n_e(\gamma,\, t=t_0)$ via
 solving this Fokker-Planck equation, and derive the \enquote{current}
-electron spectrum $n_e(\gamma, t=t_{\R{obs}})$, which corresponds to the
+electron spectrum $n_e(\gamma,\, t=t_{\R{obs}})$, which corresponds to the
 \enquote{observed} redshift $z_{\R{obs}}$ as simulated in \autoref{sec:distributions}.
 An efficient numerical method proposed by \citet{chang1970} is utilized
 to solve the equation, under the no-flux boundary condition \citep{park1996}.
@@ -897,7 +903,7 @@ $\phi$ are applied to each of the halo images.
 
 Our model has the following 6 parameters:
 (1) fraction of the merger energy transferred into the turbulence:
-$\eta_{\R{turb}} \sim 0.1$;
+$\eta_{\R{turb}} \sim \SI{10}{\percent}$;
 (2) relative energy density in the magnetic field:
 $\eta_B \sim \SI{0.1}{\percent}$;
 (3) ratio of the total energy of injected electrons to the total thermal
@@ -915,16 +921,17 @@ with the observations, we have collected all current observed radio halos
 (\autoref{tab:halos-observed}; as of 2018 January), and compare the integrated
 flux function between our simulated radio halos and the observations.
 We have explored various parameter configurations,
-and for each configuration we have repeated the simulation for 100??? times
-to taking into account the Monte Carlo uncertainties as introduced in
+and for each configuration we have repeated the simulation for 500 times
+in order to take into account the Monte Carlo uncertainties as introduced in
 Sections~\ref{sec:distributions} and \ref{sec:merging-history}.
 Considering that the current observations are far from complete,
 especially in the low-flux regime, our strategy was requiring that the
 integrated flux function of simulations agreed with the observed one
 in the high-flux regime within simulation uncertainties.
 In consequence, we have chosen a set of model parameters with
-$\eta_{\R{turb}} = ???$, $\eta_B = ???$, $\eta_e = ???$, $s = ???$,
-$\zeta = ???$, and $X_{\R{CR}} = ???$.
+$\eta_{\R{turb}} = \SI{10}{\percent}$, $\eta_B = \SI{0.1}{\percent}$,
+$\eta_e = \SI{0.1}{\percent}$, $s = 2.3$,
+$\zeta = 0.1$, and $X_{\R{CR}} = \SI{1.5}{\percent}$.
 
 \TODO{figures ...}
 
@@ -959,7 +966,34 @@ following different types of sources: star-forming and starburst galaxies,
 radio-quiet AGNs, Fanaroff-Riley type I and type II AGNs, GHz-peaked
 spectrum AGNs, and compact steep spectrum AGNs.
 
-\TODO{figures ...}
+The simulated example maps at \SI{158}{\MHz} are shown in
+\autoref{fig:gsyn-gff-ps-21cm}(a--c),
+and the mean (r.m.s.) brightness temperatures of the Galactic synchrotron
+emission, Galactic free-free emission, and extragalactic point sources
+are \SI{251.4}{\kelvin} (\SI{251.7}{\kelvin}),
+\SI{0.19}{\kelvin} (\SI{0.20}{\kelvin}),
+and \SI{45.5}{\kelvin} (\SI{59224}{\kelvin}), respectively.
+
+\begin{figure*}
+  \gridline{
+    \fig{gsyn-f158-he}{0.45\textwidth}{(a)}
+    \fig{gff-f158-he}{0.45\textwidth}{(b)}
+  }
+  \gridline{
+    \fig{pointsources-f158-he-log}{0.45\textwidth}{(c)}
+    \fig{21cm-f158-he}{0.45\textwidth}{(d)}
+  }
+  \caption{\label{fig:gsyn-gff-ps-21cm}%
+    The simulated example maps of other foreground components and
+    the EoR 21~cm signal at \SI{158}{\MHz}.
+    (a) Galactic synchrotron emission;
+    (b) Galactic free-free emission;
+    (c) Extragalactic point sources, color in logarithmic scale;
+    (d) EoR 21~cm signal.
+    All colorbars are in units of \si{\kelvin}.
+    \TODO{add labels to figures; increase colorbar font}
+  }
+\end{figure*}
 
 
 %========================================================================
@@ -975,11 +1009,14 @@ which were generated with \texttt{21cmFAST} version 2 \citep{mesinger2011}
 within a cube of 1.6 comoving \si{\Gpc} and 1024 cells along each side,
 and covered a redshift range of \numrange{5.0}{86.5} \citep{mesinger2016}.
 We extracted the image slices at needed frequencies (i.e., redshifts) from
-the \enquote{light-cone cubes} of the recommended \emph{faint galaxies} case,
-and then tiled and re-scaled them to have the same sky coverage and pixel
-size as our foreground maps.
+the \enquote{light-cone cubes} of the recommended \enquote{faint galaxies}
+case, and then tiled and re-scaled them to have the same sky coverage and
+pixel size as our foreground maps.
 
-\TODO{figures ...}
+The extracted image at \SI{158}{\MHz} is shown in
+\autoref{fig:gsyn-gff-ps-21cm}(d),
+and the mean (r.m.s.) brightness temperature is
+\SI{9.53}{\mK} (\SI{10.69}{\mK}).
 
 
 %########################################################################
