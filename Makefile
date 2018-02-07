@@ -1,7 +1,7 @@
 #
 # Weitian LI, et al.
 # 2017-07-18
-# Updated: 2017-08-06
+# Updated: 2018-02-01
 #
 # Credit:
 # [1] How to get current relative directory of your Makefile?
@@ -23,7 +23,13 @@ PROJNAME:=	$(shell basename $(ROOT_DIR))
 TEXINPUTS:= .:aastex:revtex:texmf:$(TEXINPUTS)
 BSTINPUTS:= .:aastex:revtex:texmf:$(BSTINPUTS)
 
+# EPS figures
+EPS_FIG:= $(wildcard figures/*.eps)
+PDF_FIG:= $(EPS_FIG:.eps=.pdf)
+
 default: main.pdf
+
+eps2pdf: $(PDF_FIG)
 
 report: main.pdf main.tex references.bib
 	mkdir reports/v$(DATE)
@@ -39,6 +45,9 @@ else
 	# pdfLaTeX
 	env TEXINPUTS=$(TEXINPUTS) BSTINPUTS=$(BSTINPUTS) latexmk -pdf $<
 endif
+
+%.pdf: %.eps
+	epstopdf $^ $@
 
 clean:
 	latexmk -c main.tex
