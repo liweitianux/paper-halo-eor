@@ -265,116 +265,107 @@
 \label{sec:intro}
 %########################################################################
 
-The Epoch of Reionization (EoR; $z \sim \numrange{15}{6}$) refers to
+The Epoch of Reionization (EoR; $z \sim \numrange{6}{15}$) refers to
 a period of our Universe preceded
-by the Cosmic Dawn ($z \sim \numrange{30}{15}$) and the Dark Ages
-($z \sim \numrange{200}{30}$).
-During the EoR, which lasted from about 300 million to 1 billion years
-after the Big Bang, the reionization of neutral hydrogen (\Hi) primarily
-caused by the ultra-violet and soft X-ray photons from the first
-generation celestial objects surpassed the cooling of the gas through
+by the Cosmic Dawn ($z \sim \numrange{15}{30}$) and the Dark Ages
+($z \sim \numrange{30}{200}$).
+During the EoR, which is expected to last from about 300 million to
+about 1 billion years after the Big Bang, the reionization of
+neutral hydrogen (\Hi) caused primarily by the ultra-violet and soft
+X-ray photons emitted from the first generation celestial objects
+efficiently surpassed the cooling of the gas through
 recombination of electrons and protons.
-As a result the majority of baryonic matter was again in highly ionized state.
+As a result, the majority of baryonic matter was again in a
+highly ionized state.
 Comparing with the observations of distant quasars and cosmic microwave
 background (CMB), which have provided some loose constraints on the
 reionization process, the detection the redshifted 21~cm line emission
-from \Hi, especially those from the adjacent regions of the ionized bubbles,
-is recognized to be the decisive tool to directly reveal this epoch
+from \Hi{} in \SIrange{\sim 50}{200}{\MHz}, especially those from the
+adjacent regions of the ionized bubbles,
+is recognized to be the decisive tool to directly reveal the EoR
 \citep[see][for reviews]{zaroubi2013rev,furlanetto2016rev}.
 
-In order to probe the EoR, a number of radio interferometric experiments
-working at the \SIrange{\sim 100}{200}{\MHz} low-frequency band have been
-designed to target the redshifted 21~cm signals.
-These include the LOw Frequency ARray (LOFAR; \citealt{vanHaarlem2013}),
-the 21 CentiMeter Array (21CMA; \citealt{zheng2016}),
-the Giant Meterwave Radio Telescope (GMRT; \citealt{paciga2011}),
-the MIT Epoch of Reionization Experiment (MITEoR; \citealt{zheng2014}),
-the Donald C. Backer Precision Array for Probing the Epoch of
-Reionization (PAPER; \citealt{parsons2010}),
-the Murchison Widefield Array (MWA; \citealt{bowman2013,tingay2013}),
-and those to be built and operated in the near future, such as the Square
-Kilometre Array (SKA; \citealt{mellema2013rev,koopmans2015rev}) and
-the Hydrogen Epoch of Reionization Array (HERA; \citealt{deboer2017}).
-
-The challenges in these EoR experiments are immense
+In order to probe the EoR, a number of radio interferometers
+working at the low-frequency radio bands, such as
+the Square Kilometre Array (SKA; \citealt{mellema2013rev,koopmans2015rev}),
+the Hydrogen Epoch of Reionization Array (HERA; \citealt{deboer2017}),
+and their pathfinders [e.g.,
+the LOw Frequency ARray (LOFAR; \citealt{vanHaarlem2013});
+the Murchison Widefield Array (MWA; \citealt{bowman2013,tingay2013});
+the Precision Array for Probing the Epoch of Reionization
+(PAPER; \citealt{parsons2010});
+the 21 CentiMeter Array (21CMA; \citealt{zheng2016})]
+have been designed to target the redshifted 21~cm signals.
+The challenges met in these experiments, however, are immense
 due to a variety of complicated instrumental effects,
 ionospheric distortions, radio frequency interference, and the
 strong celestial foreground contamination, which overwhelms the
 redshifted 21~cm signals by \numrange{4}{5} orders of magnitude
-\citep[e.g.,][]{beardsley2016,procopio2017}.
-Among the various foreground components, the Galactic diffuse
+\citep[see][for a review]{morales2010rev}.
+
+Among various contaminating foreground components, the Galactic diffuse
 radiation (including both the synchrotron and free-free emissions)
-and extragalactic point sources are the two most prominent components,
-which contribute about \SI{71}{\percent} and \SI{27}{\percent} of
-the total foreground contamination at \SI{150}{\MHz}, respectively,
-and have been extensively studied in the literature with regard to
-the EoR detection
+and extragalactic point sources are the most prominent and contribute
+the majority of the foreground
 \citep[e.g.,][]{shaver1999,diMatteo2004,gleser2008,liu2012,murray2017}.
-The less discussed extragalactic diffuse emissions from the
-intracluster medium (ICM) of galaxy clusters,
-the intergalactic medium at cluster outskirts (e.g., virial shocks),
-and the large-scale filaments on the cosmic webs,
-may still be tens to hundreds of stronger than the 21~cm signals.
-Our understandings to the intergalactic medium and cosmic filaments
-mainly rely on theoretical studies \citep[e.g.][]{waxman2000,keshet2004}
-and numerical simulations \citep[e.g.,][]{arayaMelo2012,vazza2015}.
-The observational evidences are very scarce
-\citep[e.g.,][]{eckert2015,keshet2017},
-and more powerful radio telescopes, such as SKA, are required to uncover
-their details \citep[e.g.,][]{vernstrom2017,kooistra2017}.
-\TODO{update references}
+At about \SI{150}{\MHz}, it is estimated that they may account for
+about \SI{71}{\percent} and \SI{27}{\percent} of the total foreground,
+respectively \citep{shaver1999}.
+Most of the remaining foreground arises from the synchrotron emission
+from the extragalactic diffuse sources that include the large-scale
+filaments embedded in the cosmic webs,
+the intergalactic medium located at the cluster outskirts (virial shocks),
+and the intracluster medium (ICM) of galaxy clusters (radio halos,
+radio relics, and mini-halos).
+Although these sources play a minor role and have been less constrained
+by observations, an appropriate treatment of them is indispensable
+in detecting the very faint EoR signals, since they may still be
+tens to hundreds of times brighter than the target signals
+\citep[e.g.,][]{waxman2000,diMatteo2004,gleser2008}.
+As estimated in \citet{diMatteo2004}, the intensity fluctuation
+at \SI{115}{\MHz} contributed by extended radio halos and relics
+is about three orders of magnitude larger than that of 21~cm signals
+through the whole range of angular scales.
 
-Diffuse radio emissions from ICM, on ther other hand, have been
-observed in $\gtrsim 100$ galaxy clusters, and can be classified into
-halos, relics, and mini-halos according to their location in the cluster
-and to the cluster type.
-Radio halos are generally found at the center of merging clusters;
-radio relics are located in peripheral regions of both merging and
-relaxed clusters, and exhibit significant polarization;
-and mini-halos are hosted at the center of cool-core clusters and
-usually surround a powerful radio galaxy
-\citep[see][for reviews]{feretti2012rev,kale2016rev}.
-The future SKA1-Low is expected to observe several
-thousands of radio halos \citep{cassano2015}, and there are much more
-fainter ones waiting to be discovered, therefore the cumulative emission
-of radio halos may be an important foreground to the 21~cm signals.
-Moreover, radio halos have typical scales from several to tens of
-arcminutes, which is closer to the scales of ionizing bubbles
-compared to the Galactic diffuse emission or extragalactic point sources,
-and thus can significantly affect the power spectrum measurements of the
-21~cm signals \citep[e.g.,][]{diMatteo2004}.
-In the context of EoR detection, however, radio halos were usually
-either ignored from the foreground considerations, or regarded as
-a minor component and simply simulated according to the flux function
-of current limited observations \citep[e.g.,][]{gleser2008},
-or using the scaling relations with respect to the X-ray observations
-\citep[e.g.,][]{jelic2008}.
-Therefore, a work focusing on evaluating the impacts of radio halos
-on EoR detection, especially with the practical instrumental effects
-considered, is of great need,
-and will help better characterize the complicated foreground contaminations
-and guide the development of more sophisticated foreground removal or
-avoidance techniques.
+In this work, we attempt to address this issue by focusing on the
+evolution of diffuse radio halos in galaxy clusters via detailed
+modeling and their impacts on detecting the EoR signals.
+First discovered in the Coma cluster \citep{large1959}, radio halos
+has been observed in about 80 merging galaxy clusters roughly at
+their centers, showing relatively regular morphologies and spatial
+extensions of $\sim\,$\si{\Mpc}, as well as an obvious correlation
+with the X-ray-emitting ICM \citep[e.g.,][]{cassano2013}.
+It should be noted that the angular sizes of radio halos happen to be
+several to tens of arcminutes, which coincides with those theoretically
+predicted for the ionizing bubbles during the EoR.
+This, complemented with the potentially large number (several to tens of
+thousands in all the sky) of radio halos to be revealed by the forthcoming
+low-frequency radio telescopes \citep[e.g.,][]{cassano2015},
+indicates that in order to better guide foreground removal and avoidance
+techniques, it is essential to investigate the cumulative emission
+of radio halos as a source of the foreground contamination
+\citep[e.g.,][]{diMatteo2004,gleser2008}.
+As of today, however, only few works have been dedicated to this topic
+based on relatively straightforward modeling methods,
+e.g., using the \SI{1.4}{\GHz} radio flux function or radio--X-ray
+scaling relations, which are barely constrained by current observations
+\citep[e.g.,][]{gleser2008,jelic2008}.
+The data acquired in these observations are far from complete due to
+the lack of systematic surveys targeting these diffuse sources,
+especially in the low-frequency radio bands \citep[e.g.,][]{kale2016rev}.
 
-In this work, we attempt to investigate the contamination effects
-contributed by radio halos in galaxy clusters within the framework of
-EoR detection.
-We have developed an open-source software \texttt{FG21sim}
-to simulate the low frequency sky based on our previous works
-\citep{wang2010,wang2013}, but have significantly enhanced the modeling
-of radio halos by applying a merger-induced turbulence re-acceleration model,
-which takes into account the very faint halos and can achieve better
-accordance with the next-generation radio facilities.
-In addition, we employed the latest SKA1-Low layout configuration to
-incorporate the practical instrumental effects.
-In \autoref{sec:sky-simu} we describe the simulations of the low-frequency
-radio sky, including the radio halos in galaxy clusters, the Galactic
-emissions, the extragalactic point sources, and the cosmological EoR signal.
-In \autoref{sec:obs-simu} we perform the observational simulation of the
-simulated sky in order to account for the instrumental effects.
-We then quantitatively evaluate the contamination of radio halos on EoR
-detection and discuss the results in \autoref{sec:results},
-and finally summarize our work in \autoref{sec:summary}.
+This paper is prepared as follows.
+In \autoref{sec:sky-simu} we introduce our new open-source software
+\texttt{FG21sim} and use it to simulate the low-frequency radio sky,
+among which a detailed simulation of radio halos in galaxy clusters has
+been developed by applying the merger-induced turbulence re-acceleration
+model.
+In \autoref{sec:obs-simu} we employ the latest SKA1-Low layout
+configuration to incorporate the practical instrumental effects into
+the simulated sky maps.
+We then quantitatively evaluate the contamination of radio halos to the
+EoR signals and discuss the results in \autoref{sec:results}.
+Finally we summarize our work in \autoref{sec:summary}.
 Throughout this work we adopt a flat \lcdm{} cosmology with
 $H_0 = \SI{100}{\hubble} = \SI{71}{\km\per\second\per\Mpc}$,
 $\Omega_m = 0.27$, $\Omega_{\Lambda} = 1 - \Omega_m = 0.73$,
