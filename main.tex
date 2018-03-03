@@ -441,15 +441,24 @@ of \SI{20}{\arcsecond}.
 \label{sec:cluster-halo}
 %========================================================================
 
-Compared to our previous work \citep{wang2010},
-we have significantly improved the simulation of radio halos by
-employing the merger-induced turbulence re-acceleration model.
-For each galaxy cluster, we first simulate its merging history,
-determine the turbulent acceleration efficiency and duration for each
-merger event, then evolve the relativistic electron spectrum with time
-by considering both the turbulent acceleration and energy losses, and
-finally obtain the synchrotron emission and the radio image of the
-radio halo.
+As a significant improvement over our past works, we consider in detail
+the evolution of radio halos in galaxy clusters by employing the
+{\color{magenta}
+merger-induced turbulence re-acceleration model, among which the
+relativistic electrons are re-accelerated in the ICM via the second-order
+Fermi process by the turbulence generated in merger events,
+and also lose energies due to mechanisms including synchrotron radiation,
+inverse Compton scattering off the CMB photons, and Coulomb collisions
+with the thermal ICM.
+For each galaxy cluster, we first simulate its merging history, which is
+quantitatively described by a merger tree, by using the extended
+Press-Schechter theory.
+}
+Then we calculate the turbulent acceleration efficiency and duration
+for each merger event.
+By combining the effects of turbulent acceleration and energy loss,
+we obtain the temporal evolution of the relativistic electron spectrum,
+and therefore the synchrotron emission and image of the radio halo.
 
 %------------------------------------------------------------------------
 \subsubsection{Mass Function}
