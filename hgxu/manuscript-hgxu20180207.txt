@@ -1,0 +1,323 @@
+
+
+【BEGIN 180205 14:15】
+【标题改为：Radio Halos in Galaxy Clusters and Their Contribution to the
+Low-Frequency Radio Sky】
+%########################################################################
+\section{Introduction}
+\label{sec:intro}
+%########################################################################
+The Epoch of Reionization (EoR; $z \sim \numrange{15}{6}$) refers to
+a period of our Universe preceded by the Cosmic Dawn ($z \sim
+\numrange{30}{15}$) and the Dark Ages ($z \sim \numrange{200}{30}$)【红移如
+此颠倒着写是否正常？？只要有先例，建议自小向大数值写】. During the EoR,
+which is expected to last from about 300 million years to about 1 billion
+years after the Big Bang, the reionization of neutral hydrogen (\Hi) caused
+primarily by the ultra-violet and soft X-ray photons emitted from the first
+generation celestial objects efficiently surpassed the cooling of the gas
+through recombination of electrons and protons. As a result, the majority of
+baryonic matter was again in highly ionized state. Comparing with the
+observations of distant quasars and cosmic microwave background (CMB), which
+have provided some loose constraints on the reionization process, the
+detection of the redshifted 21~cm line emission from \Hi in $\sim 50-200$
+MHz, especially those from the adjacent regions of the ionized bubbles, is
+recognized to be the decisive tool to directly reveal the EoR
+\citep[see][for reviews]{zaroubi2013rev,furlanetto2016rev}.
+
+
+In order to probe the EoR radio interferometric arries working at the
+low-frequency radio bands, such as the Square Kilometre Array (SKA;
+\citealt{mellema2013rev,koopmans2015rev}), the Hydrogen Epoch of
+Reionization Array (HERA; \citealt{deboer2017}), and their pathfinders
+(e.g., the LOw Frequency ARray or LOFAR - \citealt{vanHaarlem2013}; the
+Murchison Widefield Array or MWA - \citealt{bowman2013,tingay2013}; the
+Donald C. Backer Precision Array for Probing the Epoch of Reionization or
+PAPER - \citealt{parsons2010}; the 21 CentiMeter Array or 21CMA -
+\citealt{zheng2016}) have been designed to target the redshifted 21 cm
+signals. The challenges met in these experiments, however, are immense due
+to a variety of complicated instrumental effects, ionospheric distortion,
+artificial radio frequency interference, and the strong celestial foreground
+contamination that overwhelms the redshifted 21~cm signals by about
+\numrange{4}{5} orders of magnitude
+\citep[e.g.,][]{beardsley2016,procopio2017}.
+
+
+Among various contaminating foreground components, the effects of Galactic
+diffuse radiation (including both synchrotron and free-free emissions) and
+extragalactic point sources are the most prominent and contribute the
+majority of the foreground
+\citep[e.g.,][]{shaver1999,diMatteo2004,gleser2008,liu2012,murray2017}. At
+\SI{150}{\MHz}, it is estimated that they may account for about
+\SI{71}{\percent} and \SI{27}{\percent} of the total foreground,
+respectively (ref??). Most of the remaining foreground arises from the
+synchrotron emission of the extragalactic diffuse sources that include the
+large-scale filaments embedded on the cosmic webs, the intergalactic medium
+(IGM) located at the cluster outskirt regions (virial shocks), and the
+intracluster medium (ICM) of galaxy clusters (radio halos, radio relics, and
+mini-halos). Although these sources play a minor role and have been less
+constrained by the observations, an appropriate treatment of them is
+indispensable in detecting the EoR signals since they may still be tens to
+hundreds of times brighter than the redshifted 21~cm signals【此处适当引能够
+给出此类量化估计的、同时涉及到这几类次要源的文献。最好是综述文或类似综述的文
+章】. As estimated in ref?? and ref??【上述文章中的典型一两篇】 ...【注意：
+1、此句应自然地以举例方式谈及对radio halo已有的粗略估算，但不必用for example
+一词，不必谈relic和mini-halo；2、要显现出估算，用roughly、probably、simple
+model之类的词；3、与上一句泛泛地提及数百上千倍，这里的描述要有递进、更具体的
+量化，比如“亮？？倍、将对power spectra/EoR窗口产生如何如何的影响”之类具体
+的话】. 
+
+
+In this work we address this issue by focusing on the evolution of diffuse
+radio halos in galaxy clusters via detailed modeling and its impact on
+detecting the EoR signals. First discovered in the Coma cluster (Large et
+al. 1959), radio halos have been found in ?? merging and very few relaxed
+clusters roughly at their centers, showing relatively regular appearances
+and spatial extensions of $\sim$ Mpc in the radio band, as well as an
+obvious correlation with the X-ray gas halos (ref??). It should be noted
+that the angular sizes of radio halos happen to be several to tens of
+arcmins, which coincides those theoretically predicted for the reionizing
+bubbles during the EoR. This, complemented with the potentially large number
+(several thousands??【全天？？】) of radio halos to be revealed with the
+future low-frequency radio arraies (e.g., Cassano et al. 2015), indicates
+that in order to better guide foreground removal and avoidance techniques,
+it is indispensable to investigate the cumulative effect of radio halos as a
+source of the forreground contamination (e.g., Di Matteo et al. 2004??【此文
+是关于射电晕干扰的？？】). As of today, however, only few works have been
+dedicated to this topic based on relatively straightforward modelings【模型
+是否simple？确认！！】 using either radio【或1.4 GHz之类的限定】 flux
+functions or radio-X-ray scaling relations, which are constrained by current
+observations (e.g., Gleser et al. 2008; Jelic et al. 2008). The data
+acquired in these observations have not been complete due to the lack of
+systematic surveys with proper instrumentations, especially in the
+low-frequency radio band. 
+ 
+
+The paper is prepared as follows. In \S2 we introduce our new open-source
+software \texttt{FG21sim} and use it to simulate the low-frequency radio
+sky, in which a detailed simulation of radio halos in galaxy clusters has
+been involved by applying the merger-induced turbulence re-acceleration
+model. In \S3 we employed the latest SKA1-Low layout configuration to
+incorporate the practical instrumental effects into the simulated sky data.
+In \S4 we quantitatively evaluate the contamination of radio halos on the
+predicted EoR signals and discuss the results, by taking SKA array as an
+example. Finally we summarize our work in \5. Throughout this work we adopt
+a flat \lcdm{} cosmology with
+$H_0 = \SI{100}{\hubble} = \SI{71}{\km\per\second\per\Mpc}$,
+$\Omega_m = 0.27$, $\Omega_{\Lambda} = 1 - \Omega_m = 0.73$,
+$\Omega_b = 0.046$, $n_s = 0.96$, and $\sigma_8 = 0.81$.
+
+
+%########################################################################
+\section{Simulation of Low-Frequency Radio Sky}
+\label{sec:sky-simu}
+%########################################################################
+Based on our previous works \citep{wang2010,wang2013} we have used the
+Python programming language to develop an open-source software (under the
+MIT License; \url{https://github.com/liweitianux/fg21sim}), i.e.,
+\texttt{FG21sim}, to implement the tasks of simulating the images and
+spectra of low-frequency radio sky with high fidelity in optionally selected
+frequency intervals. The software is designed to take into account the
+contributions of our Galaxy, extragalactic discrete sources (i.e.,
+star-forming galaxies, radio-quiet active galactic nuclei (AGNs), and
+radio-loud AGNs), galaxy clusters, cosmic microwave background (CMB), and 21
+cm signals of the EoR【既然是天空仿真，就不要有遗漏！！确认还缺什么！！】,
+and it also has an interface to integrate instrumental responses of any
+low-frequency radio
+interferometers. 
+
+
+By consulting the latest SKA science book on the EoR survey strategies
+\citep[e.g.,][]{koopmans2015rev}, we perform the simulations within
+a \SI{8}{\MHz} band/interval?? centered at \SI{158}{\MHz} for a \SI{10 x
+10}{\deg}【数字和单位之间需要加空格！！】 sky region at (R.A., Dec.) =
+(\SI{0}{\degree}, \SI{-27}{\degree}). This region is located at high
+galactic latitude ($b = \SI{-78.5}{\degree}$) and passes through the zenith
+of SKA1-Low. It has also been observed with MWA (EoR0 field; e.g.,
+\citealt{beardsley2016}), which enables us to us actual data to constrain
+our simulations. The \SI{8}{\MHz} bandwidth is used to limit the
+cosmological evolution effect of the 21~cm signal when calculating the power
+spectra \TODO{ref???}, and the large region size is chosen to cover the
+first
+side-lobe, which helps perform the image cleaning process. The simulated sky
+maps are pixelized into \num{1800 x 1800} with a pixel size of
+\SI{20}{\arcsec}【与前面的度的符号一致，应用\prime\prime而非arcsec】.
+
+
+%========================================================================
+\subsection{Radio Halos in Galaxy Clusters}
+\label{sec:cluster-halo}
+%========================================================================
+As a significant improvement over our past works we consider in detail the
+evolution of radio halos in galaxy clusters by assuming that relativistic
+electrons are re-accelerated in the ICM in merger events via second-order
+Fermi acceleration (i.e., the merger-induced turbulence re-acceleration
+model), and lose energy via synchrotron emission, inverse Compton scattering
+with CMB photons, and inelastic scattering of ?? electrons【请检查】. For
+each galaxy cluster, we first build its merging history, which is
+quantitatively described by a merger tree, by using the Press-Schechter
+formalism of cluster mass function and the extended Press-Schechter theory.
+Then we calculate the turbulent acceleration efficiency and duration for
+each merger event on the merger tree. By combining the effects of turbulent
+acceleration and energy loss, which includes synchrotron emission, inverse
+Compton scattering with CMB photons, and inelastic scattering of
+low-energy?? electrons【请检查；务必对电子加上限制。能量有多低？最好量化】,
+we obtain the time and spatial variations of the relativistic electrons, and
+then the evolution of the radio halo.  
+
+%------------------------------------------------------------------------
+\subsubsection{Mass Function}
+\label{sec:distributions}
+%------------------------------------------------------------------------
+The Press-Schechter formalism was originally advanced as one of the standard
+method to predict the mass function of galaxy clusters and its evolution in
+the Universe \citep{press1974}, and has been extended to combine with the
+cold dark matter (CDM) models \citep[e.g.,][]{bond1991,lacey1993}. With this
+model, in a unit comoving volume at a certain redshift $z$ and a mass
+interval $\rm{d}M$ the number of dark matter halos, or the number of galaxy
+clusters in the mass range covered by galaxy clusters【注意：这里结合王婧颖
+2010年文p622最后一行左下角处n^CL一式，比较一下。严格地讲，应该是具有质量
+M_total的星系团与具有质量M_total * （1 - f_gas） = M_DM的暗晕，才有一样的密
+度啊，即n(M_CM) = n(M_CL*(1--f_gas))才成立啊！！也就是说，假定暗晕与星系团合
+体，其质量分布函数是有一个平移的！！, is
+\begin{equation}
+  \label{eq:ps-mass-func}
+  n(M, z) \,\D{M} = \sqrt{\frac{2}{\pi}} \frac{\langle{\rho}\rangle}{M}
+  \frac{\delta_c(z)}{\sigma^2(M)} \left| \diff{\sigma(M)}{M} \right|
+  \exp\!\left[ -\frac{\delta_c^2(z)}{2\sigma^2(M)} \right] \D{M},
+\end{equation}
+where
+$M = (1 - f_{\R{gas}}) M_{\R{cl}} = (1 - \Omega_b/\Omega_m) M_{\R{cl}}$
+is the dark matter mass ($M_{\R{cl}}$【cl建议改为total】 is the total
+gravitating mass, $f_{\R{gas}}$ is the gas fraction, and $\Omega_{b}$ is the
+ratio of the baryonic density to the critical density)【检查全文：务必说明每
+一个新的符号！！！】, 
+$\langle {\rho} \rangle$ is the current mean density of the Universe,
+$\delta_c(z)$ is the critical linear overdensity for a region to collapse
+at redshift $z$ [see \autoref{eq:delta-crit}],
+and $\sigma(M)$ is the current rms (root-mean-square) density fluctuations
+within a sphere of mean mass $M$.
+
+
+Within the frame of the CDM model it is reasonable to adopt the following
+power-law distribtuion for the density perturbations
+\citep{sarazin2002,randall2002}
+\begin{equation}
+  \label{eq:sigma-mass}
+  \sigma(M) = \sigma_8 \left( \frac{M}{M_8} \right)^{-\alpha},
+\end{equation}
+where $\sigma_8$ is the present-day rms density fluctuations on a
+scale of \SI{8}{\per\hubble\Mpc},
+$M_8 = (4\pi/3)(8 \,\si{\per\hubble\Mpc})^3 \langle{\rho}\rangle$
+is the mass contained in a sphere of a radius \SI{8}{\per\hubble\Mpc},
+and the exponent $\alpha = (n+3)/6$ is related to the fluctuations
+pattern whose power spectrum varies with wavenumber $k$ as $k^n$.
+Following \citet{randall2002} we adopt $n = -7/5$.
+
+
+Given \autoref{eq:ps-mass-func}, a minimum cluster mass of $M_{\R{min}} =
+\SI{e14}{\solarmass}$【注意：这里应是M还是M_total？前者是暗物质，后者才是星
+系团的总质量】(ref??), and a maximum redshift of $z_{\R{max}} = 4$ (ref??),
+we can determine both the total number and the mass distribution of galaxy
+clusters in any given sky patch, and run Monte-Carlo simulations to generate
+the galaxy cluster sample with random masses and redshifts【这里可写质量和红
+移的符号。但是下标obs不合适。也许应用下标sim】.
+
+
+%------------------------------------------------------------------------
+\subsubsection{Merging History}
+\label{sec:merging-history}
+%------------------------------------------------------------------------
+Galaxy clusters are formed hierarchically through accretion and mergers. The
+extended Press-Schechter theory outlined in \citet{lacey1993} provide
+a way to describe the growth history of a cluster in terms of merger tree.
+In order to build the merger tree for each cluster, we start with the
+cluster's current mass $M_{\R{obs}}$ and redshift $z_{\R{obs}}$【注意：下标
+似应以sim为好】 as randomly sampled in \autoref{sec:distributions}.
+We trace the growth history of this cluster back in time by running
+Monte Carlo simulations to randomly determine the mass change
+$\Delta M$【是否加下标CL？？后面一样，但不再提醒了！！！】 during each
+growth step, either a merger event (if $\Delta M > \Delta M_c$) or an
+accretion event (if $\Delta M \leq \Delta M_c$). To focus on major mergers
+with which radio halos are usually associated, we choose $\Delta M_c =
+\SI{e13}{\solarmass}$ (ref??). Similar to ref??, we only trace the merging
+history of the main clusters,
+the accuracy of which is sufficiently high for this work.
+
+
+We assume that during each growth step the cluster mass increases from
+$M_1$ at time $t_1$ to $M_2$ at $t_2$ ($t_{1} < t_{2}$).
+Given $M_2$ and $t_2$, the conditional probability of the cluster had
+a progenitor being in the mass range $M_1 \to M_1 + \D{M_1}$ at an
+earlier time $t_1$ can be expressed as
+\begin{equation}
+  \label{eq:eps-condprob}
+  \R{Pr}(M_1, t_1 | M_2, t_2) \,\D{M_1} = \frac{1}{\sqrt{2\pi}}
+\frac{M_2}{M_1}
+  \frac{\delta_{c1} - \delta_{c2}}{(\sigma_1^2 - \sigma_2^2)^{3/2}}
+  \left| \diff{\sigma_1^2}{M_1} \right|
+  \exp \!\left[ -\frac{(\delta_{c1} - \delta_{c2})^2}
+    {2(\sigma_1^2 - \sigma_2^2)} \right] \D{M_1},
+\end{equation}
+where
+$\delta_{ci} \equiv \delta_c(t_i)$, $\sigma_i \equiv \sigma(M_i)$, and $i =
+1, 2$ is used to denote parameters defined at time $t_1$ and $t_2$,
+respectively \citep{lacey1993,randall2002}.
+By further introducing $S \equiv \sigma^2(M)$ and
+$\omega \equiv \delta_c(t)$, the equation reduces to
+\begin{equation}
+  \label{eq:eps-condprob-simp}
+  \R{Pr}(\Delta S, \Delta \omega) \,\D{\Delta S} = \frac{1}{\sqrt{2\pi}}
+  \frac{\Delta\omega}{(\Delta S)^{3/2}}
+  \exp \!\left[ -\frac{(\Delta\omega)^2}{2 \Delta S} \right] \D{\Delta S}.
+\end{equation}
+
+
+During the backward tracing of a cluster $\Delta\omega$【前面时间间隔叫做
+step。这里的delta似乎不宜称作step】
+is chosen adaptively as 
+\begin{equation}
+  \label{sec:dw-step}
+  (\Delta\omega)_{\R{step}} \lesssim \frac{1}{2} \left[
+    S \left| \diff{\ln \sigma^2}{\ln M} \right|
+    \left( \frac{\Delta M_c}{M} \right) \right]^{1/2}
+\end{equation}
+\citep{randall2002}， where $M$ is the cluster mass at the corresponding
+growth step【如果是用了一半的M_CL，应能理解，此句说明就不必要了】, to ???
+【公式5具有这个形式必有其意义、目的，可以一句写出来】. Also, at each merger
+step the mass change $\Delta S$, or the mass of the subcluster $M_{\rm
+sub}$, shall satisfy the distribution
+\begin{equation}
+  \label{sec:cdf-sub-masses}
+  \R{Pr}(<\!\Delta S, \Delta\omega) =
+  \int_0^{\Delta S} \R{Pr}(\Delta S', \Delta\omega) \,\D{\Delta S'} =
+  \erfc \!\left( \frac{\Delta \omega}{\sqrt{2 \Delta S}} \right),
+\end{equation}
+where $\erfc(x) = 1 - \erf(x)$ is the complementary error function (ref??).
+With a random $\Delta S$ (i.e., $M_{\R{sub}}$) drawn from this probability
+distribution, the mass of the cluster's progenitor $M_1$ is obtained from
+$S_1 = S_2 + \Delta S$【公式右边应是减号吧！！】.
+
+
+Considering that observable radio halos should be associated with recent
+major mergers【高红移的并合实际发生在过去，现在其信号才传到地球。因此，
+recent一词似不合适。口语中虽然问题不大，但书面还是慎重。】 and have typical
+lifetimes $\tau_{\R{halo}} \lesssim \SI{1}{\Gyr}$ \citep{cassano2016}
+\TODO{change ref???}, we trace the cluster merging history to a maximum
+backward time of \SI{3}{\Gyr}【此句有误解。读者会以为对各处都以此为溯前界
+限。比如，红移的限制在4，那里的信号传到地球需要多少Gyr？？显然超过了。我的理
+解是，应写为：对每一处红移，自其信号恰好今天传至地球的时刻，向前追溯3 Gyr】
+【因此，此段文句需要进一步修改】.
+
+
+【END 180207 1745】
+
+Haiguang Xu
+====================================================
+Department of Physics, Shanghai Jiao Tong University
+800 Dongchuan Road, Minhang, Shanghai 200240, PRC
+Tel: +86-21-3420-2972 (also fax), +86-21-5474-2055
+E-mail: hgxu@sjtu.edu.cn
+====================================================
+
+
+
