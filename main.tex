@@ -462,55 +462,67 @@ and therefore the synchrotron emission and image of the radio halo.
 
 %------------------------------------------------------------------------
 \subsubsection{Mass Function}
-\label{sec:distributions}
+\label{sec:mass-function}
 %------------------------------------------------------------------------
 
 The Press-Schechter formalism was originally advanced as one of the standard
 method to predict the mass function of galaxy clusters and its evolution
 in the Universe \citep{press1974}, and has been extended to combine with
 the cold dark matter (CDM) models \citep[e.g.,][]{bond1991,lacey1993}.
-The number density (i.e., the number per unit comoving volume per unit
-mass) of dark matter halos (i.e., galaxy clusters) at a certain redshift
-$z$ is predicted by the Press-Schechter mass function \citep{press1974}:
+In this formalism, the number density (i.e., the number per unit comoving
+volume per unit mass) of dark matter halos (i.e., galaxy clusters) at a
+certain redshift $z$ is
+%%%
+\XU{假定暗晕与星系团合体，其质量分布函数是有一个平移的！！}
+\LI{PS 理论描述的是暗晕的质量及红移分布，而非星系团总质量；
+因此需要再将 PS 理论给出的暗晕质量换算成星系团总质量：
+$M_{\R{cl}} = M_{\R{DM}} / (1-f_{\R{gas}})$}
+%%%
 \begin{equation}
   \label{eq:ps-mass-func}
   n(M, z) \,\D{M} = \sqrt{\frac{2}{\pi}} \frac{\langle{\rho}\rangle}{M}
   \frac{\delta_c(z)}{\sigma^2(M)} \left| \diff{\sigma(M)}{M} \right|
   \exp\!\left[ -\frac{\delta_c^2(z)}{2\sigma^2(M)} \right] \D{M},
 \end{equation}
-where
-$M = (1 - f_{\R{gas}}) M_{\R{cl}} = (1 - \Omega_b/\Omega_m) M_{\R{cl}}$
-is the dark matter halo mass with $M_{\R{cl}}$ the cluster mass,
+where $M$ is the dark matter halo mass,
 $\langle {\rho} \rangle$ is the current mean density of the Universe,
 $\delta_c(z)$ is the critical linear overdensity for a region to collapse
 at redshift $z$ [see \autoref{eq:delta-crit}],
-and $\sigma(M)$ is the current r.m.s. (root-mean-square) density fluctuations
-within a sphere of mean mass $M$.
+and $\sigma(M)$ is the current r.m.s.\ (root-mean-square) density
+fluctuations within a sphere of mean mass $M$.
 
 Considering the CDM model and the halo mass range covered by galaxy
-clusters, it is reasonable to adopt such a power-law distribtuion
-for the density perturbations \citep{sarazin2002,randall2002}:
+clusters, it is reasonable to adopt the following power-law distribution
+for the density perturbations \citep{sarazin2002,randall2002}
 \begin{equation}
   \label{eq:sigma-mass}
   \sigma(M) = \sigma_8 \left( \frac{M}{M_8} \right)^{-\alpha},
 \end{equation}
-where $\sigma_8$ is the present-day rms density fluctuations on a
-scale of \SI{8}{\per\hubble\Mpc},
+where $\sigma_8$ is the present-day r.m.s.\ density fluctuations on
+a scale of \SI{8}{\per\hubble\Mpc},
 $M_8 = (4\pi/3)(8 \,\si{\per\hubble\Mpc})^3 \langle{\rho}\rangle$
 is the mass contained in a sphere of a radius \SI{8}{\per\hubble\Mpc},
-and the exponent $\alpha = (n+3)/6$ is related to the fluctuations
-pattern whose power spectrum varies with wavenumber $k$ as $k^n$.
-Here we follow \citet{randall2002} and adopt $n = -7/5$.
+and the exponent $\alpha = (n+3)/6$ with $n = -7/5$ \citep{randall2002}
+is related to the fluctuations pattern whose power spectrum varies
+with wavenumber $k$ as $k^n$.
 
-Then, by placing a conservative minimum cluster mass cut of
-$M_{\R{min}} = \SI{e14}{\solarmass}$ and a maximum redshift cut
-at $z_{\R{max}} = 4$, we are able to use \autoref{eq:ps-mass-func}
-to calculate both the total number and the distribution of galaxy
-clusters for any given sky patch.
-The mass $M_{\R{obs}}$, redshift $z_{\R{obs}}$, and sky position of
-each simulated galaxy cluster can be randomly sampled using the
-Monte Carlo method \citep{wang2010}.
-
+Given a minimum dark matter halo mass of
+$M_{\R{min}} = \SI{e14}{\solarmass}$ \TODO{ref???}
+and a maximum redshift cut at $z_{\R{max}} = 4$,
+{\color{magenta}
+we are able to use \autoref{eq:ps-mass-func} to derive the total number
+of dark matter halos in any given sky patch and their mass and redshift
+distributions.
+Then we run Monte Carlo simulations to generate the dark matter halo
+sample with random masses $M_{\R{sim}}$ and redshifts $z_{\R{sim}}$.
+By assuming that galaxy clusters have a gas fraction of
+$f_{\R{gas}} = 1 - \Omega_b/\Omega_m$, their total mass is therefore
+given by $M_{\R{sim}}^{\R{cl}} = M_{\R{sim}} / (1 - f_{\R{gas}})$.
+}
+%%%
+\XU{cl 建议改为 total}
+\LI{后文一些地方会提及并合主团与子团的总质量，因此暂不修改}
+%%%
 
 %------------------------------------------------------------------------
 \subsubsection{Merging History}
