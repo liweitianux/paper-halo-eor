@@ -529,32 +529,32 @@ given by $M_{\R{sim}}^{\R{cl}} = M_{\R{sim}} / (1 - f_{\R{gas}})$.
 \label{sec:merging-history}
 %------------------------------------------------------------------------
 
-Galaxy clusters are formed hierarchically by accretion and merging from
-smaller clusters, groups, and galaxies.
+Dark matter halos (i.e., galaxy clusters) are formed hierarchically through
+accretion and mergers.
 The extended Press-Schechter theory outlined in \citet{lacey1993} provide
-us with a way to simulate the growth history of a cluster (i.e., merger tree).
-For each merger tree to be built, we start with the cluster's current
-mass $M_{\R{obs}}$ and redshift $z_{\R{obs}}$, which are randomly sampled
-from the mass function in \autoref{sec:distributions}.
-We trace the growth history of this cluster back in time by running
-Monte Carlo simulations to randomly determine the mass change
-$\Delta M$ at each step, which may be regarded
-either as a merger event (if $\Delta M > \Delta M_c$)
-or as an accretion event (if $\Delta M \leq \Delta M_c$).
-We choose $\Delta M_c = \SI{e13}{\solarmass}$ to focus on the major mergers
-with which radio halos are associated,
-and we only trace the merging history of the main cluster,
-which are sufficient for this work.
+a way to describe their growth history in terms of the merger tree.
+In order to build the merger tree for a dark matter halo, we start with
+its current mass $M_{\R{sim}}$ and redshift $z_{\R{sim}}$ as randomly sampled
+in \autoref{sec:mass-function}, and trace its growth history back in time
+by running Monte Carlo simulations to randomly determine the mass change
+$\Delta M$ at each step, which may be regarded either as a merger event
+(if $\Delta M > \Delta M_c$) or as an accretion event
+(if $\Delta M \leq \Delta M_c$).
+{\color{magenta}
+Considering that radio halos are usually associated with major mergers,
+we choose $\Delta M_c = \SI{e13}{\solarmass}$
+}
+\LI{无具体文献可引；测试显示该参数对模拟结果影响很小}.
 
-We assume that during each growth step the cluster mass increases from
-$M_1$ at time $t_1$ (earlier) to $M_2$ at $t_2$ (later).
-Given $M_2$ and $t_2$, the conditional probability of the cluster had
+We assume that during each growth step the dark matter halo mass increases
+from $M_1$ at time $t_1$ to $M_2$ at a later time $t_2$ ($> t_1$).
+Given $M_2$ and $t_2$, the conditional probability of the halo had
 a progenitor being in the mass range $M_1 \to M_1 + \D{M_1}$ at an
 earlier time $t_1$ can be expressed as
 \begin{equation}
   \label{eq:eps-condprob}
   \R{Pr}(M_1, t_1 | M_2, t_2) \,\D{M_1} = \frac{1}{\sqrt{2\pi}}
-\frac{M_2}{M_1}
+  \frac{M_2}{M_1}
   \frac{\delta_{c1} - \delta_{c2}}{(\sigma_1^2 - \sigma_2^2)^{3/2}}
   \left| \diff{\sigma_1^2}{M_1} \right|
   \exp \!\left[ -\frac{(\delta_{c1} - \delta_{c2})^2}
@@ -573,37 +573,56 @@ $\omega \equiv \delta_c(t)$, this equation reduces to
   \exp \!\left[ -\frac{(\Delta\omega)^2}{2 \Delta S} \right] \D{\Delta S}.
 \end{equation}
 
-During the backward tracing of a cluster, the step size $\Delta\omega$
-is chosen adaptively as \citep{randall2002}:
+{\color{magenta}
+During the backward tracing of a dark matter halo, the time step size
+$\Delta t$ (i.e., $\Delta\omega$) determines the mass resolution.
+It is required that
 \begin{equation}
   \label{sec:dw-step}
-  (\Delta\omega)_{\R{step}} \lesssim \frac{1}{2} \left[
+  \Delta\omega \lesssim \left[
     S \left| \diff{\ln \sigma^2}{\ln M} \right|
     \left( \frac{\Delta M_c}{M} \right) \right]^{1/2},
 \end{equation}
-where $M$ is the cluster mass at the corresponding step.
-In order to obey the probability distribution of mergers with different
-mass changes (i.e., $\Delta S$),
-we sample the cumulative probability distribution of the sub-cluster masses
-to determine $\Delta S$ (i.e., $\Delta M$) at each step:
+in order to resolve single mergers of mass $\Delta M_c \ll M$
+\citep{lacey1993}.
+Similar to \citet{randall2002}, we use an adaptive step size
+$(\Delta\omega)_{\R{step}}$ that equals to half of this maximum value.
+Given $\Delta\omega$ at a step, the mass change $\Delta S$ can be
+randomly drawn from the following cumulative probability distribution
+of sub-halo masses
 \begin{equation}
   \label{sec:cdf-sub-masses}
   \R{Pr}(<\!\Delta S, \Delta\omega) =
   \int_0^{\Delta S} \R{Pr}(\Delta S', \Delta\omega) \,\D{\Delta S'} =
   \erfc \!\left( \frac{\Delta \omega}{\sqrt{2 \Delta S}} \right),
 \end{equation}
-where $\erfc(x) = 1 - \erf(x)$ is the complementary error function.
-With a random $\Delta S$ (i.e., $M_{\R{sub}}$) drawn from this probability
-distribution, the mass of the cluster's progenitor $M_1$ is obtained from
-$S_1 = S_2 + \Delta S$.
+where $\erfc(x) = 1 - \erf(x)$ is the complementary error function
+\LI{这是统计里的常用特殊函数，不需引文},
+and the halo's progenitor mass $M_1$ is then obtained as
+$S_1 = S_2 + \Delta S$
+\LI{$S = \sigma^2(M)$ 与 $M$ 反相关，因此公式右边的加号是正确的}.
 
-Considering that radio halos are associated to recent major mergers and
-have a lifetime $\tau_{\R{halo}} \lesssim \SI{1}{\Gyr}$
+Considering that observable radio halos should be associated with
+recent major mergers
+%%%
+\XU{高红移的并合实际发生在过去，现在其信号才传到地球。因此，
+recent 一词似不合适}
+\LI{recent 在已有文献中也经常使用；暂时想不到其他更好的词}
+%%%
+and have typical lifetimes $\tau_{\R{halo}} \lesssim \SI{1}{\Gyr}$
 \citep[e.g.,][]{brunetti2009,cassano2016},
-we only trace the cluster merging history to a maximum backward time of
-\SI{3}{\Gyr}.
-Then for each cluster we extract the properties of all the merger events
-for the following radio halo simulation.
+we trace the merging history of each dark matter halo by a maximum
+backward time of \SI{3}{\Gyr} from its current age (i.e., $z_{\R{sim}}$).
+Once the merger tree been built, we again transform the mass of
+dark matter halos to the total mass of galaxy clusters according to
+$M^{\R{cl}} = M / (1 - f_{\R{gas}})$, and we extract all the merger
+events associated with the main halo (or main cluster) for the
+following radio halo simulation.
+
+We note that, unless otherwise specified, the mass in the following
+text refers to the total mass of galaxy clusters, and we will drop
+the superscript \enquote{cl} from now on.
+}
 
 
 %------------------------------------------------------------------------
