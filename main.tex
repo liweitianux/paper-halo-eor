@@ -384,43 +384,56 @@ $\Omega_b = 0.046$, $n_s = 0.96$, and $\sigma_8 = 0.81$.
 
 
 %########################################################################
-\section{Low-Frequency Sky Simulation}
+\section{Simulation of Low-Frequency Radio Sky}
 \label{sec:sky-simu}
 %########################################################################
 
 Based on our previous works \citep{wang2010,wang2013}, we have used the
 Python programming language to develop the \texttt{FG21sim} software to
-simulate the low-frequency radio sky by taking into account the
-contributions of Our Galaxy, extragalactic point sources, and radio halos
+simulate the realistic low-frequency radio sky by taking into account the
+contributions of our Galaxy, extragalactic point sources, and radio halos
 in galaxy clusters.
-The software is open-sourced under the MIT License and is available at
+Our software is open-sourced under the MIT License and is available at
 \url{https://github.com/liweitianux/fg21sim},
 where further documents and auxiliary data are provided.
-Additional tools are also developed to aid the observational simulations
-in order to integrate the instrumental responses of low-frequency radio
-interferometers.
+Additional utilities are also developed to help the observational simulation,
+which aims to integrate the instrumental responses of low-frequency radio
+interferometers, as well as subsequent analyzing procedures.
+%%%
+\XU{The software is designed to take into account the
+contributions of our Galaxy, extragalactic discrete sources (i.e.,
+star-forming galaxies, radio-quiet active galactic nuclei (AGNs), and
+radio-loud AGNs), galaxy clusters, cosmic microwave background (CMB), and 21
+cm signals of the EoR【既然是天空仿真，就不要有遗漏！！确认还缺什么！！】,
+and it also has an interface to integrate instrumental responses of any
+low-frequency radio interferometers.}
+\LI{该软件只模拟了银河系、河外点源以及射电晕这几种前景；
+21~cm 信号使用 Mesinger et al. 2016 的推荐结果；
+天空图像模拟与干涉阵观测模拟是两个独立的步骤，只要提供天空图像便可模拟
+得到干涉阵观测结果，因此不宜说前景模拟软件为观测模拟设计有专门接口.}
+%%%
 
-In this work we use \texttt{FG21sim} \TODO{version ???} to simulate the
-radio sky maps and evaluate the effects of the contamination caused by
-radio halos.
 By consulting the latest SKA science book on the EoR survey strategies
 \citep[e.g.,][]{koopmans2015rev}, we perform the simulations within
-a \SI{8}{\MHz} band centered at \SI{158}{\MHz} for a \SI{10 x 10}{\deg}
+a \SI{8}{\MHz} band centered at \SI{158}{\MHz} for a
+\SI[product-units=repeat]{10 x 10}{\degree}
 sky region at (R.A., Dec.) = (\SI{0}{\degree}, \SI{-27}{\degree}),
 which locates at high galactic latitude ($b = \SI{-78.5}{\degree}$)
 and passes through the zenith of SKA1-Low\footnote{%
-  This sky region is also targeted by MWA (EoR0 field;
+  This sky region is also targeted by the MWA (EoR0 field;
   e.g., \citealt{beardsley2016}).}.
+%%%
+\XU{It has also been observed with MWA (EoR0 field), which enables us to us actual data to constrain our simulations.}
+\LI{此工作没有如此使用 MWA 的观测来约束模拟图像}
+%%%
 The \SI{8}{\MHz} bandwidth is chosen to limit the cosmological evolution
-effect for the 21~cm signal when calculating power spectra
+effect for the 21~cm signals when calculating power spectra
 \citep[e.g.][]{wyithe2004,thyagarajan2013},
-and the relatively large region of \SI{10 x 10}{\deg} will cover the first
-side-lobe and also help the CLEAN imaging in \autoref{sec:obs-simu}.
-Besides the 21~cm signal and radio halos, we also incorporate the
-Galactic radiation (including both the synchrotron and free-free emissions)
-and extragalactic point sources into the simulated sky maps.
-The sky maps are pixelized into \num{1800 x 1800} with a pixel size of
-\SI{20}{\arcsec}.
+and the relatively large region of \SI[product-units=repeat]{10 x 10}{\degree}
+will cover the first side-lobe, which helps the image CLEAN procedure
+in \autoref{sec:obs-simu}.
+The simulated sky is pixelized into \num{1800 x 1800} with a pixel size
+of \SI{20}{\arcsecond}.
 
 
 %========================================================================
