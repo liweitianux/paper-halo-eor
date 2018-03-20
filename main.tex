@@ -345,7 +345,7 @@ It should be noted that the angular sizes of radio halos happen to be
 several to tens of arcminutes, which coincides with those theoretically
 predicted for the ionizing bubbles during the EoR.
 This, complemented with the potentially large number
-{\color{magenta}(several to tens of thousands in all the sky)}
+{\color{magenta}(several to tens of thousand in all the sky)}
 of radio halos to be revealed by the forthcoming
 low-frequency radio telescopes \citep[e.g.,][]{cassano2015},
 indicates that in order to better guide foreground removal and avoidance
@@ -381,6 +381,8 @@ Throughout this work we adopt a flat \lcdm{} cosmology with
 $H_0 = \SI{100}{\hubble} = \SI{71}{\km\per\second\per\Mpc}$,
 $\Omega_m = 0.27$, $\Omega_{\Lambda} = 1 - \Omega_m = 0.73$,
 $\Omega_b = 0.046$, $n_s = 0.96$, and $\sigma_8 = 0.81$.
+The quoted errors are at the \SI{68}{\percent} confidence level unless
+otherwise stated.
 
 
 %########################################################################
@@ -519,10 +521,7 @@ By assuming that galaxy clusters have a gas fraction of
 $f_{\R{gas}} \simeq \Omega_b/\Omega_m$, their total mass is therefore
 given by $M_{\R{sim}}^{\R{cl}} = M_{\R{sim}} / (1 - f_{\R{gas}})$.
 }
-%%%
 \XU{cl 建议改为 total}
-\LI{后文一些地方会提及并合主团与子团的总质量，因此暂不修改}
-%%%
 
 %------------------------------------------------------------------------
 \subsubsection{Merging History}
@@ -774,8 +773,9 @@ where
 $M_{\R{turb}}^{\R{gas}}$ is the gas mass enclosed in the turbulent region,
 i.e., within radius of $L_{\R{turb}}$.
 By adopting a NFW density profile \citep{navarro1997}, the distribution
-of mass in units of the virial mass is
+of mass
 {\color{magenta}
+in fraction of the total mass is
 \begin{equation}
   \label{eq:mass-dist-nfw}
   f_{\R{nfw}}(s) = \frac{M(< s \,r_{\R{vir}})}{M} =
@@ -859,7 +859,7 @@ whose energy loss rate is
 \end{equation}
 
 {\color{magenta}
-Secondly, the \si{\uG}-level magnetic field permeates the ICM, and
+Secondly, with the \si{\uG}-level magnetic field permeating the ICM,
 relativistic electrons will produce synchrotron radiation and lose
 energy at a rate of
 }
@@ -990,7 +990,8 @@ $\eta_{\R{turb}} \sim \SI{10}{\percent}$;
 $\eta_B \sim \SI{0.1}{\percent}$;
 (3) ratio of the total energy of injected electrons to the total thermal
 energy: $\eta_e \sim \SI{0.1}{\percent}$;
-(4) spectral index of the injected electrons: $s \sim \numrange{2.1}{2.5}$;
+(4) spectral index of the injected electrons: $s \sim \numrange{2.1}{2.5}$
+\TODO{exclude this one???};
 (5) efficiency of the ICM plasma instabilities:
 $\zeta \sim \numrange{0.1}{0.3}$;
 (6) relative energy density in the cosmic rays:
@@ -1001,9 +1002,9 @@ evidences or simulation studies.
 {\color{magenta}
 To further tune the model parameters in order to achieve better agreements
 with the observations, we have collected all current observed radio halos
-(\autoref{tab:halos-observed}; as of 2018 January), and compare the integrated
-flux function between our simulated radio halos and the observations.
-We have explored various parameter configurations,
+(\autoref{tab:halos-observed}; as of 2018 January), and compare the
+\SI{1.4}{\GHz} integrated flux function between our simulated radio halos
+and the observations.  We have explored various parameter configurations,
 and for each configuration we have repeated the simulation for 500 times
 in order to take into account the Monte Carlo uncertainties as introduced in
 Sections~\ref{sec:mass-function} and \ref{sec:merging-history}.
@@ -1013,21 +1014,58 @@ integrated flux function of simulations agreed with the observed one
 in the high-flux regime within simulation uncertainties.
 In consequence, we have chosen a set of model parameters with
 $\eta_{\R{turb}} = \SI{10}{\percent}$, $\eta_B = \SI{0.1}{\percent}$,
-$\eta_e = \SI{0.1}{\percent}$, $s = 2.3$,
-$\zeta = 0.1$, and $X_{\R{CR}} = \SI{1.5}{\percent}$.
+$\eta_e = \SI{0.1}{\percent}$, $s = 2.3$, $\zeta = 0.1$,
+and $X_{\R{CR}} = \SI{1.5}{\percent}$,
+and we show in \autoref{fig:halos-simucomp-example}(a) the \SI{1.4}{\GHz}
+integrated flux function comparison result.
+
+With the purpose of better characterizing the impacts of radio halos
+on the EoR detection, we adopt the above tuned parameter configuration
+and run the radio halos simulation for 100 times, given the fact that
+radio halos vary between different sky regions.
+The mean (r.m.s.) brightness temperature of the 100 simulations is
+$24.9_{-20.0}^{+74.3}$ \si{\mK} ($2\,753_{-1\,972}^{+10\,409}$ \si{\mK}),
+and \autoref{fig:halos-simucomp-example}(b) shows a typical example
+of the simulated radio halos at \SI{158}{\MHz} with mean (r.m.s.)
+brightness temperature of \SI{25.2}{\mK} (\SI{3947}{\mK}).
+We will also use this typical example to illustrate part of our results
+and discussions in \autoref{sec:results}.
 }
 
-\TODO{figures ...}
+\begin{figure*}
+  \gridline{
+    \fig{fluxfunc-simucomp-1400}{0.49\textwidth}{(a)}
+    \fig{halos-f158-C17}{0.45\textwidth}{(b)}
+  }
+  \caption{\label{fig:halos-simucomp-example}%
+    \textbf{(a)} The \SI{1.4}{\GHz} integrated flux function comparison
+    between the observed (red dashed line) and simulated (red solid line)
+    radio halos.  We also plot the \SI{158}{\MHz} integrated flux function
+    for the simulated halos (blue solid line), which shows that radio
+    halos are much brighter at the low-frequency band.  The shadowed
+    regions show the \SI{68}{\percent} uncertainties of the simulated
+    radio halos derived from the 500 simulation runs.
+    \textbf{(b)} A typical example from the 100 simulation runs showing
+    the simulated radio halos at \SI{158}{\MHz}, where the colorbar is in
+    units of \si{\kelvin}.
+  }
+\end{figure*}
+
 
 %========================================================================
 \subsection{Other Foreground Components}
 \label{sec:fg-other}
 %========================================================================
 
-Besides the radio halos in galaxy clusters, we also simulated the maps of
-several other foreground components, including the Galactic synchrotron
-and free-free emissions, and the extragalactic point sources,
+{\color{magenta}
+In order to better evaluate the radio halos of our focus, we not only
+compare them to the target EoR signal whose simulation will be described
+in \autoref{sec:eor-signal}, but also do comparisons to several other
+foreground components, which include the Galactic synchrotron and
+free-free emissions, and the extragalactic point sources,
 based on our previous work \citep[and references therein]{wang2010}.
+}
+
 The Galactic synchrotron map was simulated by extrapolating the
 Haslam \SI{408}{\MHz} all-sky map as the template to lower frequencies
 with a power-law spectrum.
@@ -1071,10 +1109,10 @@ and \SI{45.5}{\kelvin} (\SI{59224}{\kelvin}), respectively.
   \caption{\label{fig:gsyn-gff-ps-21cm}%
     The simulated example maps of other foreground components and
     the EoR 21~cm signal at \SI{158}{\MHz}.
-    (a) Galactic synchrotron emission;
-    (b) Galactic free-free emission;
-    (c) Extragalactic point sources, color in logarithmic scale;
-    (d) EoR 21~cm signal.
+    \textbf{(a)} Galactic synchrotron emission;
+    \textbf{(b)} Galactic free-free emission;
+    \textbf{(c)} Extragalactic point sources, color in logarithmic scale;
+    \textbf{(d)} EoR 21~cm signal.
     All colorbars are in units of \si{\kelvin}.
     \TODO{add labels to figures; increase colorbar font}
   }
@@ -1132,10 +1170,12 @@ With this layout configuration, the dense core makes the SKA1-Low very
 sensitive to the EoR signal, while the long baselines greatly help the
 foreground characterization and removal, as well as other scientific goals.
 
-We divide the \SIrange{154}{162}{\MHz} band of interest into 51
-channels with a channel width of \SI{160}{\kilo\hertz}.
-For each sky component, we simulate the sky maps at every frequency
-channel, and then use the \texttt{OSKAR}\footnote{%
+We divide the chosen \SIrange{154}{162}{\MHz} frequency segment into 51
+channels with a frequency resolution of \SI{160}{\kilo\hertz}.
+{\color{magenta}
+At every frequency channel, we simulate the input sky maps as described
+in \autoref{sec:sky-simu},}
+and then use the \texttt{OSKAR}\footnote{%
   OSKAR: \url{https://github.com/OxfordSKA/OSKAR} (version 2.7.0)}
 simulator \citep{mort2010} to perform observational simulations
 for \SI{6}{\hour} ($\pm \SI{3}{\hour}$ in Hour Angle) with the
@@ -1147,18 +1187,25 @@ imager \citep{offringa2014} using Briggs' weighting with
 robustness of 0 \citep{briggs1995},
 and the created images are cropped to keep only the central
 \SI[product-units=repeat]{4 x 4}{\degree} regions for subsequent analyses.
+{\color{magenta}
+Hence we properly integrate the instrumental effects into the simulated
+sky maps and obtain the \enquote{observed} image cube consisting of a
+series of images among the selected frequency band.
 
-Considering that the Galactic free-free emission is much weaker
-than the Galactic synchrotron radiation, and both of them have
-similar diffuse structures, we then combine these two components
-for the observational simulation.
-As for the extragalactic point sources, we assume that the brightest
-ones with \SI{158}{\MHz} flux density $S > \SI{10}{\mJy}$ \TODO{check}
-are correctly removed \citep[e.g.,][]{pindor2011}.
-Finally, we obtain the \enquote{observed} images of the Galactic
-diffuse emission (the synchrotron radiation combined with the
-free-free emission), the extragalactic point sources (with the
-brightest ones removed), the radio halos, and the EoR signal.
+As mentioned in \autoref{sec:fg-other}, we also simulate several other
+foreground components for providing intuitive comparisons to radio halos.
+The two diffuse Galactic emissions are combined to simplify the
+observational simulation and subsequent analyses, as the free-free
+emission is much weaker than the synchrotron radiation.
+Similar to the real-time peeling of brightest sources in practical data
+analysis pipeline of radio interferometers
+\citep[e.g.,][]{mitchell2008,intema2009}, we assume that the brightest
+ones with \SI{158}{\MHz} flux density $S > \SI{50}{\mJy}$ \TODO{check}
+are peeled to simplify the imaging process \citep[e.g.,][]{pindor2011}.
+Finally, we have the \enquote{observed} image cubes of the EoR signal,
+radio halos, the Galactic diffuse emission (with both synchrotron and
+free-free emission), and the extragalactic point sources (with the
+brightest ones removed).}
 
 
 %########################################################################
