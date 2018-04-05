@@ -140,9 +140,9 @@
 \graphicspath{{figures/}}  % NOTE: the trailing '/' matters
 
 %% Journal information
-\received{xxx, 2018}
-\revised{xxx, 2018}
-\accepted{xxx, 2018}
+\received{XXX, 2018}
+\revised{XXX, 2018}
+\accepted{XXX, 2018}
 \submitjournal{ApJ}
 
 %% Add a light gray and diagonal water-mark to the first page
@@ -150,7 +150,8 @@
 %% Control the water-mark size with:
 %% \setwatermarkfontsize{dimension}
 
-\shorttitle{Impacts of Radio Halos on EoR Detection}
+%\shorttitle{Impacts of Radio Halos on EoR Detection}
+\shorttitle{Contribution of Radio Halos to the Low-frequency Radio Sky}
 \shortauthors{Li~\etal}
 
 
@@ -222,12 +223,12 @@
   Shanghai Jiao Tong University,
   800 Dongchuan Road, Shanghai 200240, China}
 
-\author{Zhenghao Zhu}
+\author{Dan Hu}
 \affiliation{School of Physics and Astronomy,
   Shanghai Jiao Tong University,
   800 Dongchuan Road, Shanghai 200240, China}
 
-\author{Dan Hu}
+\author{Zhenghao Zhu}
 \affiliation{School of Physics and Astronomy,
   Shanghai Jiao Tong University,
   800 Dongchuan Road, Shanghai 200240, China}
@@ -237,6 +238,12 @@
   Shanghai Jiao Tong University,
   800 Dongchuan Road, Shanghai 200240, China}
 
+\author{Jingying Wang}
+\affiliation{XXX}
+\author{Junhua Gu}
+\affiliation{XXX}
+\author{Qian Zheng}
+\affiliation{XXX}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -252,7 +259,6 @@
 %% keywords and the rules for their use.
 %% http://journals.aas.org/authors/keywords2013.html
 \keywords{
-  \TODO{update};
   dark ages, reionization, first stars ---
   galaxies: clusters: intracluster medium ---
   methods: numerical ---
@@ -345,15 +351,16 @@ It should be noted that the angular sizes of radio halos happen to be
 several to tens of arcminutes, which coincides with those theoretically
 predicted for the ionizing bubbles during the EoR.
 This, complemented with the potentially large number
-{\color{magenta}(several to tens of thousand in all the sky)}
+{\color{magenta}(several to tens of thousand in all sky)}
 of radio halos to be revealed by the forthcoming
 low-frequency radio telescopes \citep[e.g.,][]{cassano2015},
 indicates that in order to better guide foreground removal and avoidance
 techniques, it is essential to investigate the cumulative emission
 of radio halos as a source of the foreground contamination
 \citep[e.g.,][]{diMatteo2004,gleser2008}
-\LI{Di Matteo et al. 2004 一文研究了河外展源，主要是射电晕和射电遗迹；
-但该文章有点老了，有些方法和结果现在已经有点不适用了}.
+\XU{Di Matteo et al. 2004 一文是关于射电晕干扰的？？}
+\LI{此文研究了河外展源，主要是射电晕和射电遗迹；
+但该文章比较旧了，有些方法和结果现在已经有点不适用了}.
 As of today, however, only few works have been dedicated to this topic
 based on relatively straightforward modeling methods,
 {\color{magenta}
@@ -478,7 +485,7 @@ certain redshift $z$ is
 \XU{假定暗晕与星系团合体，其质量分布函数是有一个平移的！！}
 \LI{PS 理论描述的是暗晕的质量及红移分布，而非星系团总质量；
 因此需要再将 PS 理论给出的暗晕质量换算成星系团总质量：
-$M_{\R{cl}} = M_{\R{DM}} / (1-f_{\R{gas}})$}
+$M^{\R{cl}} = M^{\R{DM}} / (1-f_{\R{gas}})$}
 %%%
 \begin{equation}
   \label{eq:ps-mass-func}
@@ -541,9 +548,8 @@ $\Delta M$ at each step, which may be regarded either as a merger event
 (if $\Delta M \leq \Delta M_c$).
 {\color{magenta}
 Considering that radio halos are usually associated with major mergers,
-we choose $\Delta M_c = \SI{e13}{\solarmass}$
-}
-\LI{无具体文献可引；测试显示该参数对模拟结果影响很小}.
+we choose $\Delta M_c = \SI{e13}{\solarmass}$ \TODO{ref???}
+\LI{测试显示该参数对模拟结果影响很小}.}
 
 We assume that during each growth step the dark matter halo mass increases
 from $M_1$ at time $t_1$ to $M_2$ at a later time $t_2$ ($> t_1$).
@@ -668,7 +674,7 @@ and $Q_e(\gamma, t)$ describes the electron injection.
 
 It is reasonable to assume that the primary electrons were constantly
 injected into the ICM during the cluster life and had a power-law
-spectrum of index $s \sim 2.3$ \citep[e.g.,][]{sarazin1999}
+spectrum of index $s = 2.3$ \citep[e.g.,][]{sarazin1999}
 \begin{equation}
   \label{eq:electron-inj}
   Q_e(\gamma, t) \equiv Q_e(\gamma) = K_e \,\gamma^{-s}.
@@ -711,7 +717,7 @@ $r_{\R{vir}}$ is the virial radius [see \autoref{eq:radius-virial}],
 $\mu \simeq 0.6$ is the mean molecular weight \citep[e.g.,][]{ettori2013},
 and $m_u$ is the atomic mass unit.
 The cluster's mean temperature is approximated with the virial temperature:
-$k_BT_{\R{cl}} \simeq k_BT_{\R{vir}} = G M_{\R{vir}} \,\mu m_u / (2 \,r_{\R{vir}})$.
+$k_BT_{\R{cl}} \simeq k_BT_{\R{vir}} = G M \mu m_u / (2 \,r_{\R{vir}})$.
 }
 
 As for the initial spectrum of electrons $n_e(\gamma, t_0)$ for solving
@@ -803,7 +809,8 @@ the turbulence velocity dispersion as
 
 Generally, the turbulence generated during major mergers is subsonic
 with a Mach number of
-$\mathcal{M}_{\R{turb}} = \sqrt{\langle (\delta{v_t})^2 \rangle} / c_s \sim \numrange{0.2}{0.5}$,
+$\mathcal{M}_{\R{turb}} = \sqrt{\langle (\delta{v_t})^2 \rangle} / c_s
+  \sim \numrange{0.2}{0.5}$,
 and its acceleration efficiency to electrons can be described by the
 acceleration timescale (i.e., the reciprocal of the acceleration rate)
 $\tau_{\R{acc}} = 4 D_{\gamma\gamma} / \gamma^2 \sim \SI{0.1}{\Gyr}$,
@@ -983,25 +990,22 @@ $\phi$ are applied to each of the halo images.
 %........................................................................
 \ssssec{Parameters Tuning}
 
-Our model has the following 6 parameters:
+Our model has the following 5 parameters:
 (1) fraction of the merger energy transferred into the turbulence:
 $\eta_{\R{turb}} \sim \SI{10}{\percent}$;
 (2) relative energy density in the magnetic field:
 $\eta_B \sim \SI{0.1}{\percent}$;
 (3) ratio of the total energy of injected electrons to the total thermal
 energy: $\eta_e \sim \SI{0.1}{\percent}$;
-(4) spectral index of the injected electrons: $s \sim \numrange{2.1}{2.5}$
-\TODO{exclude this one???};
-(5) efficiency of the ICM plasma instabilities:
+(4) efficiency of the ICM plasma instabilities:
 $\zeta \sim \numrange{0.1}{0.3}$;
-(6) relative energy density in the cosmic rays:
+(5) relative energy density in the cosmic rays:
 $X_{\R{CR}} \sim \SI{1}{\percent}$.
-And all of them have reasonable constraints from either observational
-evidences or simulation studies.
-
 {\color{magenta}
-To further tune the model parameters in order to achieve better agreements
-with the observations, we have collected all current observed radio halos
+Although all of them have reasonable constraints from either observational
+evidences or simulation studies, it is essential to further tune them in
+order to achieve better agreements with the observations.
+To this end, we have collected all current observed radio halos
 (\autoref{tab:halos-observed}; as of 2018 January), and compare the
 \SI{1.4}{\GHz} integrated flux function between our simulated radio halos
 and the observations.  We have explored various parameter configurations,
@@ -1014,15 +1018,15 @@ integrated flux function of simulations agreed with the observed one
 in the high-flux regime within simulation uncertainties.
 In consequence, we have chosen a set of model parameters with
 $\eta_{\R{turb}} = \SI{10}{\percent}$, $\eta_B = \SI{0.1}{\percent}$,
-$\eta_e = \SI{0.1}{\percent}$, $s = 2.3$, $\zeta = 0.1$,
+$\eta_e = \SI{0.1}{\percent}$, $\zeta = 0.1$,
 and $X_{\R{CR}} = \SI{1.5}{\percent}$,
 and we show in \autoref{fig:halos-simucomp-example}(a) the \SI{1.4}{\GHz}
 integrated flux function comparison result.
 
 With the purpose of better characterizing the impacts of radio halos
 on the EoR detection, we adopt the above tuned parameter configuration
-and run the radio halos simulation for 100 times, given the fact that
-radio halos vary between different sky regions.
+and repeat the radio halos simulation 100 times, given the fact that
+radio halos can vary significantly across sky regions.
 The mean (r.m.s.) brightness temperature of the 100 simulations is
 $24.9_{-20.0}^{+74.3}$ \si{\mK} ($2\,753_{-1\,972}^{+10\,409}$ \si{\mK}),
 and \autoref{fig:halos-simucomp-example}(b) shows a typical example
@@ -1034,8 +1038,10 @@ and discussions in \autoref{sec:results}.
 
 \begin{figure*}
   \gridline{
-    \fig{fluxfunc-simucomp-1400}{0.49\textwidth}{(a)}
-    \fig{halos-f158-C17}{0.45\textwidth}{(b)}
+    \fig{fluxfunc-simucomp-1400}{0.49\textwidth}{%
+      (a) \SI{1.4}{\GHz} integrated flux function}
+    \fig{halos-f158-C17}{0.45\textwidth}{%
+      (b) \SI{158}{\MHz} example map of radio halos}
   }
   \caption{\label{fig:halos-simucomp-example}%
     \textbf{(a)} The \SI{1.4}{\GHz} integrated flux function comparison
@@ -1099,12 +1105,12 @@ and \SI{45.5}{\kelvin} (\SI{59224}{\kelvin}), respectively.
 
 \begin{figure*}
   \gridline{
-    \fig{gsyn-f158-he}{0.45\textwidth}{(a)}
-    \fig{gff-f158-he}{0.45\textwidth}{(b)}
+    \fig{gsyn-f158-he}{0.45\textwidth}{(a) Galactic synchrotron emission}
+    \fig{gff-f158-he}{0.45\textwidth}{(b) Galactic free-free emission}
   }
   \gridline{
-    \fig{pointsources-f158-he-log}{0.45\textwidth}{(c)}
-    \fig{21cm-f158-he}{0.45\textwidth}{(d)}
+    \fig{pointsources-f158-he-log}{0.45\textwidth}{(c) Extragalactic point sources}
+    \fig{21cm-f158-he}{0.45\textwidth}{(d) EoR signal}
   }
   \caption{\label{fig:gsyn-gff-ps-21cm}%
     The simulated example maps of other foreground components and
@@ -1170,11 +1176,10 @@ With this layout configuration, the dense core makes the SKA1-Low very
 sensitive to the EoR signal, while the long baselines greatly help the
 foreground characterization and removal, as well as other scientific goals.
 
-We divide the chosen \SIrange{154}{162}{\MHz} frequency segment into 51
+We divide the chosen \SIrange{154}{162}{\MHz} frequency band into 51
 channels with a frequency resolution of \SI{160}{\kilo\hertz}.
-{\color{magenta}
-At every frequency channel, we simulate the input sky maps as described
-in \autoref{sec:sky-simu},}
+For each component, we simulate the input sky maps at every frequency
+channel as described in \autoref{sec:sky-simu},
 and then use the \texttt{OSKAR}\footnote{%
   OSKAR: \url{https://github.com/OxfordSKA/OSKAR} (version 2.7.0)}
 simulator \citep{mort2010} to perform observational simulations
@@ -1191,6 +1196,14 @@ and the created images are cropped to keep only the central
 Hence we properly integrate the instrumental effects into the simulated
 sky maps and obtain the \enquote{observed} image cube consisting of a
 series of images among the selected frequency band.
+Considering that the CLEAN algorithm does not work well with the diffuse
+sources, we directly use the dirty images for the EoR signal and the
+diffuse Galactic emission, which are in sufficiently good quality,
+thanks to the dense core layout and good $uv$ coverage of SKA1-Low.
+While for the radio halos and extragalactic point sources, we create
+image cubes using the CLEAN algorithm with joined-channel deconvolution
+to ensure the spectral smoothness \citep{offringa2017}, which is crucial
+to extract the EoR signal from the overwhelming foregrounds.
 
 As mentioned in \autoref{sec:fg-other}, we also simulate several other
 foreground components for providing intuitive comparisons to radio halos.
@@ -1213,30 +1226,31 @@ brightest ones removed).}
 \label{sec:results}
 %########################################################################
 
-Using the simulated image cubes, we can now calculate the power spectra
-for each component, from which we can quantitatively evaluate the
-contamination to the EoR detection contributed by radio halos.
+Using the simulated image cubes, we can now calculate both the
+two-dimensional (2D) and one-dimensional (1D) power spectra for each
+component, from which we can quantitatively evaluate the contamination
+to the EoR measurements contributed by radio halos, and discuss the large
+fluctuations of radio halos across sky regions.
 Besides the focused frequency band around \SI{158}{\MHz}, we investigate
 the impacts of radio halos at lower and higher bands centered at
 \SI{124}{\MHz} and \SI{196}{\MHz}, respectively.
-We also discuss the requirement of radio halos subtraction for a robust
-EoR detection.
+We also discuss how the power spectra may be affected by the instrumental
+frequency structures resulting from the calibration errors as well other
+instrumental and observational effects.
 
 %========================================================================
-\subsection{Power Spectra and EoR Window}
-\label{sec:ps-eor}
+\subsection{2D Power Spectra and EoR Window}
+\label{sec:ps2d}
 %========================================================================
-
-\TODO{split into subsections}
 
 Given the elusive EoR signal, current-generation radio interferometers
-do not have sufficient sensitivity to directly image the structures of
-the signal, thus statistically probing the signal by measuring its power
-spectra is the more feasible and promising way.
+do not have sufficient sensitivity to directly image its structures,
+thus statistically probing the signal by measuring its power spectra is
+the more feasible and promising way.
 The redshifted 21~cm EoR signal as observed at different frequencies
-represents a fully 3D data cube, where the two angular dimensions describe
-the transverse distances on the sky and the spectral dimension
-characterizes the line-of-sight distance to the \Hi{} sources.
+represents a fully three-dimensional (3D) data cube, where the two angular
+dimensions describe the transverse distances on the sky and the spectral
+dimension characterizes the line-of-sight distance to the \Hi{} sources.
 Since the \Hi{} field is homogeneous and isotropic, its 3D power spectrum
 will have spherical symmetry.  Although in practice this symmetry will be
 distorted along the line of sight due to peculiar velocities of matter
@@ -1297,9 +1311,8 @@ PAPER \citep{pober2013}, and HERA \citep{deboer2017}.
     \textbf{(d)} Extragalactic point sources.
     All sub-figures share the same logarithmic scale in units of
     [\si{\mK\squared\Mpc\cubed}].
-    The magenta dashed line marks the boundary between the EoR window
-    (on the top left) and the contaminating foreground wedge (the bottom
-    right).
+    The magenta dashed lines mark the boundary between the EoR window
+    (on the top left) and the contaminating wedge (the bottom right).
   }
 \end{figure*}
 
@@ -1334,9 +1347,9 @@ The parameter $e$ denotes the number of characteristic convolution widths
 ($\propto B^{-1}$) for the spillover region caused by the variations in
 instrumental frequency response, which spill the contamination from the
 wedge into the regions beyond \citep{thyagarajan2013}.
-In this work, we choose $\Theta = \SI{6}{\degree}$ (corresponding to
+In this work, we choose $\Theta_{158} = \SI{6}{\degree}$ (corresponding to
 about 3 times of the SKA1-Low's FoV at \SI{158}{\MHz}) and $e = 3$
-for a conservative EoR window boundary.
+for a very conservative EoR window boundary.
 
 As shown in \autoref{fig:ps2d},
 the EoR signal distributes its powers across all \klos{} modes, reflecting
@@ -1354,21 +1367,20 @@ while radio halos mainly appear among
 $\SI{0.2}{\per\Mpc} \leq \kperp \leq \SI{1.0}{\per\Mpc}$,
 corresponding to \SIrange[range-units=repeat]{2.4}{12}{\arcminute},
 which are the typical angular sizes of radio halos.
-Moreover, radio halos have significant powers beyond the boundary and
-contaminate the 21~cm signal inside the EoR window.
-\TODO{test CLEAN with lower threshold and multi-frequency CLEAN to confirm
-the results, then explain the radio halos' power extending to high-\klos{} ...}
+Moreover, radio halos show some power beyond the boundary and hence can
+contaminate the 21~cm signal inside the EoR window, though a conservative
+EoR window boundary is already chosen.
 
 \begin{figure*}
   \centering
   \includegraphics[width=\textwidth]{ps2d-halos-ratio-band158}
   \caption{\label{fig:ps2d-ratio}%
     2D power spectrum ratios of radio halos with respect to
-    the EoR signal \textbf{(a)},
-    the diffuse Galactic emission \textbf{(b)},
-    and the extragalactic point sources \textbf{(c)}.
+    \textbf{(a)} the EoR signal,
+    \textbf{(b)} the diffuse Galactic emission,
+    and \textbf{(c)} the extragalactic point sources.
     All sub-figures share the same colorbar with logarithmic scale.
-    The silver dashed line marks the same EoR window boundary as in
+    The white dashed lines mark the same EoR window boundary as in
     \autoref{fig:ps2d}.
   }
 \end{figure*}
@@ -1378,19 +1390,22 @@ we calculate the power spectrum ratios by dividing the 2D power spectrum
 of radio halos by that of the other components \citep{trott2015},
 as shown in \autoref{fig:ps2d-ratio}.
 The wedge-shape contamination is evident in \autoref{fig:ps2d-ratio}(a),
-and is well restricted below the chosen EoR window boundary.
+and is relatively well restricted below the chosen EoR window boundary.
 Nevertheless, some power of radio halos still leaks into the EoR window
 as similarly shown in \autoref{fig:ps2d}(b),
-and the leaked power may be as strong as the EoR signal at
-$\SI{0.2}{\per\Mpc} \leq \kperp \leq \SI{1.0}{\per\Mpc}$,
+and the leaked power may be tens of percent of the EoR signal at
+$\SI{0.2}{\per\Mpc} \leq \kperp \leq \SI{1.0}{\per\Mpc}$ or even
+as strong as the signal near the EoR window boundary,
 which can hamper the reliable measurement of 21~cm signal inside the
 EoR window.
 Compared to the diffuse Galactic foreground, radio halos are a much
-stronger contamination at large-\kperp{} ($> \SI{0.2}{\per\Mpc}$) modes.
+stronger contamination source at large-\kperp{} ($> \SI{0.2}{\per\Mpc}$)
+modes.
 While the extragalactic point sources obviously dominate all the
 large-\kperp{} modes, radio halos may generate powers up to several
-percent of the power of point sources, hence imprint a non-negligible
-contamination to the EoR window.
+percents of the power of point sources at their characteristic scales
+(intermediate \kperp{} modes) inside the EoR window and near the boundary,
+hence can imprint a non-negligible contamination upon the EoR measurement.
 
 %========================================================================
 \subsection{1D Power Spectra and Sky Fluctuations}
@@ -1739,7 +1754,6 @@ revealing more modes for more robust EoR measurements.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \acknowledgments
 
-\TODO{update}
 We give thanks
 to Mathieu Remazeilles for providing us with the high-resolution Haslam
 \SI{408}{\MHz} Galactic synchrotron map,
@@ -1747,9 +1761,13 @@ to Giovanna Giardino for the all-sky Galactic synchrotron spectral index map,
 to Fred Dulwich for sharing the latest SKA1-Low layout configuration as well
 as the guidance on using the \texttt{OSKAR} simulator,
 to Andr\'e Offringa for the help on radio imaging with \texttt{WSClean}.
-We also thank Emma Chapman, and Uri Keshet for their help.
+We also acknowledge Emma Chapman, and Uri Keshet for their help.
+Part of the work involving \texttt{OSKAR} and \texttt{WSClean} was performed
+on the high-performance cluster at Shanghai Astronomical Observatory, Chinese
+Academy of Sciences.
 This work is supported by the National Science Foundation of China
-(grant Nos. 11433002, xxx).
+(grant Nos. 11433002, 61371147, \TODO{???}),
+and the National Key Research and Discovery Plan (grant No. 2017YFF0210903).
 
 
 %% To help institutions obtain information on the effectiveness of their
@@ -1775,15 +1793,15 @@ This work is supported by the National Science Foundation of China
 \software{
   OSKAR \citep{mort2010},
   WSClean \citep{offringa2014},
-  Astropy \citep{astropy2013,astropy2018},
+  AstroPy \citep{astropy2013,astropy2018},
+  HEALPix \citep{gorski2005},
+  HMF \citep{murray2013},
+  IPython (\url{https://ipython.org/}),
+  Matplotlib (\url{https://matplotlib.org/}),
   NumPy (\url{http://www.numpy.org/}),
   SciPy (\url{https://scipy.org/}),
-  IPython (\url{https://ipython.org/}),
-  Jupyter Notebook (\url{https://jupyter.org/}),
-  Matplotlib (\url{https://matplotlib.org/}),
-  Pandas (\url{https://pandas.pydata.org/})
+  Pandas (\url{https://pandas.pydata.org/}).
 }
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
@@ -1802,8 +1820,6 @@ This work is supported by the National Science Foundation of China
 \section{Collection of Current Observed Radio Halos}
 \label{sec:halos-collection}
 %########################################################################
-
-\TODO{(1) add footnotes; (2) estimate flux/power uncertainties}
 
 \begin{longrotatetable}
 \begin{deluxetable*}{lcccr@{$\,\pm\,$}lr@{$\,\pm\,$}lll}
@@ -1860,7 +1876,7 @@ Abell 851            & 0.4069 & 5.40 & 1.08 &   3.7 &  0.3 &  2.14 &  0.17 &  & 
 Abell 1132           & 0.1369 & 2.39 & 0.74 &   3.3 &  1.5 &  0.16 &  0.07 &  & \citet{wilber2018}  \\
 Abell 1213           & 0.0469 & 0.91 & 0.22 &  72.2 &  3.5 &  0.36 &  0.02 &  & \citet{giovannini2009}  \\
 Abell 1300           & 0.3100 & 4.52 & 0.92 &  20.0 &  2.0 &  2.99 &  0.30 & With a relic & \citet{reid1999}  \\
-Abell 1351           & 0.3220 & 4.64 & 1.08 &  32.4 &  ... & 11.37 &  ...  &  & \citet{giacintucci2011b}  \\
+Abell 1351           & 0.3220 & 4.64 & 1.08 &  32.4 &  XXX & 11.37 &  XXX  &  & \citet{giacintucci2011b}  \\
 Abell 1443           & 0.2700 & 4.10 & 1.10 &  11.0 &  1.1\tablenotemark{b} &  2.53 &  0.30 & Halo candidate & \citet{bonafede2015}  \\
 Abell 1451           & 0.1989 & 3.25 & 0.74 &   5.4 &  0.5 &  0.62 &  0.07 & With a relic candidate & \citet{cuciti2018}  \\
 Abell 1550           & 0.2540 & 3.92 & 1.41 &   7.7 &  1.6 &  1.49 &  0.31 &  & \citet{govoni2012}  \\
@@ -1898,7 +1914,7 @@ CIZA J0107.7+5408    & 0.1066 & 1.93 & 1.10 &  55.0 &  5.0 &  1.80 &  0.16 &  & 
 CIZA J0638.1+4747    & 0.1740 & 2.92 & 0.59 &   3.6 &  0.2 &  0.30 &  0.02 &  & \citet{cuciti2018}  \\
 CIZA J1938.3+5409    & 0.2600 & 3.99 & 0.72 &   1.6 &  0.2\tablenotemark{b} &  0.36 &  0.05 &  & \citet{bonafede2015}  \\
 CIZA J2242.8+5301    & 0.1921 & 3.16 & 1.77 &  33.5 &  6.2\tablenotemark{j} &  3.40 &  0.97 & With double relics & \citet{govoni2012}  \\
-ClG 0016+16          & 0.5456 & 6.37 & 0.77 &   5.5 &  ... &  4.42 &  ...  &  & \citet{giovannini2000}  \\
+ClG 0016+16          & 0.5456 & 6.37 & 0.77 &   5.5 &  XXX &  4.42 &  XXX  &  & \citet{giovannini2000}  \\
 ClG 0217+70          & 0.0655 & 1.24 & 0.73 &  58.6 &  0.9 &  0.54 &  0.01 & With double relics & \citet{brown2011}  \\
 ClG 1446+26          & 0.3700 & 5.09 & 1.22 &   7.7 &  2.6 &  3.57 &  1.21 & With a relic & \citet{govoni2012}  \\
 ClG 1821+64          & 0.2990 & 4.41 & 1.10 &  13.0 &  0.8\tablenotemark{k} &  3.70 &  0.10 &  & \citet{bonafede2014b}  \\
@@ -1915,7 +1931,7 @@ PLCK G171.9$-$40.7   & 0.2700 & 4.10 & 0.99 &  18.0 &  2.0 &  4.76 &  0.10 &  & 
 PLCK G285.0$-$23.7   & 0.3900 & 5.26 & 0.73 &   2.9 &  0.4\tablenotemark{p} &  1.67 &  0.21 &  & \citet{martinezAviles2016}  \\
 PLCK G287.0+32.9     & 0.3900 & 5.26 & 1.30 &   8.8 &  0.9 &  5.10 &  0.51 & With double relics & \citet{bonafede2014a}  \\
 PSZ1 G108.18$-$11.53 & 0.3347 & 4.77 & 0.84 &   6.8 &  0.2 &  2.72 &  0.10 & With double relics & \citet{deGasperin2015}  \\
-RXC J1234.2+0947     & 0.2290 & 3.63 & 0.92 &   2.0 &  ... &  0.30 &  ...  & Halo candidate & \citet{govoni2012}  \\
+RXC J1234.2+0947     & 0.2290 & 3.63 & 0.92 &   2.0 &  XXX &  0.30 &  XXX  & Halo candidate & \citet{govoni2012}  \\
 RXC J1314.4$-$2515   & 0.2474 & 3.85 & 1.27 &  20.3 &  0.8 &  1.45 &  0.06 & With double relics & \citet{feretti2005}  \\
 RXC J1514.9$-$1523   & 0.2226 & 3.55 & 1.38 &  10.0 &  2.0 &  1.65 &  0.33 &  & \citet{giacintucci2011a}  \\
 RXC J2003.5$-$2323   & 0.3171 & 4.59 & 1.38 &  35.0 &  2.0 & 11.96 &  0.68 &  & \citet{giacintucci2009}  \\
@@ -1955,64 +1971,48 @@ RXC J2351.0$-$1954   & 0.2477 & 3.85 & 0.64 &   4.5 &  0.9\tablenotemark{q} &  0
 
 
 %########################################################################
-\section{Useful Formulas}
+\section{Additional Formulas}
 \label{sec:formulas}
 %########################################################################
 
-\TODO{delete this appendix???}
-
-In a flat \lcdm{} cosmology, the critical linear overdensity as a function
-of redshift $z$ is \citep{kitayama1996,randall2002}:
+In a flat \lcdm{} cosmology as we adopted in this work, the critical linear
+overdensity as a function of redshift $z$ is \citep{kitayama1996,randall2002}
 \begin{equation}
   \label{eq:delta-crit}
   \delta_c(z) = \frac{D(z=0)}{D(z)}
   \left[ \frac{3 (12\pi)^{2/3}}{20} \right]
   \left[1 + 0.0123 \log_{10} \Omega_f(z) \right],
 \end{equation}
-where $\Omega_f(z)$ is the mass density ratio at redshift $z$:
+where $\Omega_f(z)$ is the mass density ratio at redshift $z$ defined as
 \begin{equation}
   \label{eq:omega-fz}
   \Omega_f(z) = \frac{\Omega_m(1+z)^3}{\Omega_m(1+z)^3 + \Omega_{\Lambda}},
 \end{equation}
-and $D(z)$ is the growth factor given by
-\citep[Equation~(13.6)]{peebles1980}:
+and $D(z)$ is the growth factor given by \citep[Equation~(13.6)]{peebles1980}
 \begin{equation}
   \label{eq:growth-factor}
   D(x) = \frac{(x^3 + 2)^{1/2}}{x^{3/2}}
     \int_0^x y^{3/2} (y^3 + 2)^{-3/2} \,\D{y},
 \end{equation}
-with $x_0 \equiv (2\Omega_{\Lambda}/\Omega_m)^{1/3}$ and
-$x = x_0 / (1+z)$.
+with $x_0 \equiv (2\Omega_{\Lambda}/\Omega_m)^{1/3}$ and $x = x_0 / (1+z)$.
 
-The virial radius of a cluster is:
+The virial radius of a galaxy cluster is defined as
 \begin{equation}
   \label{eq:radius-virial}
-  R_{\R{vir}} = \left[
-    \frac{3 M_{\R{vir}}}{4\pi \Delta_{\R{vir}}(z) \rho_{\R{crit}}(z)}
+  r_{\R{vir}} = \left[
+    \frac{3 M^{\R{cl}}}{4\pi \Delta_{\R{vir}}(z) \rho_{\R{crit}}(z)}
   \right]^{1/3},
 \end{equation}
-where $M_{\R{vir}}$ is the virial mass (can also be regarded as
-the total mass) of the cluster,
-$\rho_{\R{crit}}(z)$ is the critical density at redshift $z$,
+where $M^{\R{cl}}$ is the total mass (i.e., virial mass) of the cluster,
+$\rho_{\R{crit}}(z) = 3 H^2(z) / (8\pi G)$ is the critical density
+at redshift $z$,
 and $\Delta_{\R{vir}}(z)$ is the average overdensity of the cluster
-at redshift $z$ given by \citep{kitayama1996,cassano2005}:
+at redshift $z$ given by \citep{kitayama1996,cassano2005}
 \begin{equation}
   \label{eq:delta-vir}
   \Delta_{\R{vir}}(z) = 18\pi^2 \left[ 1 + 0.4093 \, w(z)^{0.9052} \right],
 \end{equation}
 where $w(z) \equiv \Omega_f^{-1}(z) - 1$.
-
-In a flat \lcdm{} cosmology as we adopted, the age of the Universe
-at redshift $z$ takes an analytical form
-\citep[their Equation~(18)]{thomas2000}:
-\begin{align}
-  \label{eq:universe-age}
-  t(z; \Omega_m, \Omega_{\Lambda}=1-\Omega_m)
-    & = \frac{1}{H_0} \int_z^{\infty}
-      \frac{\D{z'}}{(1+z')\sqrt{1 + \Omega_m z' (3+3z'+z'^2)}} \nonumber \\
-    & = \frac{2}{3 H_0 \sqrt{1-\Omega_m}} \sinh^{-1} \!\left(
-      \sqrt{\frac{\Omega_m^{-1} - 1}{(1+z)^3}} \right).
-\end{align}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
