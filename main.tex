@@ -151,7 +151,7 @@
 %% \setwatermarkfontsize{dimension}
 
 %\shorttitle{Impacts of Radio Halos on EoR Detection}
-\shorttitle{Contribution of Radio Halos to the Low-frequency Radio Sky}
+\shorttitle{Contributions of Radio Halos to the Low-frequency Radio Sky}
 \shortauthors{Li~\etal}
 
 
@@ -160,7 +160,7 @@
 \begin{document}
 
 \title{%
-  Radio Halos in Galaxy Clusters and Their Contribution
+  Radio Halos in Galaxy Clusters and Their Contributions
   to the Low-Frequency Radio Sky
 }
 
@@ -222,28 +222,34 @@
 \affiliation{Department of Electronic Engineering,
   Shanghai Jiao Tong University,
   800 Dongchuan Road, Shanghai 200240, China}
-
 \author{Dan Hu}
 \affiliation{School of Physics and Astronomy,
   Shanghai Jiao Tong University,
   800 Dongchuan Road, Shanghai 200240, China}
-
 \author{Zhenghao Zhu}
 \affiliation{School of Physics and Astronomy,
   Shanghai Jiao Tong University,
   800 Dongchuan Road, Shanghai 200240, China}
-
 \author{Chenxi Shan}
 \affiliation{School of Physics and Astronomy,
   Shanghai Jiao Tong University,
   800 Dongchuan Road, Shanghai 200240, China}
-
 \author{Jingying Wang}
-\affiliation{XXX}
+\affiliation{Department of Physics and Astronomy,
+  University of the Western Cape,
+  Cape Town 7535, South Africa}
 \author{Junhua Gu}
-\affiliation{XXX}
+\affiliation{National Astronomical Observatories,
+  Chinese Academy of Sciences,
+  20A Datun Road, Chaoyang District, Beijing, China}
+\author{Xiaoli Lian}
+\affiliation{School of Physics and Astronomy,
+  Shanghai Jiao Tong University,
+  800 Dongchuan Road, Shanghai 200240, China}
 \author{Qian Zheng}
-\affiliation{XXX}
+\affiliation{School of Engineering and Computer Science,
+  Victoria University of Wellington,
+  PO Box 600, Wellington 6140, New Zealand}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -271,14 +277,13 @@
 \label{sec:intro}
 %########################################################################
 
-{\color{magenta}
 The Epoch of Reionization (EoR; $z \sim \numrange{6}{15}$) refers to
-a period of our Universe preceded
-by the Cosmic Dawn ($z \sim \numrange{15}{30}$) and the Dark Ages
-($z \sim \numrange{30}{200}$).
-}
-During the EoR, which is expected to last from about 300 million to
-about 1 billion years after the Big Bang, the reionization of
+a period of our Universe preceded by the Cosmic Dawn
+($z \sim \numrange{15}{30}$) and the Dark Ages ($z \sim \numrange{30}{200}$)
+and is expected to last from about 300 million to about 1 billion years
+\LI{时间与红移对应正确}
+after the Big Bang \citep[see][and references therein]{koopmans2015rev}.
+During the EoR, the reionization of
 neutral hydrogen (\Hi) caused primarily by the ultra-violet and soft
 X-ray photons emitted from the first generation celestial objects
 efficiently surpassed the cooling of the gas through
@@ -286,26 +291,24 @@ recombination of electrons and protons.
 As a result, the majority of baryonic matter was again in a
 highly ionized state.
 Comparing with the observations of distant quasars and cosmic microwave
-background (CMB), which have provided some loose constraints on the
-reionization process, the detection the redshifted 21~cm line emission
-from \Hi{} in \SIrange{\sim 50}{200}{\MHz}, especially those from the
-adjacent regions of the ionized bubbles,
+background (CMB), which have provided some important but loose
+constraints on the reionization process, the detection the redshifted
+21~cm line emission from \Hi{} in \SIrange{\sim 50}{200}{\MHz},
+especially those from the adjacent regions of the ionized bubbles,
 is recognized to be the decisive tool to directly reveal the EoR
 \citep[see][for reviews]{zaroubi2013rev,furlanetto2016rev}.
 
-In order to probe the EoR, a number of radio interferometers
-working at the low-frequency radio bands, such as
+In order to reveal the EoR, a number of radio interferometers working
+at the low-frequency radio bands have been designed to target the
+redshifted 21~cm signals, among which there are
 the Square Kilometre Array (SKA; \citealt{mellema2013rev,koopmans2015rev}),
 the Hydrogen Epoch of Reionization Array (HERA; \citealt{deboer2017}),
-{\color{magenta}
-and their pathfinders [e.g.,
-the LOw Frequency ARray (LOFAR; \citealt{vanHaarlem2013});
-the Murchison Widefield Array (MWA; \citealt{bowman2013,tingay2013});
+and their pathfinders, such as
+the LOw Frequency ARray (LOFAR; \citealt{vanHaarlem2013}),
+the Murchison Widefield Array (MWA; \citealt{bowman2013,tingay2013}),
 the Precision Array for Probing the Epoch of Reionization
-(PAPER; \citealt{parsons2010});
-the 21 CentiMeter Array (21CMA; \citealt{zheng2016})]
-}
-have been designed to target the redshifted 21~cm signals.
+(PAPER; \citealt{parsons2010}),
+and the 21 CentiMeter Array (21CMA; \citealt{zheng2016}).
 The challenges met in these experiments, however, are immense
 due to a variety of complicated instrumental effects,
 ionospheric distortions, radio frequency interference, and the
@@ -329,19 +332,17 @@ and the intracluster medium (ICM) of galaxy clusters (radio halos,
 radio relics, and mini-halos).
 Although these sources play a minor role and have been less constrained
 by observations, an appropriate treatment of them is indispensable
-in detecting the very faint EoR signals, since they may still be
-{\color{magenta}
+in detecting the very faint EoR signal, since they may still be
 tens to hundreds of times brighter than the target signals
 \citep[e.g.,][]{waxman2000,diMatteo2004,gleser2008}.
 As estimated in \citet{diMatteo2004}, the intensity fluctuation
-at \SI{115}{\MHz} contributed by extended radio halos and relics
+at \SI{115}{\MHz} caused by extended radio halos and relics
 is about three orders of magnitude larger than that of 21~cm signals
 through the whole range of angular scales.
-}
 
 In this work, we attempt to address this issue by focusing on the
 evolution of diffuse radio halos in galaxy clusters via detailed
-modeling and their impacts on detecting the EoR signals.
+modeling and their impacts on detecting the EoR signal.
 First discovered in the Coma cluster \citep{large1959}, radio halos
 has been observed in about 80 merging galaxy clusters roughly at
 their centers, showing relatively regular morphologies and spatial
@@ -351,23 +352,18 @@ It should be noted that the angular sizes of radio halos happen to be
 several to tens of arcminutes, which coincides with those theoretically
 predicted for the ionizing bubbles during the EoR.
 This, complemented with the potentially large number
-{\color{magenta}(several to tens of thousand in all sky)}
+(several to tens of thousand in the whole sky)
 of radio halos to be revealed by the forthcoming
 low-frequency radio telescopes \citep[e.g.,][]{cassano2015},
 indicates that in order to better guide foreground removal and avoidance
 techniques, it is essential to investigate the cumulative emission
 of radio halos as a source of the foreground contamination
-\citep[e.g.,][]{diMatteo2004,gleser2008}
-\XU{Di Matteo et al. 2004 一文是关于射电晕干扰的？？}
-\LI{此文研究了河外展源，主要是射电晕和射电遗迹；
-但该文章比较旧了，有些方法和结果现在已经有点不适用了}.
+\citep[e.g.,][]{diMatteo2004,gleser2008}.
 As of today, however, only few works have been dedicated to this topic
-based on relatively straightforward modeling methods,
-{\color{magenta}
+and are all based on relatively straightforward modeling methods,
 e.g., using the \SI{1.4}{\GHz} radio flux function or radio--X-ray
 scaling relations, which are barely constrained by current observations
 \citep[e.g.,][]{gleser2008,jelic2008}.
-}
 The data acquired in these observations are far from complete due to
 the lack of systematic surveys targeting these diffuse sources,
 especially in the low-frequency radio bands \citep[e.g.,][]{kale2016rev}.
@@ -382,7 +378,7 @@ In \autoref{sec:obs-simu} we employ the latest SKA1-Low layout
 configuration to incorporate the practical instrumental effects into
 the simulated sky maps.
 We then quantitatively evaluate the contamination of radio halos to the
-EoR signals and discuss the results in \autoref{sec:results}.
+EoR signal and discuss the results in \autoref{sec:results}.
 Finally we summarize our work in \autoref{sec:summary}.
 Throughout this work we adopt a flat \lcdm{} cosmology with
 $H_0 = \SI{100}{\hubble} = \SI{71}{\km\per\second\per\Mpc}$,
@@ -408,22 +404,9 @@ where further documents and auxiliary data are provided.
 Additional utilities are also developed to help the observational simulation,
 which aims to integrate the instrumental responses of low-frequency radio
 interferometers, as well as subsequent analyzing procedures.
-%%%
-\XU{The software is designed to take into account the
-contributions of our Galaxy, extragalactic discrete sources (i.e.,
-star-forming galaxies, radio-quiet active galactic nuclei (AGNs), and
-radio-loud AGNs), galaxy clusters, cosmic microwave background (CMB), and 21
-cm signals of the EoR【既然是天空仿真，就不要有遗漏！！确认还缺什么！！】,
-and it also has an interface to integrate instrumental responses of any
-low-frequency radio interferometers.}
-\LI{该软件只模拟了银河系、河外点源以及射电晕这几种前景；
-21~cm 信号使用 Mesinger et al. 2016 的推荐结果；
-天空图像模拟与干涉阵观测模拟是两个独立的步骤，只要提供天空图像便可模拟
-得到干涉阵观测结果，因此不宜说前景模拟软件为观测模拟设计有专门接口.}
-%%%
 
 By consulting the latest SKA science book on the EoR survey strategies
-\citep[e.g.,][]{koopmans2015rev}, we perform the simulations within
+\citep[e.g.,][]{koopmans2015rev}, we perform simulations within
 a \SI{8}{\MHz} band centered at \SI{158}{\MHz} for a
 \SI[product-units=repeat]{10 x 10}{\degree}
 sky region at (R.A., Dec.) = (\SI{0}{\degree}, \SI{-27}{\degree}),
@@ -431,10 +414,6 @@ which locates at high galactic latitude ($b = \SI{-78.5}{\degree}$)
 and passes through the zenith of SKA1-Low\footnote{%
   This sky region is also targeted by the MWA (EoR0 field;
   e.g., \citealt{beardsley2016}).}.
-%%%
-\XU{It has also been observed with MWA (EoR0 field), which enables us to us actual data to constrain our simulations.}
-\LI{此工作没有如此使用 MWA 的观测来约束模拟图像}
-%%%
 The \SI{8}{\MHz} bandwidth is chosen to limit the cosmological evolution
 effect for the 21~cm signals when calculating power spectra
 \citep[e.g.][]{wyithe2004,thyagarajan2013},
@@ -450,19 +429,18 @@ of \SI{20}{\arcsecond}.
 \label{sec:cluster-halo}
 %========================================================================
 
-As a significant improvement over our past works, we consider in detail
-the evolution of radio halos in galaxy clusters by employing the
-{\color{magenta}
-merger-induced turbulence re-acceleration model, among which the
-relativistic electrons are re-accelerated in the ICM via the second-order
-Fermi process by the turbulence generated in merger events,
-and also lose energies due to mechanisms including synchrotron radiation,
+As a significant improvement over our past works \citep{wang2010,wang2013},
+we consider in detail the evolution of radio halos in galaxy clusters
+by employing the merger-induced turbulence re-acceleration model,
+in terms of which the relativistic electrons in the ICM are re-accelerated
+by the turbulence generated in merger events via the second-order
+Fermi process,
+and lose energies due to mechanisms including synchrotron radiation,
 inverse Compton scattering off the CMB photons, and Coulomb collisions
 with the thermal ICM.
-For each galaxy cluster, we first simulate its merging history, which is
-quantitatively described by a merger tree, by using the extended
-Press-Schechter theory.
-}
+For each galaxy cluster, we first simulate its merging history
+by using the extended Press-Schechter theory,
+which is quantitatively described by a merger tree.
 Then we calculate the turbulent acceleration efficiency and duration
 for each merger event.
 By combining the effects of turbulent acceleration and energy loss,
@@ -481,12 +459,13 @@ the cold dark matter (CDM) models \citep[e.g.,][]{bond1991,lacey1993}.
 In this formalism, the number density (i.e., the number per unit comoving
 volume per unit mass) of dark matter halos (i.e., galaxy clusters) at a
 certain redshift $z$ is
-%%%
-\XU{假定暗晕与星系团合体，其质量分布函数是有一个平移的！！}
-\LI{PS 理论描述的是暗晕的质量及红移分布，而非星系团总质量；
-因此需要再将 PS 理论给出的暗晕质量换算成星系团总质量：
-$M^{\R{cl}} = M^{\R{DM}} / (1-f_{\R{gas}})$}
-%%%
+\XU{a. 当年理论家基本认为暗晕 = 全部星系团，不考虑气体（当然有技术原因）;
+  b. PS 模型上接早期扰动下接今天，所以它的质量函数约等于星系团的质量函数，
+  否则就要初始条件了！}
+\LI{PS 理论确实只考虑了暗物质的塌缩，描述的是暗晕的质量分布规律
+  （可见《宇宙大尺度结构的形成》）。由于后文需要讨论星系团的 ICM，因此
+  按宇宙平均重子物质比例确定 ICM 的质量是合理的。
+  这里使用了与王婧颖 2010 一文相同的做法。}
 \begin{equation}
   \label{eq:ps-mass-func}
   n(M, z) \,\D{M} = \sqrt{\frac{2}{\pi}} \frac{\langle{\rho}\rangle}{M}
@@ -515,19 +494,18 @@ and the exponent $\alpha = (n+3)/6$ with $n = -7/5$ \citep{randall2002}
 is related to the fluctuations pattern whose power spectrum varies
 with wavenumber $k$ as $k^n$.
 
-Given a minimum dark matter halo mass of
-$M_{\R{min}} = \SI{e14}{\solarmass}$ \TODO{ref???}
+Using a minimum dark matter halo mass of
+$M_{\R{min}} = \SI{e14}{\solarmass}$
 and a maximum redshift cut at $z_{\R{max}} = 4$,
-{\color{magenta}
-we are able to use \autoref{eq:ps-mass-func} to derive the total number
-of dark matter halos in any given sky patch and their mass and redshift
-distributions.
-Then we run Monte Carlo simulations to generate the dark matter halo
-sample with random masses $M_{\R{sim}}$ and redshifts $z_{\R{sim}}$.
-By assuming that galaxy clusters have a gas fraction of
-$f_{\R{gas}} \simeq \Omega_b/\Omega_m$, their total mass is therefore
-given by $M_{\R{sim}}^{\R{cl}} = M_{\R{sim}} / (1 - f_{\R{gas}})$.
-}
+we apply \autoref{eq:ps-mass-func} to derive the total number of dark
+matter halos in any given sky patch, together with their mass and
+redshift distributions.
+Based on these distributions, we run Monte Carlo simulations to
+generate the dark matter halo sample with random masses
+$M_{\R{sim}}$ and redshifts $z_{\R{sim}}$.
+By assuming that galaxy clusters have a baryon fraction of
+$f_b \simeq \Omega_b/\Omega_m$, their total mass is therefore
+given by $M_{\R{sim}}^{\R{cl}} = M_{\R{sim}} / (1 - f_b)$.
 \XU{cl 建议改为 total}
 
 %------------------------------------------------------------------------
@@ -546,10 +524,8 @@ by running Monte Carlo simulations to randomly determine the mass change
 $\Delta M$ at each step, which may be regarded either as a merger event
 (if $\Delta M > \Delta M_c$) or as an accretion event
 (if $\Delta M \leq \Delta M_c$).
-{\color{magenta}
 Considering that radio halos are usually associated with major mergers,
-we choose $\Delta M_c = \SI{e13}{\solarmass}$ \TODO{ref???}
-\LI{测试显示该参数对模拟结果影响很小}.}
+we choose $\Delta M_c = \SI{e13}{\solarmass}$ \citep[e.g.,][]{cassano2005}.
 
 We assume that during each growth step the dark matter halo mass increases
 from $M_1$ at time $t_1$ to $M_2$ at a later time $t_2$ ($> t_1$).
@@ -578,57 +554,50 @@ $\omega \equiv \delta_c(t)$, this equation reduces to
   \exp \!\left[ -\frac{(\Delta\omega)^2}{2 \Delta S} \right] \D{\Delta S}.
 \end{equation}
 
-{\color{magenta}
-During the backward tracing of a dark matter halo, the time step size
-$\Delta t$ (i.e., $\Delta\omega$) determines the mass resolution.
-It is required that
+{\color{magenta}%
+In order to resolve mergers with mass change $\Delta M_c \ll M$
+during the backward tracing of a dark matter halo, the time step size
+$\Delta t$ (i.e., $\Delta\omega$) is required to satisfy that
+\citep{lacey1993}
 \begin{equation}
   \label{sec:dw-step}
-  \Delta\omega \lesssim \left[
+  \Delta\omega \lesssim \Delta\omega_{\R{max}} = \left[
     S \left| \diff{\ln \sigma^2}{\ln M} \right|
     \left( \frac{\Delta M_c}{M} \right) \right]^{1/2},
 \end{equation}
-in order to resolve single mergers of mass $\Delta M_c \ll M$
-\citep{lacey1993}.
-Similar to \citet{randall2002}, we use an adaptive step size
-$(\Delta\omega)_{\R{step}}$ that equals to half of this maximum value.
-Given $\Delta\omega$ at a step, the mass change $\Delta S$ can be
-randomly drawn from the following cumulative probability distribution
-of sub-halo masses
+and we adopt an adaptive step size of
+$\Delta\omega = \Delta\omega_{\R{max}} / 2$ \citep{randall2002}.} % magenta
+At a certain step when $\Delta\omega$ is given, the mass change
+$\Delta S$ can be randomly drawn from the following cumulative
+probability distribution of sub-halo masses
 \begin{equation}
   \label{sec:cdf-sub-masses}
   \R{Pr}(<\!\Delta S, \Delta\omega) =
   \int_0^{\Delta S} \R{Pr}(\Delta S', \Delta\omega) \,\D{\Delta S'} =
   \erfc \!\left( \frac{\Delta \omega}{\sqrt{2 \Delta S}} \right),
 \end{equation}
-where $\erfc(x) = 1 - \erf(x)$ is the complementary error function
-\LI{这是统计里的常用特殊函数，不需引文},
+where $\erfc(x) = 1 - \erf(x)$ is the complementary error function,
 and the halo's progenitor mass $M_1$ is then obtained as
-$S_1 = S_2 + \Delta S$
-\LI{$S = \sigma^2(M)$ 与 $M$ 反相关，因此公式右边的加号是正确的}.
+$S_1 = S_2 + \Delta S$.
 
-Considering that observable radio halos should be associated with
-recent major mergers
-%%%
-\XU{高红移的并合实际发生在过去，现在其信号才传到地球。因此，
-recent 一词似不合适}
-\LI{recent 在已有文献中也经常使用；暂时想不到其他更好的词}
-%%%
+Considering that observable radio halos are regarded to be associated
+with recent (in the frame of the observer) major mergers
 and have typical lifetimes $\tau_{\R{halo}} \lesssim \SI{1}{\Gyr}$
 \citep[e.g.,][]{brunetti2009,cassano2016},
-we trace the merging history of each dark matter halo by a maximum
+we trace the merging history of each dark matter halo using a maximum
 backward time of \SI{3}{\Gyr} from its \enquote{current} age
-$t_{\R{sim}}$ (i.e., $z_{\R{sim}}$).
+$t_{\R{sim}}$ (corresponding to $z_{\R{sim}}$).
 Once the merger tree been built, we again transform the mass of
 dark matter halos to the total mass of galaxy clusters according to
-$M^{\R{cl}} = M / (1 - f_{\R{gas}})$, and we extract all the merger
-events associated with the main halo (or main cluster) for the
-following radio halo simulation.
+$M^{\R{cl}} = M / (1 - f_b)$, and we extract the information of
+all the merger events associated with the main halo (or main cluster)
+to carry out the simulations of radio halos.
 
+{\color{magenta}%
 We note that, unless otherwise specified, the mass in the following
 text refers to the total mass of galaxy clusters, and we will drop
-the superscript \enquote{cl} from now on.
-}
+the superscript \enquote{cl} from now on.}
+\XU{不合适！何况 $M^{\R{cl}}$ 是 $M^{\R{tot}}$ 中其次的量！}
 
 
 %------------------------------------------------------------------------
@@ -636,23 +605,24 @@ the superscript \enquote{cl} from now on.
 \label{sec:halos}
 %------------------------------------------------------------------------
 
-In the adopted merger-induced turbulence re-acceleration model, there
-exists a population of primary (or fossil) high-energy electrons permeating
-the ICM, which are thought to be injected by active galactic nucleus (AGN)
-activities (quasars, radio galaxies, etc.), and by star formation in
-normal galaxies (supernovae, galactic winds, etc.) during the cluster
-life \citep[see][for a review]{blasi2007rev},
-then the turbulence generated by intense mergers interact with the ICM
-and accelerate the primary electrons to be highly relativistic, resulting
-in the observed diffuse synchrotron radiation.
+According to the re-acceleration model, there exists a population of
+primary (or fossil) high-energy electrons, which permeate the ICM.
+They are thought to be injected by active galactic nucleus (AGN)
+activities and star formation \citep[see][for a review]{blasi2007rev}.
+\textcolor{magenta}{%
+When the cluster experiences mergers, the turbulence is generated
+throughout the ICM and can accelerate the primary electrons to be highly
+relativistic, resulting in the observed diffuse synchrotron radiation
+such as radio halos.}
 
-Besides the turbulent acceleration, electrons in the ICM lose energies
-via synchrotron radiation, inverse Compton scattering off the CMB photons,
+In addition to the energy increase that is caused by the turbulent
+acceleration, electrons in the ICM lose energy via synchrotron radiation,
+inverse Compton scattering off the CMB photons,
 Coulomb collisions, etc.\ \citep{sarazin1999}.
-Given a population of electrons with isotropic energy distribution, and
-considering both the energy gain and loss mechanisms, the temporal evolution
-of the electron spectrum is governed by the following Fokker-Planck
-diffusion-advection equation \citep{eilek1991,schlickeiser2002}
+For a population of electrons with isotropic energy distribution, the
+temporal evolution of the number density distribution $n(\gamma, t)$
+is governed by the following Fokker-Planck diffusion-advection equation
+\citep{eilek1991,schlickeiser2002}
 \begin{equation}
   \label{eq:fokkerplanck}
   \pdiff{n(\gamma,t)}{t} = \pdiff{}{\gamma} \left[ n(\gamma,t) \left(
@@ -661,8 +631,7 @@ diffusion-advection equation \citep{eilek1991,schlickeiser2002}
     \pdiff{}{\gamma} \left[ D_{\gamma\gamma} \pdiff{n(\gamma,t)}{\gamma}
     \right] + Q_e(\gamma,t),
 \end{equation}
-where $\gamma \approx p / (m_e c)$ is the Lorentz factor of electrons,
-$n(\gamma, t)$ is the isotropic number density of the electron population,
+where $\gamma$ is the Lorentz factor of electrons,
 $D_{\gamma\gamma}(\gamma, t)$ is the diffusion coefficient describing
 the interactions between the turbulence and electrons,
 $|\R{d}\gamma / \R{d}t|$ is the energy loss rate,
@@ -670,74 +639,84 @@ and $Q_e(\gamma, t)$ describes the electron injection.
 
 %........................................................................
 \setcounter{sssseccount}{0}
+{\color{magenta}%
+\ssssec{Thermal Number and Energy Densities}
+
+The thermal number density $n_{\R{th}}$ of the ICM can be calculated as
+\begin{equation}
+  \label{eq:number-density-thermal}
+  n_{\R{th}} \simeq \frac{3 f_b M}{4\pi \mu m_u \,r^3_{\R{vir}}},
+\end{equation}
+where
+$M$ is the cluster's total mass (i.e., virial mass),
+$r_{\R{vir}}$ is the virial radius [see \autoref{eq:radius-virial}],
+$\mu \simeq 0.6$ is the mean molecular weight \citep[e.g.,][]{ettori2013},
+and $m_u$ is the atomic mass unit.
+Therefore, the thermal energy density $\epsilon_{\R{th}}$ of the ICM
+is given by
+\begin{equation}
+  \label{eq:energy-density-thermal}
+  \epsilon_{\R{th}} = \frac{3}{2} \,n_{\R{th}} \,k_BT_{\R{cl}},
+\end{equation}
+where the cluster's mean temperature is approximated as the virial
+temperature:
+$k_BT_{\R{cl}} \simeq k_BT_{\R{vir}} = G M \mu m_u / (2 \,r_{\R{vir}})$.} % magenta
+
+%........................................................................
 \ssssec{Electron Injection}
 
-It is reasonable to assume that the primary electrons were constantly
-injected into the ICM during the cluster life and had a power-law
-spectrum of index $s = 2.3$ \citep[e.g.,][]{sarazin1999}
+As primary electrons are continuously injected into the ICM by AGN
+activities and star formation, it is reasonable to assume an average
+injection rate \citep[e.g.,][]{cassano2005,donnert2014} and a power-law
+spectrum for the electron injection process
 \begin{equation}
   \label{eq:electron-inj}
-  Q_e(\gamma, t) \equiv Q_e(\gamma) = K_e \,\gamma^{-s}.
+  Q_e(\gamma, t) \simeq Q_e(\gamma) = K_e \,\gamma^{-s},
 \end{equation}
-By further assuming that the total energy of injected electrons is a
-fraction, $\eta_e$, of the total thermal energy \citep{cassano2005}
+where $s = 2.3$ is the adopted spectral index \citep[e.g.,][]{sarazin1999}.
+Moreover, the total energy of injected electrons is assumed to account for
+a fraction ($\eta_e$) of the ICM's total thermal energy $\epsilon_{\R{th}}$
+\citep{cassano2005}
 \begin{equation}
   \epsilon_e \,\tau_{\R{cl}} \int_{\gamma_{\R{min}}}^{\gamma_{\R{max}}}
   Q_e(\gamma') \gamma' \,\D{\gamma'}
   = \eta_e \,\epsilon_{\R{th}},
 \end{equation}
-and given $\gamma_{\R{min}} \ll \gamma_{\R{\max}}$,
-the injection rate $K_e$ can be derived to be
+where $\tau_{\R{cl}} \simeq t_{\R{sim}}$ is the cluster's age at its
+\enquote{current} redshift $z_{\R{sim}}$ as simulated in
+\autoref{sec:mass-function},
+and $\epsilon_e = m_e c^2$ is the electron's rest energy.
+Given $\gamma_{\R{min}} \ll \gamma_{\R{\max}}$, the injection rate $K_e$
+is derived to be
 \begin{equation}
   \label{eq:injrate}
   K_e \simeq \frac{(s-2)\,\eta_e\,\epsilon_{\R{th}}}{\epsilon_e\,\tau_{\R{cl}}}
-    \gamma_{\R{min}}^{s-2},
+    \gamma_{\R{min}}^{s-2}.
 \end{equation}
-{\color{magenta}
-where $\tau_{\R{cl}} \simeq t_{\R{sim}}$ is the cluster's age at its
-\enquote{current} redshift $z_{\R{sim}}$ as simulated in
-}
-\autoref{sec:mass-function},
-and $\epsilon_e = m_e c^2$ is the electron's still energy.
-In addition, the thermal energy density of the ICM, $\epsilon_{\R{th}}$,
-is calculated as
-\begin{equation}
-  \label{eq:energy-density-thermal}
-  \epsilon_{\R{th}} = \frac{3}{2} \,n_{\R{th}} \,k_BT_{\R{cl}},
-\end{equation}
-and the thermal number density, $n_{\R{th}}$, is given by
-\begin{equation}
-  \label{eq:number-density-thermal}
-  n_{\R{th}} \simeq \frac{3 f_{\R{gas}} M}{4\pi \mu m_u \,r^3_{\R{vir}}},
-\end{equation}
-where
-{\color{magenta}
-$M$ is the cluster's total mass (i.e., virial mass),
-$r_{\R{vir}}$ is the virial radius [see \autoref{eq:radius-virial}],
-$\mu \simeq 0.6$ is the mean molecular weight \citep[e.g.,][]{ettori2013},
-and $m_u$ is the atomic mass unit.
-The cluster's mean temperature is approximated with the virial temperature:
-$k_BT_{\R{cl}} \simeq k_BT_{\R{vir}} = G M \mu m_u / (2 \,r_{\R{vir}})$.
-}
 
-As for the initial spectrum of electrons $n_e(\gamma, t_0)$ for solving
-\autoref{eq:fokkerplanck}, it is derived by evolving the accumulated spectrum
+%........................................................................
+{\color{magenta}%
+\ssssec{Initial Condition}
+
+To determine the initial electron spectrum $n_e(\gamma, t_0)$ for solving
+\autoref{eq:fokkerplanck}, we evolve the accumulated electron spectrum
 $n_e'(\gamma) = t_0 K_e \gamma^{-s}$ for \SI{\sim 1}{\Gyr} with only energy
 losses, where $t_0$ is the cosmic age when the first merger event begins
-\citep[e.g.,][]{brunetti2007}.
+\citep[e.g.,][]{brunetti2007}.}
 
 %........................................................................
 \ssssec{Turbulent Acceleration}
 
-The interaction details between the turbulence and the cluster ICM
-are complicated and still poorly understood.
-Among the several different particle acceleration mechanisms could be
-potentially triggered by the turbulence, the most important one is that
-the turbulence dissipates its energy and accelerates particles by interacting
-with the relativistic particles (e.g., cosmic rays) in the ICM via the
-transit time damping process
-\citep[and references therein]{brunetti2007,brunetti2011},
-and the associated diffusion coefficient is given as
+\textcolor{magenta}{%
+The interaction details between the turbulence and the ICM thermal and
+relativistic particles are complicated and still poorly understood.}
+Among several particle acceleration mechanisms that can be potentially
+triggered by the turbulence, the most important one is the transit time
+damping process, i.e., the turbulence dissipates its energy and
+accelerates particles by interacting with the relativistic particles
+(e.g., cosmic rays) in the ICM
+\citep[and references therein]{brunetti2007,brunetti2011}.
+The associated diffusion coefficient is given as
 \citep{pinzke2017,miniati2015}
 \begin{equation}
   \label{eq:dpp}
@@ -749,56 +728,55 @@ $\zeta \sim \numrange{0.1}{0.3}$ is an efficiency factor characterizing
 the plasma instabilities (e.g., due to spatial or temporal intermittency),
 $X_{\R{CR}} = \epsilon_{\R{CR}} / \epsilon_{\R{th}} \sim \SI{1}{\percent}$
 is the relative energy density of cosmic rays with respect to the thermal ICM,
-{\color{magenta}
 $L_{\R{turb}} \simeq r_{\R{vir}}/3$ is the turbulence injection scale
 \citep{miniati2015},
-}
 $\langle (\delta{v_t})^2 \rangle$ is the turbulence velocity dispersion,
-and $c_s$ is the sound speed in the ICM.
+{\color{magenta}%
+and $c_s = \sqrt{\gamma_{\R{gas}} k_BT_{\R{cl}} / (\mu m_u)}$ is the sound
+speed in the ICM with $\gamma_{\R{gas}} = 5/3$ being the adiabatic index
+of ideal monatmoic gas.}
 
-The total kinetic energy carried by a merger can be estimated as
-\begin{equation}
-  \label{eq:energy-merger}
-  E_{\R{merger}} = \frac{1}{2} f_{\R{gas}} M_{\R{sub}} v^2_{\R{sub}}
-    \simeq \frac{1}{2} f_{\R{gas}} M_{\R{sub}}
-    \frac{G M_{\R{main}}}{r^2_{\R{main}}},
-\end{equation}
-{\color{magenta}
-where $M_{\R{main}}$ and $M_{\R{sub}}$ are the masses of the two merging
-clusters, and $r_{\R{main}}$ is the virial radius of the main cluster.
-}
-To further estimate the velocity dispersion of the turbulence, we assume
-that a fraction, $\eta_{\R{turb}}$, of the merger kinetic energy was
-transferred into turbulent waves, i.e.,
+{\color{magenta}%
+In order to estimate the velocity dispersion of the turbulence, we assume
+that a fraction ($\eta_{\R{turb}}$) of the kinetic energy carried by the
+merger is transferred into turbulent waves, i.e.,
 \begin{equation}
   \label{eq:energy-turb}
-  E_{\R{turb}} = \frac{1}{2} M_{\R{turb}}^{\R{gas}}
+  E_{\R{turb}} = \frac{1}{2} M_{\R{turb}}^b
     \langle (\delta{v_t})^2 \rangle = \eta_{\R{turb}} E_{\R{merger}},
 \end{equation}
 where
-$M_{\R{turb}}^{\R{gas}}$ is the gas mass enclosed in the turbulent region,
-i.e., within radius of $L_{\R{turb}}$.
-By adopting a NFW density profile \citep{navarro1997}, the distribution
-of mass
-{\color{magenta}
-in fraction of the total mass is
+$M_{\R{turb}}^b$ is the baryon mass enclosed in the turbulent region
+(i.e., within radius of $L_{\R{turb}}$),
+and $E_{\R{merger}}$ is the merger kinetic energy, which can approximated
+as the potential energy to be released from the infalling sub cluster
+\begin{equation}
+  \label{eq:energy-merger}
+  E_{\R{merger}} \simeq \frac{1}{2} f_b M_{\R{sub}} v^2_{\R{vir}}
+    \simeq \frac{1}{2} f_b M_{\R{sub}}
+    \frac{G M_{\R{main}}}{r^2_{\R{main}}},
+\end{equation}
+where
+$M_{\R{main}}$ and $M_{\R{sub}}$ are the virial masses of the two merging
+clusters, and $r_{\R{main}}$ is the virial radius of the main cluster.} % magenta
+By adopting the NFW density profile \citep{navarro1997}, the distribution
+of mass within a radius of $s \,r_{\R{vir}}$ ($s$ is the normalized radius
+in units of the virial radius) in fraction of the virial mass is
 \begin{equation}
   \label{eq:mass-dist-nfw}
   f_{\R{nfw}}(s) = \frac{M(< s \,r_{\R{vir}})}{M} =
     \frac{\ln(1 + c s) - c s / (1 + c s)}{\ln(1 + c) - c / (1 + c)},
 \end{equation}
-}
-where $s = r / r_{\R{vir}}$ is the normalized radius in units of the
-virial radius, and $c \sim 5$ is the concentration parameter for
-clusters \citep{lokas2001}.
+where
+$c \sim 5$ is the concentration parameter for clusters \citep{lokas2001}.
 Therefore we have
 \begin{equation}
   \label{eq:mass-turb}
-  M_{\R{turb}} = f_{\R{gas}} M_{\R{merged}}(<L_{\R{turb}})
-    = f_{\R{gas}} f_{\R{nfw}}(1/3) (M_{\R{main}} + M_{\R{sub}}),
+  M_{\R{turb}}^b = f_b M_{\R{merged}}(<L_{\R{turb}})
+    = f_b f_{\R{nfw}}(1/3) (M_{\R{main}} + M_{\R{sub}}).
 \end{equation}
-and by substituting this into \autoref{eq:energy-turb} we obtain
-the turbulence velocity dispersion as
+By substituting \autoref{eq:mass-turb} into \autoref{eq:energy-turb},
+we obtain the turbulence velocity dispersion as
 \begin{equation}
   \label{eq:turb-velocity-dispersion}
   \langle (\delta{v_t})^2 \rangle =
@@ -811,18 +789,21 @@ Generally, the turbulence generated during major mergers is subsonic
 with a Mach number of
 $\mathcal{M}_{\R{turb}} = \sqrt{\langle (\delta{v_t})^2 \rangle} / c_s
   \sim \numrange{0.2}{0.5}$,
-and its acceleration efficiency to electrons can be described by the
+and the acceleration efficiency can be described by the systematic
 acceleration timescale (i.e., the reciprocal of the acceleration rate)
 $\tau_{\R{acc}} = 4 D_{\gamma\gamma} / \gamma^2 \sim \SI{0.1}{\Gyr}$,
-which is independent of the electron momentum.
+\textcolor{magenta}{%
+indicating that the turbulent acceleration is a relatively efficient
+mechanism to accelerate the electrons in the ICM and can well explain
+the generation of radio halos.}
 
 %........................................................................
 \ssssec{Acceleration Periods}
 
 The whole merger process may last for \SIrange{2}{3}{\Gyr}
 \citep[e.g.,][]{tormen2004,cassano2016},
-but only when the strong turbulence exists can the turbulent acceleration
-become effective, which persists for a relatively short period of time:
+however, the period of strong turbulence $\tau_{\R{turb}}$, during with
+the turbulent acceleration becomes effective, is relatively short:
 $\tau_{\R{turb}} \simeq 2 L_{\R{turb}} / v_{\R{imp}}$,
 where $v_{\R{imp}}$ is the relative impact velocity between the merging
 clusters \citep{miniati2015}.
@@ -836,28 +817,27 @@ $M_{\R{main}}$ and $M_{\R{sub}}$ is given by \citep{sarazin2002,cassano2005}
     \left( 1 - \frac{1}{\eta_v} \right)\right]^{1/2},
 \end{equation}
 with $\eta_v \simeq 4 \,(1 + M_{\R{sub}}/M_{\R{main}})^{1/3}$.
-Therefore, we estimate that major mergers generally have an effective
+Based on these, we estimate that major mergers generally have an effective
 turbulent acceleration duration $\tau_{\R{turb}} \sim \SI{0.5}{\Gyr}$.
 
+\LI{此处说明我们考虑了一个星系团 3 Gyr 之内的全部并合历史。倾向保留。}
 For each merger event
 $(M^{(i)}_{\R{main}}, M^{(i)}_{\R{sub}}, t^{(i)}_{\R{merger}})$
 of a galaxy cluster as simulated in \autoref{sec:merging-history},
 we calculate the corresponding turbulent acceleration duration
-$\tau^{(i)}_{\R{turb}}$, and solve the above Fokker-Planck equation with
-{\color{magenta}
+$\tau^{(i)}_{\R{turb}}$, and solve the Fokker-Planck equation with
 both turbulent acceleration and energy losses among periods
 $[t^{(i)}_{\R{merger}}, t^{(i)}_{\R{merger}}+\tau^{(i)}_{\R{turb}}]$,
 while there are only energy losses at other times.
-}
 
 %........................................................................
 \ssssec{Energy Losses}
 
-There are several different mechanisms through which the relativistic
-electrons in the ICM may lose energies \citep{sarazin1999},
-and we consider the following three major mechanisms in our simulation.
-The first one is the inverse Compton scattering off the CMB photons
-whose energy loss rate is
+There are several mechanisms through which the relativistic electrons in
+the ICM can lose energies \citep{sarazin1999}, and we take into account
+the following three major mechanisms in our simulation.
+The first one is the inverse Compton scattering off the CMB photons,
+the energy loss rate of which is
 \begin{equation}
   \label{eq:eloss-ic}
   \left( \diff{\gamma}{t} \right)_{\R{IC}} =
@@ -865,29 +845,25 @@ whose energy loss rate is
     \quad [\si{\per\Gyr}].
 \end{equation}
 
-{\color{magenta}
 Secondly, with the \si{\uG}-level magnetic field permeating the ICM,
 relativistic electrons will produce synchrotron radiation and lose
 energy at a rate of
-}
 \begin{equation}
   \label{eq:eloss-syn}
   \left( \diff{\gamma}{t} \right)_{\R{syn}} =
     \num{-4.10e-5} \,\gamma^2 \left( \frac{B}{\SI{1}{\uG}} \right)^2
     \quad [\si{\per\Gyr}],
 \end{equation}
-where $B$ is the magnetic field strength.
-{\color{magenta}
+where $B$ is the averaged magnetic field strength.
 We assume that the magnetic field is uniform and its energy density
 is a fraction of the thermal energy density, i.e.,
 $u_B = B^2 / (8\pi) = \eta_B \,\epsilon_{\R{th}}$,
 where $\eta_B$ is the energy density ratio between the magnetic field
 and the thermal ICM \citep[e.g.,][]{bohringer2016}.
-}
 
-The last mechanism considered here is that electrons lose energy
-by interacting with the thermal ICM via Coulomb collisions, which gives
-the loss rate
+The last mechanism considered here is that electrons lose energy by
+interacting with the thermal electrons via Coulomb collisions, the
+loss rate of which is
 \begin{equation}
   \label{eq:eloss-coul}
   \left( \diff{\gamma}{t} \right)_{\R{Coul}} =
@@ -898,33 +874,29 @@ where $n_{\R{th}}$ is the thermal number density
 [\autoref{eq:number-density-thermal}] in units of [\si{\per\cm\cubed}].
 
 The inverse Compton scattering and synchrotron radiation dominate
-energy losses at the high-energy regime ($\gamma \gtrsim 1000$),
-and Coulomb collisions are the main energy-loss mechanism for lower
-energy electrons ($\gamma \lesssim 100$).
-{\color{magenta}
+the energy losses at the high-energy regime ($\gamma \gtrsim 1000$),
+while Coulomb collisions are the main energy-loss mechanism for electrons
+with lower energies ($\gamma \lesssim 100$).
 Therefore, electrons with intermediate energies (e.g., $\gamma \sim 300$)
-have a very long lifetime and can accumulate in the ICM as the
-cluster grows \citep{sarazin1999}, which may become the primary
-electrons to be accelerated \emph{in situ} by the turbulence.
-}
+have a very long lifetime (\SI{\sim 3}{\Gyr}) and can accumulate in the
+ICM as the cluster grows \citep{sarazin1999}, which may become the primary
+electrons to be accelerated \textit{in situ} by the turbulence.
 
 %........................................................................
 \ssssec{Numerical Method}
 
 Now with all the coefficients in \autoref{eq:fokkerplanck} been determined,
 we can evolve the initial electron spectrum $n_e(\gamma,\, t=t_0)$ via
-solving this Fokker-Planck equation, and derive the \enquote{current}
+solving the Fokker-Planck equation, and derive the \enquote{current}
 electron spectrum $n_e(\gamma,\, t=t_{\R{sim}})$,
-{\color{magenta}
 where $t_{\R{sim}}$ corresponds to the simulated redshift $z_{\R{sim}}$
-as obtained in \autoref{sec:mass-function}.
-}
+(\autoref{sec:mass-function}).
 An efficient numerical method proposed by \citet{chang1970} is utilized
 to solve the equation, under the no-flux boundary condition \citep{park1996}.
-However, to avoid unphysical pile-up of electrons around the lower boundary
-{\color{magenta} due to the applied boundary condition},
+To avoid unphysical pile-up of electrons around the lower boundary caused
+by the boundary condition,
 we define a \enquote{buffer} region below $\gamma_{\R{buf}}$, within which
-the spectral data are replaced by extrapolating from the data above
+the spectral data are replaced by extrapolating the data above
 $\gamma_{\R{buf}}$ as a power-law spectrum \citep{donnert2014}.
 We adopt a logarithmic grid for $\gamma \in [1, 10^5]$ with 200 cells,
 and let the lower buffer region span 10 cells.
@@ -950,8 +922,8 @@ with $K_{5/3}(x)$ the modified Bessel function of 5/3 order,
 $\nu_c = (3/2) \,\gamma^2 \nu_L \sin\theta
 = 3 e B \gamma^2 \sin\theta / (4\pi m_e c)$
 the electron's critical frequency.
-The {\color{magenta} simulated} radio halo is assumed to be the same size as
-the turbulent region \citep[e.g.,][]{vazza2011}:
+The simulated radio halo is assumed to be the same size as the turbulent
+region \citep[e.g.,][]{vazza2011}:
 $r_{\R{halo}} \simeq L_{\R{turb}} \simeq r_{\R{vir}}/3$,
 therefore its radio power at a certain frequency (i.e., spectral power) is
 \begin{equation}
@@ -959,10 +931,8 @@ therefore its radio power at a certain frequency (i.e., spectral power) is
   % unit: [W/Hz]
   P(\nu) = \frac{4\pi}{3} r_{\R{halo}}^3 J_{\R{syn}}(\nu),
 \end{equation}
-{\color{magenta}
 and its flux density measured at the same frequency is
 \citep[e.g.,][]{hogg1999}
-}
 \begin{equation}
   \label{eq:halo-flux}
   % unit: [Jy] = 1e-26 [W/Hz/m^2]
@@ -970,9 +940,7 @@ and its flux density measured at the same frequency is
 \end{equation}
 where $D_{\!L}(z_{\R{sim}})$ is the luminosity distance to the halo at
 redshift $z_{\R{sim}}$,
-{\color{magenta}
-and the $(1 + z_{\R{sim}})$ factor accounts for the $K$ correction.
-}
+and the factor $(1 + z_{\R{sim}})$ accounts for the $K$ correction.
 
 To generate the image for the simulated radio halos, we adopt an exponential
 profile for the azimuthally averaged brightness distribution \citep{murgia2009}:
@@ -985,7 +953,7 @@ center with $D_{\!A}(z_{\R{sim}})$ the angular diameter distance to the halo,
 and $I_{\nu,0} = 9 S(\nu) / (2\pi \theta^2_{\R{halo}})$ is the central
 brightness.
 In addition, a random ellipticity $f_e$ and a random rotation angle
-$\phi$ are applied to each of the halo images.
+$\phi$ are applied to each of the simulated halos.
 
 %........................................................................
 \ssssec{Parameters Tuning}
@@ -993,7 +961,7 @@ $\phi$ are applied to each of the halo images.
 Our model has the following 5 parameters:
 (1) fraction of the merger energy transferred into the turbulence:
 $\eta_{\R{turb}} \sim \SI{10}{\percent}$;
-(2) relative energy density in the magnetic field:
+(2) relative energy density of the magnetic field:
 $\eta_B \sim \SI{0.1}{\percent}$;
 (3) ratio of the total energy of injected electrons to the total thermal
 energy: $\eta_e \sim \SI{0.1}{\percent}$;
@@ -1001,7 +969,6 @@ energy: $\eta_e \sim \SI{0.1}{\percent}$;
 $\zeta \sim \numrange{0.1}{0.3}$;
 (5) relative energy density in the cosmic rays:
 $X_{\R{CR}} \sim \SI{1}{\percent}$.
-{\color{magenta}
 Although all of them have reasonable constraints from either observational
 evidences or simulation studies, it is essential to further tune them in
 order to achieve better agreements with the observations.
@@ -1010,38 +977,43 @@ To this end, we have collected all current observed radio halos
 \SI{1.4}{\GHz} integrated flux function between our simulated radio halos
 and the observations.  We have explored various parameter configurations,
 and for each configuration we have repeated the simulation for 500 times
-in order to take into account the Monte Carlo uncertainties as introduced in
-Sections~\ref{sec:mass-function} and \ref{sec:merging-history}.
+in order to take into account the statistical uncertainties as introduced
+in Sections~\ref{sec:mass-function} and \ref{sec:merging-history}.
 Considering that the current observations are far from complete,
-especially in the low-flux regime, our strategy was requiring that the
-integrated flux function of simulations agreed with the observed one
-in the high-flux regime within simulation uncertainties.
-In consequence, we have chosen a set of model parameters with
+especially in the low-flux regime, our strategy is requiring that the
+integrated flux function of simulated radio halos agrees with the observed
+one in the high-flux regime within simulation uncertainties.
+Consequently, we have chosen a set of model parameters with
 $\eta_{\R{turb}} = \SI{10}{\percent}$, $\eta_B = \SI{0.1}{\percent}$,
 $\eta_e = \SI{0.1}{\percent}$, $\zeta = 0.1$,
 and $X_{\R{CR}} = \SI{1.5}{\percent}$,
-and we show in \autoref{fig:halos-simucomp-example}(a) the \SI{1.4}{\GHz}
-integrated flux function comparison result.
+and the \SI{1.4}{\GHz} integrated flux function comparison between the
+observed and simulated radio halos is shown in
+\autoref{fig:halos-simucomp-example}(a),
+\textcolor{magenta}{%
+where we also plot the \SI{158}{\MHz} integrated flux function for the
+simulated radio halos, indicating that radio halos are much brighter in
+the low-frequency regime.}
 
 With the purpose of better characterizing the impacts of radio halos
 on the EoR detection, we adopt the above tuned parameter configuration
-and repeat the radio halos simulation 100 times, given the fact that
+and repeat the radio halos simulation for 100 times, considering that
 radio halos can vary significantly across sky regions.
 The mean (r.m.s.) brightness temperature of the 100 simulations is
 $24.9_{-20.0}^{+74.3}$ \si{\mK} ($2\,753_{-1\,972}^{+10\,409}$ \si{\mK}),
 and \autoref{fig:halos-simucomp-example}(b) shows a typical example
 of the simulated radio halos at \SI{158}{\MHz} with mean (r.m.s.)
 brightness temperature of \SI{25.2}{\mK} (\SI{3947}{\mK}).
+\textcolor{red}{%
 We will also use this typical example to illustrate part of our results
-and discussions in \autoref{sec:results}.
-}
+and discussions in \autoref{sec:results}.} \XU{delete this sentence}
 
 \begin{figure*}
   \gridline{
     \fig{fluxfunc-simucomp-1400}{0.49\textwidth}{%
-      (a) \SI{1.4}{\GHz} integrated flux function}
+      (a) Integrated flux function comparison}
     \fig{halos-f158-C17}{0.45\textwidth}{%
-      (b) \SI{158}{\MHz} example map of radio halos}
+      (b) Example map of radio halos at \SI{158}{\MHz}}
   }
   \caption{\label{fig:halos-simucomp-example}%
     \textbf{(a)} The \SI{1.4}{\GHz} integrated flux function comparison
@@ -1052,7 +1024,7 @@ and discussions in \autoref{sec:results}.
     regions show the \SI{68}{\percent} uncertainties of the simulated
     radio halos derived from the 500 simulation runs.
     \textbf{(b)} A typical example from the 100 simulation runs showing
-    the simulated radio halos at \SI{158}{\MHz}, where the colorbar is in
+    the simulated radio halos at \SI{158}{\MHz}, and the colorbar is in
     units of \si{\kelvin}.
   }
 \end{figure*}
@@ -1063,45 +1035,49 @@ and discussions in \autoref{sec:results}.
 \label{sec:fg-other}
 %========================================================================
 
-{\color{magenta}
-In order to better evaluate the radio halos of our focus, we not only
-compare them to the target EoR signal whose simulation will be described
-in \autoref{sec:eor-signal}, but also do comparisons to several other
-foreground components, which include the Galactic synchrotron and
-free-free emissions, and the extragalactic point sources,
-based on our previous work \citep[and references therein]{wang2010}.
-}
+{\color{magenta}%
+Following our previous work \citep{wang2010}, we also simulate several
+other foreground components, including the Galactic synchrotron and
+free-free emissions, and the extragalactic point sources, in order to
+carry out power spectrum comparisons between radio halos and other
+foreground components and to better characterize the contributions of
+radio halos to the low-frequency radio sky.}
 
-The Galactic synchrotron map was simulated by extrapolating the
+The Galactic synchrotron map is simulated by extrapolating the
 Haslam \SI{408}{\MHz} all-sky map as the template to lower frequencies
 with a power-law spectrum.
-We have made use of the $N_{\R{side}} = 2048$
+We make use of the $N_{\R{side}} = 2048$
 (pixel size \SI{\sim 1.72}{\arcminute})
-high resolution version of the Haslam \SI{408}{\MHz} map\footnote{%
+high-resolution version of the Haslam \SI{408}{\MHz} map\footnote{%
   The reprocessed Haslam \SI{408}{\MHz} map:
-  \url{http://www.jb.man.ac.uk/research/cosmos/haslam_map/}.
-}
-reprocessed by \citet{remazeilles2015}, which had significantly better
-instrument calibration and more accurate subtraction of extragalactic
-sources.
-And we also used the all-sky synchrotron spectral index map made by
+  \url{http://www.jb.man.ac.uk/research/cosmos/haslam_map/}.},
+which was reprocessed by \citet{remazeilles2015} using significantly
+better instrument calibration and more accurate subtraction of
+extragalactic sources.
+We also use the all-sky synchrotron spectral index map made by
 \citet{giardino2002} to account for the index variation with sky positions.
-The Galactic free-free emission was derived from the \Halpha{} survey data
-\citep{finkbeiner2003}, which we corrected for dust absorption first
-\citep{dickinson2003}, by employing the tight relation between the \Halpha{}
-and free-free emissions due to their common origins.
-And the extragalactic foreground of point sources is contributed by the
-following different types of sources: star-forming and starburst galaxies,
-radio-quiet AGNs, Fanaroff-Riley type I and type II AGNs, GHz-peaked
-spectrum AGNs, and compact steep spectrum AGNs.
+The Galactic free-free emission is deduced from the \Halpha{} survey
+data \citep{finkbeiner2003}, which is corrected for dust absorption,
+by employing the tight relation between the \Halpha{} and free-free
+emissions due to their common origins \citep{dickinson2003}.
 
-The simulated example maps at \SI{158}{\MHz} are shown in
-\autoref{fig:gsyn-gff-ps-21cm}(a--c),
-and the mean (r.m.s.) brightness temperatures of the Galactic synchrotron
+{\color{magenta}%
+The extragalactic point sources are simulated by taking into account the
+following 5 types of sources: (1) star-forming and starburst galaxies,
+(2) radio-quiet AGNs, (3) Fanaroff-Riley type I and type II AGNs,
+(4) GHz-peaked spectrum AGNs, and (5) compact steep spectrum AGNs.
+We simulate the former 3 types of sources by leveraging the simulation
+results made by \citet{wilman2008}, and simulate the latter 2 types
+by employing their corresponding luminosity functions and spectral models
+\citep[and references therein]{wang2010}.}
+
+Example maps simulated at \SI{158}{\MHz} for different foreground
+components are shown in \autoref{fig:gsyn-gff-ps-21cm}(a--c).
+The mean (r.m.s.) brightness temperatures of the Galactic synchrotron
 emission, Galactic free-free emission, and extragalactic point sources
 are \SI{251.4}{\kelvin} (\SI{251.7}{\kelvin}),
 \SI{0.19}{\kelvin} (\SI{0.20}{\kelvin}),
-and \SI{45.5}{\kelvin} (\SI{59224}{\kelvin}), respectively.
+and \SI{45.5}{\kelvin} (\SI{5.9e4}{\kelvin}), respectively.
 
 \begin{figure*}
   \gridline{
@@ -1120,28 +1096,29 @@ and \SI{45.5}{\kelvin} (\SI{59224}{\kelvin}), respectively.
     \textbf{(c)} Extragalactic point sources, color in logarithmic scale;
     \textbf{(d)} EoR 21~cm signal.
     All colorbars are in units of \si{\kelvin}.
-    \TODO{add labels to figures; increase colorbar font}
+    \TODO{add text labels; zoom in colorbars}
   }
 \end{figure*}
 
 
 %========================================================================
-\subsection{EoR Signal}
-\label{sec:eor-signal}
+\subsection{EoR Signals}
+\label{sec:eor-signals}
 %========================================================================
 
-The sky maps of the EoR 21~cm signals were created using the 2016
+The sky maps of the EoR 21~cm signals are created using the 2016
 data release from the Evolution Of 21~cm Structure project\footnote{%
   Evolution Of 21~cm Structure project:
-  \url{http://homepage.sns.it/mesinger/EOS.html}},
-which were generated with \texttt{21cmFAST} version 2 \citep{mesinger2011}
-within a cube of 1.6 comoving \si{\Gpc} and 1024 cells along each side,
-and covered a redshift range of \numrange{5.0}{86.5} \citep{mesinger2016}.
-We extracted the image slices at needed frequencies (i.e., redshifts) from
+  \url{http://homepage.sns.it/mesinger/EOS.html}}.
+{\color{magenta}%
+The project used \texttt{21cmFAST} version 2 \citep{mesinger2011} to
+simulate the cosmic reionization process from redshift 86.5 to 5.0 inside
+a big cube of 1.6 comoving \si{\Gpc} and 1024 cells along each side
+\citep{mesinger2016}.}
+We extract the image slices at needed frequencies (i.e., redshifts) from
 the \enquote{light-cone cubes} of the recommended \enquote{faint galaxies}
-case, and then tiled and re-scaled them to have the same sky coverage and
+case, and then tile and re-scale them to have the same sky coverage and
 pixel size as our foreground maps.
-
 The extracted image at \SI{158}{\MHz} is shown in
 \autoref{fig:gsyn-gff-ps-21cm}(d),
 and the mean (r.m.s.) brightness temperature is
@@ -1149,24 +1126,24 @@ and the mean (r.m.s.) brightness temperature is
 
 
 %########################################################################
-\section{Observational Simulation}
+\section{Simulated SKA Observations}
 \label{sec:obs-simu}
 %########################################################################
 
-It is essential to incorporate the practical instrumental effects of
-radio interferometers in order to properly evaluate the possible
-contamination induced by radio halos on the EoR detection.
-We therefore adopted the latest SKA1-Low layout configuration\footnote{%
+In order to properly evaluate the possible contamination induced by radio
+halos on the EoR detection, it is essential to incorporate the practical
+instrumental effects of radio interferometers.
+We therefore employ the latest SKA1-Low layout configuration\footnote{%
   SKA1-Low Configuration Coordinates:
   \url{https://astronomers.skatelescope.org/wp-content/uploads/2016/09/SKA-TEL-SKO-0000422_02_SKA1_LowConfigurationCoordinates-1.pdf}
   (released on 2016 May 21)
 }
 to simulate the \enquote{observed} images for the above simulated sky
 maps of foreground components and EoR signal.
-According to the current configuration,
+According to the latest configuration,
 the SKA1-Low interferometer consists of 512 stations, with 224 of them
 randomly distributed within the \enquote{core} of \SI{1000}{\meter} in
-diameter, while rest of the stations are grouped into \enquote{clusters}
+diameter, while the remaining stations are grouped into \enquote{clusters}
 and placed on 3 spiral arms extending up to a radius of
 \SI{\sim 35}{\kilo\meter}.
 Each station has 256 antennas randomly distributed with a minimum separation
@@ -1179,10 +1156,10 @@ foreground characterization and removal, as well as other scientific goals.
 We divide the chosen \SIrange{154}{162}{\MHz} frequency band into 51
 channels with a frequency resolution of \SI{160}{\kilo\hertz}.
 For each component, we simulate the input sky maps at every frequency
-channel as described in \autoref{sec:sky-simu},
+channel by following the steps described in \autoref{sec:sky-simu},
 and then use the \texttt{OSKAR}\footnote{%
   OSKAR: \url{https://github.com/OxfordSKA/OSKAR} (version 2.7.0)}
-simulator \citep{mort2010} to perform observational simulations
+simulator \citep{mort2010} to perform simulated observations
 for \SI{6}{\hour} ($\pm \SI{3}{\hour}$ in Hour Angle) with the
 SKA1-Low layout configuration.
 The simulated visibility data are imaged through the
@@ -1192,33 +1169,25 @@ imager \citep{offringa2014} using Briggs' weighting with
 robustness of 0 \citep{briggs1995},
 and the created images are cropped to keep only the central
 \SI[product-units=repeat]{4 x 4}{\degree} regions for subsequent analyses.
-{\color{magenta}
-Hence we properly integrate the instrumental effects into the simulated
-sky maps and obtain the \enquote{observed} image cube consisting of a
-series of images among the selected frequency band.
-Considering that the CLEAN algorithm does not work well with the diffuse
-sources, we directly use the dirty images for the EoR signal and the
-diffuse Galactic emission, which are in sufficiently good quality,
-thanks to the dense core layout and good $uv$ coverage of SKA1-Low.
-While for the radio halos and extragalactic point sources, we create
-image cubes using the CLEAN algorithm with joined-channel deconvolution
-to ensure the spectral smoothness \citep{offringa2017}, which is crucial
-to extract the EoR signal from the overwhelming foregrounds.
 
-As mentioned in \autoref{sec:fg-other}, we also simulate several other
-foreground components for providing intuitive comparisons to radio halos.
-The two diffuse Galactic emissions are combined to simplify the
-observational simulation and subsequent analyses, as the free-free
-emission is much weaker than the synchrotron radiation.
+{\color{magenta}%
+Since the Galactic free-free emission is much weaker than the Galactic
+synchrotron radiation, and there is not need to distinguish the two
+diffuse emissions in this work, we combine them in the observational
+simulation and subsequent analyses.
 Similar to the real-time peeling of brightest sources in practical data
 analysis pipeline of radio interferometers
 \citep[e.g.,][]{mitchell2008,intema2009}, we assume that the brightest
-ones with \SI{158}{\MHz} flux density $S > \SI{50}{\mJy}$ \TODO{check}
+ones with a \SI{158}{\MHz} flux density $S > \SI{50}{\mJy}$
 are peeled to simplify the imaging process \citep[e.g.,][]{pindor2011}.
-Finally, we have the \enquote{observed} image cubes of the EoR signal,
+Moreover, we create foreground image cubes using the CLEAN algorithm
+with joined-channel deconvolution in order to ensure the spectral
+smoothness \citep{offringa2017}, which is crucial to extract the EoR
+signals from the overwhelming foregrounds.}
+Thus we obtain the \enquote{observed} image cubes of the EoR signal,
 radio halos, the Galactic diffuse emission (with both synchrotron and
 free-free emission), and the extragalactic point sources (with the
-brightest ones removed).}
+brightest ones removed).
 
 
 %########################################################################
@@ -1226,16 +1195,19 @@ brightest ones removed).}
 \label{sec:results}
 %########################################################################
 
-Using the simulated image cubes, we can now calculate both the
-two-dimensional (2D) and one-dimensional (1D) power spectra for each
-component, from which we can quantitatively evaluate the contamination
-to the EoR measurements contributed by radio halos, and discuss the large
-fluctuations of radio halos across sky regions.
-Besides the focused frequency band around \SI{158}{\MHz}, we investigate
-the impacts of radio halos at lower and higher bands centered at
-\SI{124}{\MHz} and \SI{196}{\MHz}, respectively.
+Using the image cubes obtained in \autoref{sec:obs-simu}, we can now
+calculate both the two-dimensional (2D) and one-dimensional (1D) power
+spectra for each component, from which we can quantitatively evaluate the
+contamination to the EoR measurements contributed by radio halos.
+\textcolor{magenta}{%
+We then discuss how the large fluctuation of radio halo distributions
+across sky regions may cause significant difficulties for the EoR
+measurements and how to deal with it.}
+In addition to the focused frequency band around \SI{158}{\MHz}, we
+investigate the impacts of radio halos at lower and higher bands centered
+at \SI{124}{\MHz} and \SI{196}{\MHz}, respectively.
 We also discuss how the power spectra may be affected by the instrumental
-frequency structures resulting from the calibration errors as well other
+frequency structures resulting from the calibration errors as well as other
 instrumental and observational effects.
 
 %========================================================================
