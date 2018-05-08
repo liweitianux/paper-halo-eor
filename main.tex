@@ -63,7 +63,6 @@
 \newcommand{\D}[1]{\R{d} #1}
 \newcommand{\diff}[2]{\frac{\D{#1}}{\D{#2}}}
 \newcommand{\pdiff}[2]{\frac{\partial #1}{\partial #2}}
-\newcommand{\etal}{\textit{et~al.}}
 \newcommand{\lcdm}{$\Lambda$CDM}
 \newcommand{\Halpha}{\text{H$\alpha$}}
 \newcommand{\Hi}{H\textsc{i}}
@@ -150,9 +149,10 @@
 %% Control the water-mark size with:
 %% \setwatermarkfontsize{dimension}
 
+%% Short title to be used as the running head (<= 44 characters)
 %\shorttitle{Impacts of Radio Halos on EoR Detection}
-\shorttitle{Contributions of Radio Halos to the Low-frequency Radio Sky}
-\shortauthors{Li~\etal}
+\shorttitle{Low-frequency Contributions of Radio Halos}
+\shortauthors{Li~\textit{et~al.}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -165,7 +165,7 @@
 }
 
 %% The \author command is the same as before except it now takes an optional
-%% argument which is the 16 digit ORCID. The syntax is:
+%% argument which is the 16 digit ORCID.  The syntax is:
 %% \author[xxxx-xxxx-xxxx-xxxx]{Author Name}
 %%
 %% This will hyperlink the author name to the author's ORCID page. Note that
@@ -185,13 +185,14 @@
 %% the proper location.
 %%
 %% Use \email to set provide email addresses. Each \email will appear on its
-%% own line so you can put multiple email address in one \email call. A new
-%% \correspondingauthor command is available in V6.1 to identify the
-%% corresponding author of the manuscript. It is the author's responsibility
+%% own line so you can put multiple email address in one \email call.
+%%
+%% A new \correspondingauthor command is available in V6.1 to identify the
+%% corresponding author of the manuscript.  It is the author's responsibility
 %% to make sure this name is also in the author list.
 %%
 %% While authors can be grouped inside the same \author and \affiliation
-%% commands it is better to have a single author for each. This allows for
+%% commands it is better to have a single author for each.  This allows for
 %% one to exploit all the new benefits and should make book-keeping easier.
 %%
 %% If done correctly the peer review system will be able to automatically
@@ -202,7 +203,7 @@
 \email{hgxu@sjtu.edu.cn}
 
 \author[0000-0002-7527-380X]{Weitian Li}
-\email{liweitianux@sjtu.edu.cn}
+\email{liweitianux@sjtu.edu.cn, liweitianux@live.com}
 \affiliation{School of Physics and Astronomy,
   Shanghai Jiao Tong University,
   800 Dongchuan Road, Shanghai 200240, China}
@@ -218,7 +219,7 @@
   Shanghai Jiao Tong University,
   800 Dongchuan Road, Shanghai 200240, China}
 
-\author{Zhixian Ma}
+\author[0000-0003-1263-9453]{Zhixian Ma}
 \affiliation{Department of Electronic Engineering,
   Shanghai Jiao Tong University,
   800 Dongchuan Road, Shanghai 200240, China}
@@ -241,20 +242,32 @@
 \author{Junhua Gu}
 \affiliation{National Astronomical Observatories,
   Chinese Academy of Sciences,
-  20A Datun Road, Chaoyang District, Beijing, China}
+  20A Datun Road, Beijing 100012, China}
 \author{Xiaoli Lian}
 \affiliation{School of Physics and Astronomy,
   Shanghai Jiao Tong University,
   800 Dongchuan Road, Shanghai 200240, China}
 \author{Qian Zheng}
-\affiliation{School of Engineering and Computer Science,
-  Victoria University of Wellington,
-  PO Box 600, Wellington 6140, New Zealand}
+\affiliation{Shanghai Astronomical Observatory,
+  Chinese Academy of Sciences,
+  80 Nandan Road, Shanghai 200030, China}
+\author{Jie Zhu}
+\affiliation{Department of Electronic Engineering,
+  Shanghai Jiao Tong University,
+  800 Dongchuan Road, Shanghai 200240, China}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%% The abstract should summarize concisely the content and conclusions
+%% of the article.  The abstract should be a single paragraph of not more
+%% than 250 words.
+
 \begin{abstract}
-\TODO{write!!!}
+\TODO{TODO} \quad
+\NOTE{NOTE} \quad
+\XU{XU} \quad
+\LI{LI} \quad
+\OK{OK}
 \end{abstract}
 
 %% Authors should select subject keywords from the given list.  No more
@@ -980,7 +993,7 @@ in the low-frequency regime.
 With the purpose of better characterizing the impacts of radio halos
 on the EoR detection, we adopt the above tuned parameter configuration
 and repeat the radio halos simulation for 100 times, considering that
-radio halos can vary significantly across sky regions.
+radio halos can vary significantly across the sky.
 The mean (r.m.s.) brightness temperature of the 100 simulations is
 $24.9_{-20.0}^{+74.3}$ \si{\mK} ($2\,753_{-1\,972}^{+10\,409}$ \si{\mK}),
 and \autoref{fig:halos-simucomp-example}(b) shows a typical example
@@ -1067,11 +1080,11 @@ and \SI{45.5}{\kelvin} (\SI{5.9e4}{\kelvin}), respectively.
   }
   \caption{\label{fig:gsyn-gff-ps-21cm}%
     The simulated example maps of other foreground components and
-    the EoR 21~cm signal at \SI{158}{\MHz}.
+    the EoR signal at \SI{158}{\MHz}.
     \textbf{(a)} Galactic synchrotron emission;
     \textbf{(b)} Galactic free-free emission;
-    \textbf{(c)} Extragalactic point sources, color in logarithmic scale;
-    \textbf{(d)} EoR 21~cm signal.
+    \textbf{(c)} Extragalactic point sources (color in logarithmic scale);
+    \textbf{(d)} EoR signal.
     All colorbars are in units of \si{\kelvin}.
     \TODO{add text labels; zoom in colorbars}
   }
@@ -1089,7 +1102,7 @@ data release from the Evolution Of 21~cm Structure project\footnote{%
   \url{http://homepage.sns.it/mesinger/EOS.html}}.
 The project used \texttt{21cmFAST} version 2 \citep{mesinger2011} to
 simulate the cosmic reionization process from redshift 86.5 to 5.0 inside
-a big cube which is 1.6 comoving \si{\Gpc} (1024 cells) along each side
+a large cube which is 1.6 comoving \si{\Gpc} (1024 cells) along each side
 \citep{mesinger2016}.
 We extract the image slices at needed frequencies (i.e., redshifts) from
 the light-cone cubes of the recommended \enquote{faint galaxies} case,
@@ -1629,12 +1642,12 @@ images with the instrumental effects properly incorporated.
 
 Focused on the \SIrange{154}{162}{\MHz} frequency band, we calculated
 and compared the 2D and 1D power spectra of radio halos, the EoR signal,
-diffuse Galactic emission, and extragalactic point sources.
+the Galactic diffuse emission, and extragalactic point sources.
 The 2D power spectrum of radio halos shows clearly the wedge-shaped
 contaminating region, dominating the intermediate and large \kperp{}
 modes ($\SI{0.2}{\per\Mpc} \leq \kperp \leq \SI{1.0}{\per\Mpc}$,
 corresponding to \SIrange[range-units=repeat]{2.4}{12}{\arcminute})
-over the diffuse Galactic emission, and reaches several percents of the
+over the Galactic diffuse emission, and reaches several percents of the
 power of point sources at those scales.
 If we derive the 1D power spectra by naively averaging over all the
 available modes, radio halos can typically be about 3 order of magnitude
@@ -1646,7 +1659,7 @@ window are used to derive the 1D power spectra.
 While the powers of the EoR signal barely change, the powers of radio
 halos are substantially reduced by about 4 orders of magnitude, hence
 only has limited influence on the EoR measurements.
-However, radio halos vary significantly across sky regions, leading to
+However, radio halos vary significantly across the sky, leading to
 large fluctuations in the contamination to the EoR window, which can be
 as strong as or even stronger than the target signal, therefore
 selecting clean sky regions avoiding radio halos and bright point sources
@@ -1656,7 +1669,7 @@ importance (Zheng et al. in preparation).
 We also investigated in the lower \SIrange{120}{128}{\MHz} and the higher
 \SIrange{192}{200}{\MHz} frequency bands, and found that radio halos
 produced severer contamination to the EoR measurements at the lower
-frequencies, because the EoR signal peaks at about \SIrange{120}{130}{\MHz},
+frequencies, because the EoR signal peak at about \SIrange{120}{130}{\MHz},
 while radio halos continue to be brighter toward lower frequencies.
 The contamination situation by radio halos at the higher
 \SIrange{192}{200}{\MHz} is similar to the situation at
@@ -1688,19 +1701,21 @@ revealing more modes for more robust EoR measurements.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \acknowledgments
 
-We give thanks
-to Mathieu Remazeilles for providing us with the high-resolution Haslam
-\SI{408}{\MHz} Galactic synchrotron map,
-to Giovanna Giardino for the all-sky Galactic synchrotron spectral index map,
+We would give thanks
 to Fred Dulwich for sharing the latest SKA1-Low layout configuration as well
 as the guidance on using the \texttt{OSKAR} simulator,
-to Andr\'e Offringa for the help on radio imaging with \texttt{WSClean}.
-We also acknowledge Emma Chapman, and Uri Keshet for their help.
+to Andr\'e Offringa for the help on interferometric imaging with
+\texttt{WSClean},
+to Mathieu Remazeilles for providing us with the high-resolution Haslam
+\SI{408}{\MHz} Galactic synchrotron map,
+and to Giovanna Giardino for the all-sky Galactic synchrotron spectral index
+map.
+We also acknowledge Emma Chapman and Uri Keshet for their help.
 Part of the work involving \texttt{OSKAR} and \texttt{WSClean} was performed
 on the high-performance cluster at Shanghai Astronomical Observatory, Chinese
 Academy of Sciences.
-This work is supported by the National Science Foundation of China
-(grant Nos. 11433002, 61371147, \TODO{???}),
+This work is supported by the National Natural Science Foundation of China
+(grant Nos. 11433002, 11621303, 61371147, \TODO{???}),
 and the National Key Research and Discovery Plan (grant No. 2017YFF0210903).
 
 
@@ -1727,7 +1742,7 @@ and the National Key Research and Discovery Plan (grant No. 2017YFF0210903).
 \software{
   OSKAR \citep{mort2010},
   WSClean \citep{offringa2014},
-  AstroPy \citep{astropy2013,astropy2018},
+  AstroPy \citep{astropy2013},
   HEALPix \citep{gorski2005},
   HMF \citep{murray2013},
   IPython (\url{https://ipython.org/}),
@@ -1909,13 +1924,12 @@ RXC J2351.0$-$1954   & 0.2477 & 3.85 & 0.64 &   4.5 &  0.9\tablenotemark{q} &  0
 \label{sec:formulas}
 %########################################################################
 
-In a flat \lcdm{} cosmology as we adopted in this work, the critical linear
+In a flat \lcdm{} cosmology as adopted in this work, the critical linear
 overdensity as a function of redshift $z$ is \citep{kitayama1996,randall2002}
 \begin{equation}
   \label{eq:delta-crit}
-  \delta_c(z) = \frac{D(z=0)}{D(z)}
-  \left[ \frac{3 (12\pi)^{2/3}}{20} \right]
-  \left[1 + 0.0123 \log_{10} \Omega_f(z) \right],
+  \delta_c(z) = \frac{D(z=0)}{D(z)} \frac{3}{20} (12\pi)^{2/3}
+    \left[1 + 0.0123 \log_{10} \Omega_f(z) \right],
 \end{equation}
 where $\Omega_f(z)$ is the mass density ratio at redshift $z$ defined as
 \begin{equation}
@@ -1934,14 +1948,14 @@ The virial radius of a galaxy cluster is defined as
 \begin{equation}
   \label{eq:radius-virial}
   r_{\R{vir}} = \left[
-    \frac{3 M^{\R{cl}}}{4\pi \Delta_{\R{vir}}(z) \rho_{\R{crit}}(z)}
+    \frac{3 M_{\R{vir}}}{4\pi \,\Delta_{\R{vir}}(z) \rho_{\R{crit}}(z)}
   \right]^{1/3},
 \end{equation}
-where $M^{\R{cl}}$ is the total mass (i.e., virial mass) of the cluster,
+where $M_{\R{vir}}$ is the virial mass of the cluster,
 $\rho_{\R{crit}}(z) = 3 H^2(z) / (8\pi G)$ is the critical density
 at redshift $z$,
 and $\Delta_{\R{vir}}(z)$ is the average overdensity of the cluster
-at redshift $z$ given by \citep{kitayama1996,cassano2005}
+at redshift $z$ which is given by \citep{kitayama1996,cassano2005}
 \begin{equation}
   \label{eq:delta-vir}
   \Delta_{\R{vir}}(z) = 18\pi^2 \left[ 1 + 0.4093 \, w(z)^{0.9052} \right],

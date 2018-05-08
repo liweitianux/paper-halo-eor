@@ -7,7 +7,9 @@
 *.aux
 *.bbl
 *.blg
+*.fff
 *.fls
+*.lof
 *.log
 *-converted-to.*
 *.synctex.gz
