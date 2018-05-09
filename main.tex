@@ -69,6 +69,7 @@
 \newcommand{\Hii}{H\textsc{ii}}
 \newcommand{\klos}{\text{$k_{\parallel}$}}
 \newcommand{\kperp}{\text{$k_{\bot}$}}
+\newcommand{\fov}{\text{Fo\!V}}
 
 %% Marks
 \newcommand{\NOTE}[1]{\textcolor{violet}{[\textbf{NOTE:}~\uwave{#1}]}}
@@ -1255,11 +1256,11 @@ instrumental frequency response,
 and $\Theta$ is the angular distance of the foreground source from
 the field center.
 A soft limit to the region of the foreground wedge is thus imposed by the
-telescope's field of view (FoV), i.e., $\Theta \simeq \R{FoV}/2$
+telescope's field of view (\fov), i.e., $\Theta \simeq \fov/2$
 \citep{morales2012}.
 In this work, we choose $e = 3$ and $\Theta_{158} = \SI{6}{\degree}$
-(corresponding to about 3 times of the SKA1-Low's FoV at \SI{158}{\MHz})
-for a very conservative EoR window boundary.
+(corresponding to about 3 times of the SKA1-Low's \fov{} at
+\SI{158}{\MHz}) for a very conservative EoR window boundary.
 
 \begin{figure*}
   \centering
@@ -1433,52 +1434,67 @@ example as analyzed in \autoref{sec:ps2d} are marked in \autoref{fig:ps1d},
 and they only slightly deviate from the median power spectra, which
 further confirms that the results presented there are representative.
 
+
+%########################################################################
+\section{Discussions}
+\label{sec:discussions}
+%########################################################################
+
+In addition to the focused frequency band around \SI{158}{\MHz}, we
+discuss the impacts of radio halos at lower and higher bands centered
+at \SI{124}{\MHz} and \SI{196}{\MHz}, respectively.
+We also discuss how the power spectra may be affected by the instrumental
+frequency structures which could be caused by the small calibration
+uncertainties as well as other complicated instrumental and observational
+effects.
+
 %========================================================================
 \subsection{Lower and Higher Frequency Bands}
 \label{sec:freq-bands}
 %========================================================================
 
-In order to characterize the complete reionization process, it is essential
-to measure the redshifted 21~cm signal among a broad frequency band
-from about \SI{100}{\MHz} to \SI{200}{\MHz}, and all current and next
-generation interferometers targeting the EoR measurements were designed
-to have sufficient frequency coverage.
+In order to characterize the complete reionization process, it is crucial
+to measure the redshifted 21~cm signal among a broad frequency band of
+about \SIrange{100}{200}{\MHz}, and all current- and next-generation
+interferometers targeting the EoR measurements were designed to have
+sufficient frequency coverage.
 Here we choose another lower frequency band of \SIrange{120}{128}{\MHz}
 and a higher band of \SIrange{192}{200}{\MHz}, which are commonly studied
-in the literature as well, and follow the same simulation pipeline as
-described in Sections \ref{sec:sky-simu} and \ref{sec:obs-simu} to
-investigate the contributions of radio halos at these different
-frequencies.
+in the literature as well, and follow the same procedures as described
+in Sections \ref{sec:sky-simu} and \ref{sec:obs-simu} to investigate the
+contributions of radio halos at these different frequencies.
 At \SI{124}{\MHz}, the middle of the former band, the mean (r.m.s.)
-brightness temperature of the simulated sky maps for radio halos
-(the same typical example mentioned in \autoref{sec:halos}),
-Galactic synchrotron emission, Galactic free-free emission,
-extragalactic point sources, and the EoR signal are
-\SI{58.1}{\mK} (\SI{8891}{\mK}), % radio halos
-\SI{473}{\K} (\SI{474}{\K}), % synchrotron
-\SI{0.31}{\K} (\SI{0.33}{\K}), % free-free
-\SI{192}{\K} (\SI{2.97e5}{\K}), % point sources
-\SI{13.5}{\mK} (\SI{14.4}{\mK}), % EoR
-respectively.
-Meanwhile, the mean (r.m.s.) brightness temperatures at
-\SI{196}{\MHz} for these components are
-\SI{11.6}{\mK} (\SI{1861}{\mK}), % radio halos
-\SI{143}{\K} (\SI{143}{\K}), % synchrotron
-\SI{0.12}{\K} (\SI{0.13}{\K}), % free-free
-\SI{14.4}{\K} (\SI{1.39e4}{\K}), % point sources
-\SI{2.48}{\mK} (\SI{3.44}{\mK}), % EoR
-respectively.
-\TODO{delete galactic synchrotron, free-free emission, and point sources???}
+brightness temperatures of the simulated sky maps for radio halos (the
+typical example) and the EoR signal are \SI{58.1}{\mK} (\SI{8891}{\mK})
+and \SI{13.5}{\mK} (\SI{14.4}{\mK}), respectively.
+Meanwhile, the mean (r.m.s.) brightness temperatures at \SI{196}{\MHz}
+for the two components are \SI{11.6}{\mK} (\SI{1861}{\mK})
+and \SI{2.48}{\mK} (\SI{3.44}{\mK}), respectively.
+In \autoref{fig:ps2d-ratio-bands}, we present the 2D power spectrum
+ratios of radio halos with respect to the EoR signal at these two
+frequency bands, and we use $\Theta_{124} = \SI{7.5}{\degree}$ for the
+lower band and $\Theta_{196} = \SI{4.8}{\degree}$ for the higher band
+to determine the EoR windows since $\fov \propto f^{-1}$ with $f$ being
+the observing frequency.
+Inside the EoR window and on the same scales of
+$\SI{0.2}{\per\Mpc} \lesssim \kperp \lesssim \SI{1.0}{\per\Mpc}$,
+the power ratio of radio halos to the EoR signal can be about
+\SIrange[range-units=repeat]{50}{500}{\percent} at the lower frequency
+band and varies among about \SIrange[range-units=repeat]{1}{10}{\percent}
+at the higher frequency band.
+Together with the results at the \SIrange{154}{162}{\MHz} band
+(\autoref{sec:ps2d}), these indicate that radio halos become a more
+important foreground component at lower frequencies.
 
 \begin{figure*}
   \centering
   \includegraphics[width=0.8\textwidth]{ps2d-halos-ratio-bands}
   \caption{\label{fig:ps2d-ratio-bands}%
-    2D power spectrum ratios of radio halos with respect to
-    the EoR signal among frequency bands of
-    \textbf{(a)} \SIrange{120}{128}{\MHz}
-    and \textbf{(b)} \SIrange{192}{200}{\MHz}, respectively.
-    The colorbar is in logarithmic scale and is shared by the
+    2D power spectrum ratios of radio halos (the typical example) with
+    respect to the EoR signal among frequency bands of
+    \textbf{(a)} \SIrange{120}{128}{\MHz} and
+    \textbf{(b)} \SIrange{192}{200}{\MHz}, respectively.
+    The colorbar is in logarithmic scale and shared by the
     two sub-figures.
     The white dashed lines mark the EoR window boundaries.
   }
@@ -1488,133 +1504,138 @@ respectively.
   \centering
   \includegraphics[width=0.9\textwidth]{ps1d-eorw-bands}
   \caption{\label{fig:ps1d-bands}%
-    1D power spectra of the radio halos (gray), diffuse Galactic
-    emission (blue), extragalactic point sources (purple), and the
-    EoR signal (green) derived from the 2D power spectra among the
+    1D power spectra of radio halos (gray) and the EoR signal (green)
+    among the
     \textbf{(a)} \SIrange{120}{128}{\MHz} and
     \textbf{(b)} \SIrange{192}{200}{\MHz} bands,
     with the EoR window constraint applied.
-    The lines and shaded regions share the same styles as in
-    \autoref{fig:ps1d}.
-    \TODO{update this figure!!!}
+    The gray solid lines and shaded regions show the median and
+    corresponding \SI{68}{\percent} confidence interval of power spectra
+    of radio halos, respectively.
+    The red solid lines stand for the power spectra of radio halos for
+    the typical example.
   }
 \end{figure*}
 
-We similarly calculate the 2D power spectrum ratios of radio halos to the
-EoR signal at these two bands, as shown in \autoref{fig:ps2d-ratio-bands}.
-Because of FoV $\propto f^{-1}$ with $f$ being the observation frequency,
-we use $\Theta_{124} = \SI{7.5}{\degree}$ and
-$\Theta_{196} = \SI{4.8}{\degree}$ as well as $e = 3$ to define the EoR
-window boundaries for the lower and higher frequency bands, respectively.
-In addition, we compute the 1D power spectra for all the components as well
-as all the simulation runs of radio halos in order to account for the sky
-fluctuations, and show the results in \autoref{fig:ps1d-bands}.
-As radio halos are much brighter toward to lower frequencies, while the
-intensity of the EoR signal only varies a little, it is evident that radio
-halos become a much severer contamination to the EoR detection at the
-lower frequency band, comparing to the results at \SIrange{154}{162}{\MHz}
-as depicted in Figures~\ref{fig:ps2d-ratio}(a) and \ref{fig:ps1d}.
-Although applied the EoR window constraint, radio halos can typically be
-as strong as or even stronger than the EoR signal at intermediate and
-large $\kperp$ modes, causing great difficulties in EoR measurements.
-At the higher frequency band, the power of radio halos is generally
-$\lesssim \SI{1}{\percent}$ of the EoR signal and hence radio halos
-only have a very limited impact on the EoR detection, compared to the
-situations at lower frequencies as described above and in \autoref{sec:ps1d}.
+In order to account for the distribution fluctuation of radio halos, we
+also repeat the radio halos simulation for 100 times in both frequency
+bands.
+The mean (r.m.s.) brightness temperatures of the 100 simulations at
+\SI{124}{\MHz} and \SI{196}{\MHz} are
+$63.3_{-49.5}^{+171.1}$ \si{\mK} ($6\,953_{-5\,041}^{+20\,986}$ \si{\mK})
+and
+$10.1_{-8.2}^{+35.7}$ \si{\mK} ($1\,235_{-921}^{+4\,859}$ \si{\mK}),
+respectively.
+We take advantage of the EoR windows as described above to calculate the
+1D power spectra for radio halos and the EoR signal.
+As shown in \autoref{fig:ps1d-bands}, at scale of $k \sim \SI{1.0}{\per\Mpc}$,
+the power ratio of radio halos to the EoR signal is typically about
+\SI{100}{\percent} at the lower frequency band and can exceed
+\SI{2000}{\percent} by taking the \SI{68}{\percent} uncertainty into
+account,
+meanwhile the power ratio is generally $\lesssim \SI{2}{\percent}$ at
+the higher frequency band and may reach $\lesssim \SI{100}{\percent}$
+within the \SI{68}{\percent} confidence interval.
 
-During the EoR, the intensity of 21~cm signal first increases as the
-reionization continues, but later decreases to almost zero as the \Hi{}
-is gradually ionized.
-In our adopted EoR simulation as mentioned in \autoref{sec:eor-signal},
-the 21~cm signal peaks at about \SIrange{120}{130}{\MHz} \citep{mesinger2016}.
-However, radio halos continue to be brighter toward lower frequencies
-and therefore become an important foreground contamination, which should
-be taken care of in order to accurately measure the 21~cm signal at such
-low frequencies.
+By aggregating all the results from the three frequency bands, is it
+evident that radio halos impose more contamination on the EoR measurements
+toward lower frequencies.
+As the observing frequency decreases from about \SI{200}{\MHz} to about
+\SI{100}{\MHz}, the EoR signal peaks at about \SIrange{120}{130}{\MHz}
+\citep{mesinger2016} and then decreases, but radio halos keep being
+brighter.
+We therefore argue that radio halos need more serious treatment in
+measuring the EoR signal, especially in the very low frequencies of
+$\lesssim \SI{100}{\MHz}$.
 
 %========================================================================
-\subsection{Frequency Structures}
+\subsection{Instrumental Frequency Structures}
 \label{sec:freq-structures}
 %========================================================================
 
-The smoothness along the frequency dimension is the most important feature
-of various foreground components, and is very crucial to enable us to
+The smoothness along the frequency dimension is the most crucial feature
+of various foreground components, and is the key that enables us to
 extract the faint EoR signal in the presence of overwhelming foreground
 contamination.
-However, spurious frequency structures may present in the final image
-cubes due to calibration uncertainties, instrumental and observational
-effects (e.g., cable signal reflections, ionospheric distortions),
-which break the spectral smoothness of the foreground emission, and
-throw the foreground power to high-\klos{} modes into the EoR window,
-corrupting the EoR measurements.
+However, artificial frequency structures may present in the final image
+cubes due to residual calibration uncertainties and complicated
+instrumental and observational effects (e.g., cable signal reflections,
+ionospheric distortions), which break the spectral smoothness of the
+foreground emission and hence damage the EoR measurements.
 There are some simulation studies and observational analyses showing that
 the chromatic instrumental response and insufficient foreground modeling
 can lead to small calibration errors of about
-\SIrange[range-units=repeat]{0.1}{1}{\percent}
+\SIrange[range-units=repeat]{0.1}{1}{\percent} in frequency channels
 \citep[e.g.,][]{barry2016,beardsley2016,ewallWice2017}.
-
-To take the spurious frequency structures into account, we adjust each
-slice of the image cube by multiplying with a random number drawn from a
-Gaussian distribution with unity mean \citep{chapman2016}.
-Two cases are considered, one is to mimic a \SI{0.1}{\percent} variation
-in the frequency dimension by using a sigma of 0.001 for the Gaussian
-distribution, the other is a frequency variation of \SI{1}{\percent}
-with Gaussian sigma of 0.01.
-Then we calculate the 1D power spectra from the modified image cubes,
-and repeat the process 100 times to estimate the uncertainties that
-frequency structures may cause.
-We show in \autoref{fig:ps1d-bands-crp} the 1D power spectra of radio
-halos and the EoR signal with variations been added along the frequency
-dimension for the \SIrange{154}{162}{\MHz} band.
-The 1D power spectrum of the EoR signal does not have noticeable changes
-regardless of the amplitude of frequency variations being either
-\SI{0.1}{\percent} or \SI{1}{\percent} as well as whether the EoR window
-constraint is applied, since the EoR signal already fluctuates rapidly
-along the frequency dimension.
-While the 1D power spectrum of radio halos remains almost unchanged
-without the EoR window constraint, the power spectrum inside the EoR
-window increases by more than 10 times and exceeds that of the EoR
-signal at large-$k$ modes when frequency variations of \SI{1}{\percent}
-present.
-The reason is that most of the powers of radio halos distribute within
-the wedge-shaped region mainly consisting of angular (\kperp) modes,
-thus the frequency (\klos) powers, even with the added power caused by
-the frequency variations, cannot have a noticeable influence on the
-final averaged 1D powers without excising the contaminating wedge.
-If the amplitude of frequency variations reduces to \SI{0.1}{\percent},
-the 1D power spectrum of radio halos inside the EoR window increases
-only slightly, which will not add more difficulties to EoR measurements.
-Considering that radio halos are typically 2 orders of magnitude weaker
-than point sources as shown in \autoref{fig:ps1d},
-this result is also consistent with the findings of \citet{barry2016},
-who recommended that EoR instruments should have no spectral features
-larger than \SI{\sim e-5} in the antenna or receiver system with spectral
-scales smaller than \SI{\sim 8}{\MHz}.
 
 \begin{figure*}
   \centering
   \includegraphics[width=0.9\textwidth]{ps1d-bands-crp}
   \caption{\label{fig:ps1d-bands-crp}%
-    1D power spectra of radio halos and the EoR signal with additional
-    frequency variations applied among the \SIrange{154}{162}{\MHz} band.
+    1D power spectra of radio halos and the EoR signal in the
+    \SIrange{154}{162}{\MHz} band with frequency artifacts of different
+    amplitudes being added.
     \textbf{(a)} Use all modes without applying the EoR window constraint;
     \textbf{(b)} Only use the modes inside the EoR window.
-    The red and green lines show the power spectra of the original image
-    cubes of radio halos and the EoR signal.
-    The blue and yellow lines show the power spectra of the two components
-    with \SI{0.1}{\percent} frequency variations added, and the
-    corresponding shaded regions indicate the \SI{68}{\percent} confidence
-    intervals.
+    The red and green lines show the original power spectra.
+    The blue and yellow lines show the power spectra of image cubes with
+    frequency artifact of \SI{0.1}{\percent}, and the corresponding
+    shaded regions represent the \SI{68}{\percent} confidence intervals.
     The purple and olive lines and shaded regions show the power spectra
-    with \SI{1}{\percent} frequency variations added and their
-    \SI{68}{\percent} confidence intervals.
+    and their \SI{68}{\percent} uncertainties with frequency artifact of
+    \SI{1}{\percent} being added to the image cubes.
     The magenta hatched region does not appear on the right sub-figure
     due to those modes been excluded from the EoR window.
-    Note the overlapping lines of the EoR signal in both sub-figures and
-    radio halos in the right sub-figure, since added frequency variations
+    Note the overlapping lines of the EoR signal in both panels and
+    radio halos in the left panel, since the added frequency artifacts
     do not make a noticeable difference in these cases.
   }
 \end{figure*}
+
+To evaluate the influence on the power spectra caused by the frequency
+artifacts, we make use of the \SIrange{154}{162}{\MHz} image cubes by
+multiplying each slice by a random number drawn from a Gaussian
+distribution with unity mean and then compare the resulting power
+spectra \citep{chapman2016}.
+Two cases are investigated: one is to mimic a frequency artifact of
+amplitude \SI{0.1}{\percent} by using $\sigma = 0.001$ for the Gaussian
+distribution, the other is a frequency artifact of \SI{1}{\percent}
+by using $\sigma = 0.01$.
+We make use of the image cubes of the EoR signal and the typical example
+of radio halos, add frequency artifacts, and calculate the 1D power
+spectra both with and without the EoR constraint applied.
+This procedure is repeated for 100 times in order to take into account
+the uncertainties that the frequency artifacts may cause, and the results
+are presented in \autoref{fig:ps1d-bands-crp}.
+The power spectra of the EoR signal do not exhibit obvious changes
+regardless of the amplitudes of added frequency artifacts being either
+\SI{0.1}{\percent} or \SI{1}{\percent} as well as whether the EoR window
+constraint is applied, since the EoR signal already fluctuates greatly
+along the frequency dimension.
+Without applying the EoR window constraint, the power spectra of radio
+halos remain almost unchanged in cases of the amplitudes of frequency
+artifacts being either \SI{0.1}{\percent} or \SI{1}{\percent}.
+The reason is that the power of radio halos mostly distributes in the
+wedge region dominated by the angular (\kperp) modes, thus the extra
+frequency (\klos) power resulted from the added frequency artifacts
+cannot make a noticeable difference to the final averaged power.
+By excising the wedge region, however, a frequency artifact of
+\SI{1}{\percent} can increase the power spectrum of radio halos by
+more than 10 times, which makes radio halos even stronger than the
+EoR signal at scales of $k \sim \SI{1.0}{\per\Mpc}$.
+If the amplitude of the frequency artifact reduces to \SI{0.1}{\percent},
+the power spectrum of radio halos increases only slightly, which may be
+acceptable and will not add major difficulties to the EoR measurements.
+Considering that radio halos are about \SIrange{2}{3} orders of magnitude
+weaker than the extragalactic point sources (\autoref{fig:ps1d}),
+the results are consistent with the findings of \citet{barry2016},
+who recommended that EoR instruments should have no spectral features
+of amplitudes $\gtrsim \num{e-5}$ and scales $\lesssim \SI{8}{\MHz}$
+in the antenna or receiver system.
+Our results also suggest that even minor calibration uncertainties can
+make radio halos become more problematic to the EoR detection, therefore
+a careful treatment for radio halos can be valuable to achieve better
+calibrations and thus help probe the EoR.
 
 
 %########################################################################
