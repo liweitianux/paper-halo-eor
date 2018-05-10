@@ -140,18 +140,17 @@
 \graphicspath{{figures/}}  % NOTE: the trailing '/' matters
 
 %% Journal information
-\received{XXX, 2018}
-\revised{XXX, 2018}
-\accepted{XXX, 2018}
+\received{2018 ???}
+\revised{???}
+\accepted{???}
 \submitjournal{ApJ}
 
 %% Add a light gray and diagonal water-mark to the first page
-\watermark{DRAFT}  % watermark text: DRAFT
+%\watermark{DRAFT}  % watermark text: DRAFT
 %% Control the water-mark size with:
 %% \setwatermarkfontsize{dimension}
 
 %% Short title to be used as the running head (<= 44 characters)
-%\shorttitle{Impacts of Radio Halos on EoR Detection}
 \shorttitle{Low-frequency Contributions of Radio Halos}
 \shortauthors{Li~\textit{et~al.}}
 
@@ -161,8 +160,8 @@
 \begin{document}
 
 \title{%
-  Radio Halos in Galaxy Clusters and Their Contributions
-  to the Low-Frequency Radio Sky
+  Radio Halos in Galaxy Clusters and
+  Their Contributions to the Low-Frequency Radio Sky
 }
 
 %% The \author command is the same as before except it now takes an optional
@@ -390,7 +389,7 @@ their centers, showing relatively regular morphologies and spatial
 extensions of $\sim\,$\si{\Mpc}, as well as an obvious correlation
 with the X-ray-emitting ICM \citep[e.g.,][]{cassano2013}.
 It should be noted that the angular sizes of radio halos happen to be
-several to tens of arcminutes, which coincides with those theoretically
+several to tens of arcminutes, which coincide with those theoretically
 predicted for the ionizing bubbles during the EoR.
 This, complemented with the potentially large number
 (several to tens of thousand in the whole sky)
@@ -419,8 +418,9 @@ In \autoref{sec:obs-simu} we employ the latest SKA1-Low layout
 configuration to incorporate the practical instrumental effects into
 the simulated sky maps.
 We then quantitatively evaluate the contamination of radio halos to the
-EoR signal and discuss the results in \autoref{sec:results}.
-Finally we summarize our work in \autoref{sec:summary}.
+EoR measurements in \autoref{sec:results} and discuss the results in
+\autoref{sec:discussions}.
+Finally, we summarize our work in \autoref{sec:summary}.
 Throughout this work we adopt a flat \lcdm{} cosmology with
 $H_0 = \SI{100}{\hubble} = \SI{71}{\km\per\second\per\Mpc}$,
 $\Omega_m = 0.27$, $\Omega_{\Lambda} = 1 - \Omega_m = 0.73$,
@@ -625,9 +625,9 @@ radio halo simulation.
 %------------------------------------------------------------------------
 
 According to the re-acceleration model, there exists a population of
-primary (or fossil) high-energy electrons, which permeate the ICM.
-They are thought to be injected by active galactic nucleus (AGN)
-activities and star formation \citep[see][for a review]{blasi2007rev}.
+primary (or fossil) high-energy electrons, which permeate the ICM and
+are thought to be injected by active galactic nucleus (AGN) activities
+and star formation \citep[see][for a review]{blasi2007rev}.
 When a cluster experiences a merger, the turbulence is generated
 throughout the ICM and can accelerate the primary electrons to be highly
 relativistic, resulting in the observed radio halo.
@@ -724,7 +724,7 @@ be used to solve \autoref{eq:fokkerplanck},
 {\color{cyan}%
 we evolve the accumulated electron spectrum
 $n_e'(\gamma) = Q_e(\gamma) \,t_0$ for \SI{\sim 1}{\Gyr} by applying the
-same Fokker-Planck equation but with turbulent acceleration disabled,}
+same Fokker-Planck equation but with the turbulent acceleration disabled,}
 where $t_0$ is the beginning time of the first merger begins
 \citep[e.g.,][]{brunetti2007}.
 
@@ -1022,7 +1022,8 @@ With the purpose of better characterizing the impacts of radio halos
 on the EoR detection, we adopt the above tuned parameter configuration
 and repeat the radio halos simulation for 100 times, considering that
 radio halos can vary significantly across the sky.
-The mean (r.m.s.) brightness temperature of the 100 simulations is
+The mean (r.m.s.) brightness temperature of the 100 simulations at
+\SI{158}{\MHz} is
 $24.9_{-20.0}^{+74.3}$ \si{\mK} ($2\,753_{-1\,972}^{+10\,409}$ \si{\mK}),
 and \autoref{fig:halos-simucomp-example}(b) shows a typical example
 of the simulated radio halos at \SI{158}{\MHz} with mean (r.m.s.)
@@ -1183,7 +1184,7 @@ The simulated visibility data are imaged through the
 \texttt{WSClean}\footnote{%
   WSClean: \url{https://sourceforge.net/p/wsclean} (version 2.5)}
 imager \citep{offringa2014} using Briggs' weighting with
-robustness of 0 \citep{briggs1995},
+robustness of zero \citep{briggs1995},
 and the created images are cropped to keep only the central
 \SI[product-units=repeat]{4 x 4}{\degree} regions for subsequent analyses.
 
@@ -1239,7 +1240,7 @@ Since the spatial distribution of the \Hi{} during the EoR is homogeneous
 and isotropic \XU{什么尺度？},
 the 3D power spectrum $P(\mathbf{k})$ of the EoR signal
 will have spherical symmetry and can be averaged in spherical shells of
-radius $k$, yielding the 1D power spectrum $P(k)$, which effectively
+radius $k$, yielding the 1D power spectrum $P(k)$, which efficiently
 compresses the information in the \Hi{} field and greatly increases the
 signal-to-noise ratio (SNR) over the per-pixel SNR in a direct imaging
 observation \citep{morales2004,morales2006,datta2010}.
@@ -1435,7 +1436,8 @@ inside the chosen EoR window, which can effectively avoid the foreground
 contamination.
 As illustrated in \autoref{fig:ps1d}(b), the excision of wedge region
 has little effect on the power spectrum of the EoR signal, but reduces
-the powers of all the foreground components remarkably as we would expect.
+the powers of all the foreground components substantially as we would
+expect.
 Nevertheless, the power ratio of radio halos to the EoR signal is
 typically about \SIrange[range-units=repeat]{1}{10}{\percent} on scales
 of $\SI{0.2}{\per\Mpc} \lesssim k \lesssim \SI{1.0}{\per\Mpc}$,
@@ -1725,18 +1727,19 @@ SKA1-Low and other radio interferometers.
 \acknowledgments
 
 We would give thanks
-to Fred Dulwich for sharing the latest SKA1-Low layout configuration as well
-as the guidance on using the \texttt{OSKAR} simulator,
+to Fred Dulwich for sharing the latest SKA1-Low layout configuration as
+well as the guidance on using the \texttt{OSKAR} simulator,
 to Andr\'e Offringa for the help on interferometric imaging with
 \texttt{WSClean},
 to Mathieu Remazeilles for providing us with the high-resolution Haslam
 \SI{408}{\MHz} Galactic synchrotron map,
-and to Giovanna Giardino for the all-sky Galactic synchrotron spectral index
-map.
-We also acknowledge Emma Chapman and Uri Keshet for their help.
-Part of the work involving \texttt{OSKAR} and \texttt{WSClean} was performed
-on the high-performance cluster at Shanghai Astronomical Observatory, Chinese
-Academy of Sciences.
+and to Giovanna Giardino for the all-sky Galactic synchrotron spectral
+index map.
+We also acknowledge Emma Chapman, Uri Keshet, and Abhirup Datta for
+their help.
+Part of the work involving \texttt{OSKAR} and \texttt{WSClean} was
+performed on the high-performance cluster at Shanghai Astronomical
+Observatory, Chinese Academy of Sciences.
 This work is supported by the National Natural Science Foundation of China
 (grant Nos. 11433002, 11621303, 61371147, \TODO{???}),
 and the National Key Research and Discovery Plan (grant No. 2017YFF0210903).
@@ -1744,23 +1747,19 @@ and the National Key Research and Discovery Plan (grant No. 2017YFF0210903).
 
 %% To help institutions obtain information on the effectiveness of their
 %% telescopes the AAS Journals has created a group of keywords for telescope
-%% facilities:
-%% http://journals.aas.org/authors/aastex/facility.html
+%% facilities: http://journals.aas.org/authors/aastex/facility.html
 %
-%% Following the acknowledgments section, use the following syntax and the
-%% \facility{} or \facilities{} macros to list the keywords of facilities used
-%% in the research for the paper.  Each keyword is check against the master
-%% list during copy editing.  Individual instruments can be provided in
-%% parentheses, after the keyword, but they are not verified.
+%% Use \facility{} or \facilities{} macros to list the keywords of facilities
+%% used in the research for the paper.  Each keyword is check against the
+%% master list during copy editing.  Individual instruments can be provided
+%% in parentheses, after the keyword, but they are not verified.
 
 \vspace{5mm}
 
-% \facilities{???}
-
-%% Similar to \facility{}, there is the optional \software command to allow
-%% authors a place to specify which programs were used during the creation of
-%% the manuscript. Authors should list each code and include either a
-%% citation or url to the code inside ()s when available.
+%% The optional \software command to allow authors a place to specify which
+%% programs were used during the creation of the manuscript.  Authors should
+%% list each code and include either a citation or url to the code inside ()s
+%% when available.
 
 \software{
   OSKAR \citep{mort2010},
@@ -1774,6 +1773,7 @@ and the National Key Research and Discovery Plan (grant No. 2017YFF0210903).
   SciPy (\url{https://scipy.org/}),
   Pandas (\url{https://pandas.pydata.org/}).
 }
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
@@ -1848,7 +1848,7 @@ Abell 851            & 0.4069 & 5.40 & 1.08 &   3.7 &  0.3 &  2.14 &  0.17 &  & 
 Abell 1132           & 0.1369 & 2.39 & 0.74 &   3.3 &  1.5 &  0.16 &  0.07 &  & \citet{wilber2018}  \\
 Abell 1213           & 0.0469 & 0.91 & 0.22 &  72.2 &  3.5 &  0.36 &  0.02 &  & \citet{giovannini2009}  \\
 Abell 1300           & 0.3100 & 4.52 & 0.92 &  20.0 &  2.0 &  2.99 &  0.30 & With a relic & \citet{reid1999}  \\
-Abell 1351           & 0.3220 & 4.64 & 1.08 &  32.4 &  XXX & 11.37 &  XXX  &  & \citet{giacintucci2011b}  \\
+Abell 1351           & 0.3220 & 4.64 & 1.08 &  32.4 &  --- & 11.37 &  ---  &  & \citet{giacintucci2011b}  \\
 Abell 1443           & 0.2700 & 4.10 & 1.10 &  11.0 &  1.1\tablenotemark{b} &  2.53 &  0.30 & Halo candidate & \citet{bonafede2015}  \\
 Abell 1451           & 0.1989 & 3.25 & 0.74 &   5.4 &  0.5 &  0.62 &  0.07 & With a relic candidate & \citet{cuciti2018}  \\
 Abell 1550           & 0.2540 & 3.92 & 1.41 &   7.7 &  1.6 &  1.49 &  0.31 &  & \citet{govoni2012}  \\
@@ -1886,7 +1886,7 @@ CIZA J0107.7+5408    & 0.1066 & 1.93 & 1.10 &  55.0 &  5.0 &  1.80 &  0.16 &  & 
 CIZA J0638.1+4747    & 0.1740 & 2.92 & 0.59 &   3.6 &  0.2 &  0.30 &  0.02 &  & \citet{cuciti2018}  \\
 CIZA J1938.3+5409    & 0.2600 & 3.99 & 0.72 &   1.6 &  0.2\tablenotemark{b} &  0.36 &  0.05 &  & \citet{bonafede2015}  \\
 CIZA J2242.8+5301    & 0.1921 & 3.16 & 1.77 &  33.5 &  6.2\tablenotemark{j} &  3.40 &  0.97 & With double relics & \citet{govoni2012}  \\
-ClG 0016+16          & 0.5456 & 6.37 & 0.77 &   5.5 &  XXX &  4.42 &  XXX  &  & \citet{giovannini2000}  \\
+ClG 0016+16          & 0.5456 & 6.37 & 0.77 &   5.5 &  --- &  4.42 &  ---  &  & \citet{giovannini2000}  \\
 ClG 0217+70          & 0.0655 & 1.24 & 0.73 &  58.6 &  0.9 &  0.54 &  0.01 & With double relics & \citet{brown2011}  \\
 ClG 1446+26          & 0.3700 & 5.09 & 1.22 &   7.7 &  2.6 &  3.57 &  1.21 & With a relic & \citet{govoni2012}  \\
 ClG 1821+64          & 0.2990 & 4.41 & 1.10 &  13.0 &  0.8\tablenotemark{k} &  3.70 &  0.10 &  & \citet{bonafede2014b}  \\
@@ -1903,7 +1903,7 @@ PLCK G171.9$-$40.7   & 0.2700 & 4.10 & 0.99 &  18.0 &  2.0 &  4.76 &  0.10 &  & 
 PLCK G285.0$-$23.7   & 0.3900 & 5.26 & 0.73 &   2.9 &  0.4\tablenotemark{p} &  1.67 &  0.21 &  & \citet{martinezAviles2016}  \\
 PLCK G287.0+32.9     & 0.3900 & 5.26 & 1.30 &   8.8 &  0.9 &  5.10 &  0.51 & With double relics & \citet{bonafede2014a}  \\
 PSZ1 G108.18$-$11.53 & 0.3347 & 4.77 & 0.84 &   6.8 &  0.2 &  2.72 &  0.10 & With double relics & \citet{deGasperin2015}  \\
-RXC J1234.2+0947     & 0.2290 & 3.63 & 0.92 &   2.0 &  XXX &  0.30 &  XXX  & Halo candidate & \citet{govoni2012}  \\
+RXC J1234.2+0947     & 0.2290 & 3.63 & 0.92 &   2.0 &  --- &  0.30 &  ---  & Halo candidate & \citet{govoni2012}  \\
 RXC J1314.4$-$2515   & 0.2474 & 3.85 & 1.27 &  20.3 &  0.8 &  1.45 &  0.06 & With double relics & \citet{feretti2005}  \\
 RXC J1514.9$-$1523   & 0.2226 & 3.55 & 1.38 &  10.0 &  2.0 &  1.65 &  0.33 &  & \citet{giacintucci2011a}  \\
 RXC J2003.5$-$2323   & 0.3171 & 4.59 & 1.38 &  35.0 &  2.0 & 11.96 &  0.68 &  & \citet{giacintucci2009}  \\
@@ -1943,7 +1943,7 @@ RXC J2351.0$-$1954   & 0.2477 & 3.85 & 0.64 &   4.5 &  0.9\tablenotemark{q} &  0
 
 
 %########################################################################
-\section{Additional Formulas}
+\section{Supplemental Formulas}
 \label{sec:formulas}
 %########################################################################
 
