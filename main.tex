@@ -49,11 +49,17 @@
 \usepackage{siunitx}  % typeset units; from `texlive-science'
 \restoresymbol{SI}{tablenum}  % `tablenum' from `siunitx' becomes `SItablenum'
 
+%% Graphics
+% Credit: https://tex.stackexchange.com/a/45502
+\usepackage{grfext}
+\PrependGraphicsExtensions*{.png,.PNG}  % prefer PNG figures
+\graphicspath{{./}{figures/}}  % NOTE: the trailing '/' matters
+
 %% Chinese
 \usepackage{xeCJK}
-\setCJKmainfont{SimSun}
-\setCJKsansfont{KaiTi}
-\setCJKmonofont{KaiTi}
+\setCJKmainfont{Noto Serif CJK SC}[BoldFont=Noto Sans CJK SC]
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans Mono CJK SC}
 
 %% Bibliography style
 \bibliographystyle{aasjournal-links}
@@ -137,7 +143,6 @@
 
 %% Custom settings
 \setlength{\parindent}{1.5em}
-\graphicspath{{figures/}}  % NOTE: the trailing '/' matters
 
 %% Journal information
 \received{2018 ???}
@@ -239,7 +244,7 @@
 \affiliation{Department of Physics and Astronomy,
   University of the Western Cape,
   Cape Town 7535, South Africa}
-\author{Junhua Gu}
+\author[0000-0001-9765-6521]{Junhua Gu}
 \affiliation{National Astronomical Observatories,
   Chinese Academy of Sciences,
   20A Datun Road, Beijing 100012, China}
@@ -1031,9 +1036,9 @@ brightness temperature of \SI{25.2}{\mK} (\SI{3947}{\mK}).
 
 \begin{figure*}
   \gridline{
-    \fig{fluxfunc-simucomp-1400}{0.49\textwidth}{%
+    \fig{fluxfunc-simucomp-1400}{0.51\textwidth}{%
       (a) Integrated flux function comparison}
-    \fig{halos-f158-C17}{0.45\textwidth}{%
+    \fig{halos-f158-heat-log}{0.45\textwidth}{%
       (b) Example map of radio halos at \SI{158}{\MHz}}
   }
   \caption{\label{fig:halos-simucomp-example}%
@@ -1045,7 +1050,7 @@ brightness temperature of \SI{25.2}{\mK} (\SI{3947}{\mK}).
     regions show the \SI{68}{\percent} uncertainties of the simulated
     radio halos derived from the 500 simulation runs.
     \textbf{(b)} A typical example from the 100 simulation runs showing
-    the simulated radio halos at \SI{158}{\MHz}, and the colorbar is in
+    the simulated radio halos at \SI{158}{\MHz}, and the color bar is in
     units of \si{\kelvin}.
   }
 \end{figure*}
@@ -1099,23 +1104,19 @@ are \SI{251.4}{\kelvin} (\SI{251.7}{\kelvin}),
 and \SI{45.5}{\kelvin} (\SI{5.9e4}{\kelvin}), respectively.
 
 \begin{figure*}
-  \gridline{
-    \fig{gsyn-f158-he}{0.45\textwidth}{(a) Galactic synchrotron emission}
-    \fig{gff-f158-he}{0.45\textwidth}{(b) Galactic free-free emission}
-  }
-  \gridline{
-    \fig{pointsources-f158-he-log}{0.45\textwidth}{(c) Extragalactic point sources}
-    \fig{21cm-f158-he}{0.45\textwidth}{(d) EoR signal}
-  }
+  \centering
+  \includegraphics[width=0.45\textwidth]{gsyn-f158-heat}
+  \includegraphics[width=0.45\textwidth]{gff-f158-heat} \\
+  \includegraphics[width=0.45\textwidth]{pointsources-f158-heat-log}
+  \includegraphics[width=0.45\textwidth]{21cm-f158-heat}
   \caption{\label{fig:gsyn-gff-ps-21cm}%
-    The simulated example maps of other foreground components and
-    the EoR signal at \SI{158}{\MHz}.
-    \textbf{(a)} Galactic synchrotron emission;
-    \textbf{(b)} Galactic free-free emission;
-    \textbf{(c)} Extragalactic point sources (color in logarithmic scale);
-    \textbf{(d)} EoR signal.
-    All colorbars are in units of \si{\kelvin}.
-    \TODO{add text labels; zoom in colorbars}
+    The example sky maps at \SI{158}{\MHz} of
+    \textbf{(a)} the Galactic synchrotron emission,
+    \textbf{(b)} the Galactic free-free emission,
+    \textbf{(c)} the Extragalactic point sources,
+    and
+    \textbf{(d)} the EoR signal.
+    All color bars are in units of \si{\kelvin}.
   }
 \end{figure*}
 
@@ -1349,7 +1350,7 @@ EoR signal even inside the EoR window.
     \textbf{(b)} the Galactic diffuse emission,
     and
     \textbf{(c)} the extragalactic point sources.
-    All sub-figures share the same colorbar with logarithmic scale.
+    All sub-figures share the same color bar with logarithmic scale.
     The white dashed lines mark the same EoR window boundary as in
     \autoref{fig:ps2d}.
   }
@@ -1523,7 +1524,7 @@ important foreground component at lower frequencies.
     respect to the EoR signal among frequency bands of
     \textbf{(a)} \SIrange{120}{128}{\MHz} and
     \textbf{(b)} \SIrange{192}{200}{\MHz}, respectively.
-    The colorbar is in logarithmic scale and shared by the
+    The color bar is in logarithmic scale and shared by the
     two sub-figures.
     The white dashed lines mark the EoR window boundaries.
   }
@@ -1546,9 +1547,8 @@ important foreground component at lower frequencies.
   }
 \end{figure*}
 
-In order to account for the distribution fluctuation of radio halos, we
-also repeat the radio halos simulation for 100 times in both frequency
-bands.
+Similarly, we repeat the radio halos simulation for 100 times in both
+frequency bands to account for the distribution fluctuation.
 The mean (r.m.s.) brightness temperatures of the 100 simulations at
 \SI{124}{\MHz} and \SI{196}{\MHz} are
 $63.3_{-49.5}^{+171.1}$ \si{\mK} ($6\,953_{-5\,041}^{+20\,986}$ \si{\mK})
