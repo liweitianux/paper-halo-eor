@@ -1643,81 +1643,56 @@ calibrations and thus help probe the EoR.
 \label{sec:summary}
 %########################################################################
 
-In this work, we have simulated the contribution of radio halos in galaxy
-cluster to the low-frequency sky, and quantitatively evaluated the impacts
-on the EoR measurements imposed by radio halos.
-We have developed the \texttt{FG21sim} software to simulate the low-frequency
-radio sky, including the contributions of the Galactic synchrotron and
-free-free emission, extragalactic point sources, and radio halos in
-galaxy clusters.
-Among these, we significantly improved the modeling of radio halos by
-employing the merger-induced turbulence re-acceleration model, which can
-fully describe the emergence and evolution of radio halos.
-The model parameters were further calibrated by utilizing all currently
-observed radio halos, achieving good agreement between the simulation
-results and observation data.
-Adopting the latest SKA1-Low layout configuration, we input the simulated
-sky maps into \texttt{OSKAR} to perform observational simulation, which
-were then imaged through \texttt{WSClean}, yielding the \enquote{observed}
-images with the instrumental effects properly incorporated.
+In this work, we first significantly improved the modeling of radio halos
+by employing the merger-induced turbulence re-acceleration model, which
+can well describe the emergence and evolution of radio halos,
+and we developed the \texttt{FG21sim} open-source software to implement
+the simulation method.
+We made use of all currently observed radio halos to calibrate the model
+parameters and achieved good agreement between simulations and observations.
+Adopting the latest SKA1-Low layout configuration, we used the
+\texttt{OSKAR} and \texttt{WSClean} to generate the \enquote{observed}
+images of the simulated sky maps, hence properly incorporated the
+practical instrumental effects into our simulation procedures.
 
-Focused on the \SIrange{154}{162}{\MHz} frequency band, we calculated
-and compared the 2D and 1D power spectra of radio halos, the EoR signal,
-the Galactic diffuse emission, and extragalactic point sources.
-The 2D power spectrum of radio halos shows clearly the wedge-shaped
-contaminating region, dominating the intermediate and large \kperp{}
-modes ($\SI{0.2}{\per\Mpc} \leq \kperp \leq \SI{1.0}{\per\Mpc}$,
-corresponding to \SIrange[range-units=repeat]{2.4}{12}{\arcminute})
-over the Galactic diffuse emission, and reaches several percents of the
-power of point sources at those scales.
-If we derive the 1D power spectra by naively averaging over all the
-available modes, radio halos can typically be about 3 order of magnitude
-stronger than the EoR signal due to the serious contamination from the
-foreground wedge.
-%% rewrite/improve...
-By applying the EoR window constraint, only the modes inside the EoR
-window are used to derive the 1D power spectra.
-While the powers of the EoR signal barely change, the powers of radio
-halos are substantially reduced by about 4 orders of magnitude, hence
-only has limited influence on the EoR measurements.
-However, radio halos vary significantly across the sky, leading to
-large fluctuations in the contamination to the EoR window, which can be
-as strong as or even stronger than the target signal, therefore
-selecting clean sky regions avoiding radio halos and bright point sources
-as much as possible for the future deep EoR observations is of great
-importance (Zheng et al. in preparation).
-
-We also investigated in the lower \SIrange{120}{128}{\MHz} and the higher
+By employing both 2D and 1D power spectra and taking advantage of the
+EoR window, we then carried out detailed comparisons among radio halos,
+the EoR signal, the Galactic diffuse emission, and the extragalactic
+point sources.
+In the \SIrange{154}{162}{\MHz} frequency band, radio halos mainly
+appear on the characteristic scales of
+$\SI{0.2}{\per\Mpc} \lesssim \kperp \lesssim \SI{1.0}{\per\Mpc}$
+(about \SIrange[range-units=repeat]{2.4}{12}{\arcminute}),
+and the power ratio of radio halos to the EoR signal can be about
+\SIrange[range-units=repeat]{5}{50}{\percent} even inside the EoR window
+on such scales.
+After taking the distribution fluctuation of radio halos into account
+and calculating the 1D power spectra with the wedge excluded, the power
+ratio of radio halos to the EoR signal is typically about
+\SIrange[range-units=repeat]{1}{10}{\percent} on the characteristic
+scales and can be about \SIrange[range-units=repeat]{10}{100}{\percent}
+within the \SI{68}{\percent} confidence interval.
+We investigated in the lower \SIrange{120}{128}{\MHz} and the higher
 \SIrange{192}{200}{\MHz} frequency bands, and found that radio halos
-produced severer contamination to the EoR measurements at the lower
-frequencies, because the EoR signal peak at about \SIrange{120}{130}{\MHz},
-while radio halos continue to be brighter toward lower frequencies.
-The contamination situation by radio halos at the higher
-\SIrange{192}{200}{\MHz} is similar to the situation at
-\SIrange{154}{162}{\MHz}.
-Moreover, the possible frequency structures resulting from calibration
-errors and instrumental and observational effects were discussed by
-adding variations to the image cubes along the frequency dimension.
-Utilizing the 1D power spectra derived inside the EoR window, the added
-frequency variations have little influence on the EoR signal, but increase
-the powers of radio halos by about 10 times (\SI{1}{\percent} frequency
-variations), imposing a serious contamination to the EoR measurements.
-Our results show that frequency variations of amplitude \SI{0.1}{\percent}
-is acceptable for radio halos to not cause significant difficulties in
-EoR measurements.
+become a more important contamination on the EoR measurements toward
+lower frequencies.
+We also evaluated the impacts of possible frequency artifacts by adding
+artifacts to the image cubes along the frequency dimension, which has
+little influence on the power spectrum of the EoR signal, but increases
+the power spectrum of radio halos by more than 10 times (\SI{1}{\percent}
+artifact), implying the great challenge and importance of highly accurate
+calibration.
 
-Nevertheless the EoR window provide a powerful method to avoid the
-overwhelming foreground and lead us to a promising prospect in EoR
-measurements, the foreground avoidance method loses many Fourier modes
-which account for a large portion of the EoR powers, restricting the
-measurable EoR modes and compromising the measurement precision.
-Therefore, sophisticated foreground modeling and removal methods are
-still an active research field.
-Among the various foreground components, we argue that radio halos
-should be dealt with seriously for the forthcoming deep EoR surveys.
-Better understanding and characterizing various foreground components
-help subtract them more accurately, expanding the EoR window and
-revealing more modes for more robust EoR measurements.
+Effective foreground removal can expand the EoR window to achieve more
+robust EoR measurements, which helps us make the best of the instruments.
+In such cases, a foreground model as accurate as possible is very
+valuable in developing more sophisticated foreground removal methods,
+which requires that we should understand and characterize all the major
+and minor foreground components that can contaminate the EoR measurements.
+We therefore conclude that radio halos need more serious treatment for
+the forthcoming deep EoR observations that will be carried out by the
+SKA1-Low and other radio interferometers.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \acknowledgments
