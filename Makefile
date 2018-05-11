@@ -1,7 +1,7 @@
 #
 # Weitian LI, et al.
 # 2017-07-18
-# Updated: 2018-02-01
+# Updated: 2018-05-11
 #
 # Credit:
 # [1] How to get current relative directory of your Makefile?
@@ -20,31 +20,44 @@ ROOT_DIR:=	$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 PROJNAME:=	$(shell basename $(ROOT_DIR))
 
 # Environment variables
-TEXINPUTS:= .:aastex:revtex:texmf:$(TEXINPUTS)
-BSTINPUTS:= .:aastex:revtex:texmf:$(BSTINPUTS)
+TEXINPUTS:=	.:aastex:revtex:texmf:$(TEXINPUTS)
+BSTINPUTS:=	.:aastex:revtex:texmf:$(BSTINPUTS)
 
 # EPS figures
-EPS_FIG:= $(wildcard figures/*.eps)
-PDF_FIG:= $(EPS_FIG:.eps=.pdf)
+EPS_FIG:=	$(wildcard figures/*.eps)
+PDF_FIG:=	$(EPS_FIG:.eps=.pdf)
+
+# Files to pack for AAS submission
+SRCS:=		main.tex references.bib
+FIGURES:=	$(wildcard figures/*.pdf)
+TEMPLATE:=	aastex/aastex62.cls aastex/aasjournal-links.bst
 
 default: main.pdf
 
 eps2pdf: $(PDF_FIG)
 
-report: main.pdf main.tex references.bib
+report: main.pdf $(SRCS)
 	mkdir reports/v$(DATE)
 	cp main.pdf reports/v$(DATE)/manuscript-$(ID)-$(DATE).pdf
 	cp main.tex reports/v$(DATE)/manuscript-$(ID)-$(DATE).tex
 	cp references.bib reports/v$(DATE)/references-$(ID)-$(DATE).bib
 
-main.pdf: main.tex references.bib
+main.pdf: $(SRCS) $(TEMPLATE) $(FIGURES) eps2pdf
 ifeq ($(CJK),ON)
-	# XeLaTeX with CJK support
+	# use XeLaTeX which supports CJK
 	env TEXINPUTS=$(TEXINPUTS) BSTINPUTS=$(BSTINPUTS) latexmk -xelatex $<
 else
 	# pdfLaTeX
 	env TEXINPUTS=$(TEXINPUTS) BSTINPUTS=$(BSTINPUTS) latexmk -pdf $<
 endif
+
+aaspack: $(SRCS) $(TEMPLATE) $(FIGURES)
+	mkdir $@.$(DATE)
+	@for f in $(SRCS) $(TEMPLATE) $(FIGURES); do \
+		cp -v $$f $@.$(DATE)/; \
+	done
+	tar -cjf $@.$(DATE).tar.bz2 -C $@.$(DATE)/ .
+	rm -r $@.$(DATE)
 
 %.pdf: %.eps
 	epstopdf $^ $@
@@ -56,7 +69,14 @@ clean:
 cleanall:
 	latexmk -C main.tex
 
-.PHONY: report clean cleanall
+help:
+	@echo "default - compile the paper PDF file (main.pdf)"
+	@echo "eps2pdf - convert figures from EPS to PDF"
+	@echo "aaspack - pack the necessary files and figures for AAS submission"
+	@echo "clean - clean the temporary files"
+	@echo "cleanall - clean temporary files and the output PDF file"
+
+.PHONY: report clean cleanall help
 
 
 # One liner to get the value of any makefile variable
