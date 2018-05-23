@@ -76,6 +76,10 @@
 \newcommand{\klos}{\text{$k_{\parallel}$}}
 \newcommand{\kperp}{\text{$k_{\bot}$}}
 \newcommand{\fov}{\text{Fo\!V}}
+% Credit: https://tex.stackexchange.com/a/2230
+\makeatletter
+\newcommand{\rms}{r.m.s\@ifnextchar.{}{.\@}}
+\makeatother
 
 %% Marks
 \newcommand{\NOTE}[1]{\textcolor{violet}{[\textbf{NOTE:}~\uwave{#1}]}}
@@ -164,10 +168,15 @@
 
 \begin{document}
 
+% XXX/WANG: 此标题看上去像是对射电晕观测的调研综述
 \title{%
   Radio Halos in Galaxy Clusters and
   Their Contributions to the Low-Frequency Radio Sky
 }
+%\title{%
+%  Simulation of Radio Halos in Galaxy Clusters and
+%  the Impacts on the Epoch of Reionization Detection
+%}
 
 %% The \author command is the same as before except it now takes an optional
 %% argument which is the 16 digit ORCID.  The syntax is:
@@ -208,7 +217,7 @@
 \email{hgxu@sjtu.edu.cn}
 
 \author[0000-0002-7527-380X]{Weitian Li}
-\email{liweitianux@sjtu.edu.cn, liweitianux@live.com}
+\email{liweitianux@sjtu.edu.cn}
 \affiliation{School of Physics and Astronomy,
   Shanghai Jiao Tong University,
   800 Dongchuan Road, Shanghai 200240, China}
@@ -270,8 +279,8 @@
 \begin{abstract}
 {\color{cyan}%
 \noindent
-The overwhelming foreground contamination is the primary impediment to
-probing the Epoch of Reionization (EoR) through measuring the redshifted
+The overwhelming foreground contamination is one of the primary impediments
+to probing the Epoch of Reionization (EoR) through measuring the redshifted
 21~cm signal.
 A foreground model as accurate as possible is very valuable and requires
 that we understand and characterize all the major and minor foreground
@@ -283,7 +292,8 @@ sky images of radio halos, and generate the \enquote{observed} images by
 adopting the latest SKA1-Low layout configuration to incorporate the
 practical instrumental effects.
 We perform detailed comparisons of power spectra between radio halos and
-the EoR signal in three frequency bands.
+the EoR signal in three frequency bands (\SIrange{120}{128}{\MHz},
+\SIrange{154}{162}{\MHz}, and \SIrange{192}{200}{\MHz}).
 Although we calculate the one-dimensional power spectra with a
 conservative EoR window applied to avoid most of the contamination,
 the power ratio of radio halos to the EoR signal is typically about
@@ -309,6 +319,7 @@ making the best of instruments.
 %% keywords and the rules for their use.
 %% http://journals.aas.org/authors/keywords2013.html
 \keywords{%
+  dark ages, reionization, first stars ---
   early universe ---
   galaxies: clusters: intracluster medium ---
   methods: data analysis ---
@@ -328,19 +339,19 @@ a period of our Universe preceded by the Cosmic Dawn
 and is expected to last from about 300 million to about 1 billion years
 after the Big Bang \citep[see][and references therein]{koopmans2015rev}.
 During the EoR, the reionization of
-neutral hydrogen (\Hi) caused primarily by the ultra-violet and soft
-X-ray photons emitted from the first generation celestial objects
+neutral hydrogen (\Hi) that is caused primarily by the ultra-violet and
+soft X-ray photons emitted from the first generation celestial objects
 efficiently surpassed the cooling of the gas through
 recombination of electrons and protons.
 As a result, the majority of baryonic matter was again in a
 highly ionized state.
 Comparing with the observations of distant quasars and cosmic microwave
 background (CMB), which have provided some important but loose
-constraints on the reionization process, the detection the redshifted
-21~cm line emission from \Hi{} in \SIrange{\sim 50}{200}{\MHz},
-especially those from the adjacent regions of the ionized bubbles,
-is recognized to be the decisive tool to directly reveal the EoR
-\citep[see][for reviews]{zaroubi2013rev,furlanetto2016rev}.
+constraints on the reionization process \citep[see][for a review]{fan2006rev},
+the 21~cm line emission from \Hi{}, especially those from the adjacent
+regions of the ionized bubbles, is recognized to be the decisive probe
+to directly reveal the EoR
+\citep[see][for reviews]{furlanetto2006rev,zaroubi2013rev,furlanetto2016rev}.
 
 In order to reveal the EoR, a number of radio interferometers working
 at the low-frequency radio bands have been designed to target the
@@ -364,7 +375,7 @@ Among various contaminating foreground components, the Galactic diffuse
 radiation (including both the synchrotron and free-free emissions)
 and extragalactic point sources are the most prominent and contribute
 the majority of the foreground
-\citep[e.g.,][]{shaver1999,diMatteo2004,gleser2008,liu2012,murray2017}.
+\citep[e.g.,][]{shaver1999,diMatteo2004,gleser2008,liu2012,murray2017,spinelli2018}.
 At about \SI{150}{\MHz}, it is estimated that they may account for
 about \SI{71}{\percent} and \SI{27}{\percent} of the total foreground,
 respectively \citep{shaver1999}.
@@ -440,16 +451,11 @@ otherwise stated.
 %########################################################################
 
 Based on our previous works \citep{wang2010,wang2013}, we have developed
-the \texttt{FG21sim} software to simulate the realistic low-frequency
+the \texttt{FG21sim}\footnote{%
+  FG21sim: \url{https://github.com/liweitianux/fg21sim}}
+software to simulate the low-frequency
 radio sky by taking into account the contributions of our Galaxy,
 extragalactic point sources, and radio halos in galaxy clusters.
-Our software is written in Python and is open-sourced under the MIT License
-at \url{https://github.com/liweitianux/fg21sim},
-where further documents and auxiliary data are provided.
-Additional utilities are also developed to help the observational simulation,
-which aims to integrate the instrumental responses of low-frequency radio
-interferometers, as well as subsequent analyzing procedures.
-
 By consulting the latest SKA science book on the EoR survey strategies
 \citep[e.g.,][]{koopmans2015rev}, we perform simulations within
 a \SI{8}{\MHz} band centered at \SI{158}{\MHz} for a
@@ -463,10 +469,9 @@ The \SI{8}{\MHz} bandwidth is chosen to limit the cosmological evolution
 effect of the EoR signal when calculating power spectra
 \citep[e.g.][]{wyithe2004,thyagarajan2013},
 and the relatively large region of \SI[product-units=repeat]{10 x 10}{\degree}
-will cover the first side-lobe, which helps the image CLEAN procedure
-in \autoref{sec:obs-simu}.
-The simulated sky is pixelized into \num{1800 x 1800} with a pixel size
-of \SI{20}{\arcsecond}.
+will cover the first side-lobe of the station beam.
+The simulated sky maps are pixelized into \num{1800 x 1800} with a pixel
+size of \SI{20}{\arcsecond}.
 
 
 %========================================================================
@@ -476,16 +481,16 @@ of \SI{20}{\arcsecond}.
 
 As a significant improvement over our past works \citep{wang2010,wang2013},
 we consider in detail the evolution of radio halos in galaxy clusters
-by employing the merger-induced turbulence re-acceleration model,
+by employing the merger-induced turbulence re-acceleration model
+\TODO{WANG: 加引意大利人的文章},
 in terms of which the relativistic electrons in the ICM are re-accelerated
 by the turbulence generated in merger events via the second-order
 Fermi process,
 and lose energies due to mechanisms including synchrotron radiation,
 inverse Compton scattering off the CMB photons, and Coulomb collisions
 with the thermal ICM.
-For each galaxy cluster, we first simulate its merging history
-by using the extended Press-Schechter theory,
-which is quantitatively described by a merger tree.
+For each galaxy cluster, we first employ the extended Press-Schechter theory
+to simulate its merging history, which is described by a merger tree.
 Then we calculate the turbulent acceleration efficiency and duration
 for each merger event.
 By combining the effects of turbulent acceleration and energy loss,
@@ -501,8 +506,8 @@ The Press-Schechter formalism was originally advanced as one of the standard
 method to predict the mass function of galaxy clusters and its evolution
 in the Universe \citep{press1974}, and has been extended to combine with
 the cold dark matter (CDM) models \citep[e.g.,][]{bond1991,lacey1993}.
-In this formalism, the number density (i.e., the number per unit comoving
-volume per unit mass) of galaxy clusters at a certain redshift $z$ is
+In this formalism, the number of galaxy clusters per unit comoving volume
+at redshift $z$ with masses in the range from $M$ to $M + \R{d}M$ is
 \begin{equation}
   \label{eq:ps-mass-func}
   n(M, z) \,\D{M} = \sqrt{\frac{2}{\pi}} \frac{\langle{\rho}\rangle}{M}
@@ -513,7 +518,7 @@ where $M$ is the virial mass of galaxy clusters,
 $\langle {\rho} \rangle$ is the current mean density of the Universe,
 $\delta_c(z)$ is the critical linear overdensity for a region to collapse
 at redshift $z$ [see \autoref{eq:delta-crit}],
-and $\sigma(M)$ is the current r.m.s.\ (root-mean-square) density
+and $\sigma(M)$ is the current \rms{} (root-mean-square) density
 fluctuations within a sphere of mean mass $M$.
 
 Considering the CDM model and the mass range covered by galaxy clusters,
@@ -523,7 +528,7 @@ density perturbations \citep{sarazin2002,randall2002}
   \label{eq:sigma-mass}
   \sigma(M) = \sigma_8 \left( \frac{M}{M_8} \right)^{-\alpha},
 \end{equation}
-where $\sigma_8$ is the present-day r.m.s.\ density fluctuations on
+where $\sigma_8$ is the current \rms{} density fluctuations on
 a scale of \SI{8}{\per\hubble\Mpc},
 $M_8 = (4\pi/3)(8 \,\si{\per\hubble\Mpc})^3 \langle{\rho}\rangle$
 is the mass contained in a sphere of a radius \SI{8}{\per\hubble\Mpc},
@@ -615,7 +620,7 @@ $S_1 = S_2 + \Delta S$.
 Considering that observable radio halos are regarded to be associated
 with recent (in the frame of the observer) major mergers
 and have typical lifetimes $\tau_{\R{halo}} \lesssim \SI{1}{\Gyr}$
-\citep[e.g.,][]{brunetti2009,cassano2016},
+at \SI{1.4}{\GHz} \citep[e.g.,][]{brunetti2009,cassano2016},
 we trace the merging history of each galaxy cluster by a maximum
 backward time of \SI{3}{\Gyr} from its \enquote{current} age
 $t_{\R{sim}}$ (corresponding to $z_{\R{sim}}$).
@@ -726,12 +731,12 @@ is derived to be
 
 To determine the initial electron spectrum $n_e(\gamma, t_0)$, which will
 be used to solve \autoref{eq:fokkerplanck},
-{\color{cyan}%
 we evolve the accumulated electron spectrum
-$n_e'(\gamma) = Q_e(\gamma) \,t_0$ for \SI{\sim 1}{\Gyr} by applying the
-same Fokker-Planck equation but with the turbulent acceleration disabled,}
-where $t_0$ is the beginning time of the first merger begins
-\citep[e.g.,][]{brunetti2007}.
+$n_e'(\gamma) = Q_e(\gamma) \,\tau_0$ for \SI{\sim 1}{\Gyr} by applying
+the same Fokker-Planck equation with the turbulent acceleration turned
+off \citep[e.g.,][]{brunetti2007}, where $\tau_0$ is the cluster's age
+in the beginning of the first merger and can be approximated as the
+starting time of the first merger.
 
 %........................................................................
 \ssssec{Turbulent Acceleration}
@@ -896,11 +901,11 @@ loss rate of which is
 \begin{equation}
   \label{eq:eloss-coul}
   \left( \diff{\gamma}{t} \right)_{\R{Coul}} =
-  \num{-3.79e4} \,n_{\R{th}} \left[ 1 +
-    \frac{\ln(\gamma/n_{\R{th}})}{75} \right] \quad [\si{\per\Gyr}],
+    \num{-3.79e4} \left( \frac{n_{\R{th}}}{\SI{1}{\per\cm\cubed}} \right)
+    \left[ 1 + \frac{1}{75} \ln \left(
+        \gamma \,\frac{n_{\R{th}}}{\SI{1}{\per\cm\cubed}} \right) \right]
+    \quad [\si{\per\Gyr}].
 \end{equation}
-where $n_{\R{th}}$ is the thermal number density
-[\autoref{eq:number-density-thermal}] in units of [\si{\per\cm\cubed}].
 
 The inverse Compton scattering and synchrotron radiation dominate
 the energy losses at the high-energy regime ($\gamma \gtrsim 1000$),
@@ -981,8 +986,6 @@ where $\theta = r / D_{\!A}(z_{\R{sim}})$ is the angular radius from the halo
 center with $D_{\!A}(z_{\R{sim}})$ the angular diameter distance to the halo,
 and $I_{\nu,0} = 9 S(\nu) / (2\pi \theta^2_{\R{halo}})$ is the central
 brightness.
-In addition, a random ellipticity $f_e$ and a random rotation angle
-$\phi$ are applied to each of the simulated halos.
 
 %........................................................................
 \ssssec{Parameters Tuning}
@@ -1197,7 +1200,7 @@ Similar to the real-time peeling of the brightest sources in practical
 data analysis pipeline of radio interferometers
 \citep[e.g.,][]{mitchell2008,intema2009}, we assume that the brightest
 ones with a \SI{158}{\MHz} flux density $S > \SI{50}{\mJy}$
-are peeled \citep[e.g.,][]{pindor2011}.
+are removed \citep[e.g.,][]{pindor2011}.
 Moreover, we create foreground image cubes using the CLEAN algorithm
 with joined-channel deconvolution in order to ensure the spectral
 smoothness \citep{offringa2017}, which is crucial to extract the EoR
