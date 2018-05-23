@@ -354,8 +354,8 @@ to directly reveal the EoR
 \citep[see][for reviews]{furlanetto2006rev,zaroubi2013rev,furlanetto2016rev}.
 
 In order to reveal the EoR, a number of radio interferometers working
-at the low-frequency radio bands have been designed to target the
-redshifted 21~cm signal, among which there are
+at the low-frequency radio bands (\SIrange{\sim 50}{200}{\MHz}) have been
+designed to target the redshifted 21~cm signal, among which there are
 the Square Kilometre Array (SKA; \citealt{mellema2013rev,koopmans2015rev}),
 the Hydrogen Epoch of Reionization Array (HERA; \citealt{deboer2017}),
 and their pathfinders, such as
@@ -385,16 +385,16 @@ filaments embedded in the cosmic webs,
 the intergalactic medium located at the cluster outskirts (virial shocks),
 and the intracluster medium (ICM) of galaxy clusters (radio halos,
 radio relics, and mini-halos).
-{\color{cyan}%
 Although these sources are less constrained by observations, especially
-in the low-frequency regime, they are suggested to be tens to hundreds
-of times brighter than the target EoR signal and hence impede the EoR
-detection \citep[e.g.,][]{waxman2000,diMatteo2004,gleser2008}.
-As estimated in \citet{diMatteo2004}, the intensity fluctuation at
-\SI{115}{\MHz} caused by extended radio halos and relics is about three
-orders of magnitude larger than that of the redshifted 21~cm signal.
-Consequently, a careful treatment for the extragalactic diffuse sources
-is indispensable in detecting the elusive EoR signal.}
+in the low-frequency regime, it is estimated that they are tens to
+hundreds of times brighter than the target EoR signal and hence impede
+the EoR detection \citep[e.g.,][]{waxman2000,diMatteo2004,gleser2008}.
+For example, \citet{diMatteo2004} calculated that the intensity
+fluctuation at \SI{115}{\MHz} caused by extended radio halos and relics
+is about three orders of magnitude larger than that of the redshifted
+21~cm signal.
+Consequently, a careful treatment of the extragalactic diffuse sources
+is indispensable in detecting the elusive EoR signal.
 
 In this work, we attempt to address this issue by focusing on the
 evolution of diffuse radio halos in galaxy clusters via detailed
@@ -600,10 +600,8 @@ during the backward tracing of a galaxy cluster, a time step $\Delta t$
     S \left| \diff{\ln \sigma^2}{\ln M} \right|
     \left( \frac{\Delta M_c}{M} \right) \right]^{1/2}
 \end{equation}
-is required \citep{lacey1993},
-{\color{cyan}%
-and we adopt an adaptive step of
-$\Delta\omega = \Delta\omega_{\R{max}} / 2$ \citep{randall2002}.}
+is required \citep{lacey1993}, and we adopt an adaptive step of
+$\Delta\omega = \Delta\omega_{\R{max}} / 2$ \citep{randall2002}.
 At a certain step when $\Delta\omega$ is given, the mass change
 $\Delta S$ can be randomly drawn from the following cumulative
 probability distribution of sub-cluster masses
@@ -666,10 +664,7 @@ and $Q_e(\gamma, t)$ describes the electron injection.
 
 %........................................................................
 \setcounter{sssseccount}{0}
-{\color{cyan}%
-\ssssec{Thermal Electron Number and Energy Densities}}
-
-\XU{Number Density of Thermal Electrons and the Associated Thermal Energy Density ???}
+\ssssec{Thermal Electrons}
 
 The number density of thermal electrons $n_{\R{th}}$ in the ICM can be
 calculated as
@@ -742,7 +737,7 @@ starting time of the first merger.
 \ssssec{Turbulent Acceleration}
 
 The details of interactions between the turbulence and both thermal and
-relativistic electrons are complicated and still poorly understood.
+relativistic particles are complicated and still poorly understood.
 Among several particle acceleration mechanisms that can be potentially
 triggered by the turbulence, the most important one is the transit time
 damping process, i.e., the turbulence dissipates its energy and
@@ -855,14 +850,13 @@ turbulent acceleration duration $\tau_{\R{turb}} \sim \SI{0.5}{\Gyr}$.
 
 For each merger event
 $(M^{(i)}_{\R{vir,m}}, M^{(i)}_{\R{vir,s}}, t^{(i)}_{\R{merger}})$
-of a galaxy cluster as simulated in \autoref{sec:merging-history},
-{\color{cyan}
-where $t^{(i)}_{\R{merger}}$ is the beginning time of the $i$-th merger
-event,} we calculate the corresponding turbulent acceleration duration
+\XU{确认这样写参数是否规范}
+of a galaxy cluster simulated in \autoref{sec:merging-history}, where
+$t^{(i)}_{\R{merger}}$ denotes the starting time of the $i$-th merger
+event, we calculate the corresponding turbulent acceleration duration
 $\tau^{(i)}_{\R{turb}}$, and solve the Fokker-Planck equation by taking
-into account both turbulent acceleration and energy losses among the
-period $[\,t^{(i)}_{\R{merger}}, t^{(i)}_{\R{merger}}+\tau^{(i)}_{\R{turb}}\,]$,
-\textcolor{cyan}{while there is no acceleration at other times}.
+into account both turbulent acceleration and energy losses during the
+period $[\,t^{(i)}_{\R{merger}}, t^{(i)}_{\R{merger}}+\tau^{(i)}_{\R{turb}}\,]$.
 
 %........................................................................
 \ssssec{Energy Losses}
@@ -1192,10 +1186,8 @@ robustness of zero \citep{briggs1995},
 and the created images are cropped to keep only the central
 \SI[product-units=repeat]{4 x 4}{\degree} regions for subsequent analyses.
 
-\textcolor{cyan}{%
 Since the Galactic synchrotron and free-free emissions have similar
-diffuse structures, and there is not need to distinguish the two
-emissions in this work, we combine them in the observational simulation.}
+diffuse features, we combine them in the simulated observations.
 Similar to the real-time peeling of the brightest sources in practical
 data analysis pipeline of radio interferometers
 \citep[e.g.,][]{mitchell2008,intema2009}, we assume that the brightest
@@ -1240,8 +1232,10 @@ The redshifted 21~cm EoR signal expected to be observed at different
 frequencies represent a fully three-dimensional (3D) data cube, where the
 two angular dimensions describe the transverse distances on the sky and
 the spectral dimension maps to the line-of-sight distance of the source.
-Since the spatial distribution of the \Hi{} during the EoR is homogeneous
-and isotropic \XU{什么尺度？},
+{\color{cyan}%
+Since the \Hi{} distribution during the EoR is statistically isotropic
+except on large scales ($k \lesssim \SI{0.16}{\per\Mpc}$) at the late
+stages of the EoR \citep[e.g.,][]{datta2012}},
 the 3D power spectrum $P(\mathbf{k})$ of the EoR signal
 will have spherical symmetry and can be averaged in spherical shells of
 radius $k$, yielding the 1D power spectrum $P(k)$, which efficiently
