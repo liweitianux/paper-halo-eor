@@ -915,9 +915,9 @@ electrons to be accelerated \textit{in situ} by the turbulence.
 \ssssec{Numerical Method}
 
 Now with all the coefficients in \autoref{eq:fokkerplanck} been determined,
-we can evolve the initial electron spectrum $n_e(\gamma,\, t=t_0)$ via
+we can evolve the initial electron spectrum $n_e(\gamma,\, t_0)$ via
 solving the Fokker-Planck equation, and derive the \enquote{current}
-electron spectrum $n_e(\gamma,\, t=t_{\R{sim}})$,
+electron spectrum $n_e(\gamma,\, t_{\R{sim}})$,
 where $t_{\R{sim}}$ corresponds to the simulated redshift $z_{\R{sim}}$
 (\autoref{sec:mass-function}).
 An efficient numerical method proposed by \citet{chang1970} is utilized
@@ -928,7 +928,7 @@ we define a \enquote{buffer} region below $\gamma_{\R{buf}}$, within which
 the spectral data are replaced by extrapolating the data above
 $\gamma_{\R{buf}}$ as a power-law spectrum \citep{donnert2014}.
 We adopt a logarithmic grid for $\gamma \in [1, 10^5]$ with 200 cells,
-and let the lower buffer region span 10 cells.
+and let the buffer region span 10 cells.
 
 %........................................................................
 \ssssec{Image Generation}
@@ -957,28 +957,28 @@ $r_{\R{halo}} \simeq L_{\R{turb}} \simeq r_{\R{vir}}/3$,
 therefore its radio power at a certain frequency (i.e., spectral power) is
 \begin{equation}
   \label{eq:halo-power}
-  % unit: [W/Hz]
   P(\nu) = \frac{4\pi}{3} r_{\R{halo}}^3 J_{\R{syn}}(\nu),
 \end{equation}
 and its flux density measured at the same frequency is
-\citep[e.g.,][]{hogg1999}
 \begin{equation}
   \label{eq:halo-flux}
-  % unit: [Jy] = 1e-26 [W/Hz/m^2]
   S(\nu) = \frac{(1+z_{\R{sim}}) P(\nu(1+z_{\R{sim}}))}{4\pi D_{\!L}^2(z_{\R{sim}})},
 \end{equation}
 where $D_{\!L}(z_{\R{sim}})$ is the luminosity distance to the halo at
 redshift $z_{\R{sim}}$,
-and the factor $(1 + z_{\R{sim}})$ accounts for the $K$ correction.
+and the factor $(1 + z_{\R{sim}})$ accounts for the $K$ correction
+\citep[e.g.,][]{hogg1999}.
 
-To generate the image for the simulated radio halos, we adopt an exponential
-profile for the azimuthally averaged brightness distribution \citep{murgia2009}:
+To generate the image for the simulated radio halos, we adopt an
+exponential profile for the azimuthally averaged brightness distribution
+\citep{murgia2009}:
 \begin{equation}
   \label{eq:halo-profile}
   I_{\nu}(\theta) = I_{\nu,0} \exp(-3 \,\theta / \theta_{\R{halo}}),
 \end{equation}
-where $\theta = r / D_{\!A}(z_{\R{sim}})$ is the angular radius from the halo
-center with $D_{\!A}(z_{\R{sim}})$ the angular diameter distance to the halo,
+where $\theta = r / D_{\!A}(z_{\R{sim}})$ is the angular radius from the
+halo center with $D_{\!A}(z_{\R{sim}})$ being the angular diameter
+distance to the halo,
 and $I_{\nu,0} = 9 S(\nu) / (2\pi \theta^2_{\R{halo}})$ is the central
 brightness.
 
@@ -995,7 +995,7 @@ energy: $\eta_e \sim \SI{0.1}{\percent}$;
 (4) efficiency of the ICM plasma instabilities:
 $\zeta \sim \numrange{0.1}{0.3}$;
 (5) relative energy density in the cosmic rays:
-$X_{\R{cr}} \sim \SI{1}{\percent}$.
+$X_{\R{cr}} \sim \SIrange[range-units=repeat]{1}{1.5}{\percent}$.
 Although all of them have reasonable constraints from either observational
 evidences or simulation studies, it is essential to further tune them in
 order to achieve better agreements with the observations.
@@ -1012,46 +1012,48 @@ integrated flux function of simulated radio halos agrees with the observed
 one in the high-flux regime within simulation uncertainties.
 Consequently, we have chosen a set of model parameters with
 $\eta_{\R{turb}} = \SI{10}{\percent}$, $\eta_B = \SI{0.1}{\percent}$,
-$\eta_e = \SI{0.1}{\percent}$, $\zeta = 0.1$,
+$\eta_e = \SI{0.3}{\percent}$, $\zeta = 0.1$,
 and $X_{\R{cr}} = \SI{1.5}{\percent}$.
 A comparison between the \SI{1.4}{\GHz} integrated flux functions of
 radio halos obtained in observations and simulations is shown in
-\autoref{fig:halos-simucomp-example}(a),
+\autoref{fig:halos-simucomp},
 where we also plot the \SI{158}{\MHz} integrated flux function for the
 simulated radio halos, which indicates that radio halos are much brighter
 in the low-frequency regime.
 
-With the purpose of better characterizing the impacts of radio halos
-on the EoR detection, we adopt the above tuned parameter configuration
-and repeat the radio halos simulation for 100 times, considering that
-radio halos can vary significantly across the sky.
-The mean (r.m.s.) brightness temperature of the 100 simulations at
-\SI{158}{\MHz} is
-$24.9_{-20.0}^{+74.3}$ \si{\mK} ($2\,753_{-1\,972}^{+10\,409}$ \si{\mK}),
-and \autoref{fig:halos-simucomp-example}(b) shows a typical example
-of the simulated radio halos at \SI{158}{\MHz} with mean (r.m.s.)
-brightness temperature of \SI{25.2}{\mK} (\SI{3947}{\mK}).
-
-\begin{figure*}
-  \gridline{
-    \fig{fluxfunc-simucomp-1400}{0.51\textwidth}{%
-      (a) Integrated flux function comparison}
-    \fig{halos-f158-heat-log}{0.45\textwidth}{%
-      (b) Example map of radio halos at \SI{158}{\MHz}}
-  }
-  \caption{\label{fig:halos-simucomp-example}%
-    \textbf{(a)} The \SI{1.4}{\GHz} integrated flux function comparison
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{fluxfunc-simucomp-1400}
+  \caption{\label{fig:halos-simucomp}%
+    The \SI{1.4}{\GHz} integrated flux function comparison
     between the observed (red dashed line) and simulated (red solid line)
     radio halos.  We also plot the \SI{158}{\MHz} integrated flux function
     for the simulated halos (blue solid line), which shows that radio
     halos are much brighter at the low-frequency band.  The shadowed
     regions show the \SI{68}{\percent} uncertainties of the simulated
     radio halos derived from the 500 simulation runs.
-    \textbf{(b)} A typical example from the 100 simulation runs showing
-    the simulated radio halos at \SI{158}{\MHz}, and the color bar is in
-    units of \si{\kelvin}.
   }
-\end{figure*}
+\end{figure}
+
+With the purpose of better characterizing the impacts of radio halos
+on the EoR detection, we adopt the above tuned parameter configuration
+and repeat the radio halos simulation for 100 times, considering that
+radio halos can vary significantly across the sky.
+The \rms{} brightness temperature of the 100 simulations at
+\SI{158}{\MHz} is $2\,753_{-1\,972}^{+10\,409}$ \si{\mK}, and
+\autoref{fig:halos-example} shows an example of the simulated radio halos
+at \SI{158}{\MHz} with \rms{} brightness temperature of \SI{3947}{\mK}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{halos-f158-heat-log}
+  \caption{\label{fig:halos-example}%
+    An example from the 100 simulation runs showing the simulated
+    radio halos at \SI{158}{\MHz}, and the color bar is in units of
+    \si{\kelvin}.
+    \TODO{WANG: 增加标度尺}
+  }
+\end{figure}
 
 
 %========================================================================
@@ -1095,11 +1097,10 @@ More details can be found in \citet{wang2010} and references therein.
 
 Example maps simulated at \SI{158}{\MHz} for different foreground
 components are shown in \autoref{fig:gsyn-gff-ps-21cm}(a--c).
-The mean (r.m.s.) brightness temperatures of the Galactic synchrotron
-emission, Galactic free-free emission, and extragalactic point sources
-are \SI{251.4}{\kelvin} (\SI{251.7}{\kelvin}),
-\SI{0.19}{\kelvin} (\SI{0.20}{\kelvin}),
-and \SI{45.5}{\kelvin} (\SI{5.9e4}{\kelvin}), respectively.
+The \rms{} brightness temperatures of the Galactic synchrotron emission,
+Galactic free-free emission, and extragalactic point sources are
+\SI{251.7}{\kelvin}, \SI{0.20}{\kelvin}, and \SI{5.9e4}{\kelvin},
+respectively.
 
 \begin{figure*}
   \centering
@@ -1138,8 +1139,7 @@ and then tile and re-scale them to have the same sky coverage and
 pixel size as our foreground maps.
 The extracted image at \SI{158}{\MHz} is shown in
 \autoref{fig:gsyn-gff-ps-21cm}(d),
-and the mean (r.m.s.) brightness temperature is
-\SI{9.53}{\mK} (\SI{10.69}{\mK}).
+and the \rms{} brightness temperature is \SI{10.69}{\mK}.
 
 
 %########################################################################
@@ -1228,7 +1228,7 @@ deal with it.}
 Current-generation radio interferometers do not have sufficient sensitivity
 to directly image the structures of the elusive EoR signal,
 thus statistically studies via measuring the power spectra seem to be
-a more feasible and promising way.
+more feasible and promising ways.
 The redshifted 21~cm EoR signal expected to be observed at different
 frequencies represent a fully three-dimensional (3D) data cube, where the
 two angular dimensions describe the transverse distances on the sky and
@@ -1270,23 +1270,23 @@ spectrum, and it can be characterized by \citep{thyagarajan2013}
 \end{equation}
 where
 $c$ is the speed of light,
-$B = \SI{8}{\MHz}$ is the frequency bandwidth of our simulated image cube,
+$B = \SI{8}{\MHz}$ is the frequency bandwidth of the simulated image cube,
 $f_{21} = \SI{1420.4}{\MHz}$ is the rest-frame frequency of the 21~cm line,
 $z = f_{21}/f_c - 1$ is the signal redshift corresponding to the central
-frequency of the image cube,
+frequency ($f_c$) of the image cube,
 $E(z) = \sqrt{\Omega_m(1+z)^3 + \Omega_{\Lambda}}$ is the redshift
 evolution factor \citep{hogg1999},
 $D_{\!M}(z)$ is the transverse comoving distance,
 $e$ denotes the number of characteristic convolution widths
 ($\propto B^{-1}$) for the spillover region caused by the variations in
 instrumental frequency response,
-and $\Theta$ is the angular distance of the foreground source from
-the field center.
+and $\Theta$ is the angular distance of foreground sources from the
+field center.
 A soft limit to the region of the foreground wedge is thus imposed by the
-telescope's field of view (\fov), i.e., $\Theta \simeq \fov/2$
+radius of telescope's field of view (\fov), i.e., $\Theta \simeq \fov/2$
 \citep{morales2012}.
 In this work, we choose $e = 3$ and $\Theta_{158} = \SI{6}{\degree}$
-(corresponding to about 3 times of the SKA1-Low's \fov{} at
+(corresponding to about 3 times of the radius of SKA1-Low's \fov{} at
 \SI{158}{\MHz}) for a very conservative EoR window boundary.
 
 \begin{figure*}
@@ -1311,8 +1311,8 @@ In this work, we choose $e = 3$ and $\Theta_{158} = \SI{6}{\degree}$
 In order to suppress the side-lobes resulted from the Fourier transform of
 the finite frequency bandwidth, the Blackman-Nuttall window function is
 applied along the frequency dimension \citep[e.g.,][]{trott2015,chapman2016}.
-The 2D power spectra of radio halos [the typical example as shown in
-\autoref{fig:halos-simucomp-example}(b)], the EoR signal, and other
+The 2D power spectra of radio halos (the typical example as shown in
+\autoref{fig:halos-example}), the EoR signal, and other
 foreground components among the \SIrange{154}{162}{\MHz} frequency band
 are presented in \autoref{fig:ps2d},
 where we also mark the adopted EoR window boundary.
@@ -1332,7 +1332,7 @@ corresponding to about \SIrange[range-units=repeat]{2.4}{12}{\arcminute},
 which are the typical angular sizes of radio halos.
 The wedge-shaped contamination, which is caused by the mode mixing effect
 and localized in the high-\kperp{}, low-\klos{} regions on the 2D power
-spectrum, is very evident for radio halos and the extragalactic point
+spectrum, is prominent for radio halos and the extragalactic point
 sources, as shown in \autoref{fig:ps2d}(b,d).
 Although a very conservative EoR window boundary is chosen, radio halos
 still show some power beyond the boundary and hence can contaminate the
@@ -1491,13 +1491,13 @@ and a higher band of \SIrange{192}{200}{\MHz}, which are commonly studied
 in the literature as well, and follow the same procedures as described
 in Sections \ref{sec:sky-simu} and \ref{sec:obs-simu} to investigate the
 contributions of radio halos at these different frequencies.
-At \SI{124}{\MHz}, the middle of the former band, the mean (r.m.s.)
-brightness temperatures of the simulated sky maps for radio halos (the
-typical example) and the EoR signal are \SI{58.1}{\mK} (\SI{8891}{\mK})
-and \SI{13.5}{\mK} (\SI{14.4}{\mK}), respectively.
-Meanwhile, the mean (r.m.s.) brightness temperatures at \SI{196}{\MHz}
-for the two components are \SI{11.6}{\mK} (\SI{1861}{\mK})
-and \SI{2.48}{\mK} (\SI{3.44}{\mK}), respectively.
+At \SI{124}{\MHz}, the middle of the former band, the \rms{} brightness
+temperatures of the simulated sky maps for radio halos (the typical
+example) and the EoR signal are \SI{8891}{\mK} and \SI{14.4}{\mK},
+respectively.
+Meanwhile, the \rms{} brightness temperatures at \SI{196}{\MHz}
+for the two components are \SI{1861}{\mK} and \SI{3.44}{\mK},
+respectively.
 In \autoref{fig:ps2d-ratio-bands}, we present the 2D power spectrum
 ratios of radio halos with respect to the EoR signal at these two
 frequency bands, and we use $\Theta_{124} = \SI{7.5}{\degree}$ for the
@@ -1547,12 +1547,9 @@ important foreground component at lower frequencies.
 
 Similarly, we repeat the radio halos simulation for 100 times in both
 frequency bands to account for the distribution fluctuation.
-The mean (r.m.s.) brightness temperatures of the 100 simulations at
-\SI{124}{\MHz} and \SI{196}{\MHz} are
-$63.3_{-49.5}^{+171.1}$ \si{\mK} ($6\,953_{-5\,041}^{+20\,986}$ \si{\mK})
-and
-$10.1_{-8.2}^{+35.7}$ \si{\mK} ($1\,235_{-921}^{+4\,859}$ \si{\mK}),
-respectively.
+The \rms{} brightness temperatures of the 100 simulations at
+\SI{124}{\MHz} and \SI{196}{\MHz} are $6\,953_{-5\,041}^{+20\,986}$ \si{\mK}
+and $1\,235_{-921}^{+4\,859}$ \si{\mK}, respectively.
 We take advantage of the EoR windows as described above to calculate the
 1D power spectra for radio halos and the EoR signal.
 As shown in \autoref{fig:ps1d-bands}, at scale of $k \sim \SI{1.0}{\per\Mpc}$,
