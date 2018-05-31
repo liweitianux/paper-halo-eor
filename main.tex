@@ -1690,15 +1690,86 @@ which requires excellent understandings to all kinds of foreground sources
 including radio halos in the low-frequency regime.
 } % cyan
 
+{\color{cyan}%
 %========================================================================
+\subsection{Radio Halos inside Far Side-lobes}
+\label{sec:far-sidelobes}
 %========================================================================
 
+Phased arrays, which are widely used in low-frequency radio
+interferometers (e.g., LOFAR, MWA, SKA1-Low), have complicated beam
+profiles.
+Sources far from the main lobe of the station beam can introduce
+noise-like corruptions, known as the far side-lobe confusion noise
+(FSCN; \citealt{smirnov2012}), to images due to the multitude of
+side-lobes.
+Unfortunately, FSCN will not decrease once the $uv$ coverage of the
+observation no longer improves, and thus may present a limiting factor
+in the noise performance of interferometers \citep{mort2017}.
 
 \begin{figure*}
   \centering
+  \includegraphics[width=\textwidth]{ps2d-fscn-band158}
+  \caption{\label{fig:ps2d-fscn}%
+    \textbf{(a)} 2D power spectrum of radio halos located in the
+    far side-lobes in the \SIrange{154}{162}{\MHz} frequency band.
+    \textbf{(b)} 2D power spectrum ratio of radio halos inside the
+    far side-lobes to the EoR signal, i.e., ratio of the panel (a)
+    of this figure to \autoref{fig:ps2d}(a).
+    The black and blue dashed lines mark the EoR window boundaries
+    defined with $\Theta = \SI{6}{\degree}$ and \SI{90}{\degree},
+    respectively.
   }
 \end{figure*}
 
+Following \citet{mort2017}, we investigate the impact of the FSCN
+contributed by radio halos, i.e., radio halos located in the far
+side-lobes of the station beam, on the EoR detection.
+We take the \SIrange{154}{162}{\MHz} frequency band as an example and
+simulate radio halos that cover half of the whole sky centered at
+(R.A.\ = \SI{0}{\degree}, Dec.\ = \SI{-27}{\degree}), i.e.,
+the sky from the zenith to the horizon for the telescope.
+We remove the radio halos with angular distance of \SI{< 10}{\degree}
+from the center, and use the \texttt{OSKAR} simulator to perform virtual
+observations.
+Then the \texttt{WSClean} imager is employed to create the dirty images
+of size \SI[product-units=repeat]{10 x 10}{\degree} using Briggs'
+weighting with robustness of zero,
+and the central \SI[product-units=repeat]{5 x 5}{\degree} regions of
+the created images are cropped out to calculate the 2D power spectrum,
+as shown in \autoref{fig:ps2d-fscn}(a).
+We find that the FSCN contributed by radio halos is remarkably strong,
+and the wedge-shaped contamination region moves toward the top left in
+the $(\kperp, \klos)$ plane and greatly reduces the EoR window.
+The growth of the contaminating wedge is caused by the radio halos
+inside the far side-lobes covering almost half of the sky, as described
+by \autoref{eq:eor-window}.
+In order to avoid the FSCN contamination, we are required to employ a
+more conservative EoR window boundary, such as the one defined with
+$\Theta = \SI{90}{\degree}$ and marked in \autoref{fig:ps2d-fscn} as
+blue dashed line, and sacrifices more information of the EoR signal.
+In \autoref{fig:ps2d-fscn}(b), we further present the 2D power spectrum
+ratio of the FSCN to the EoR signal [\autoref{fig:ps2d}(a)] to better
+illustrate the impact of the FSCN on the EoR detection.
+It shows that even inside the newly defined EoR window
+($\Theta = \SI{90}{\degree}$) on scales of
+$\kperp \lesssim \SI{0.1}{\per\Mpc}$ and $\klos \gtrsim \SI{0.6}{\per\Mpc}$,
+the FSCN resulted from radio halos can be about 1000 times stronger
+than the EoR signal and thus severely damage the EoR measurements.
+Consequently, a highly accurate foreground model with various sources
+including radio halos carefully modeled and computationally efficient
+source removal methods are necessary to tackle the FSCN for the EoR
+experiments.
+
+As mentioned in \autoref{sec:ps2d}, a carefully chosen clean sky region
+seems to be able to effectively avoid the significant contamination
+contributed by radio halos given their large distribution variation
+across the sky, but the existence of severe FSCN contamination resulted
+from radio halos located in the far side-lobes requires that such sky
+regions should have as least bright radio halos as possible not only in
+the main lobe but also in the side-lobes of the station beam,
+making the sky region selection a much more difficult task.
+} % cyan
 
 
 %########################################################################
