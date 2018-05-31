@@ -1059,14 +1059,24 @@ in the low-frequency regime.
   }
 \end{figure}
 
-With the purpose of better characterizing the impacts of radio halos
-on the EoR detection, we adopt the above tuned parameter configuration
-and repeat the radio halos simulation for 100 times, considering that
-radio halos can vary significantly across the sky.
-The \rms{} brightness temperature of the 100 simulations at
-\SI{158}{\MHz} is $2\,753_{-1\,972}^{+10\,409}$ \si{\mK}, and
+{\color{cyan}%
+The distribution of radio halos can vary significantly across the sky,
+which should be taken into account for the purpose of better
+characterizing the impacts of radio halos on the EoR detection.
+Therefore, we adopt the above tuned parameter configuration
+and repeat the radio halos simulation for 100 times.
+The medians and the corresponding \SI{68}{\percent} uncertainties%
+\footnote{The \SI{68}{\percent} uncertainty is derived from the 16th
+and 84th percentiles because they are more robust than the mean and
+standard deviation for data with large dispersion.}
+of the \rms{} brightness temperature for the 100 simulations are
+$\left(6.95_{-5.04}^{+21.0}\,\right) \times 10^3$ \si{\mK},
+$\left(2.75_{-1.97}^{+10.4}\,\right) \times 10^3$ \si{\mK}, and
+$\left(1.24_{-0.92}^{+4.86}\,\right) \times 10^3$ \si{\mK}
+at \numlist{124;158;196} \si{\MHz}, respectively.
+\autoref{tab:tb-rms} also lists the results and
 \autoref{fig:halos-example} shows an example of the simulated radio halos
-at \SI{158}{\MHz} with \rms{} brightness temperature of \SI{3947}{\mK}.
+at \SI{158}{\MHz}.} % cyan
 
 \begin{figure}
   \centering
@@ -1078,6 +1088,29 @@ at \SI{158}{\MHz} with \rms{} brightness temperature of \SI{3947}{\mK}.
     \TODO{WANG: 增加标度尺}
   }
 \end{figure}
+
+\begin{deluxetable}{cccc}
+\tablecaption{\label{tab:tb-rms}%
+  The \rms{} Brightness Temperatures of the Foregrounds and the EoR Signal
+  (Unit: \si{\mK})
+}
+\tablehead{
+  \colhead{Component} &
+  \colhead{\SI{124}{\MHz}} &
+  \colhead{\SI{158}{\MHz}} &
+  \colhead{\SI{196}{\MHz}}
+}
+\startdata
+Radio halos (100 simulations) &
+  $\left(6.95_{-5.04}^{+21.0}\,\right) \times 10^3$ &
+  $\left(2.75_{-1.97}^{+10.4}\,\right) \times 10^3$ &
+  $\left(1.24_{-0.92}^{+4.86}\,\right) \times 10^3$ \\
+Galactic synchrotron & \num{4.74e5} & \num{2.52e5} & \num{1.43e5} \\
+Galactic free-free & \num{330} & \num{200} & \num{130} \\
+Extragalactic point sources & \num{2.97e8} & \num{5.90e7} & \num{1.39e7} \\
+EoR signal & \num{15.1} & \num{11.3} & \num{3.77}
+\enddata
+\end{deluxetable}
 
 
 %========================================================================
@@ -1119,26 +1152,22 @@ results made by \citet{wilman2008}, and simulate the latter 2 types
 by employing their corresponding luminosity functions and spectral models.
 More details can be found in \citet{wang2010} and references therein.
 
-Example maps simulated at \SI{158}{\MHz} for different foreground
-components are shown in \autoref{fig:gsyn-gff-ps-21cm}(a--c).
 The \rms{} brightness temperatures of the Galactic synchrotron emission,
-Galactic free-free emission, and extragalactic point sources are
-\SI{251.7}{\kelvin}, \SI{0.20}{\kelvin}, and \SI{5.9e4}{\kelvin},
-respectively.
+Galactic free-free emission, and extragalactic point sources are listed
+in \autoref{tab:tb-rms}, and example maps simulated at \SI{158}{\MHz}
+for these components are shown in \autoref{fig:map-fg-other}.
 
 \begin{figure*}
   \centering
-  \includegraphics[width=0.45\textwidth]{gsyn-f158-heat}
-  \includegraphics[width=0.45\textwidth]{gff-f158-heat} \\
-  \includegraphics[width=0.45\textwidth]{pointsources-f158-heat-log}
-  \includegraphics[width=0.45\textwidth]{21cm-f158-heat}
-  \caption{\label{fig:gsyn-gff-ps-21cm}%
-    The example sky maps at \SI{158}{\MHz} of
+  \includegraphics[width=0.32\textwidth]{gsyn-f158-heat}
+  \includegraphics[width=0.32\textwidth]{gff-f158-heat}
+  \includegraphics[width=0.32\textwidth]{pointsources-f158-heat-log}
+  \caption{\label{fig:map-fg-other}%
+    The sky maps of
     \textbf{(a)} the Galactic synchrotron emission,
-    \textbf{(b)} the Galactic free-free emission,
-    \textbf{(c)} the Extragalactic point sources,
-    and
-    \textbf{(d)} the EoR signal.
+    \textbf{(b)} the Galactic free-free emission, and
+    \textbf{(c)} the Extragalactic point sources
+    at \SI{158}{\MHz}.
     All color bars are in units of \si{\kelvin}.
   }
 \end{figure*}
@@ -1161,9 +1190,37 @@ We extract the image slices at needed frequencies (i.e., redshifts) from
 the light-cone cubes of the recommended \enquote{faint galaxies} case,
 and then tile and re-scale them to have the same sky coverage and
 pixel size as our foreground maps.
-The extracted image at \SI{158}{\MHz} is shown in
-\autoref{fig:gsyn-gff-ps-21cm}(d),
-and the \rms{} brightness temperature is \SI{10.69}{\mK}.
+{\color{cyan}%
+\autoref{fig:eor-tbrms} shows the \rms{} brightness temperatures of the
+EoR signal within \SIrange{120}{200}{\MHz} (i.e., redshift range of
+\numrange{6.1}{10.8}),
+and \autoref{tab:tb-rms} lists the \rms{} brightness temperatures at the
+central frequencies of the 3 chosen frequency bands.
+We also present the map of the EoR signal obtained at \SI{158}{\MHz} in
+\autoref{fig:map-eor}.}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{eos2016-tbrms}
+  \caption{\label{fig:eor-tbrms}%
+    The \rms{} brightness temperatures of the EoR signal within
+    \SIrange{120}{200}{\MHz} (i.e., redshift range of
+    \numrange{6.1}{10.8}).
+    The purple shaded regions mark the \SIrange{120}{128}{\MHz},
+    \SIrange{154}{162}{\MHz}, and \SIrange{192}{200}{\MHz}
+    frequency bands used in this work.
+  }
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{21cm-f158-heat}
+  \caption{\label{fig:map-eor}%
+    The sky map of the EoR signal at \SI{158}{\MHz}.
+    The color bar is in units of \si{\kelvin}.
+    \TODO{update map}
+  }
+\end{figure}
 
 
 %########################################################################
