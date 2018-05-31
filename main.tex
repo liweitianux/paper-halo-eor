@@ -1592,105 +1592,113 @@ but we will discuss this further in \autoref{sec:far-sidelobes}.
 \label{sec:discussions}
 %########################################################################
 
+{\color{cyan}%
+In practical observations of low-frequency radio interferometers, the
+situations are much more complicated.
+For example, calibration uncertainties as well as other complicated
+instrumental and observational effects can cause frequency artifacts
+in the reduced image cubes;
+foreground sources, such as radio halos, located in the far side-lobes
+of the station beam can significantly affect the imaging dynamical range
+and quality.
+In this section, we investigate how the EoR measurements are affected
+by radio halos in these two situations.} % cyan
 
 %========================================================================
-%========================================================================
-
-
-\begin{figure*}
-  \centering
-  }
-\end{figure*}
-
-
-%========================================================================
-\subsection{Instrumental Frequency Structures}
-\label{sec:freq-structures}
+\subsection{Instrumental Frequency Artifacts}
+\label{sec:freq-artifacts}
 %========================================================================
 
 The smoothness along the frequency dimension is the most crucial feature
 of various foreground components, and is the key that enables us to
 extract the faint EoR signal in the presence of overwhelming foreground
 contamination.
-However, artificial frequency structures may present in the final image
-cubes due to residual calibration uncertainties and complicated
-instrumental and observational effects (e.g., cable signal reflections,
-ionospheric distortions), which break the spectral smoothness of the
-foreground emission and hence damage the EoR measurements.
-There are some simulation studies and observational analyses showing that
-the chromatic instrumental response and insufficient foreground modeling
-can lead to small calibration errors of about
-\SIrange[range-units=repeat]{0.1}{1}{\percent} in frequency channels
-\citep[e.g.,][]{barry2016,beardsley2016,ewallWice2017}.
+However, artificial frequency structures may present in the obtained
+image cubes due to calibration uncertainties (e.g., insufficient sky
+modeling) and complicated instrumental and observational effects (e.g.,
+cable signal reflections, ionospheric distortions), which break the
+spectral smoothness of the foreground emission and hence damage the
+EoR measurements.
 
 \begin{figure*}
   \centering
-  \includegraphics[width=0.9\textwidth]{ps1d-bands-crp}
-  \caption{\label{fig:ps1d-bands-crp}%
-    1D power spectra of radio halos and the EoR signal in the
-    \SIrange{154}{162}{\MHz} band with frequency artifacts of different
-    amplitudes being added.
-    \textbf{(a)} Use all modes without applying the EoR window constraint;
-    \textbf{(b)} Only use the modes inside the EoR window.
-    The red and green lines show the original power spectra.
-    The blue and yellow lines show the power spectra of image cubes with
-    frequency artifact of \SI{0.1}{\percent}, and the corresponding
-    shaded regions represent the \SI{68}{\percent} confidence intervals.
-    The purple and olive lines and shaded regions show the power spectra
-    and their \SI{68}{\percent} uncertainties with frequency artifact of
-    \SI{1}{\percent} being added to the image cubes.
-    The magenta hatched region does not appear on the right sub-figure
-    due to those modes been excluded from the EoR window.
-    Note the overlapping lines of the EoR signal in both panels and
-    radio halos in the left panel, since the added frequency artifacts
-    do not make a noticeable difference in these cases.
+  \includegraphics[width=\textwidth]{ps2d-ratio-crp-halos-3bands}
+  \caption{\label{fig:ps2d-ratio-crp}%
+    2D power spectrum ratios of radio halos with added frequency
+    artifacts to the original ones.
+    All the 100 simulation runs for radio halos are used to derive
+    the median 2D power spectrum ratios that are presented here.
+    The top and bottom rows show the cases of adding \SI{0.1}{\percent}
+    and \SI{1}{\percent} frequency artifacts, respectively.
+    The left, middle, and right columns show the power spectrum ratios
+    in the \numrange{120}{128}, \numrange{154}{162}, and
+    \numrange{192}{200} \si{\MHz} bands.
+    The magenta lines mark the EoR window boundaries.
+    All panels share the same color bar in logarithmic scale.
   }
 \end{figure*}
 
-To evaluate the influence on the power spectra caused by the frequency
-artifacts, we make use of the \SIrange{154}{162}{\MHz} image cubes by
-multiplying each slice by a random number drawn from a Gaussian
-distribution with unity mean and then compare the resulting power
-spectra \citep{chapman2016}.
-Two cases are investigated: one is to mimic a frequency artifact of
-amplitude \SI{0.1}{\percent} by using $\sigma = 0.001$ for the Gaussian
-distribution, the other is a frequency artifact of \SI{1}{\percent}
-by using $\sigma = 0.01$.
-We make use of the image cubes of the EoR signal and the typical example
-of radio halos, add frequency artifacts, and calculate the 1D power
-spectra both with and without the EoR constraint applied.
-This procedure is repeated for 100 times in order to take into account
-the uncertainties that the frequency artifacts may cause, and the results
-are presented in \autoref{fig:ps1d-bands-crp}.
-The power spectra of the EoR signal do not exhibit obvious changes
-regardless of the amplitudes of added frequency artifacts being either
-\SI{0.1}{\percent} or \SI{1}{\percent} as well as whether the EoR window
-constraint is applied, since the EoR signal already fluctuates greatly
-along the frequency dimension.
-Without applying the EoR window constraint, the power spectra of radio
-halos remain almost unchanged in cases of the amplitudes of frequency
-artifacts being either \SI{0.1}{\percent} or \SI{1}{\percent}.
-The reason is that the power of radio halos mostly distributes in the
-wedge region dominated by the angular (\kperp) modes, thus the extra
-frequency (\klos) power resulted from the added frequency artifacts
-cannot make a noticeable difference to the final averaged power.
-By excising the wedge region, however, a frequency artifact of
-\SI{1}{\percent} can increase the power spectrum of radio halos by
-more than 10 times, which makes radio halos even stronger than the
-EoR signal at scales of $k \sim \SI{1.0}{\per\Mpc}$.
-If the amplitude of the frequency artifact reduces to \SI{0.1}{\percent},
-the power spectrum of radio halos increases only slightly, which may be
-acceptable and will not add major difficulties to the EoR measurements.
-Considering that radio halos are about \SIrange{2}{3} orders of magnitude
-weaker than the extragalactic point sources (\autoref{fig:ps1d}),
-the results are consistent with the findings of \citet{barry2016},
-who recommended that EoR instruments should have no spectral features
-of amplitudes $\gtrsim \num{e-5}$ and scales $\lesssim \SI{8}{\MHz}$
-in the antenna or receiver system.
-Our results also suggest that even minor calibration uncertainties can
-make radio halos become more problematic to the EoR detection, therefore
-a careful treatment for radio halos can be valuable to achieve better
-calibrations and thus help probe the EoR.
+To evaluate the influence of the frequency artifacts on the power
+spectra, we make use of the image cubes obtained in
+\autoref{sec:obs-simu} by multiplying each slice by a random number
+drawn from a Gaussian distribution with unity mean and then compare
+the resulting power spectra \citep{chapman2016}.
+{\color{cyan}%
+As some simulation and observation studies suggested that the residual
+calibration errors in frequency channels may be about
+\SIrange[range-units=repeat]{0.1}{1}{\percent}
+\citep[e.g.,][]{barry2016,beardsley2016,ewallWice2017},
+we therefore investigate two cases here:
+one is to mimic a frequency artifact of amplitude \SI{0.1}{\percent} by
+using $\sigma = 0.001$ for the Gaussian distribution, the other is a
+frequency artifact of \SI{1}{\percent} by using $\sigma = 0.01$.
+
+For each of the 100 simulation runs for radio halos, we calculate the
+2D power spectra of the original image cube and the one with added
+frequency artifact and then obtain the 2D power spectrum ratio
+$R(\kperp, \klos)$.
+In \autoref{fig:ps2d-ratio-crp}, we present the median 2D power spectrum
+ratios for the 100 radio halos simulations in the cases of adding
+\SI{0.1}{\percent} and \SI{1}{\percent} frequency artifacts and in the
+\numrange{120}{128}, \numrange{154}{162}, and \numrange{192}{200}
+\si{\MHz} bands.
+We find that the resulting 2D power spectra, mainly inside the EoR
+window, are seriously damaged by the added frequency artifacts in all
+three frequency bands.
+On scales of $\kperp \lesssim \SI{0.2}{\per\Mpc}$ and
+$\klos \gtrsim \SI{0.2}{\per\Mpc}$ that are inside the EoR window,
+the added frequency artifact of \SI{0.1}{\percent} amplitude makes the
+power of radio halos become about 20, 10, and 3 times stronger
+in the \numrange{120}{128}, \numrange{154}{162},
+and \numrange{192}{200} \si{\MHz} frequency bands, respectively,
+and the added frequency artifact of \SI{1}{\percent} amplitude even
+increases the power by about 2000, 1000, and 200 times in the three
+frequency bands, respectively.
+In addition, we similarly add frequency artifacts to the image cubes of
+the EoR signal, but find that the calculated 2D power spectra hardly
+change regardless of the amplitudes of added frequency artifacts being
+either \SI{0.1}{\percent} or \SI{1}{\percent}, because the EoR signal
+already fluctuates greatly along the frequency dimension.
+We therefore do not present the relevant figures in the paper.
+
+The results show that even minor (about \SI{0.1}{\percent}) calibration
+uncertainties in frequency channels can make radio halos become a more
+troublesome contamination, especially inside the EoR window, to the EoR
+measurements.
+Highly accurate calibrations are indispensable to measure the EoR signal,
+which requires excellent understandings to all kinds of foreground sources
+including radio halos in the low-frequency regime.
+} % cyan
+
+%========================================================================
+%========================================================================
+
+
+\begin{figure*}
+  \centering
+  }
+\end{figure*}
+
 
 
 %########################################################################
