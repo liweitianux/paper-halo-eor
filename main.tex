@@ -1311,16 +1311,106 @@ and \numrange{192}{200} \si{\MHz} frequency bands.
 \label{sec:results}
 %########################################################################
 
-Using the image cubes obtained in \autoref{sec:obs-simu}, we can now
-calculate both the two-dimensional (2D) and one-dimensional (1D) power
-spectra for each component, from which we can quantitatively evaluate the
-contamination to the EoR measurements contributed by radio halos.
-\textcolor{cyan}{%
-The power spectra of radio halos can vary remarkably due to the large
-fluctuation of their distributions across the sky.
-We investigate how the large fluctuation of radio halos may cause
-significant difficulties for the EoR measurements and how to possibly
-deal with it.}
+{\color{cyan}%
+The methods proposed to tackle the overwhelming foreground in order to
+uncover the EoR signal can be classified into two broad categories:
+foreground removal (or subtraction) and foreground avoidance.
+The former applies appropriate foreground models to directly subtract
+the foreground contamination, while the latter makes use of the
+two-dimensional (2D) power spectra and extract the EoR signal only
+inside the so-called \enquote{EoR window} to avoid the severe foreground
+contamination.
+Both types of methods have their own advantages and disadvantages and
+are still active fields of research
+\citep[see][and references therein]{chapman2016}.
+
+In this section, we make use of the image cubes obtained in
+\autoref{sec:obs-simu} to calculate the one-dimensional (1D) power
+spectra for each component, and we then quantify the contamination
+resulted from radio halos on the EoR measurements
+with which the foreground removal methods will be faced.
+We also calculate the 2D power spectra to take advantage of the EoR
+window and evaluate the impacts of radio halos in the framework
+of foreground avoidance.} % cyan
+
+%========================================================================
+\subsection{1D Power Spectra and Foreground Removal}
+\label{sec:ps1d}
+%========================================================================
+
+The redshifted 21~cm signal expected to be observed at different
+frequencies represents a three-dimensional (3D) data cube, where the
+two spatial dimensions describe the transverse distances across the sky
+and the frequency dimension maps to the line-of-sight distance.
+{\color{cyan}%
+Within a limited redshift range (e.g., $\Delta z \sim 0.5$, corresponding
+to a frequency bandwidth of $B \sim \SI{8}{\MHz}$ at \SI{158}{\MHz})
+during the EoR, the evolution of the Universe is minor and the \Hi{}
+distribution is believed to be statistically isotropic.}
+The corresponding 3D power spectrum $P(k_x, k_y, k_z)$ of the EoR signal
+should have spherical symmetry and can be averaged in spherical shells
+of radii $k$, yielding the 1D power spectrum $P(k)$, which efficiently
+increases the signal-to-noise ratio (SNR) compared to direct imaging
+observations \citep{morales2004,morales2006,datta2010}.
+The \enquote{dimensionless} variant of the 1D power spectrum
+$\Delta^2(k)$ is more commonly used in the literature and is given by:
+$\Delta^2(k) = P(k) \,k^3 / (2\pi^2)$.
+
+\begin{figure*}
+  \centering
+  \includegraphics[width=\textwidth]{ps1d-3bands}
+  \caption{\label{fig:ps1d-3bands}%
+    Comparisons of the 1D dimensionless power spectra $\Delta^2(k)$
+    among the EoR signal (green), radio halos (gray), Galactic diffuse
+    emission (blue), and extragalactic point sources (purple) in the
+    \textbf{(a)} \SIrange{120}{128}{\MHz},
+    \textbf{(b)} \SIrange{154}{162}{\MHz}, and
+    \textbf{(c)} \SIrange{192}{200}{\MHz} frequency bands.
+    The gray solid lines and shaded regions represent the median the
+    corresponding \SI{68}{\percent} confidence intervals of the power
+    spectra for radio halos estimated from the 100 simulation runs.
+  }
+\end{figure*}
+
+{\color{cyan}%
+We calculate the 1D power spectra $\Delta^2(k)$ for each
+image cube obtained in \autoref{sec:obs-simu}.
+The Blackman-Nuttall window function is applied along the frequency
+dimension to suppress the side-lobes resulted from the Fourier transform
+of the finite frequency bandwidth \citep[e.g.,][]{trott2015,chapman2016}.
+For radio halos, we utilize all the 100 simulation runs as carried out
+in \autoref{sec:cluster-halos} to estimate the median power spectra and
+the corresponding \SI{68}{\percent} confidence intervals (c.i.) in each
+frequency band.
+The comparisons of the power spectra $\Delta^2(k)$ among the EoR signal,
+radio halos, Galactic diffuse emission, and extragalactic point sources
+in the three chosen frequency bands are presented in
+\autoref{fig:ps1d-3bands}.
+We find that radio halos are generally stronger than the EoR signal by
+about 4, 3, and 2 orders of magnitudes on all scales
+($\SI{0.1}{\per\Mpc} < k < \SI{2}{\per\Mpc}$) in the \numrange{120}{128},
+\numrange{154}{162}, and \numrange{192}{200} \si{\MHz} bands, respectively.
+The power spectra of radio halos can even become about \numrange{10}{100}
+times stronger when taking into account the large variations (e.g.,
+brightness, number density) of radio halos across the sky.
+At the largest scales ($k \lesssim \SI{0.1}{\per\Mpc}$), the Galactic
+foreground is the strongest contamination, but it quickly deceases
+toward the small scales and is superseded by radio halos on scales of
+$k \gtrsim \SI{0.17}{\per\Mpc}$ (\SIrange{120}{128}{\MHz}),
+$k \gtrsim \SI{0.23}{\per\Mpc}$ (\SIrange{154}{162}{\MHz}), and
+$k \gtrsim \SI{0.34}{\per\Mpc}$ (\SIrange{192}{200}{\MHz}).
+Consequently, when employing the foreground removal methods to detect
+the EoR signal, radio halos can be the second severe contaminating
+foreground only to extragalactic point sources on the intermediate and
+small scales ($k \gtrsim \SI{0.3}{\per\Mpc}$), and can generally be
+about \numrange{2}{4} orders of magnitudes stronger than the target
+EoR signal in the \SIrange{120}{200}{\MHz} frequency band.
+We therefore conclude that radio halos is an important foreground
+component in the EoR detection and must be carefully modeled and
+subtracted, otherwise the severe foreground residuals caused by radio
+halos can prevent the foreground removal methods from extracting the
+EoR signal.
+} % cyan
 
 %========================================================================
 \subsection{2D Power Spectra and EoR Window}
