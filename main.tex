@@ -1251,8 +1251,8 @@ With this layout configuration, the dense core makes the SKA1-Low very
 sensitive to the EoR signal, while the long baselines greatly help the
 foreground characterization and removal, as well as other scientific goals.
 
-We divide the chosen \SIrange{154}{162}{\MHz} frequency band into 51
-channels with a frequency resolution of \SI{160}{\kilo\hertz}.
+The \SI{8}{\MHz} bandwidth of each frequency band is divided into 51
+channels for a frequency resolution of \SI{160}{\kilo\hertz}.
 For each component, we simulate the input sky maps at every frequency
 channel by following the steps described in \autoref{sec:sky-simu},
 and then use the \texttt{OSKAR}\footnote{%
@@ -1265,24 +1265,45 @@ The simulated visibility data are then imaged through the
   WSClean: \url{https://sourceforge.net/p/wsclean} (version 2.5)}
 imager \citep{offringa2014} using Briggs' weighting with
 robustness of zero \citep{briggs1995},
-and the created images are cropped to keep only the central
-\SI[product-units=repeat]{4 x 4}{\degree} regions for subsequent analyses.
+and the created images are cropped to keep only the central regions
+for subsequent analyses.
+{\color{cyan}%
+As the telescope's field of view (\fov) is inversely proportional to
+the observing frequency, i.e., $\fov \propto f^{-1}$, we choose to
+keep the central
+\SI[product-units=repeat]{6 x 6}{\degree},
+\SI[product-units=repeat]{5 x 5}{\degree}, and
+\SI[product-units=repeat]{4 x 4}{\degree}
+regions in the \numrange{120}{128}, \numrange{154}{162}, and
+\numrange{192}{200} \si{\MHz} frequency bands, respectively.}
 
-Since the Galactic synchrotron and free-free emissions have similar
-diffuse features, we combine them in the simulated observations.
-Similar to the real-time peeling of the brightest sources in practical
-data analysis pipeline of radio interferometers
-\citep[e.g.,][]{mitchell2008,intema2009}, we assume that the brightest
-ones with a \SI{158}{\MHz} flux density $S > \SI{50}{\mJy}$
-are removed \citep[e.g.,][]{pindor2011}.
-Moreover, we create foreground image cubes using the CLEAN algorithm
-with joined-channel deconvolution in order to ensure the spectral
-smoothness \citep{offringa2017}, which is crucial to extract the EoR
-signal from the overwhelming foregrounds.
+Since Galactic synchrotron and free-free emissions have similar
+diffuse features, we combine them before performing the virtual
+observations.
+Similar to the real-time peeling of the brightest point sources in
+practical data analysis pipelines
+\citep[e.g.,][]{mitchell2008,intema2009,mort2017},
+we assume that the brightest ones with a \SI{158}{\MHz} flux density
+$S_{158} > \SI{50}{\mJy}$ are removed \citep[e.g.,][]{pindor2011}.
+The \rms{} brightness temperatures of extragalactic point sources are
+hence significantly reduced to be about
+\SIlist[%
+  list-units=brackets,
+  scientific-notation=fixed,
+  fixed-exponent=4,
+]{22.5e4;9.81e4;4.75e4}{\mK}
+at \numlist{124;158;196} \si{\MHz}, respectively.
+Moreover, we create foreground image cubes in each frequency band
+using the CLEAN algorithm with joined-channel deconvolution in order
+to ensure the spectral smoothness \citep{offringa2017}, which is
+crucial to extract the EoR signal from the overwhelming foregrounds.
+For the EoR signal, we directly use the dirty images because the CLEAN
+algorithm is not well applicable to such faint and diffuse emissions.
 Thus we obtain the \enquote{observed} image cubes of the EoR signal,
 radio halos, the Galactic diffuse emission (with both synchrotron and
 free-free emission), and the extragalactic point sources (with the
-brightest ones removed).
+brightest ones removed) in the \numrange{120}{128}, \numrange{154}{162},
+and \numrange{192}{200} \si{\MHz} frequency bands.
 
 
 %########################################################################
