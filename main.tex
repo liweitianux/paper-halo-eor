@@ -456,22 +456,47 @@ the \texttt{FG21sim}\footnote{%
 software to simulate the low-frequency
 radio sky by taking into account the contributions of our Galaxy,
 extragalactic point sources, and radio halos in galaxy clusters.
-By consulting the latest SKA science book on the EoR survey strategies
-\citep[e.g.,][]{koopmans2015rev}, we perform simulations within
-a \SI{8}{\MHz} band centered at \SI{158}{\MHz} for a
-\SI[product-units=repeat]{10 x 10}{\degree}
-sky region at (R.A., Dec.) = (\SI{0}{\degree}, \SI{-27}{\degree}),
-which locates at high galactic latitude ($b = \SI{-78.5}{\degree}$)
-and passes through the zenith of SKA1-Low\footnote{%
-  This sky region is also targeted by the MWA (EoR0 field;
-  e.g., \citealt{beardsley2016}).}.
+{\color{cyan}%
+We choose 3 representative frequency bands (\numrange{120}{128},
+\numrange{154}{162}, and \numrange{192}{200} \si{\MHz}), which are
+frequently used in the literature, and perform simulations for a
+\SI[product-units=repeat]{10 x 10}{\degree} sky region centered at
+(R.A., Dec.)\ = (\SI{0}{\degree}, \SI{-27}{\degree}).
+The sky region\footnote{This region is also targeted by the MWA
+  (EoR0 field; e.g., \citealt{beardsley2016}).}
+locates at high galactic latitude ($b = \SI{-78.5}{\degree}$)
+and passes through the zenith of SKA1-Low,
+which helps achieve better EoR observations.
 The \SI{8}{\MHz} bandwidth is chosen to limit the cosmological evolution
 effect of the EoR signal when calculating power spectra
-\citep[e.g.][]{wyithe2004,thyagarajan2013},
-and the relatively large region of \SI[product-units=repeat]{10 x 10}{\degree}
-will cover the first side-lobe of the station beam.
+\citep[e.g.][]{wyithe2004,thyagarajan2013}.
 The simulated sky maps are pixelized into \num{1800 x 1800} with a pixel
 size of \SI{20}{\arcsecond}.
+All the simulation parameters are listed in \autoref{tab:freq-bands}.} % cyan
+
+\begin{deluxetable}{cccc}
+\tablecaption{\label{tab:freq-bands}%
+  Simulation Parameters for the 3 Frequency Bands
+}
+\tablehead{
+  \colhead{Frequency band (\si{\MHz})} &
+  \colhead{\numrange{120}{128}} &
+  \colhead{\numrange{154}{162}} &
+  \colhead{\numrange{192}{200}}
+}
+\startdata
+Central frequency ($f_c$) & \SI{124}{\MHz} & \SI{158}{\MHz} & \SI{196}{\MHz} \\
+Redshift range &
+  \numrange{10.10}{10.84} & \numrange{7.77}{8.22} & \numrange{6.10}{6.40} \\
+Bandwidth ($B$) & \multicolumn{3}{c}{\SI{8}{\MHz}} \\
+Region coordinate &
+  \multicolumn{3}{c}{R.A.\ = \SI{0}{\degree}, Dec.\ = \SI{-27}{\degree}} \\
+Region size &
+  \multicolumn{3}{c}{\SI[product-units=repeat]{10 x 10}{\degree}} \\
+Image size & \multicolumn{3}{c}{\num{1800x1800}} \\
+Pixel size & \multicolumn{3}{c}{\SI{20}{\arcsecond}}
+\enddata
+\end{deluxetable}
 
 
 %========================================================================
