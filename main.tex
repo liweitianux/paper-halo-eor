@@ -374,11 +374,11 @@ redshifted 21~cm signal by \numrange{4}{5} orders of magnitude
 Among various contaminating foreground components, the Galactic diffuse
 radiation (including both the synchrotron and free-free emissions)
 and extragalactic point sources are the most prominent and contribute
-the majority of the foreground
+the majority of the foreground contamination
 \citep[e.g.,][]{shaver1999,diMatteo2004,gleser2008,liu2012,murray2017,spinelli2018}.
 At about \SI{150}{\MHz}, it is estimated that they may account for
-about \SI{71}{\percent} and \SI{27}{\percent} of the total foreground,
-respectively \citep{shaver1999}.
+about \SI{71}{\percent} and \SI{27}{\percent} of the total foreground
+contamination, respectively \citep{shaver1999}.
 Most of the remaining foreground arises from the synchrotron emission
 from the extragalactic diffuse sources that include the large-scale
 filaments embedded in the cosmic webs,
@@ -387,36 +387,33 @@ and the intracluster medium (ICM) of galaxy clusters (radio halos,
 radio relics, and mini-halos).
 Although these sources are less constrained by observations, especially
 in the low-frequency regime, it is estimated that they are tens to
-hundreds of times brighter than the target EoR signal and hence impede
+hundreds of times brighter than the EoR signal and hence impede
 the EoR detection \citep[e.g.,][]{waxman2000,diMatteo2004,gleser2008}.
 For example, \citet{diMatteo2004} calculated that the intensity
-fluctuation at \SI{115}{\MHz} caused by extended radio halos and relics
-is about three orders of magnitude larger than that of the redshifted
-21~cm signal.
+fluctuation caused by radio halos and relics is about three orders of
+magnitude larger than that of the EoR signal at \SI{115}{\MHz}.
 Consequently, a careful treatment of the extragalactic diffuse sources
-is indispensable in detecting the elusive EoR signal.
+is indispensable in order to extract the elusive EoR signal.
 
 In this work, we attempt to address this issue by focusing on the
 evolution of diffuse radio halos in galaxy clusters via detailed
 modeling and their impacts on detecting the EoR signal.
 First discovered in the Coma cluster \citep{large1959}, radio halos
-has been observed in about 80 merging galaxy clusters roughly at
+have been observed in about 80 merging galaxy clusters roughly at
 their centers, showing relatively regular morphologies and spatial
 extensions of $\sim\,$\si{\Mpc}, as well as an obvious correlation
 with the X-ray-emitting ICM \citep[e.g.,][]{cassano2013}.
 It should be noted that the angular sizes of radio halos happen to be
 several to tens of arcminutes, which coincide with those theoretically
 predicted for the ionizing bubbles during the EoR.
-This, complemented with the potentially large number
-(several to tens of thousand in the whole sky)
-of radio halos to be revealed by the forthcoming
-low-frequency radio telescopes \citep[e.g.,][]{cassano2015},
-indicates that in order to better guide foreground removal and avoidance
-techniques, it is essential to investigate the cumulative emission
-of radio halos as a foreground contaminating source
-\citep[e.g.,][]{diMatteo2004,gleser2008}.
-As of today, however, only few works have been dedicated to this topic
-and are all based on relatively straightforward modeling methods,
+This, complemented with the potentially large number (several to tens
+of thousands in the whole sky) of radio halos to be revealed by the
+forthcoming low-frequency radio telescopes \citep[e.g.,][]{cassano2015},
+indicates that to better guide foreground removal and avoidance methods,
+it is essential to investigate the cumulative emission of radio halos as
+a foreground contaminating source \citep[e.g.,][]{diMatteo2004,gleser2008}.
+As of today, however, only very few works have been dedicated to this
+topic and are all based on relatively straightforward modeling methods,
 e.g., using the \SI{1.4}{\GHz} radio flux function or radio--X-ray
 scaling relations, which are barely constrained by current observations
 \citep[e.g.,][]{gleser2008,jelic2008}.
@@ -510,12 +507,12 @@ by the turbulence generated in merger events via the second-order Fermi
 process, and lose energies due to mechanisms including synchrotron
 radiation, inverse Compton scattering off the CMB photons, and Coulomb
 collisions with the thermal ICM \citep[see][for a review]{brunetti2014rev}.
-For each galaxy cluster, we first employ the extended Press-Schechter
+For a galaxy cluster, we first employ the extended Press-Schechter
 theory to simulate its merging history, and then calculate the turbulent
 acceleration efficiency and duration for each merger event.
 By combining the effects of turbulent acceleration and energy loss,
 we obtain the temporal evolution of the relativistic electron spectrum,
-and hence the synchrotron emission and image of the radio halo.
+from which we calculate the synchrotron radiation of the radio halo.
 
 %------------------------------------------------------------------------
 \subsubsection{Mass Function}
@@ -560,11 +557,10 @@ Using a minimum galaxy cluster mass of
 $M_{\R{min}} = \SI{e14}{\solarmass}$
 and a maximum redshift cut at $z_{\R{max}} = 4$,
 we apply \autoref{eq:ps-mass-func} to derive the total number of
-galaxy clusters in any given sky patch, together with their mass and
+galaxy clusters in any given sky patch, together with the mass and
 redshift distributions.
-Based on these distributions, we run Monte Carlo simulations to
-generate the galaxy cluster sample with random masses
-$M_{\R{sim}}$ and redshifts $z_{\R{sim}}$.
+Then galaxy cluster sample is then built by randomly drawing mass and
+redshift pairs $(M_{\R{sim}}, z_{\R{sim}})$ from these distributions.
 
 %------------------------------------------------------------------------
 \subsubsection{Merging History}
@@ -1029,9 +1025,9 @@ and for each configuration we have repeated the simulation for 500 times
 in order to take into account the distribution variations of radio halos
 across the sky.
 Considering that the current observations are far from complete,
-especially in the low-flux regime, our strategy is requiring that the
+especially in the low-flux end, our strategy is requiring that the
 integrated flux function of simulated radio halos agrees with the observed
-one in the high-flux regime within simulation uncertainties.
+one in the high-flux end within simulation uncertainties.
 Consequently, we have chosen a set of model parameters with
 $\eta_{\R{turb}} = \SI{10}{\percent}$, $\eta_B = \SI{0.1}{\percent}$,
 $\eta_e = \SI{0.3}{\percent}$, $\zeta = 0.1$,
@@ -1047,13 +1043,14 @@ in the low-frequency regime.
   \centering
   \includegraphics[width=0.6\textwidth]{fluxfunc-simucomp-1400}
   \caption{\label{fig:halos-simucomp}%
-    The \SI{1.4}{\GHz} integrated flux function comparison
-    between the observed (red dashed line) and simulated (red solid line)
-    radio halos.  We also plot the \SI{158}{\MHz} integrated flux function
+    The \SI{1.4}{\GHz} integrated flux function comparison between the
+    observed (purple dashed line) and simulated (purple solid line)
+    radio halos.
+    We also plot the \SI{158}{\MHz} integrated flux function
     for the simulated halos (blue solid line), which shows that radio
-    halos are much brighter at the low-frequency band.  The shaded
-    regions show the \SI{68}{\percent} uncertainties of the simulated
-    radio halos derived from the 500 simulation runs.
+    halos are much brighter at the low-frequency band.
+    The shaded regions show the \SI{68}{\percent} uncertainties of the
+    simulated radio halos derived from the 500 simulation runs.
   }
 \end{figure}
 
@@ -1145,8 +1142,8 @@ The extragalactic point sources are simulated by taking into account the
 following 5 types of sources: (1) star-forming and starburst galaxies,
 (2) radio-quiet AGNs, (3) Fanaroff-Riley type I and type II AGNs,
 (4) GHz-peaked spectrum AGNs, and (5) compact steep spectrum AGNs.
-We simulate the former 3 types of sources by leveraging the simulation
-results made by \citet{wilman2008}, and simulate the latter 2 types
+We simulate the former three types of sources by leveraging the simulation
+results made by \citet{wilman2008}, and simulate the latter two types
 by employing their corresponding luminosity functions and spectral models.
 More details can be found in \citet{wang2010} and references therein.
 
@@ -1193,7 +1190,7 @@ pixel size as our foreground maps.
 EoR signal within \SIrange{120}{200}{\MHz} (i.e., redshift range of
 \numrange{6.1}{10.8}),
 and \autoref{tab:tb-rms} lists the \rms{} brightness temperatures at the
-central frequencies of the 3 chosen frequency bands.
+central frequencies of the three adopted frequency bands.
 We also present the map of the EoR signal obtained at \SI{158}{\MHz} in
 \autoref{fig:map-eor}.}
 
@@ -1201,12 +1198,12 @@ We also present the map of the EoR signal obtained at \SI{158}{\MHz} in
   \centering
   \includegraphics[width=0.7\textwidth]{eos2016-tbrms}
   \caption{\label{fig:eor-tbrms}%
-    The \rms{} brightness temperatures of the EoR signal within
-    \SIrange{120}{200}{\MHz} (i.e., redshift range of
+    The \rms{} brightness temperatures of the EoR signal (green solid
+    line) within \SIrange{120}{200}{\MHz} (i.e., redshift range of
     \numrange{6.1}{10.8}).
-    The purple shaded regions mark the \SIrange{120}{128}{\MHz},
-    \SIrange{154}{162}{\MHz}, and \SIrange{192}{200}{\MHz}
-    frequency bands used in this work.
+    The red shaded regions mark the \numrange{120}{128},
+    \numrange{154}{162}, and \numrange{192}{200} \si{\MHz}
+    frequency bands adopted in this work.
   }
 \end{figure}
 
@@ -1227,8 +1224,8 @@ We also present the map of the EoR signal obtained at \SI{158}{\MHz} in
 %########################################################################
 
 In order to properly evaluate the possible contamination induced by radio
-halos on the EoR detection, it is essential to incorporate the practical
-instrumental effects of radio interferometers.
+halos on the EoR detection, it is essential to take account of the
+practical instrumental effects of radio interferometers.
 We therefore employ the latest SKA1-Low layout configuration\footnote{%
   SKA1-Low Configuration Coordinates:
   \url{https://astronomers.skatelescope.org/wp-content/uploads/2016/09/SKA-TEL-SKO-0000422_02_SKA1_LowConfigurationCoordinates-1.pdf}
@@ -1255,13 +1252,13 @@ For each component, we simulate the input sky maps at every frequency
 channel by following the steps described in \autoref{sec:sky-simu},
 and then use the \texttt{OSKAR}\footnote{%
   OSKAR: \url{https://github.com/OxfordSKA/OSKAR} (version 2.7.0)}
-simulator \citep{mort2010} to perform virtual observations
+simulator \citep{mort2010} to perform observations
 for \SI{6}{\hour} ($\pm \SI{3}{\hour}$ in Hour Angle) with the
 SKA1-Low layout configuration.
-The simulated visibility data are then imaged through the
+The simulated visibility data are imaged through the
 \texttt{WSClean}\footnote{%
   WSClean: \url{https://sourceforge.net/p/wsclean} (version 2.5)}
-imager \citep{offringa2014} using Briggs' weighting with
+imager \citep{offringa2014} using Briggs' weighting with a
 robustness of zero \citep{briggs1995},
 and the created images are cropped to keep only the central regions
 for subsequent analyses.
@@ -1276,8 +1273,7 @@ regions in the \numrange{120}{128}, \numrange{154}{162}, and
 \numrange{192}{200} \si{\MHz} frequency bands, respectively.}
 
 Since Galactic synchrotron and free-free emissions have similar
-diffuse features, we combine them before performing the virtual
-observations.
+diffuse features, they are combined for the simulated observations.
 Similar to the real-time peeling of the brightest point sources in
 practical data analysis pipelines
 \citep[e.g.,][]{mitchell2008,intema2009,mort2017},
@@ -1419,12 +1415,13 @@ foreground contamination on the EoR measurements.} % cyan
   \includegraphics[width=\textwidth]{ps1d-3bands}
   \caption{\label{fig:ps1d-3bands}%
     Comparisons of the 1D dimensionless power spectra $\Delta^2(k)$
-    among the EoR signal (green), radio halos (gray), Galactic diffuse
-    emission (blue), and extragalactic point sources (purple) in the
+    among the EoR signal (green solid line), radio halos (red solid line),
+    Galactic diffuse emission (gray dashed line), and extragalactic point
+    sources (gray dash-dotted line) in the
     \textbf{(a)} \SIrange{120}{128}{\MHz},
     \textbf{(b)} \SIrange{154}{162}{\MHz}, and
     \textbf{(c)} \SIrange{192}{200}{\MHz} frequency bands.
-    The gray solid lines and shaded regions represent the median the
+    The red solid lines and shaded regions represent the median the
     corresponding \SI{68}{\percent} confidence intervals of the power
     spectra for radio halos estimated from the 100 simulation runs.
   }
@@ -1437,12 +1434,12 @@ For radio halos, we utilize all the 100 simulation runs as carried out
 in \autoref{sec:cluster-halos} to estimate the median power spectra and
 the corresponding \SI{68}{\percent} confidence intervals (c.i.) in each
 frequency band.
-The comparisons of the power spectra $\Delta^2(k)$ among the EoR signal,
-radio halos, Galactic diffuse emission, and extragalactic point sources
-in the three chosen frequency bands are presented in
-\autoref{fig:ps1d-3bands}.
+The comparisons of the power spectra $\Delta^2(k)$ between radio halos
+and the EoR signal in the three adopted frequency bands are presented
+in \autoref{fig:ps1d-3bands}, where we also show the power spectra of
+Galactic diffuse emission and extragalactic point sources for reference.
 We find that radio halos are generally stronger than the EoR signal by
-about 4, 3, and 2 orders of magnitudes on all scales
+about 4, 3, and 2 orders of magnitude on all scales
 ($\SI{0.1}{\per\Mpc} < k < \SI{2}{\per\Mpc}$) in the \numrange{120}{128},
 \numrange{154}{162}, and \numrange{192}{200} \si{\MHz} bands, respectively.
 The power spectra of radio halos can even become about \numrange{10}{100}
@@ -1458,11 +1455,11 @@ Consequently, when employing the foreground removal methods to detect
 the EoR signal, radio halos can be the second severe contaminating
 foreground only to extragalactic point sources on the intermediate and
 small scales ($k \gtrsim \SI{0.3}{\per\Mpc}$), and can be generally
-about \numrange{2}{4} orders of magnitudes stronger than the target
+about \numrange{2}{4} orders of magnitude stronger than the target
 EoR signal in the \SIrange{120}{200}{\MHz} frequency band.
-We therefore conclude that radio halos is an important foreground
+We therefore conclude that radio halos are an important foreground
 component in the EoR detection and must be carefully modeled and
-subtracted, otherwise the severe foreground residuals caused by radio
+subtracted. Otherwise, the severe foreground residuals caused by radio
 halos can prevent the foreground removal methods from extracting the
 EoR signal.
 } % cyan
@@ -1485,7 +1482,7 @@ EoR signal.
     \textbf{(d)} extragalactic point sources.
     All panels share the same logarithmic scale in units of
     [\si{\mK\squared\Mpc\cubed}].
-    The black dashed lines mark the boundary between the EoR window
+    The white dashed lines mark the boundary between the EoR window
     (at the top left) and the contaminating wedge (at the bottom right).
   }
 \end{figure*}
@@ -1505,7 +1502,7 @@ while the spectral-smooth foregrounds dominate on the low-\klos{} regions
 Meanwhile, with regard to the angular (\kperp) dimension,
 radio halos mainly appear on the intermediate scales of
 $\kperp \sim \SI{0.5}{\per\Mpc}$,
-Galactic diffuse emission dominate on the very large scales
+Galactic diffuse emission dominates on the very large scales
 ($\kperp \lesssim \SI{0.1}{\per\Mpc}$),
 and extragalactic point sources occupy a broad angular scales
 ($\kperp \gtrsim \SI{0.1}{\per\Mpc}$).
@@ -1523,7 +1520,7 @@ These results are also consistent with \autoref{fig:ps1d-3bands}(b).
     The median 2D power spectrum of 100 simulation runs for radio halos
     is used.
     All panels use the same color bar with logarithmic scale.
-    The black dashed lines mark the EoR window boundaries.
+    The white dashed lines mark the EoR window boundaries.
   }
 \end{figure*}
 
@@ -1547,7 +1544,7 @@ evidently shown in Figures~\ref{fig:ps2d}(b--d) and \ref{fig:ps2d-ratio}
 for the 2D power spectra of foreground components.
 In the framework of foreground avoidance, an EoR window that avoids the
 foreground contamination must be defined in the $(\kperp, \klos)$ plane.
-Therefore, we are required to use a very conservative EoR window boundary
+We are required to use a very conservative EoR window boundary
 with $e = 3$ and $\Theta$ being about 3 times of the radius of SKA1-Low's
 \fov, i.e., $\Theta_{124} = \SI{7.5}{\degree}$,
 $\Theta_{158} = \SI{6.0}{\degree}$, and $\Theta_{196} = \SI{4.8}{\degree}$
@@ -1588,12 +1585,11 @@ The power ratios on such scales can increase by more than 10 times
 within the \SI{68}{\percent} uncertainties due to the large distribution
 variation of radio halos across the sky.
 
-Therefore, we draw the conclusion that radio halos can imprint a
-non-negligible contamination on the EoR measurements at higher
-frequencies (\SI{\sim 200}{\MHz}) and become a severe contaminating
-foreground at lower frequencies (\SI{\sim 120}{\MHz}),
-even inside the EoR window where the strong foreground
-contamination is effectively avoided.
+Therefore, we conclude that radio halos can imprint non-negligible
+contamination on the EoR measurements at higher frequencies
+(\SI{\sim 200}{\MHz}) and become a severe contaminating foreground at
+lower frequencies (\SI{\sim 120}{\MHz}), even inside the EoR window
+where the strong foreground contamination is effectively avoided.
 We also note that the large distribution variation of radio halos seems
 to imply that we can carefully choose a sky region with as least bright
 radio halos as possible to effectively avoid the contamination,
@@ -1624,7 +1620,7 @@ by radio halos in these two situations.} % cyan
 %========================================================================
 
 The smoothness along the frequency dimension is the most crucial feature
-of various foreground components, and is the key that enables us to
+of various foreground components and is the key that enables us to
 extract the faint EoR signal in the presence of overwhelming foreground
 contamination.
 However, artificial frequency structures may present in the obtained
@@ -1647,7 +1643,7 @@ EoR measurements.
     The left, middle, and right columns show the power spectrum ratios
     in the \numrange{120}{128}, \numrange{154}{162}, and
     \numrange{192}{200} \si{\MHz} bands.
-    The magenta lines mark the EoR window boundaries.
+    The white dashed lines mark the EoR window boundaries.
     All panels share the same color bar in logarithmic scale.
   }
 \end{figure*}
@@ -1662,7 +1658,7 @@ As some simulation and observation studies suggested that the residual
 calibration errors in frequency channels may be about
 \SIrange[range-units=repeat]{0.1}{1}{\percent}
 \citep[e.g.,][]{barry2016,beardsley2016,ewallWice2017},
-we therefore investigate two cases here:
+we investigate two cases here:
 one is to mimic a frequency artifact of amplitude \SI{0.1}{\percent} by
 using $\sigma = 0.001$ for the Gaussian distribution, the other is a
 frequency artifact of \SI{1}{\percent} by using $\sigma = 0.01$.
@@ -1693,12 +1689,12 @@ the EoR signal, but find that the calculated 2D power spectra hardly
 change regardless of the amplitudes of added frequency artifacts being
 either \SI{0.1}{\percent} or \SI{1}{\percent}, because the EoR signal
 already fluctuates greatly along the frequency dimension.
-We therefore do not present the relevant figures in the paper.
+We thus do not present the relevant figures in the paper.
 
 The results show that even minor (about \SI{0.1}{\percent}) calibration
 uncertainties in frequency channels can make radio halos become a more
-troublesome contamination, especially inside the EoR window, to the EoR
-measurements.
+troublesome contaminating source, especially inside the EoR window, to
+the EoR measurements.
 Highly accurate calibrations are indispensable to measure the EoR signal,
 which requires excellent understandings to all kinds of foreground sources
 including radio halos in the low-frequency regime.
@@ -1725,12 +1721,12 @@ in the noise performance of interferometers \citep{mort2017}.
   \centering
   \includegraphics[width=\textwidth]{ps2d-fscn-band158}
   \caption{\label{fig:ps2d-fscn}%
-    \textbf{(a)} 2D power spectrum of radio halos located in the
-    far side-lobes in the \SIrange{154}{162}{\MHz} frequency band.
+    \textbf{(a)} The \SIrange{154}{162}{\MHz} 2D power spectrum of radio
+    halos located in the far side-lobes.
     \textbf{(b)} 2D power spectrum ratio of radio halos inside the
     far side-lobes to the EoR signal, i.e., ratio of the panel (a)
     of this figure to \autoref{fig:ps2d}(a).
-    The black and blue dashed lines mark the EoR window boundaries
+    The white dashed and solid lines mark the EoR window boundaries
     defined with $\Theta = \SI{6}{\degree}$ and \SI{90}{\degree},
     respectively.
   }
@@ -1743,14 +1739,14 @@ We take the \SIrange{154}{162}{\MHz} frequency band as an example and
 simulate radio halos that cover half of the whole sky centered at
 (R.A.\ = \SI{0}{\degree}, Dec.\ = \SI{-27}{\degree}), i.e.,
 the sky from the zenith to the horizon for the telescope.
-We remove the radio halos with angular distance of \SI{< 10}{\degree}
-from the center, and use the \texttt{OSKAR} simulator to perform virtual
-observations.
+We remove the radio halos with an angular distance of \SI{< 10}{\degree}
+from the center, and obtain the simulated observations using the
+\texttt{OSKAR} simulator.
 Then the \texttt{WSClean} imager is employed to create the dirty images
 of size \SI[product-units=repeat]{10 x 10}{\degree} using Briggs'
-weighting with robustness of zero,
-and the central \SI[product-units=repeat]{5 x 5}{\degree} regions of
-the created images are cropped out to calculate the 2D power spectrum,
+weighting with a robustness of zero,
+and the central \SI[product-units=repeat]{5 x 5}{\degree} regions are
+cropped out to calculate the 2D power spectrum,
 as shown in \autoref{fig:ps2d-fscn}(a).
 We find that the FSCN contributed by radio halos is remarkably strong,
 and the wedge-shaped contamination region moves toward the top left in
@@ -1761,7 +1757,7 @@ by \autoref{eq:eor-window}.
 In order to avoid the FSCN contamination, we are required to employ a
 more conservative EoR window boundary, such as the one defined with
 $\Theta = \SI{90}{\degree}$ and marked in \autoref{fig:ps2d-fscn} as
-blue dashed line, and sacrifices more information of the EoR signal.
+white solid line, and sacrifices more information of the EoR signal.
 In \autoref{fig:ps2d-fscn}(b), we further present the 2D power spectrum
 ratio of the FSCN to the EoR signal [\autoref{fig:ps2d}(a)] to better
 illustrate the impact of the FSCN on the EoR detection.
@@ -1803,7 +1799,7 @@ EoR signal as well as other foreground components by making use of the
 We have also investigated the contamination resulted from the residual
 frequency artifacts in the image cubes and radio halos inside the far
 side-lobes of the station beam.
-The conclusion drawn from the results is that radio halos is a serious
+The conclusion drawn from the results is that radio halos are a serious
 foreground component to the EoR observations regardless of using either
 the foreground removal or foreground avoidance methods to extract the EoR
 signal.
@@ -1814,11 +1810,11 @@ for simulating radio halos (\autoref{sec:cluster-halos}) are not well
 constrained and tuned.
 Forthcoming low-frequency radio interferometers such as the SKA1-Low
 have unprecedented sensitivity and angular resolution and will provide
-us with an unique opportunity to fully explore radio halos in the
+us with a unique opportunity to fully explore radio halos in the
 low-frequency regime.
 Thousands of radio halos are expected to be revealed in the forthcoming
 deep radio surveys, based on which we can study the underlying physics
-of radio halos to refine the model, and build more accurate and
+of radio halos to refine the model and build more accurate and
 sophisticated foreground model for the EoR observations.
 } % cyan
 
@@ -2067,17 +2063,12 @@ and $D(z)$ is the growth factor given by \citep[equation~(13.6)]{peebles1980}
 \end{equation}
 with $x_0 \equiv (2\Omega_{\Lambda}/\Omega_m)^{1/3}$ and $x = x_0 / (1+z)$.
 
-The critical density of the Universe at redshift $z$ is
+The Hubble parameter at redshift $z$ is
 \begin{equation}
-  \label{eq:rho-crit}
-  \rho_{\R{crit}}(z) = 3 H^2(z) / (8\pi G),
+  \label{eq:hubble-z}
+  H(z) = H_0 E(z) = H_0 \sqrt{\Omega_m(1+z)^3 + \Omega_{\Lambda}} \,,
 \end{equation}
-where $H(z) = H_0 E(z)$ is the Hubble parameter at redshift $z$
-with $E(z)$ being the redshift evolution factor \citep{hogg1999}
-\begin{equation}
-  \label{eq:ez}
-  E(z) = \sqrt{\Omega_m(1+z)^3 + \Omega_{\Lambda}}.
-\end{equation}
+where $E(z)$ is the redshift evolution factor \citep{hogg1999}.
 
 The virial radius of a galaxy cluster is defined as
 \begin{equation}
@@ -2087,7 +2078,8 @@ The virial radius of a galaxy cluster is defined as
   \right]^{1/3},
 \end{equation}
 where $M_{\R{vir}}$ is the virial mass of the cluster,
-$\rho_{\R{crit}}(z)$ is the critical density at redshift $z$,
+$\rho_{\R{crit}}(z) = 3 H^2(z) / (8\pi G)$ is the critical density
+at redshift $z$ with $G$ being the gravitational constant,
 and $\Delta_{\R{vir}}(z)$ is the average overdensity of the cluster
 given by \citep{kitayama1996,cassano2005}
 \begin{equation}
