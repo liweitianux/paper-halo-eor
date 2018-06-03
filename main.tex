@@ -1305,36 +1305,9 @@ and \numrange{192}{200} \si{\MHz} frequency bands.
 
 
 %########################################################################
-\section{Results}
-\label{sec:results}
+\section{Evaluation Approaches}
+\label{sec:approaches}
 %########################################################################
-
-{\color{cyan}%
-The methods proposed to tackle the overwhelming foreground in order to
-uncover the EoR signal can be classified into two broad categories:
-foreground removal (or subtraction) and foreground avoidance.
-The former applies appropriate foreground models to directly subtract
-the foreground contamination, while the latter makes use of the
-two-dimensional (2D) power spectra and extract the EoR signal only
-inside the so-called \enquote{EoR window} to avoid the severe foreground
-contamination.
-Both types of methods have their own advantages and disadvantages and
-are still active fields of research
-\citep[see][and references therein]{chapman2016}.
-
-In this section, we make use of the image cubes obtained in
-\autoref{sec:obs-simu} to calculate the one-dimensional (1D) power
-spectra for each component, and we then quantify the contamination
-resulted from radio halos on the EoR measurements
-with which the foreground removal methods will be faced.
-We also calculate the 2D power spectra to take advantage of the EoR
-window and evaluate the impacts of radio halos in the framework
-of foreground avoidance.} % cyan
-
-%========================================================================
-\subsection{1D Power Spectra and Foreground Removal}
-\label{sec:ps1d}
-%========================================================================
 
 The redshifted 21~cm signal expected to be observed at different
 frequencies represents a three-dimensional (3D) data cube, where the
@@ -1347,12 +1320,99 @@ during the EoR, the evolution of the Universe is minor and the \Hi{}
 distribution is believed to be statistically isotropic.}
 The corresponding 3D power spectrum $P(k_x, k_y, k_z)$ of the EoR signal
 should have spherical symmetry and can be averaged in spherical shells
-of radii $k$, yielding the 1D power spectrum $P(k)$, which efficiently
-increases the signal-to-noise ratio (SNR) compared to direct imaging
-observations \citep{morales2004,morales2006,datta2010}.
+of radii $k$, yielding the one-dimensional (1D) power spectrum $P(k)$,
+which effectively increases the signal-to-noise ratio (SNR) compared to
+direct imaging observations \citep{morales2004,morales2006,datta2010}.
 The \enquote{dimensionless} variant of the 1D power spectrum
-$\Delta^2(k)$ is more commonly used in the literature and is given by:
-$\Delta^2(k) = P(k) \,k^3 / (2\pi^2)$.
+$\Delta^2(k) = P(k) \,k^3 / (2\pi^2)$
+is more commonly used in the literature.
+
+{\color{cyan}%
+For image cubes of foreground continuum emissions, the two angular
+dimensions and the frequency dimension are independent, which is very
+different from the image cube of 21~cm line emission, it is therefore
+more appropriate to average the 3D power spectrum $P(k_x, k_y, k_z)$}
+over angular annuli of radii $\kperp \equiv \sqrt{k_x^2 + k_y^2}$
+for each line-of-sight plane $\klos \equiv k_z$, which yields the
+two-dimensional (2D) power spectrum $P(\kperp, \klos)$.
+In the $(\kperp, \klos)$ plane, the spectral-smooth foreground emissions
+are supposed to reside in the low-\klos{} region, although complicated
+instrumental and observational effects (e.g., chromatic primary beams,
+calibration errors) can throw some of the foreground contamination from
+the purely angular (\kperp) modes into the line-of-sight (\klos)
+dimension (i.e., mode mixing), which results in an expanded wedge-like
+contamination region at the bottom-right in the $(\kperp, \klos)$ plane
+(\enquote{foreground wedge}; \citealt{datta2010,morales2012,liu2014}).
+The region almost free of the foregrounds, namely the \enquote{EoR window,}
+is preserved at the top-left in the $(\kperp, \klos)$ plane and can be
+characterized by \citep{thyagarajan2013}
+\begin{equation}
+  \label{eq:eor-window}
+  \klos \geq \frac{H(z) D_{\!M}(z)}{c (1+z)} \left[
+    \kperp \sin\Theta +
+    \frac{e}{B} \frac{2\pi f_{21}}{(1+z) D_{\!M}(z)} \right],
+\end{equation}
+where
+$c$ is the speed of light,
+$B = \SI{8}{\MHz}$ is the frequency bandwidth of the simulated image cube,
+$f_{21} = \SI{1420.4}{\MHz}$ is the rest-frame frequency of the 21~cm line,
+$z = f_{21}/f_c - 1$ is the signal redshift corresponding to the central
+frequency ($f_c$) of the image cube,
+$H(z)$ is the Hubble parameter at redshift $z$ [see \autoref{eq:hubble-z}],
+$D_{\!M}(z)$ is the transverse comoving distance,
+$e$ denotes the number of characteristic convolution widths
+($\propto B^{-1}$) for the spillover region caused by the variations in
+instrumental frequency response,
+and $\Theta$ is the angular distance of foreground sources from the
+field center.
+
+{\color{cyan}%
+In practice, a variety of methods have been proposed to tackle the
+overwhelming foreground contamination in order to uncover the EoR signal
+and they can be classified into two broad categories:
+foreground removal (or subtraction) and foreground avoidance.
+The former applies appropriate foreground models to directly subtract
+the contamination, while the latter makes use of the 2D power spectra
+and measure the EoR signal only inside the \enquote{EoR window} to avoid
+the severe foreground contamination.
+Both methodologies have their own advantages and disadvantages and
+are still active fields of research
+\citep[see][and references therein]{chapman2016}.
+
+We evaluate the contamination of radio halos on the EoR observations
+in both contexts of foreground removal and avoidance.
+We calculate the 3D power spectra from the image cubes
+simulated in \autoref{sec:obs-simu}.
+The Blackman-Nuttall window function is applied along the frequency
+dimension to suppress the side-lobes \LI{标准术语}
+resulted from the Fourier transform
+of the finite frequency bandwidth \citep[e.g.,][]{trott2015,chapman2016}.
+On the one hand, we calculate the 1D power spectra by averaging the 3D
+power spectra and compare the intensities of radio halos to the EoR
+signal, which demonstrates the contamination of radio halos on the EoR
+measurements with which the foreground removal methods will be faced.
+On the other hand, we calculate the 2D power spectra and carry out
+comparisons between radio halos and the EoR signal inside the EoR window,
+from which we evaluate the difficulties imposed by radio halos in
+adopting the foreground avoidance methods to extract the EoR signal.
+} % cyan
+
+
+%########################################################################
+\section{Results}
+\label{sec:results}
+%########################################################################
+
+{\color{cyan}%
+In this section, we make use of the image cubes obtained in
+\autoref{sec:obs-simu} and apply the evaluation approaches described in
+\autoref{sec:approaches} to quantify the impacts of radio halos as a
+foreground contamination on the EoR measurements.} % cyan
+
+%========================================================================
+\subsection{1D Power Spectra}
+\label{sec:ps1d}
+%========================================================================
 
 \begin{figure*}
   \centering
@@ -1371,11 +1431,8 @@ $\Delta^2(k) = P(k) \,k^3 / (2\pi^2)$.
 \end{figure*}
 
 {\color{cyan}%
-We calculate the 1D power spectra $\Delta^2(k)$ for each
+We calculate the 1D dimensionless power spectra $\Delta^2(k)$ for each
 image cube obtained in \autoref{sec:obs-simu}.
-The Blackman-Nuttall window function is applied along the frequency
-dimension to suppress the side-lobes resulted from the Fourier transform
-of the finite frequency bandwidth \citep[e.g.,][]{trott2015,chapman2016}.
 For radio halos, we utilize all the 100 simulation runs as carried out
 in \autoref{sec:cluster-halos} to estimate the median power spectra and
 the corresponding \SI{68}{\percent} confidence intervals (c.i.) in each
@@ -1411,50 +1468,9 @@ EoR signal.
 } % cyan
 
 %========================================================================
-\subsection{2D Power Spectra and Foreground Avoidance}
+\subsection{2D Power Spectra}
 \label{sec:ps2d}
 %========================================================================
-
-{\color{cyan}%
-For image cubes of foreground continuum emissions, the two angular
-dimensions and the frequency dimension are independent, which is very
-different from the image cube of 21~cm line emission, it is therefore
-more appropriate to average the 3D power spectrum $P(k_x, k_y, k_z)$}
-of the image cube over angular annuli of radii
-$\kperp \equiv \sqrt{k_x^2 + k_y^2}$ for each line-of-sight plane
-$\klos \equiv k_z$, which yields the 2D power spectrum $P(\kperp, \klos)$.
-In the $(\kperp, \klos)$ plane, the spectral-smooth foreground emissions
-are supposed to reside in the low-\klos{} region, although complicated
-instrumental and observational effects (e.g., chromatic primary beams,
-calibration errors) can throw some of the foreground contamination from
-the purely angular (\kperp) modes into the line-of-sight (\klos)
-dimension (i.e., \enquote{mode mixing}), which results in an expanded
-wedge-like contamination region at the bottom-right in the
-$(\kperp, \klos)$ plane (\enquote{foreground wedge};
-\citealt{datta2010,morales2012,liu2014}).
-The region almost free of the foregrounds, which is called the
-\enquote{EoR window,} is preserved at the top-left in the
-$(\kperp, \klos)$ plane and can be characterized by
-\citep{thyagarajan2013}
-\begin{equation}
-  \label{eq:eor-window}
-  \klos \geq \frac{H_0 E(z) D_{\!M}(z)}{c (1+z)} \left[
-    \kperp \sin\Theta +
-    \frac{e}{B} \frac{2\pi f_{21}}{(1+z) D_{\!M}(z)} \right],
-\end{equation}
-where
-$c$ is the speed of light,
-$B = \SI{8}{\MHz}$ is the frequency bandwidth of the simulated image cube,
-$f_{21} = \SI{1420.4}{\MHz}$ is the rest-frame frequency of the 21~cm line,
-$z = f_{21}/f_c - 1$ is the signal redshift corresponding to the central
-frequency ($f_c$) of the image cube,
-$E(z)$ is the redshift evolution factor [see \autoref{eq:ez}],
-$D_{\!M}(z)$ is the transverse comoving distance,
-$e$ denotes the number of characteristic convolution widths
-($\propto B^{-1}$) for the spillover region caused by the variations in
-instrumental frequency response,
-and $\Theta$ is the angular distance of foreground sources from the
-field center.
 
 \begin{figure*}
   \centering
