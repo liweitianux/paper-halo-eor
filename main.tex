@@ -345,7 +345,7 @@ Comparing with the observations of distant quasars and cosmic microwave
 background (CMB), which have provided some important but loose
 constraints on the reionization process \citep[see][for a review]{fan2006rev},
 the 21~cm line emission from \Hi{} is recognized to be the decisive probe
-to directly reveal the EoR
+to directly explore the EoR
 \citep[see][for reviews]{furlanetto2006rev,zaroubi2013rev,furlanetto2016rev}.
 
 In order to probe the EoR, a number of radio interferometers working
@@ -377,7 +377,7 @@ contamination, respectively \citep{shaver1999}.
 Most of the remaining foreground arises from the synchrotron emission
 from the extragalactic diffuse sources that include the large-scale
 filaments embedded in the cosmic webs,
-the intergalactic medium located at the cluster outskirts (virial shocks),
+the intergalactic medium located at the cluster outskirts,
 and the intracluster medium (ICM) of galaxy clusters (radio halos,
 radio relics, and mini-halos).
 Although these sources are less constrained by observations, especially
@@ -428,8 +428,8 @@ We briefly introduce the power spectra and the EoR window in
 and then quantitatively evaluate the contamination caused by radio halos
 on the EoR measurements in \autoref{sec:results}.
 In \autoref{sec:discussions}, we discuss how the EoR measurements are
-affected by the instrumental frequency artifacts and the radio halos in
-the far side-lobes of the station beam.
+affected by the instrumental frequency artifacts and by the radio halos
+inside the far side-lobes of the station beam.
 Finally, we summarize our work in \autoref{sec:summary}.
 Throughout this work we adopt a flat \lcdm{} cosmology with
 $H_0 = \SI{100}{\hubble} = \SI{71}{\km\per\second\per\Mpc}$,
@@ -450,26 +450,20 @@ the \texttt{FG21sim}\footnote{%
 software to simulate the low-frequency
 radio sky by taking into account the contributions of our Galaxy,
 extragalactic point sources, and radio halos in galaxy clusters.
-We choose 3 representative frequency bands (\numrange{120}{128},
-\numrange{154}{162}, and \numrange{192}{200} \si{\MHz}), which are
-commonly used in the literature, and perform simulations for a
-\SI[product-units=repeat]{10 x 10}{\degree} sky region centered at
-(R.A., Dec.)\ = (\SI{0}{\degree}, \SI{-27}{\degree}).
-This region\footnote{This region is also targeted by the MWA
-  (EoR0 field; e.g., \citealt{beardsley2016}).}
-locates at a high galactic latitude ($b = \SI{-78.5}{\degree}$)
-and passes through the zenith of the SKA1-Low telescope,
-thus it is expected to be appropriate for EoR observations.
+We choose three representative frequency bands, namely
+\numrange{120}{128}, \numrange{154}{162}, and \numrange{192}{200}
+\si{\MHz}, and perform simulations for a sky patch of size
+\SI[product-units=repeat]{10 x 10}{\degree}.
 The \SI{8}{\MHz} bandwidth is chosen to limit the effect of
 cosmological evolution of the EoR signal when calculating power
 spectra \citep[e.g.][]{wyithe2004,thyagarajan2013}.
 The simulated sky maps are pixelized into \num{1800 x 1800} with a pixel
 size of \SI{20}{\arcsecond}.
-All the simulation parameters are also listed in \autoref{tab:freq-bands}.
+The simulation parameters are also listed in \autoref{tab:freq-bands}.
 
 \begin{deluxetable}{cccc}
 \tablecaption{\label{tab:freq-bands}%
-  Simulation Parameters for the 3 Frequency Bands
+  Simulation Parameters for the Three Bands
 }
 \tablehead{
   \colhead{Frequency band (\si{\MHz})} &
@@ -479,11 +473,9 @@ All the simulation parameters are also listed in \autoref{tab:freq-bands}.
 }
 \startdata
 Central frequency ($f_c$) & \SI{124}{\MHz} & \SI{158}{\MHz} & \SI{196}{\MHz} \\
-Redshift range &
+EoR redshift range &
   \numrange{10.10}{10.84} & \numrange{7.77}{8.22} & \numrange{6.10}{6.40} \\
 Bandwidth ($B$) & \multicolumn{3}{c}{\SI{8}{\MHz}} \\
-Region coordinate &
-  \multicolumn{3}{c}{R.A.\ = \SI{0}{\degree}, Dec.\ = \SI{-27}{\degree}} \\
 Region size &
   \multicolumn{3}{c}{\SI[product-units=repeat]{10 x 10}{\degree}} \\
 Image size & \multicolumn{3}{c}{\num{1800x1800}} \\
@@ -1012,7 +1004,7 @@ $\zeta \sim 0.1$;
 $X_{\R{cr}} \sim \SI{1.5}{\percent}$.
 Although all of them have reasonable constraints from either
 observational evidences or simulation studies, it is essential to further
-tune them in order to achieve better agreements with the observations.
+tune them in order to achieve better agreement with the observations.
 To this end, we have collected all currently observed radio halos
 (\autoref{tab:halos-observed}; 71 identified halos and 9 candidates;
 as of 2018 January), and compare the
@@ -1129,7 +1121,14 @@ We also use the all-sky synchrotron spectral index map made by
 The Galactic free-free emission is deduced from the \Halpha{} survey
 data \citep{finkbeiner2003}, which is corrected for dust absorption,
 by employing the tight relation between the \Halpha{} and free-free
-emissions due to their common origins \citep{dickinson2003}.
+emissions due to their common origins
+\citep[see][and references therein]{dickinson2003}.
+{\color{cyan}%
+Since the Galactic diffuse emissions vary remarkably across the sky,
+we simulate the Galactic synchrotron and free-free maps at position of
+(R.A., Dec.)\ = (\SI{0}{\degree}, \SI{-27}{\degree}), which locates at a
+high galactic latitude ($b = \SI{-78.5}{\degree}$) and is expected to be
+an appropriate choice for this study (see also \autoref{sec:obs-simu}).}
 
 The extragalactic point sources are simulated by taking into account the
 following 5 types of sources: (1) star-forming and starburst galaxies,
@@ -1247,6 +1246,11 @@ and then use the \texttt{OSKAR}\footnote{%
 simulator \citep{mort2010} to perform observations
 for \SI{6}{\hour} ($\pm \SI{3}{\hour}$ in Hour Angle) with the
 SKA1-Low layout configuration.
+{\color{cyan}%
+The input sky maps are centered at sky position of
+(R.A., Dec.)\ = (\SI{0}{\degree}, \SI{-27}{\degree}),
+which passes through the zenith of the SKA1-Low telescope and
+is an ideal choice for the simulated observations.}
 The simulated visibility data are imaged through the
 \texttt{WSClean}\footnote{%
   WSClean: \url{https://sourceforge.net/p/wsclean} (version 2.5)}
@@ -1278,7 +1282,7 @@ hence significantly reduced to be about
   fixed-exponent=4,
 ]{22.5e4;9.81e4;4.75e4}{\mK}
 at \numlist{124;158;196} \si{\MHz}, respectively.
-Moreover, we create foreground image cubes in each frequency band
+Moreover, we create the foreground image cubes in each frequency band
 using the CLEAN algorithm with joined-channel deconvolution in order
 to ensure the spectral smoothness \citep{offringa2017}, which is
 crucial to extract the EoR signal from the overwhelming foregrounds.
