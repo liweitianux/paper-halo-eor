@@ -151,9 +151,9 @@
 \setlength{\parindent}{1.5em}
 
 %% Journal information
-\received{2018 ???}
-\revised{???}
-\accepted{???}
+\received{---}
+\revised{---}
+\accepted{---}
 \submitjournal{ApJ}
 
 %% Add a light gray and diagonal water-mark to the first page
@@ -163,7 +163,7 @@
 
 %% Short title to be used as the running head (<= 44 characters)
 %%          ............................................
-\shorttitle{Contamination of Radio Halos on EoR Signal}
+\shorttitle{EoR Foreground Contribution of Radio Halos}
 \shortauthors{Li~\textit{et~al.}}
 
 
@@ -172,9 +172,7 @@
 \begin{document}
 
 \title{\bfseries%
-  \color{cyan}%
-  Evaluating the Contamination of Radio Halos
-  on the Epoch of Reionization Observations
+  Contribution of Radio Halos to the Foreground for SKA EoR Experiments
 }
 
 %% The \author command is the same as before except it now takes an optional
@@ -282,30 +280,30 @@ impediments to probing the Epoch of Reionization (EoR) through measuring
 the redshifted 21~cm signal.
 Among the various foreground components, radio halos in galaxy clusters
 are less studied and their impacts on the EoR observations are still
-poorly known.
-In this work, we employ the merger-induced turbulence re-acceleration
-model to simulate the low-frequency emissions of radio halos, and
-generate the \enquote{observed} images by adopting the latest SKA1-Low
-layout configuration to incorporate the practical instrumental effects.
+poorly understood.
 {\color{cyan}%
-The calculated one-dimensional power spectra show that radio
-halos can be generally about \numlist{e4;e3;e2} times stronger than the
-EoR signal in the \numrange{120}{128}, \numrange{154}{162}, and
-\numrange{192}{200} \si{\MHz} bands, respectively.
-By calculating the two-dimensional power spectra and defining the EoR
-windows, the power ratios of radio halos to the EoR signal can
-still be up to about \SIrange[range-units=repeat]{1000}{2000}{\percent},
+In this work, we employ the Press-Schechter formalism and turbulence
+re-acceleration model to simulate the \SIrange{120}{200}{\MHz} emissions
+of radio halos.
+We then use the SKA1-Low layout configuration to simulate the SKA images.
+The calculated one-dimensional power spectra show that radio halos
+can be about \numlist{e4;e3;e2} times more luminous than the EoR signal
+in the \numrange{120}{128}, \numrange{154}{162}, and \numrange{192}{200}
+\si{\MHz} bands, respectively.
+The two-dimensional power spectra obtained within the properly defined
+EoR windows, on the other hand, show that the power ratios of radio
+halos to the EoR signal can still be about
+\SIrange[range-units=repeat]{1000}{2000}{\percent},
 \SIrange[range-units=repeat]{30}{100}{\percent}, and
-\SIrange[range-units=repeat]{10}{80}{\percent} in the three bands
-within the typical \SI{68}{\percent} error bars that are caused by
-the number density uncertainties of bright radio halos.
-Moreover, radio halos inside the far side-lobes of the station beam
-can impose strong contamination inside the EoR window.
+\SIrange[range-units=repeat]{10}{80}{\percent} in the three bands,
+when the \SI{68}{\percent} errors caused by the uncertainties of the
+number density of bright radio halos are considered.
+In addition to these, we find that radio halos located inside the far
+side-lobes of the station beam can also impose strong contamination
+inside the EoR window.}
 In conclusion, we argue that radio halos are severe foreground sources
-to the EoR detection and require serious treatment in the forthcoming
-deep EoR observations.
-}
-% ~??? words
+and need to be treated seriously in the forthcoming deep EoR observations.
+% ~249 words
 \end{abstract}
 
 %% Authors should select subject keywords from the given list.  No more
@@ -1521,12 +1519,11 @@ frequencies (\SI{\sim 200}{\MHz}).
   }
 \end{figure}
 
-{\color{cyan}%
 To further quantify the contamination caused by radio halos when
-foreground avoidance methods are applied, we need to determine an EoR
-window in the $(\kperp, \klos)$ plane that avoids the strong foreground
-contamination and then compare the powers of radio halos and the EoR
-signal inside the window.}
+foreground avoidance methods are applied, we need to appropriately
+define an EoR window in the $(\kperp, \klos)$ plane to avoid the
+heavily contaminated areas and then compare the powers of radio halos
+and the EoR signal derived inside the window.
 We have tested multiple parameter configurations ($e$, $\Theta$) as
 defined in \autoref{eq:eor-window}, and find that when $e = 3$ and
 $\Theta$ that is about 3 times the radius of SKA1-Low's \fov{} (i.e.,
@@ -1657,10 +1654,9 @@ calibration uncertainties can make the contamination of radio halos
 become much stronger, especially inside the EoR window, where most of the
 foreground contamination from our Galaxy and extragalactic point sources
 is effectively avoided.
-{\color{cyan}%
 These results further support our conclusion made in \autoref{sec:ps2d}
 that radio halos are important foreground sources and must be carefully
-dealt with in the sake of detecting the EoR signal.}
+dealt with in EoR experiments.
 
 %========================================================================
 \subsection{Impacts of Far Side-lobes}
@@ -1742,22 +1738,16 @@ impacts of FSCN.
 %########################################################################
 
 {\color{cyan}%
-In this work, we have simulated the \enquote{observed} image cubes for
-the EoR signal, radio halos, Galactic diffuse emission, and extragalactic
-point sources by utilizing the latest SKA1-Low layout configuration.
+In this work, we have made use of the Press-Schechter formalism and
+turbulence re-acceleration model to simulate the \SIrange{120}{200}{\MHz}
+emissions of radio halos.
+By utilizing the latest SKA1-Low layout configuration, we have
+simulated the SKA image cubes for the EoR signal, radio halos, Galactic
+diffuse emission, and extragalactic point sources.
 Detailed comparisons of power spectra between radio halos and the EoR
 signal as well as other foreground components have been carried out.
-We conclude that radio halos are severe foreground sources
-to the EoR observations when either foreground removal or foreground
-avoidance methods are applied to measure the EoR signal.
-
-The forthcoming low-frequency radio interferometers such as the SKA1-Low
-have excellent sensitivity and angular resolution and will provide us
-with a unique opportunity to fully explore radio halos in the
-low-frequency regime.
-The large-scale deep surveys will reveal thousands of radio halos and
-enable us to study the underlying physics of radio halos and to build
-more accurate foreground model for the EoR observations.
+We conclude that radio halos are severe foreground sources to the EoR
+observations and need careful treatments in future EoR experiments.
 } % cyan
 
 
