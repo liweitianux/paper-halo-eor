@@ -1,21 +1,18 @@
 #
-# Weitian LI, et al.
+# Weitian LI
 # 2017-07-18
-# Updated: 2018-05-11
-#
-# Credit:
-# [1] How to get current relative directory of your Makefile?
-#     https://stackoverflow.com/a/23324703
 #
 
-# Whether CJK support required (will use `xelatex`)
-# Comment out this to disable CJK support.
+# Comment out to disable CJK support (use `pdflatex' instead of `xelatex')
 CJK:= ON
 
 # Name to identify the reported manuscript
 ID:= lwt
 
 DATE:=		$(shell date +'%Y%m%d')
+
+# Get current relative directory
+# Credit: https://stackoverflow.com/a/23324703
 ROOT_DIR:=	$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 PROJNAME:=	$(shell basename $(ROOT_DIR))
 
@@ -44,7 +41,7 @@ report: main.pdf $(SRCS)
 
 main.pdf: $(SRCS) $(TEMPLATE) $(FIGURES) eps2pdf
 ifeq ($(CJK),ON)
-	# use XeLaTeX which supports CJK
+	# use XeLaTeX (support CJK)
 	env TEXINPUTS=$(TEXINPUTS) BSTINPUTS=$(BSTINPUTS) latexmk -xelatex $<
 else
 	# pdfLaTeX
