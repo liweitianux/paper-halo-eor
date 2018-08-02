@@ -367,67 +367,67 @@ redshifted 21~cm signal by about \numrange{4}{5} orders of magnitude
 Among various contaminating foreground components, the Galactic diffuse
 radiation (including both the synchrotron and free-free emissions)
 and extragalactic point sources are the most prominent and contribute
-the majority of the foreground contamination
-\citep[e.g.,][]{shaver1999,diMatteo2004,gleser2008,liu2012,murray2017,spinelli2018}.
+the majority of the foreground contamination \citep[e.g.,][]{%
+  shaver1999,diMatteo2004,gleser2008,liu2012,murray2017,spinelli2018}.
 At about \SI{150}{\MHz}, it is estimated that they may account for
 about \SI{71}{\percent} and \SI{27}{\percent} of the total foreground
 contamination, respectively \citep{shaver1999}.
-Most of the remaining foreground arises from the synchrotron emission
-from the extragalactic diffuse sources that include the large-scale
-filaments embedded in the cosmic webs,
+Most of the remaining foreground contamination arises from the
+synchrotron emission from the extragalactic diffuse sources that include
+the large-scale filaments embedded in the cosmic webs,
 the intergalactic medium located at the cluster outskirts,
 and the intracluster medium (ICM) of galaxy clusters (radio halos,
-radio relics, and mini-halos).
-Although these sources are less constrained by observations, especially
-in the low-frequency regime, it is estimated that they are tens to
-hundreds of times brighter than the EoR signal and hence impede
-the EoR detection \citep[e.g.,][]{waxman2000,diMatteo2004,gleser2008}.
-For example, \citet{diMatteo2004} calculated that the intensity
-fluctuation caused by radio halos and relics is about three orders of
-magnitude larger than that of the EoR signal at \SI{115}{\MHz}.
-Consequently, a careful treatment of the extragalactic diffuse sources
-is indispensable in order to extract the elusive EoR signal.
+relics, and mini-halos).
+{\color{cyan}%
+Among these diffuse sources, which are still poorly constrained by
+observations, especially in the low-frequency regime, radio halos
+have received more observational evidences and better theoretical
+understandings, which enable us to carefully evaluate their contamination
+on the EoR observations.
 
-In this work, we attempt to address this issue by focusing on the
-evolution of diffuse radio halos in galaxy clusters via detailed
-modeling and their impacts on detecting the EoR signal.
 First discovered in the Coma cluster \citep{large1959}, radio halos
-have been observed in about 80 merging galaxy clusters roughly at
-their centers, showing relatively regular morphologies and spatial
-extensions of $\sim\,$\si{\Mpc}, as well as an obvious correlation
-with the X-ray-emitting ICM \citep[e.g.,][]{cassano2013}.
+have been observed in about 80 merging galaxy clusters, exhibiting
+relatively regular morphologies and about \si{Mpc} spatial extensions.
 It should be noted that the angular sizes of radio halos happen to be
 several to tens of arcminutes, which coincide with those theoretically
 predicted for the ionizing bubbles during the EoR.
-This, complemented with the potentially large number (several to tens
-of thousands in the whole sky) of radio halos to be revealed by the
+This, complemented with the potentially large number (several to tens of
+thousands in the whole sky) of radio halos to be revealed by the
 forthcoming low-frequency radio telescopes \citep[e.g.,][]{cassano2015},
-indicates that to better guide foreground removal and avoidance methods,
-it is essential to investigate the cumulative emission of radio halos as
-a foreground contaminating source \citep[e.g.,][]{diMatteo2004,gleser2008}.
+indicates that radio halos might be important contaminating foreground
+sources \citep[e.g.,][]{diMatteo2004,gleser2008}.
 As of today, however, only very few works have been dedicated to this
 topic and are all based on relatively straightforward modeling methods,
-e.g., using the \SI{1.4}{\GHz} radio flux function or radio--X-ray
-scaling relations, which are barely constrained by current observations
-\citep[e.g.,][]{gleser2008,jelic2008}.
-The data acquired in these observations are far from complete due to
-the lack of systematic surveys targeting these diffuse sources,
-especially in the low-frequency radio bands \citep[e.g.,][]{kale2016rev}.
+such as using the \SI{1.4}{\GHz} radio flux function or radio--X-ray
+scaling relations, which are barely constrained by the very limited
+observations \citep[e.g.,][]{gleser2008,jelic2008}.
+In addition, those works only included radio halos as one of the
+foreground components and did not separately evaluate their impacts on
+detecting the EoR signal.
+In this work, we focus on the radio halos and employ a sophisticated
+model for radio halos to derive their low-frequency emission maps with
+the SKA1-Low's instrumental effects incorporated.
+By making use of the power spectra and the EoR window, the contamination
+of radio halos on the EoR observations is quantitatively evaluated for
+both foreground removal and foreground avoidance methods, which are the
+two major categories of methods that proposed to tackle the foreground
+contamination \citep[see][and references therein]{chapman2016}.
+} % cyan
 
 This paper is prepared as follows.
 In \autoref{sec:sky-simu} we simulate the low-frequency radio sky, among
-which a detailed simulation of radio halos in galaxy clusters has been
-developed by applying the merger-induced turbulence re-acceleration model.
-In \autoref{sec:obs-simu} we employ the latest SKA1-Low layout
+which a sophisticated simulation of radio halos is developed by employing
+the Press-Schechter formalism and turbulence re-acceleration model.
+In \autoref{sec:obs-simu} we adopt the latest SKA1-Low layout
 configuration to incorporate the practical instrumental effects into
 the simulated sky maps.
 We briefly introduce the power spectra and the EoR window in
 \autoref{sec:ps-eorw}
 and then quantitatively evaluate the contamination caused by radio halos
 on the EoR measurements in \autoref{sec:results}.
-In \autoref{sec:discussions}, we discuss how the EoR measurements are
+In \autoref{sec:discussions}, we discuss how the EoR detection is
 affected by the instrumental frequency artifacts and by the radio halos
-inside the far side-lobes of the station beam.
+located inside the far side-lobes of the station beam.
 Finally, we summarize our work in \autoref{sec:summary}.
 Throughout this work we adopt a flat \lcdm{} cosmology with
 $H_0 = \SI{100}{\hubble} = \SI{71}{\km\per\second\per\Mpc}$,
@@ -1363,22 +1363,12 @@ field center.
 \label{sec:results}
 %########################################################################
 
-The methods proposed to tackle the foreground contamination can be
-classified into two broad categories: foreground removal and foreground
-avoidance.
-The former applies appropriate foreground models to directly subtract
-the contamination, while the latter makes use of the 2D power spectra
-and measures the EoR signal only inside the EoR window to avoid the
-severe foreground contamination.
-More details can be found in \citet[and references therein]{chapman2016}.
-We evaluate how EoR measurements will be affected by radio halos in both
-cases accordingly.
-First, we calculate the 3D power spectra from the image cubes that are
-obtained in the simulations in \autoref{sec:obs-simu}.
-By averaging the 3D power spectra, we calculate the 1D power spectra
-and compare the intensities of radio halos with the EoR signal, which
-illustrates the impacts of radio halos on the EoR measurements with the
-foreground removal methods.
+{\color{cyan}%
+The contamination of radio halos on the EoR observations is evaluated for
+both foreground removal and foreground avoidance methods.}
+First, we calculate the 1D power spectra and compare the powers of
+radio halos with the EoR signal, which illustrates the impacts of radio
+halos with the foreground removal methods.
 Next, we calculate the 2D power spectra and carry out the comparison
 between radio halos and the EoR signal inside the EoR window, from
 which we evaluate the effects imposed by radio halos in adopting the
