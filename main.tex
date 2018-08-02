@@ -488,8 +488,8 @@ Pixel size & \multicolumn{3}{c}{\SI{20}{\arcsecond}}
 %========================================================================
 
 As a significant improvement over our past works \citep{wang2010,wang2013},
-we consider in detail the evolution of radio halos in galaxy clusters
-by employing the merger-induced turbulence re-acceleration model,
+we consider in detail the evolution of radio halos in galaxy clusters by
+employing the Press-Schechter formalism and turbulence re-acceleration model,
 in terms of which the relativistic electrons in the ICM are re-accelerated
 by the turbulence generated in merger events via the second-order Fermi
 process, and lose energies due to mechanisms including synchrotron
@@ -638,16 +638,16 @@ following radio halo simulation.
 
 According to the re-acceleration model, there exists a population of
 primary (or fossil) high-energy electrons, which permeate the ICM and
-are thought to be injected by active galactic nucleus (AGN) activities
-and star formation \citep[see][for a review]{blasi2007rev}.
-When a cluster experiences a merger, the turbulence is generated
+are thought to be injected by multiple processes, such as active
+galactic nucleus (AGN) activities and star formations
+\citep[see][for a review]{blasi2007rev}.
+When a cluster experiences a major merger, the turbulence is generated
 throughout the ICM and can accelerate the primary electrons to be highly
 relativistic, resulting in the observed radio halo.
 
-In addition to the energy increase that is caused by the turbulent
-acceleration, electrons in the ICM lose energy via synchrotron radiation,
-inverse Compton scattering off the CMB photons,
-Coulomb collisions, etc.\ \citep{sarazin1999}.
+In addition to the energy increase, relativistic electrons in the ICM
+lose energy via synchrotron radiation, inverse Compton scattering off
+the CMB photons, Coulomb collisions, etc.\ \citep{sarazin1999}.
 For a population of electrons with isotropic energy distribution, the
 temporal evolution of the number density distribution $n(\gamma, t)$
 is governed by the following Fokker-Planck diffusion-advection equation
@@ -1101,7 +1101,7 @@ several other foreground components, including the Galactic synchrotron
 and free-free emissions as well as the extragalactic point sources,
 in order to carry out comparisons of power spectra between radio halos
 and other foreground components as an effort to better characterize the
-contributions of radio halos to the low-frequency radio sky.
+contribution of radio halos to the low-frequency radio sky.
 
 The Galactic synchrotron map is simulated by extrapolating the
 Haslam \SI{408}{\MHz} all-sky map as the template to lower frequencies
@@ -1168,11 +1168,10 @@ for these components are shown in \autoref{fig:map-fg-other}.
 The sky maps of the EoR signal are created using the 2016 data release
 from the Evolution Of 21~cm Structure project\footnote{%
   Evolution Of 21~cm Structure project:
-  \url{http://homepage.sns.it/mesinger/EOS.html}}.
-The project used \texttt{21cmFAST} version 2 \citep{mesinger2011} to
-simulate the cosmic reionization process from redshift 86.5 to 5.0 inside
-a large cube which is 1.6 comoving \si{\Gpc} (1024 cells) along each side
-\citep{mesinger2016}.
+  \url{http://homepage.sns.it/mesinger/EOS.html}},
+which has made use of the \texttt{21cmFAST} to simulate the cosmic
+reionization process from redshift 86.5 to 5.0 inside a large cube that is
+1.6 comoving \si{\Gpc} (1024 cells) along each side \citep{mesinger2016}.
 We extract the image slices at needed frequencies (i.e., redshifts) from
 the light-cone cubes of the recommended \enquote{faint galaxies} case,
 and then tile and re-scale them to have the same sky coverage and
@@ -1231,9 +1230,6 @@ and placed on 3 spiral arms extending up to a radius of
 Each station has 256 antennas randomly distributed with a minimum separation
 of $d_{\R{min}} = \SI{1.5}{\meter}$ inside a circular region of
 \SI{35}{\meter} in diameter \citep[e.g.,][]{mort2017}.
-With this layout configuration, the dense core makes the SKA1-Low very
-sensitive to the EoR signal, while the long baselines greatly help the
-foreground characterization and removal, as well as other scientific goals.
 
 The \SI{8}{\MHz} bandwidth of each frequency band is divided into 51
 channels for a frequency resolution of \SI{160}{\kilo\hertz}.
@@ -1286,11 +1282,11 @@ to ensure the spectral smoothness \citep{offringa2017}, which is
 crucial to extract the EoR signal from the overwhelming foregrounds.
 For the EoR signal, we directly use the dirty images because the CLEAN
 algorithm is not well applicable to such faint and diffuse emissions.
-Hence we obtain the \enquote{observed} image cubes of the EoR signal,
-radio halos, the Galactic diffuse emission (with both synchrotron and
-free-free emission), and the extragalactic point sources (with the
-brightest ones removed) in the \numrange{120}{128}, \numrange{154}{162},
-and \numrange{192}{200} \si{\MHz} frequency bands.
+Hence we obtain the SKA \enquote{observed} image cubes of the EoR signal,
+radio halos, the Galactic diffuse emission (with synchrotron and
+free-free emissions combined), and the extragalactic point sources
+(with the brightest ones removed) in the \numrange{120}{128},
+\numrange{154}{162}, and \numrange{192}{200} \si{\MHz} frequency bands.
 
 
 %########################################################################
@@ -1380,7 +1376,7 @@ foreground avoidance methods to extract the EoR signal.
 \label{sec:ps1d}
 %========================================================================
 
-\begin{figure*}
+\begin{figure*}[b]
   \centering
   \includegraphics[width=\textwidth]{ps1d-3bands}
   \caption{\label{fig:ps1d-3bands}%
@@ -1399,7 +1395,7 @@ foreground avoidance methods to extract the EoR signal.
 
 We calculate the 1D dimensionless power spectra $\Delta^2(k)$ for each
 image cube obtained in \autoref{sec:obs-simu}.
-For radio halos, we utilize all the 100 simulation runs
+For radio halos, we make use of all the 100 simulation runs
 (\autoref{sec:cluster-halos}) to estimate the median power spectra and
 the corresponding \SI{68}{\percent} confidence intervals (c.i.\@) in each
 frequency band.
@@ -1409,46 +1405,31 @@ in \autoref{fig:ps1d-3bands}, where we also show the power spectra of
 Galactic diffuse emission and extragalactic point sources for comparison.
 The median power spectra (red solid lines) show that radio halos are
 generally stronger than the EoR signal by about 4, 3, and 2 orders of
-magnitude on the scales  of $\SI{0.1}{\per\Mpc} < k < \SI{2}{\per\Mpc}$
+magnitude on the scales of $\SI{0.1}{\per\Mpc} < k < \SI{2}{\per\Mpc}$
 in the \numrange{120}{128}, \numrange{154}{162}, and \numrange{192}{200}
 \si{\MHz} bands, respectively.
-Given the large uncertainties in, e.g., brightness and number density, of
-radio halos, the power spectra can vary by about \numrange{10}{100} times
-with respect to the median values within the typical \SI{68}{\percent}
+Given the large uncertainties in, e.g., brightness and number density,
+of radio halos, the power spectra can vary by about \numrange{10}{100}
+times with respect to the median values within the \SI{68}{\percent}
 uncertainties (red shaded regions).
 We also find that, although on large scales
 ($k \lesssim \SI{0.1}{\per\Mpc}$) the Galactic foreground is the
-strongest contaminating source, its intensity deceases rapidly as the
-scale becomes smaller.
-On scales of $\SI{0.5}{\per\Mpc} \lesssim k \lesssim \SI{1}{\per\Mpc}$,
-the contribution of the Galactic foreground is weaker than the median
-intensity of radio halos by a factor of about \numrange{10}{100} in all
-the three bands.
+strongest contaminating source, its power deceases rapidly as the
+scale becomes smaller and is weaker than the median power of radio halos
+by a factor of about \numrange{10}{100} on scales of
+$\SI{0.5}{\per\Mpc} \lesssim k \lesssim \SI{1}{\per\Mpc}$
+in all the three bands.
 These results evidently show that radio halos are severe foreground
-sources, and they must be carefully handled when employing the foreground
-removal methods to extract the EoR signal.
+sources,
+{\color{cyan}%
+meanwhile their diffuse and somewhat complicated morphologies make it
+a challenge to accurately model and remove them.}
+
 
 %========================================================================
 \subsection{2D Power Spectra}
 \label{sec:ps2d}
 %========================================================================
-
-\begin{figure*}
-  \centering
-  \includegraphics[width=0.8\textwidth]{ps2d-band158}
-  \caption{\label{fig:ps2d}%
-    The \SIrange{154}{162}{\MHz} 2D power spectra $P(\kperp, \klos)$ of
-    \textbf{(a)} the EoR signal,
-    \textbf{(b)} radio halos (median of the 100 simulation runs),
-    \textbf{(c)} Galactic diffuse emission,
-    and
-    \textbf{(d)} extragalactic point sources.
-    All panels share the same logarithmic scale in units of
-    [\si{\mK\squared\Mpc\cubed}].
-    The white dashed lines mark the boundary between the EoR window
-    (at the top left) and the contaminating wedge (at the bottom right).
-  }
-\end{figure*}
 
 In \autoref{fig:ps2d} we take the \SIrange{154}{162}{\MHz} band as an
 example to show the 2D power spectra $P(\kperp, \klos)$ of the EoR signal,
@@ -1467,6 +1448,23 @@ point sources dominate on the larger scales of
 $\kperp \lesssim \SI{0.1}{\per\Mpc}$ and a broader angular scales of
 $\kperp \gtrsim \SI{0.1}{\per\Mpc}$, respectively.
 These results are also consistent with \autoref{fig:ps1d-3bands}(b).
+
+\begin{figure*}
+  \centering
+  \includegraphics[width=0.8\textwidth]{ps2d-band158}
+  \caption{\label{fig:ps2d}%
+    The \SIrange{154}{162}{\MHz} 2D power spectra $P(\kperp, \klos)$ of
+    \textbf{(a)} the EoR signal,
+    \textbf{(b)} radio halos (median of the 100 simulation runs),
+    \textbf{(c)} Galactic diffuse emission,
+    and
+    \textbf{(d)} extragalactic point sources.
+    All panels share the same logarithmic scale in units of
+    [\si{\mK\squared\Mpc\cubed}].
+    The white dashed lines mark the boundary between the EoR window
+    (at the top left) and the contaminating wedge (at the bottom right).
+  }
+\end{figure*}
 
 \begin{figure*}
   \centering
@@ -1531,7 +1529,7 @@ the 1D power spectrum ratios $R_{\R{eorw}}(k)$ of radio halos to the EoR
 signal and present the results in the three frequency bands in
 \autoref{fig:ps1d-ratio}.
 We find that, on the scales of
-$\SI{0.5}{\per\Mpc} \lesssim k \lesssim \SI{1.0}{\per\Mpc}$,
+$\SI{0.5}{\per\Mpc} \lesssim k \lesssim \SI{1}{\per\Mpc}$,
 the 1D power ratios can be up to about
 \SIrange[range-units=repeat]{1000}{2000}{\percent} in
 \SIrange{120}{128}{\MHz},
