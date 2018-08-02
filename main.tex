@@ -275,24 +275,24 @@
 
 \begin{abstract}
 \noindent
-The overwhelming foreground contamination is one of the primary
-impediments to probing the Epoch of Reionization (EoR) through measuring
-the redshifted 21~cm signal.
+The overwhelming foreground contamination is one of the primary impediments
+to probing the EoR through measuring the redshifted 21~cm signal.
 Among the various foreground components, radio halos in galaxy clusters
 are less studied and their impacts on the EoR observations are still
 poorly understood.
 {\color{cyan}%
-In this work, we employ the Press-Schechter formalism and turbulence
-re-acceleration model to simulate the \SIrange{120}{200}{\MHz} emissions
-of radio halos.
-We then use the SKA1-Low layout configuration to simulate the SKA images.
-The calculated one-dimensional power spectra show that radio halos
-can be about \numlist{e4;e3;e2} times more luminous than the EoR signal
+In this work, we make use of the Press-Schechter formalism, turbulence
+re-acceleration model, and the latest SKA1-Low layout configuration to
+simulate the SKA \enquote{observed} images of radio halos,
+from which the one-dimensional power spectra are calculated and show that
+radio halos can be about \numlist{e4;e3;e2} times more luminous than the
+EoR signal on scales of $\SI{0.1}{\per\Mpc} < k < \SI{2}{\per\Mpc}$
 in the \numrange{120}{128}, \numrange{154}{162}, and \numrange{192}{200}
 \si{\MHz} bands, respectively.
 The two-dimensional power spectra obtained within the properly defined
 EoR windows, on the other hand, show that the power ratios of radio
-halos to the EoR signal can still be about
+halos to the EoR signal on scales of
+$\SI{0.5}{\per\Mpc} \lesssim k \lesssim \SI{1}{\per\Mpc}$ can still be about
 \SIrange[range-units=repeat]{1000}{2000}{\percent},
 \SIrange[range-units=repeat]{30}{100}{\percent}, and
 \SIrange[range-units=repeat]{10}{80}{\percent} in the three bands,
@@ -300,10 +300,10 @@ when the \SI{68}{\percent} errors caused by the uncertainties of the
 number density of bright radio halos are considered.
 In addition to these, we find that radio halos located inside the far
 side-lobes of the station beam can also impose strong contamination
-inside the EoR window.}
+within the EoR window.}
 In conclusion, we argue that radio halos are severe foreground sources
 and need to be treated seriously in the forthcoming deep EoR observations.
-% ~249 words
+% ~260 words
 \end{abstract}
 
 %% Authors should select subject keywords from the given list.  No more
@@ -1726,16 +1726,22 @@ impacts of FSCN.
 %########################################################################
 
 {\color{cyan}%
-In this work, we have made use of the Press-Schechter formalism and
-turbulence re-acceleration model to simulate the \SIrange{120}{200}{\MHz}
-emissions of radio halos.
-By utilizing the latest SKA1-Low layout configuration, we have
-simulated the SKA image cubes for the EoR signal, radio halos, Galactic
-diffuse emission, and extragalactic point sources.
-Detailed comparisons of power spectra between radio halos and the EoR
-signal as well as other foreground components have been carried out.
-We conclude that radio halos are severe foreground sources to the EoR
-observations and need careful treatments in future EoR experiments.
+Based on the Press-Schechter formalism and turbulence re-acceleration
+model, we have simulated the emission maps of radio halos, for which we
+have incorporated the SKA1-Low's instrumental effects by utilizing the
+latest SKA1-Low layout configuration.
+By carrying out detailed comparisons of power spectra between radio halos
+and the EoR signal as well as the Galactic diffuse emission and
+extragalactic point sources in the \numrange{120}{128},
+\numrange{154}{162}, and \numrange{192}{200} \si{\MHz} bands,
+we have shown that radio halos are severe contaminating sources,
+especially toward to lower frequencies (\SI{\sim 120}{\MHz}).
+Even if inside the properly defined EoR windows, radio halos can still
+be non-negligible contaminating sources to the EoR observations.
+In addition, we have investigated the contamination resulted from
+frequency artifacts and radio halos located inside the far side-lobes,
+both of which support our conclusion that radio halos are severe
+foreground sources and need careful treatments in future EoR experiments.
 } % cyan
 
 
@@ -1756,7 +1762,10 @@ their help.
 Part of the work involving \texttt{OSKAR} and \texttt{WSClean} was
 performed on the high-performance cluster at Shanghai Astronomical
 Observatory, Chinese Academy of Sciences.
-This work is supported by the National Natural Science Foundation of China
+This work is supported by
+the Ministry of Science and Technology of China
+(grant No. 2018YFA0404601),
+the National Natural Science Foundation of China
 (grant Nos. 11433002, 11621303, 61371147),
 and the National Key Research and Discovery Plan (grant No. 2017YFF0210903).
 
