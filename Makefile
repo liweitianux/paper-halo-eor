@@ -4,7 +4,7 @@
 #
 
 # Comment out to disable CJK support (use `pdflatex' instead of `xelatex')
-CJK:= ON
+#CJK:= ON
 
 # Name to identify the reported manuscript
 ID:= lwt
