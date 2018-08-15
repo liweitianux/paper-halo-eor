@@ -53,7 +53,7 @@ aaspack: $(SRCS) $(TEMPLATE) $(FIGURES)
 	@for f in $(SRCS) $(TEMPLATE) $(FIGURES); do \
 		cp -v $$f $@.$(DATE)/; \
 	done
-	tar -cjf $@.$(DATE).tar.bz2 -C $@.$(DATE)/ .
+	tar -cf $@.$(DATE).tar -C $@.$(DATE)/ .
 	rm -r $@.$(DATE)
 
 %.pdf: %.eps
