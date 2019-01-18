@@ -414,7 +414,7 @@ By making use of the power spectra and the EoR window, the contamination
 of radio halos on the EoR observations is quantitatively evaluated for
 both foreground removal and avoidance methods, which are the two major
 categories of methods that proposed to tackle the foreground
-contamination \citep[see][and references therein]{chapman2016}.
+contamination (see \citealt{chapman2016} and references therein).
 
 This paper is prepared as follows.
 In \autoref{sec:sky-simu} we simulate the low-frequency radio sky, where a
@@ -643,7 +643,7 @@ According to the re-acceleration model, there exists a population of
 primary (or fossil) high-energy electrons, which permeate the ICM and
 are thought to be injected by multiple processes, such as active
 galactic nucleus (AGN) activities and star formations
-\citep[see][for a review]{blasi2007rev}.
+(see \citealt{blasi2007rev} for a review).
 When a cluster experiences a major merger, the turbulence is generated
 throughout the ICM and can accelerate the primary electrons to be highly
 relativistic, resulting in the observed radio halo.
@@ -675,12 +675,12 @@ and $Q_e(\gamma, t)$ describes the electron injection.
 The number density of thermal electrons $n_{\R{th}}$ in the ICM can be
 calculated as
 \begin{equation}
-  \label{eq:number-density-thermal}
+  \label{eq:n-th}
   n_{\R{th}} \simeq \frac{3 f_b M_{\R{vir}}}{4\pi \mu m_u \,r^3_{\R{vir}}},
 \end{equation}
 where
-$f_b \simeq \Omega_b/\Omega_m$ is the mean baryon fraction assumed for
-galaxy clusters,
+$f_b \simeq \Omega_b/\Omega_m$ is the mean baryon (i.e., gas) fraction
+assumed for galaxy clusters,
 $M_{\R{vir}}$ is the cluster's virial mass,
 $r_{\R{vir}}$ is the virial radius [see \autoref{eq:radius-virial}],
 $\mu \simeq 0.6$ is the mean molecular weight \citep[e.g.,][]{ettori2013},
@@ -688,12 +688,18 @@ and $m_u$ is the atomic mass unit.
 Therefore, the corresponding thermal energy density $\epsilon_{\R{th}}$
 of the ICM is given by
 \begin{equation}
-  \label{eq:energy-density-thermal}
-  \epsilon_{\R{th}} = \frac{3}{2} \,n_{\R{th}} \,k_BT_{\R{cl}},
+  \label{eq:e-th}
+  \epsilon_{\R{th}} = \frac{3}{2} \,n_{\R{th}} \,k_B T_{\R{cl}},
 \end{equation}
-where the cluster's mean temperature is approximated as the virial
-temperature, i.e.,
-$k_BT_{\R{cl}} \simeq k_BT_{\R{vir}} = G M_{\R{vir}} \mu m_u / (2 \,r_{\R{vir}})$.
+where
+\editone{$k_B T_{\R{cl}}$ is the cluster's mean temperature and is
+approximated as the virial temperature, i.e.,
+\begin{equation}
+  \label{eq:kt}
+  k_B T_{\R{cl}} \simeq k_B T_{\R{vir}}
+    = \frac{G M_{\R{vir}} \mu m_u}{2 \,r_{\R{vir}}} .
+\end{equation}
+} % editone
 
 %........................................................................
 \ssssec{Electron Injection}
@@ -750,7 +756,7 @@ accelerates particles by interacting with the relativistic particles
 (e.g., cosmic rays) in the ICM
 \citep[and references therein]{brunetti2007,brunetti2011}.
 The associated diffusion coefficient is given as
-\citep{pinzke2017,miniati2015}
+\citep{miniati2015,pinzke2017}
 \begin{equation}
   \label{eq:dpp}
   D_{\gamma\gamma} = \gamma^2 \frac{4\pi \zeta}{X_{\R{cr}} L_{\R{turb}}}
@@ -764,7 +770,7 @@ is the relative energy density of cosmic rays with respect to the thermal ICM,
 $L_{\R{turb}} \simeq r_{\R{vir}}/3$ is the turbulence injection scale
 \citep{miniati2015},
 $\langle (\delta{v_t})^2 \rangle$ is the turbulence velocity dispersion,
-and $c_s = \sqrt{\gamma_{\R{gas}} k_BT_{\R{cl}} / (\mu m_u)}$ is the sound
+and $c_s = \sqrt{\gamma_{\R{gas}} k_B T_{\R{cl}} / (\mu m_u)}$ is the sound
 speed in the ICM with $\gamma_{\R{gas}} = 5/3$ being the adiabatic index
 of ideal monatomic gas.
 
@@ -1107,7 +1113,7 @@ with a power-law spectrum.
 We make use of the high-resolution version ($N_{\R{side}} = 2048$,
 pixel size \SI{\sim 1.72}{\arcminute}) of the Haslam \SI{408}{\MHz}
 map\footnote{The reprocessed Haslam \SI{408}{\MHz} map:
-  \url{http://www.jb.man.ac.uk/research/cosmos/haslam_map/}.},
+  \url{http://www.jb.man.ac.uk/research/cosmos/haslam_map/}},
 which was reprocessed by \citet{remazeilles2015} using significantly
 better instrument calibration and more accurate subtraction of
 extragalactic sources.
@@ -1162,8 +1168,8 @@ for these components are shown in \autoref{fig:map-fg-other}.
 %========================================================================
 
 The sky maps of the EoR signal are created using the 2016 data release
-from the Evolution Of 21~cm Structure project\footnote{%
-  Evolution Of 21~cm Structure project:
+from the Evolution Of 21\,cm Structure project\footnote{%
+  The Evolution Of 21\,cm Structure project:
   \url{http://homepage.sns.it/mesinger/EOS.html}},
 which has made use of the \texttt{21cmFAST} to simulate the cosmic
 reionization process from redshift 86.5 to 5.0 inside a large cube that is
@@ -1803,7 +1809,7 @@ and the National Key Research and Discovery Plan (grant No. 2017YFF0210903).
 \setcounter{table}{0}
 
 %########################################################################
-\section{Collection of Current Observed Radio Halos}
+\section{Collection of Currently Observed Radio Halos}
 \label{sec:halos-collection}
 %########################################################################
 
