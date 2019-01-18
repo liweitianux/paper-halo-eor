@@ -88,6 +88,13 @@
 \newcommand{\XU}[1]{\textcolor{blue}{[\textbf{XU:}~\uline{#1}]}}
 \newcommand{\LI}[1]{\textcolor{purple}{[\textbf{LI:}~\uline{#1}]}}
 
+%% Help track changes
+% Credit: https://tex.stackexchange.com/a/49913
+\newcommand{\editdone}[1]{{#1}}
+\newcommand{\editwip}[1]{{\leavevmode\color{magenta}#1}}
+\newcommand{\editone}[1]{{\leavevmode\color{cyan}#1}}
+\newcommand{\edittwo}[1]{{\leavevmode\color{magenta}#1}}
+
 %% Custom math operators (requires `amsmath' package)
 \DeclareMathOperator{\erf}{erf}
 \DeclareMathOperator{\erfc}{erfc}
