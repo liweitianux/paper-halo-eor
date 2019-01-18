@@ -745,6 +745,51 @@ in the beginning of the first merger and is approximated as the
 starting time of the first merger.
 
 %........................................................................
+\ssssec{\editwip{Stripping Radius}}
+
+\editwip{%
+When the sub-cluster merges into the main cluster, the gas at outer regions
+is stripped due to the exerted ram pressure (ref???).
+The stripping radius $r_s$ of the sub-cluster, outside which the stripping
+effect is efficient, can be obtained from the equipartition between the ram
+pressure and the hydrostatic pressure \citep{cassano2005}, i.e.,
+\begin{equation}
+  \label{eq:rs-eqp}
+  \bar{\rho}_m v_{\R{imp}}^2 = \frac{\rho_s(r_s)}{\mu m_u} k_B T_{\R{cl,s}},
+\end{equation}
+where
+$\bar{\rho}_m = \mu m_u n_{\R{th,m}}$ [see \autoref{eq:n-th}] is the mean
+gas density of the main cluster,
+$v_{\R{imp}}$ is the relative impact velocity of the two merging clusters,
+and $\rho_s(\cdot)$ and $k_B T_{\R{cl,s}}$ are the gas density profile and
+temperature [see \autoref{eq:kt}] of the sub-cluster, respectively.
+
+Starting from a sufficiently large distance with zero velocity,
+the relative impact velocity $v_{\R{imp}}$ of two merging clusters with
+masses $M_{\R{vir,m}}$ and $M_{\R{vir,s}}$ is given by
+\citep{sarazin2002,cassano2005}
+\begin{equation}
+  \label{eq:v-imp}
+  v_{\R{imp}} \simeq \left[
+    \frac{2G (M_{\R{vir,m}} + M_{\R{vir,s}})}{r_{\R{vir,m}}}
+    \left( 1 - \frac{1}{\eta_v} \right)\right]^{1/2},
+\end{equation}
+where $\eta_v \simeq 4 \,(1 + M_{\R{vir,s}}/M_{\R{vir,m}})^{1/3}$.
+
+The gas density profile $\rho_s(\cdot)$ of the sub-cluster is described by
+a $\beta$-model \citep{cavaliere1976}:
+\begin{equation}
+  \label{eq:beta-model}
+  \rho_s(r) = \rho_s(0) \left[1 + (r / r_{\R{c,s}})^2 \right]^{-3\beta/2},
+\end{equation}
+where $r_{\R{c,s}}$ and $\beta$ are the core radius and slope parameter,
+respectively, and we adopt $r_{\R{c,s}} = 0.1 \,r_{\R{vir,s}}$ and
+$\beta = 0.8$ in this work \citep{cassano2005}.
+The central gas density $\rho_s(0)$ can then be determined by the total gas
+mass ($M_{\R{gas,s}} \simeq f_b M_{\R{vir,s}}$).
+} % editwip
+
+%........................................................................
 \ssssec{Turbulent Acceleration}
 
 The details of interactions between the turbulence and both thermal and
