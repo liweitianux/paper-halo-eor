@@ -1,24 +1,4 @@
-#
-# Weitian LI
-# 2017-07-18
-#
-
-# Comment out to disable CJK support (use `pdflatex' instead of `xelatex')
-#CJK:= ON
-
-# Name to identify the reported manuscript
-ID:= lwt
-
-DATE:=		$(shell date +'%Y%m%d')
-
-# Get current relative directory
-# Credit: https://stackoverflow.com/a/23324703
-ROOT_DIR:=	$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
-PROJNAME:=	$(shell basename $(ROOT_DIR))
-
-# Environment variables
-TEXINPUTS:=	.:aastex:revtex:texmf:$(TEXINPUTS)
-BSTINPUTS:=	.:aastex:revtex:texmf:$(BSTINPUTS)
+ID:=		halo-eor
 
 # EPS figures
 EPS_FIG:=	$(wildcard figures/*.eps)
@@ -29,24 +9,22 @@ SRCS:=		main.tex references.bib
 FIGURES:=	$(wildcard figures/*.pdf)
 TEMPLATE:=	aastex/aastex62.cls aastex/aasjournal-links.bst
 
+TEXINPUTS:=	.:aastex:revtex:texmf:$(TEXINPUTS)
+BSTINPUTS:=	.:aastex:revtex:texmf:$(BSTINPUTS)
+
+DATE:=		$(shell date +'%Y%m%d')
+
 default: main.pdf
 
 eps2pdf: $(PDF_FIG)
 
 report: main.pdf $(SRCS)
-	mkdir reports/v$(DATE)
-	cp main.pdf reports/v$(DATE)/manuscript-$(ID)-$(DATE).pdf
-	cp main.tex reports/v$(DATE)/manuscript-$(ID)-$(DATE).tex
-	cp references.bib reports/v$(DATE)/references-$(ID)-$(DATE).bib
+	@test -d "reports" || mkdir reports
+	cp main.pdf reports/$(ID)-$(DATE).pdf
+	cp main.tex reports/$(ID)-$(DATE).tex
 
 main.pdf: $(SRCS) $(TEMPLATE) $(FIGURES) eps2pdf
-ifeq ($(CJK),ON)
-	# use XeLaTeX (support CJK)
 	env TEXINPUTS=$(TEXINPUTS) BSTINPUTS=$(BSTINPUTS) latexmk -xelatex $<
-else
-	# pdfLaTeX
-	env TEXINPUTS=$(TEXINPUTS) BSTINPUTS=$(BSTINPUTS) latexmk -pdf $<
-endif
 
 aaspack: $(SRCS) $(TEMPLATE) $(FIGURES)
 	mkdir $@.$(DATE)
