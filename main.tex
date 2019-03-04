@@ -7,8 +7,8 @@
 %% 2017-07-18
 %%
 
-\documentclass[modern]{aastex62}
-%\documentclass[twocolumn]{aastex62}
+%\documentclass[modern]{aastex62}
+\documentclass[twocolumn]{aastex62}
 %%
 %% Defaults: single spaced, 10 point font article
 %%
@@ -512,12 +512,12 @@ in the Universe \citep{press1974}, and has been extended to combine with
 the cold dark matter (CDM) models \citep[e.g.,][]{bond1991,lacey1993}.
 In this formalism, the number of galaxy clusters per unit comoving volume
 at redshift $z$ in the mass range $[M, M + \R{d}M]$ is
-\begin{equation}
+\begin{multline}
   \label{eq:ps-mass-func}
   n(M, z) \,\D{M} = \sqrt{\frac{2}{\pi}} \frac{\langle{\rho}\rangle}{M}
-  \frac{\delta_c(z)}{\sigma^2(M)} \left| \diff{\sigma(M)}{M} \right|
-  \exp\!\left[ -\frac{\delta_c^2(z)}{2\sigma^2(M)} \right] \D{M},
-\end{equation}
+  \frac{\delta_c(z)}{\sigma^2(M)} \left| \diff{\sigma(M)}{M} \right| \\
+  \times \exp\!\left[ -\frac{\delta_c^2(z)}{2\sigma^2(M)} \right] \D{M},
+\end{multline}
 where $M$ is the virial mass of galaxy clusters,
 $\langle {\rho} \rangle$ is the current mean density of the Universe,
 $\delta_c(z)$ is the critical linear overdensity for a region to collapse
@@ -572,15 +572,15 @@ from $M_1$ at time $t_1$ to $M_2$ at a later time $t_2$ ($> t_1$).
 Given $M_2$ and $t_2$, the conditional probability of the cluster had
 a progenitor of mass in the range $[M_1, M_1 + \D{M_1}]$ at an earlier
 time $t_1$ can be expressed as
-\begin{equation}
+\begin{multline}
   \label{eq:eps-condprob}
-  \R{Pr}(M_1, t_1 | M_2, t_2) \,\D{M_1} = \frac{1}{\sqrt{2\pi}}
-  \frac{M_2}{M_1}
-  \frac{\delta_{c1} - \delta_{c2}}{(\sigma_1^2 - \sigma_2^2)^{3/2}}
-  \left| \diff{\sigma_1^2}{M_1} \right|
-  \exp \!\left[ -\frac{(\delta_{c1} - \delta_{c2})^2}
-    {2(\sigma_1^2 - \sigma_2^2)} \right] \D{M_1},
-\end{equation}
+  \R{Pr}(M_1, t_1 | M_2, t_2) \,\D{M_1} =
+    \frac{1}{\sqrt{2\pi}} \frac{M_2}{M_1}
+    \frac{\delta_{c1} - \delta_{c2}}{(\sigma_1^2 - \sigma_2^2)^{3/2}} \\
+    \times \left| \diff{\sigma_1^2}{M_1} \right|
+    \exp \!\left[ -\frac{(\delta_{c1} - \delta_{c2})^2}
+      {2(\sigma_1^2 - \sigma_2^2)} \right] \D{M_1},
+\end{multline}
 where
 $\delta_{ci} \equiv \delta_c(t_i)$, $\sigma_i \equiv \sigma(M_i)$, and
 $i = 1, 2$ are used to denote parameters defined at time $t_1$ and $t_2$,
@@ -608,12 +608,12 @@ $\Delta\omega = \Delta\omega_{\R{max}} / 2$ \citep{randall2002}.
 At a certain step when $\Delta\omega$ is given, the mass change
 $\Delta S$ can be randomly drawn from the following cumulative
 probability distribution of sub-cluster masses
-\begin{equation}
+\begin{align}
   \label{sec:cdf-sub-masses}
   \R{Pr}(<\!\Delta S, \Delta\omega)
-    = \int_0^{\Delta S} \R{Pr}(\Delta S', \Delta\omega) \,\D{\Delta S'}
-    = 1 - \erf \!\left( \frac{\Delta \omega}{\sqrt{2 \Delta S}} \right),
-\end{equation}
+    & = \int_0^{\Delta S} \R{Pr}(\Delta S', \Delta\omega) \,\D{\Delta S'} \\
+    & = 1 - \erf \!\left( \frac{\Delta \omega}{\sqrt{2 \Delta S}} \right),
+\end{align}
 where
 $\erf(x) = (2/\sqrt{\pi}) \int_0^x \R{e}^{-t^2} \,\D{t}$
 is the error function.
@@ -652,14 +652,14 @@ For a population of electrons with isotropic energy distribution, the
 temporal evolution of the number density distribution $n(\gamma, t)$
 is governed by the following Fokker-Planck diffusion-advection equation
 \citep{eilek1991,schlickeiser2002}
-\begin{equation}
+\begin{multline}
   \label{eq:fokkerplanck}
   \pdiff{n(\gamma,t)}{t} = \pdiff{}{\gamma} \left[ n(\gamma,t) \left(
       \left| \diff{\gamma}{t} \right| -
-      \frac{2}{\gamma} D_{\gamma\gamma}(\gamma, t) \right) \right] +
-    \pdiff{}{\gamma} \left[ D_{\gamma\gamma} \pdiff{n(\gamma,t)}{\gamma}
+      \frac{2}{\gamma} D_{\gamma\gamma}(\gamma, t) \right) \right] \\
+    + \pdiff{}{\gamma} \left[ D_{\gamma\gamma} \pdiff{n(\gamma,t)}{\gamma}
     \right] + Q_e(\gamma,t),
-\end{equation}
+\end{multline}
 where $\gamma$ is the Lorentz factor of electrons,
 $D_{\gamma\gamma}(\gamma, t)$ is the diffusion coefficient describing
 the interactions between the turbulence and electrons,
@@ -948,14 +948,15 @@ and the thermal ICM \citep[e.g.,][]{miniati2015,bohringer2016}.
 The last mechanism considered is that relativistic electrons interact
 with the thermal electrons via Coulomb collisions, the energy loss rate
 of which is
-\begin{equation}
+\begin{multline}
   \label{eq:eloss-coul}
   \left( \diff{\gamma}{t} \right)_{\R{Coul}} =
     \num{-3.79e4} \left( \frac{n_{\R{th}}}{\SI{1}{\per\cm\cubed}} \right)
+    \\ \times
     \left[ 1 + \frac{1}{75} \ln \left(
         \gamma \,\frac{\SI{1}{\per\cm\cubed}}{n_{\R{th}}} \right) \right]
     \quad [\si{\per\Gyr}].
-\end{equation}
+\end{multline}
 
 The inverse Compton scattering and synchrotron radiation dominate
 the energy losses at the high-energy regime ($\gamma \gtrsim 1000$),
@@ -1076,7 +1077,7 @@ brighter at lower frequencies.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.6\textwidth]{fluxfunc-simucomp-1400}
+  \includegraphics[width=\columnwidth]{fluxfunc-simucomp-1400}
   \caption{\label{fig:halos-simucomp}%
     The \SI{1.4}{\GHz} all-sky integrated flux function comparison
     between the observed (the dashed purple line) and simulated
@@ -1105,7 +1106,7 @@ example map of the simulated radio halos at \SI{158}{\MHz}).
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.6\textwidth]{halos-f158-heat-log2}
+  \includegraphics[width=\columnwidth]{halos-f158-heat-log2}
   \caption{\label{fig:halos-example}%
     An example from the 100 simulation runs showing the simulated
     radio halos at \SI{158}{\MHz}.
@@ -1114,7 +1115,7 @@ example map of the simulated radio halos at \SI{158}{\MHz}).
   }
 \end{figure}
 
-\begin{deluxetable}{cccc}
+\begin{deluxetable*}{cccc}
 \tablecaption{\label{tab:tb-rms}%
   The \rms{} Brightness Temperatures of the Foreground Components and
   the EoR Signal (unit: \si{\mK})
@@ -1135,7 +1136,7 @@ Galactic free-free & \num{330} & \num{200} & \num{130} \\
 Extragalactic point sources & \num{2.97e8} & \num{5.90e7} & \num{1.39e7} \\
 EoR signal & \num{15.1} & \num{11.3} & \num{3.77}
 \enddata
-\end{deluxetable}
+\end{deluxetable*}
 
 
 %========================================================================
@@ -1189,9 +1190,9 @@ for these components are shown in \autoref{fig:map-fg-other}.
 
 \begin{figure*}
   \centering
-  \includegraphics[width=0.32\textwidth]{gsyn-f158-heat}
-  \includegraphics[width=0.32\textwidth]{gff-f158-heat}
-  \includegraphics[width=0.32\textwidth]{pointsources-f158-heat-log}
+  \includegraphics[width=0.325\textwidth]{gsyn-f158-heat}
+  \includegraphics[width=0.325\textwidth]{gff-f158-heat}
+  \includegraphics[width=0.325\textwidth]{pointsources-f158-heat-log}
   \caption{\label{fig:map-fg-other}%
     The sky maps of
     \textbf{(a)} the Galactic synchrotron emission,
@@ -1230,7 +1231,7 @@ obtained at \SI{158}{\MHz} are given in \autoref{tab:tb-rms} and
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.7\textwidth]{eos2016-tbrms}
+  \includegraphics[width=\columnwidth]{eos2016-tbrms}
   \caption{\label{fig:eor-tbrms}%
     The \rms{} brightness temperatures of the EoR signal
     (the solid green line) within \SIrange{120}{200}{\MHz}
@@ -1243,7 +1244,7 @@ obtained at \SI{158}{\MHz} are given in \autoref{tab:tb-rms} and
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.6\textwidth]{21cm-f158-heat2}
+  \includegraphics[width=\columnwidth]{21cm-f158-heat2}
   \caption{\label{fig:map-eor}%
     The sky map of the EoR signal at \SI{158}{\MHz}.
     The sky region size is \SI[product-units=repeat]{10 x 10}{\degree},
@@ -1423,7 +1424,7 @@ foreground avoidance methods to extract the EoR signal.
 \label{sec:ps1d}
 %========================================================================
 
-\begin{figure*}[b]
+\begin{figure*}
   \centering
   \includegraphics[width=\textwidth]{ps1d-3bands}
   \caption{\label{fig:ps1d-3bands}%
@@ -1542,7 +1543,7 @@ frequencies (\SI{\sim 200}{\MHz}).
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.6\textwidth]{ps1d-ratio-3bands}
+  \includegraphics[width=\columnwidth]{ps1d-ratio-3bands}
   \caption{\label{fig:ps1d-ratio}%
     1D power ratios $R_{\R{eorw}}(k)$ inside the EoR window of
     radio halos to the EoR signal.
