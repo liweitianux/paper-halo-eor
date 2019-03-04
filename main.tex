@@ -90,7 +90,6 @@
 
 %% Custom math operators (requires `amsmath' package)
 \DeclareMathOperator{\erf}{erf}
-\DeclareMathOperator{\erfc}{erfc}
 
 %% Settings for package `siunitx'
 % credit: https://tex.stackexchange.com/a/194042
@@ -611,12 +610,14 @@ $\Delta S$ can be randomly drawn from the following cumulative
 probability distribution of sub-cluster masses
 \begin{equation}
   \label{sec:cdf-sub-masses}
-  \R{Pr}(<\!\Delta S, \Delta\omega) =
-  \int_0^{\Delta S} \R{Pr}(\Delta S', \Delta\omega) \,\D{\Delta S'} =
-  \erfc \!\left( \frac{\Delta \omega}{\sqrt{2 \Delta S}} \right),
+  \R{Pr}(<\!\Delta S, \Delta\omega)
+    = \int_0^{\Delta S} \R{Pr}(\Delta S', \Delta\omega) \,\D{\Delta S'}
+    = 1 - \erf \!\left( \frac{\Delta \omega}{\sqrt{2 \Delta S}} \right),
 \end{equation}
-where $\erfc(x) = 1 - \erf(x)$ is the complementary error function,
-and the cluster's progenitor mass $M_1$ is then obtained as
+where
+$\erf(x) = (2/\sqrt{\pi}) \int_0^x \R{e}^{-t^2} \,\D{t}$
+is the error function.
+Then, the cluster's progenitor mass $M_1$ is obtained as
 $S_1 = S_2 + \Delta S$.
 
 Given that observable radio halos are regarded to be associated
