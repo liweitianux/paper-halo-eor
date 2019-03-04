@@ -436,7 +436,7 @@ otherwise stated.
 
 
 %########################################################################
-\section{Simulation of Low-Frequency Radio Sky}
+\section{Simulation of Radio Sky}
 \label{sec:sky-simu}
 %########################################################################
 
@@ -633,8 +633,8 @@ simulation of radio halos.
 
 
 %------------------------------------------------------------------------
-\subsubsection{Evolution of Radio Halos}
-\label{sec:halos}
+\subsubsection{\editone{Evolution Modeling}}
+\label{sec:halo-evo}
 %------------------------------------------------------------------------
 
 According to the re-acceleration model, there exists a population of
@@ -747,7 +747,7 @@ starting time of the first merger.
 
 \editwip{%
 When the sub-cluster merges into the main cluster, the gas at outer regions
-is stripped due to the exerted ram pressure (ref???).
+is stripped due to the exerted ram pressure \citep{gunn1972}.
 The stripping radius $r_s$ of the sub-cluster, outside which the stripping
 effect is efficient, can be obtained from the equipartition between the ram
 pressure and the hydrostatic pressure \citep{cassano2005}, i.e.,
@@ -782,7 +782,7 @@ a $\beta$-model \citep{cavaliere1976}:
 \end{equation}
 where $r_{\R{c,s}}$ and $\beta$ are the core radius and slope parameter,
 respectively, and we adopt $r_{\R{c,s}} = 0.1 \,r_{\R{vir,s}}$ and
-$\beta = 0.8$ in this work \citep{cassano2005}.
+$\beta = 0.8$ \citep{cassano2005}.
 The central gas density $\rho_s(0)$ can then be determined by the total gas
 mass ($M_{\R{gas,s}} \simeq f_b M_{\R{vir,s}}$).
 } % editwip
@@ -904,14 +904,14 @@ Based on these, we estimate that major mergers generally have an effective
 turbulent acceleration duration of $\tau_{\R{turb}} \sim \SI{0.5}{\Gyr}$.
 
 For each merger event
-$(M^{(i)}_{\R{vir,m}}, M^{(i)}_{\R{vir,s}}, t^{(i)}_{\R{merger}})$
+$\left( M^{(i)}_{\R{vir,m}}, M^{(i)}_{\R{vir,s}}, t^{(i)}_{\R{merger}} \right)$
 as simulated in \autoref{sec:merging-history} for a galaxy cluster,
 where $t^{(i)}_{\R{merger}}$ denotes the starting time of the $i$-th
 merger event, we calculate the corresponding turbulent acceleration
 duration $\tau^{(i)}_{\R{turb}}$.
 We then solve \autoref{eq:fokkerplanck} by taking into account both
 turbulent acceleration and energy losses during the period
-$[\,t^{(i)}_{\R{merger}}, t^{(i)}_{\R{merger}}+\tau^{(i)}_{\R{turb}}\,]$,
+$\left[ t^{(i)}_{\R{merger}}, t^{(i)}_{\R{merger}}+\tau^{(i)}_{\R{turb}} \right]$,
 while there is no turbulent acceleration at other times.
 
 %........................................................................
@@ -929,9 +929,9 @@ the energy loss rate of which is
     \quad [\si{\per\Gyr}].
 \end{equation}
 
-Secondly, with the \si{\uG}-level magnetic field permeating the ICM,
-relativistic electrons will produce synchrotron radiation and lose
-energy at a rate of
+Secondly, with the \si{\uG}-level magnetic field permeating the ICM
+\citep[e.g.,][]{govoni2004,ryu2008}, relativistic electrons will
+produce synchrotron radiation and lose energy at a rate of
 \begin{equation}
   \label{eq:eloss-syn}
   \left( \diff{\gamma}{t} \right)_{\R{syn}} =
@@ -943,7 +943,7 @@ We assume that the magnetic field is uniform and its energy density
 is a fraction of the thermal energy density, i.e.,
 $u_B = B^2 / (8\pi) = \eta_B \,\epsilon_{\R{th}}$,
 where $\eta_B$ is the energy density ratio between the magnetic field
-and the thermal ICM \citep[e.g.,][]{bohringer2016}.
+and the thermal ICM \citep[e.g.,][]{miniati2015,bohringer2016}.
 
 The last mechanism considered is that relativistic electrons interact
 with the thermal electrons via Coulomb collisions, the energy loss rate
@@ -1092,9 +1092,9 @@ In order to describe the uncertainty of the number density of bright
 radio halos across the sky, we repeat the simulation of radio halos
 for 100 times.
 The medians and the corresponding \SI{68}{\percent} errors%
-\footnote{The \SI{68}{\percent} error is derived from the 16th
-and 84th percentiles because they are more robust than the mean and
-standard deviation for data with large dispersion.}
+\footnote{The \SI{68}{\percent} error is derived from the 16$^{\text{th}}$
+and 84$^{\text{th}}$ percentiles because they are more robust than the mean
+and standard deviation for data with large dispersion.}
 of the \rms{} brightness temperature are
 $\left(6.95_{-5.04}^{+21.0}\right) \times 10^3$ \si{\mK},
 $\left(2.75_{-1.97}^{+10.4}\right) \times 10^3$ \si{\mK}, and
@@ -1199,14 +1199,14 @@ for these components are shown in \autoref{fig:map-fg-other}.
     \textbf{(c)} the extragalactic point sources
     at \SI{158}{\MHz}.
     All the maps cover sky region of size
-    \SI[product-units=repeat]{10 x 10}{\degree},
+    \SI[product-units=repeat]{10 x 10}{\degree}
     and have color bars in units of \si{\kelvin}.
   }
 \end{figure*}
 
 
 %========================================================================
-\subsection{The EoR Signal}
+\subsection{EoR Signal}
 \label{sec:eor-signal}
 %========================================================================
 
@@ -1260,7 +1260,8 @@ obtained at \SI{158}{\MHz} are given in \autoref{tab:tb-rms} and
 In order to properly evaluate the contamination of radio halos
 on the EoR observations, it is essential to take account of the
 practical instrumental effects of radio interferometers.
-Therefore, we employ the latest SKA1-Low layout configuration\footnote{%
+Therefore, we employ the latest SKA1-Low layout configuration%
+\footnote{\raggedright%
   SKA1-Low Configuration Coordinates:
   \url{https://astronomers.skatelescope.org/wp-content/uploads/2016/09/SKA-TEL-SKO-0000422_02_SKA1_LowConfigurationCoordinates-1.pdf}
   (released on 2016 May 21)
@@ -1308,15 +1309,16 @@ Similar to the real-time peeling of the brightest point sources in
 practical data analysis pipelines
 \citep[e.g.,][]{mitchell2008,intema2009,mort2017},
 we assume that the point sources with a \SI{158}{\MHz} flux density
-$S_{158} > \SI{50}{\mJy}$ are removed \citep[e.g.,][]{pindor2011}.
+$S_{158} > \SI{50}{\mJy}$ are removed
+\citep[e.g.,][]{liu2009ps,pindor2011}.
 The \rms{} brightness temperatures of extragalactic point sources are
 hence significantly reduced to be about
 \SIlist[%
   list-units=brackets,
   scientific-notation=fixed,
   fixed-exponent=4,
-]{22.5e4;9.81e4;4.75e4}{\mK}
-at \numlist{124;158;196} \si{\MHz}, respectively.
+]{22.5e4; 9.81e4; 4.75e4}{\mK}
+at \numlist{124; 158; 196} \si{\MHz}, respectively.
 In addition, we create the foreground image cubes in each frequency band
 using the CLEAN algorithm with joined-channel deconvolution in order
 to ensure the spectral smoothness \citep{offringa2017}, which is crucial
@@ -2036,7 +2038,7 @@ The Hubble parameter at redshift $z$ is
 \end{equation}
 where $E(z)$ is the redshift evolution factor \citep{hogg1999}.
 
-The virial radius of a galaxy cluster is defined as
+The virial radius of a galaxy cluster at a redshift of $z$ is given by
 \begin{equation}
   \label{eq:radius-virial}
   r_{\R{vir}} = \left[
@@ -2044,10 +2046,9 @@ The virial radius of a galaxy cluster is defined as
   \right]^{1/3},
 \end{equation}
 where $M_{\R{vir}}$ is the virial mass of the cluster,
-$\rho_{\R{crit}}(z) = 3 H^2(z) / (8\pi G)$ is the critical density
-at redshift $z$ with $G$ being the gravitational constant,
-and $\Delta_{\R{vir}}(z)$ is the average overdensity of the cluster
-given by \citep{kitayama1996,cassano2005}
+$\rho_{\R{crit}}(z) = 3 H^2(z) / (8\pi G)$ is the critical density,
+$G$ being the gravitational constant, and $\Delta_{\R{vir}}(z)$ is the
+virial overdensity given by \citep{kitayama1996,cassano2005}
 \begin{equation}
   \label{eq:delta-vir}
   \Delta_{\R{vir}}(z) = 18\pi^2 \left[ 1 + 0.4093 \, w(z)^{0.9052} \right],
