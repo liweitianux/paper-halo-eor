@@ -11,6 +11,7 @@
 *.fls
 *.lof
 *.log
+*.xdv
 *-converted-to.*
 *.synctex.gz
 *.fdb_latexmk
