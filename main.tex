@@ -1851,6 +1851,57 @@ and the National Natural Science Foundation of China
 \renewcommand\thetable{\thesection\arabic{table}}
 \setcounter{table}{0}
 
+
+%########################################################################
+\section{Supplemental Formulas}
+\label{sec:formulas}
+%########################################################################
+
+In a flat \lcdm{} cosmology as adopted in this work, the critical linear
+overdensity as a function of redshift $z$ is \citep{kitayama1996,randall2002}
+\begin{equation}
+  \label{eq:delta-crit}
+  \delta_c(z) = \frac{D(z=0)}{D(z)} \frac{3}{20} (12\pi)^{2/3}
+    \left[1 + 0.0123 \log_{10} \Omega_f(z) \right],
+\end{equation}
+where $\Omega_f(z)$ is the mass density ratio at redshift $z$ defined as
+\begin{equation}
+  \label{eq:omega-fz}
+  \Omega_f(z) = \frac{\Omega_m(1+z)^3}{\Omega_m(1+z)^3 + \Omega_{\Lambda}},
+\end{equation}
+and $D(z)$ is the growth factor given by \citep[equation~(13.6)]{peebles1980}
+\begin{equation}
+  \label{eq:growth-factor}
+  D(x) = \frac{(x^3 + 2)^{1/2}}{x^{3/2}}
+    \int_0^x y^{3/2} (y^3 + 2)^{-3/2} \,\D{y},
+\end{equation}
+with $x_0 \equiv (2\Omega_{\Lambda}/\Omega_m)^{1/3}$ and $x = x_0 / (1+z)$.
+
+The Hubble parameter at redshift $z$ is
+\begin{equation}
+  \label{eq:hubble-z}
+  H(z) = H_0 E(z) = H_0 \sqrt{\Omega_m(1+z)^3 + \Omega_{\Lambda}} \,,
+\end{equation}
+where $E(z)$ is the redshift evolution factor \citep{hogg1999}.
+
+The virial radius of a galaxy cluster at a redshift of $z$ is given by
+\begin{equation}
+  \label{eq:radius-virial}
+  r_{\R{vir}} = \left[
+    \frac{3 M_{\R{vir}}}{4\pi \,\Delta_{\R{vir}}(z) \rho_{\R{crit}}(z)}
+  \right]^{1/3},
+\end{equation}
+where $M_{\R{vir}}$ is the virial mass of the cluster,
+$\rho_{\R{crit}}(z) = 3 H^2(z) / (8\pi G)$ is the critical density,
+$G$ being the gravitational constant, and $\Delta_{\R{vir}}(z)$ is the
+virial overdensity given by \citep{kitayama1996,cassano2005}
+\begin{equation}
+  \label{eq:delta-vir}
+  \Delta_{\R{vir}}(z) = 18\pi^2 \left[ 1 + 0.4093 \, w(z)^{0.9052} \right],
+\end{equation}
+where $w(z) \equiv \Omega_f^{-1}(z) - 1$.
+
+
 %########################################################################
 \section{Collection of Currently Observed Radio Halos}
 \label{sec:halos-collection}
@@ -2008,56 +2059,6 @@ RXC J2351.0$-$1954   & 0.2477 & 3.85 & 0.64 &   4.5 &  0.9\tablenotemark{q} &  0
     \enquote{+2R}: with double relics);
   \textbf{(8)} references to the quoted properties.
 \end{deluxetable*}
-
-
-%########################################################################
-\section{Supplemental Formulas}
-\label{sec:formulas}
-%########################################################################
-
-In a flat \lcdm{} cosmology as adopted in this work, the critical linear
-overdensity as a function of redshift $z$ is \citep{kitayama1996,randall2002}
-\begin{equation}
-  \label{eq:delta-crit}
-  \delta_c(z) = \frac{D(z=0)}{D(z)} \frac{3}{20} (12\pi)^{2/3}
-    \left[1 + 0.0123 \log_{10} \Omega_f(z) \right],
-\end{equation}
-where $\Omega_f(z)$ is the mass density ratio at redshift $z$ defined as
-\begin{equation}
-  \label{eq:omega-fz}
-  \Omega_f(z) = \frac{\Omega_m(1+z)^3}{\Omega_m(1+z)^3 + \Omega_{\Lambda}},
-\end{equation}
-and $D(z)$ is the growth factor given by \citep[equation~(13.6)]{peebles1980}
-\begin{equation}
-  \label{eq:growth-factor}
-  D(x) = \frac{(x^3 + 2)^{1/2}}{x^{3/2}}
-    \int_0^x y^{3/2} (y^3 + 2)^{-3/2} \,\D{y},
-\end{equation}
-with $x_0 \equiv (2\Omega_{\Lambda}/\Omega_m)^{1/3}$ and $x = x_0 / (1+z)$.
-
-The Hubble parameter at redshift $z$ is
-\begin{equation}
-  \label{eq:hubble-z}
-  H(z) = H_0 E(z) = H_0 \sqrt{\Omega_m(1+z)^3 + \Omega_{\Lambda}} \,,
-\end{equation}
-where $E(z)$ is the redshift evolution factor \citep{hogg1999}.
-
-The virial radius of a galaxy cluster at a redshift of $z$ is given by
-\begin{equation}
-  \label{eq:radius-virial}
-  r_{\R{vir}} = \left[
-    \frac{3 M_{\R{vir}}}{4\pi \,\Delta_{\R{vir}}(z) \rho_{\R{crit}}(z)}
-  \right]^{1/3},
-\end{equation}
-where $M_{\R{vir}}$ is the virial mass of the cluster,
-$\rho_{\R{crit}}(z) = 3 H^2(z) / (8\pi G)$ is the critical density,
-$G$ being the gravitational constant, and $\Delta_{\R{vir}}(z)$ is the
-virial overdensity given by \citep{kitayama1996,cassano2005}
-\begin{equation}
-  \label{eq:delta-vir}
-  \Delta_{\R{vir}}(z) = 18\pi^2 \left[ 1 + 0.4093 \, w(z)^{0.9052} \right],
-\end{equation}
-where $w(z) \equiv \Omega_f^{-1}(z) - 1$.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
