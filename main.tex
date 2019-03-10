@@ -284,7 +284,7 @@ The overwhelming foreground contamination is one of the primary impediments
 to probing the EoR through measuring the redshifted 21~cm signal.
 Among various foreground components, radio halos are less studied and
 their impacts on the EoR observations are still poorly understood.
-In this work, we employ the Press-Schechter formalism, turbulence
+In this work, we employ the Press--Schechter formalism, turbulence
 re-acceleration model, and the latest SKA1-Low layout configuration to
 simulate the SKA \enquote{observed} images of radio halos.
 We calculate the one-dimensional power spectra from simulated images and
@@ -413,7 +413,7 @@ contamination (see \citealt{chapman2016} and references therein).
 This paper is prepared as follows.
 In \autoref{sec:sky-simu} we simulate the low-frequency radio sky, where a
 \editone{semi-analytic} simulation of radio halos is developed by employing
-the Press-Schechter formalism and turbulence re-acceleration model.
+the Press--Schechter formalism and turbulence re-acceleration model.
 In \autoref{sec:obs-simu} we adopt the latest SKA1-Low layout
 configuration to incorporate the practical instrumental effects into
 the simulated sky maps.
@@ -485,14 +485,14 @@ Pixel size & \multicolumn{3}{c}{\SI{20}{\arcsecond}}
 
 As a significant improvement over our past works \citep{wang2010,wang2013},
 we consider in detail the evolution of radio halos in galaxy clusters by
-employing the Press-Schechter formalism and turbulence re-acceleration model,
+employing the Press--Schechter formalism and turbulence re-acceleration model,
 in terms of which the relativistic electrons in the ICM are re-accelerated
 by the turbulence generated in merger events via the second-order Fermi
 process, and lose energies due to mechanisms including synchrotron
 radiation, inverse Compton scattering off the CMB photons, and Coulomb
 collisions with the thermal ICM
 \editone{\citep[e.g.,][]{brunetti2001,petrosian2001,cassano2005,brunetti2007,brunetti2011}}.
-For a galaxy cluster, we first employ the extended Press-Schechter
+For a galaxy cluster, we first employ the extended Press--Schechter
 theory to simulate its merging history, and then calculate the turbulent
 acceleration efficiency and duration for each merger event.
 By combining the effects of turbulent acceleration and energy loss,
@@ -504,7 +504,7 @@ from which we calculate the synchrotron radiation of the radio halo.
 \label{sec:mass-function}
 %------------------------------------------------------------------------
 
-The Press-Schechter formalism was originally advanced as one of the standard
+The Press--Schechter formalism was originally advanced as one of the standard
 method to predict the mass function of galaxy clusters and its evolution
 in the Universe \citep{press1974}, and has been extended to combine with
 the cold dark matter (CDM) models \citep[e.g.,][]{bond1991,lacey1993}.
@@ -538,7 +538,7 @@ and the exponent $\alpha = (n+3)/6$ with $n = -7/5$ \citep{randall2002}
 is related to the fluctuation pattern whose power spectrum varies
 with wavenumber $k$ as $k^n$.
 
-Using a minimum galaxy cluster mass of
+With a minimum galaxy cluster mass of
 $M_{\R{min}} = \SI{e14}{\solarmass}$
 and a maximum redshift cut at $z_{\R{max}} = 4$,
 we apply \autoref{eq:ps-mass-func} to derive the total number of
@@ -552,7 +552,7 @@ redshift pairs $(M_{\R{sim}}, z_{\R{sim}})$ from these distributions.
 \label{sec:merging-history}
 %------------------------------------------------------------------------
 
-The extended Press-Schechter theory outlined in \citet{lacey1993} provides
+The extended Press--Schechter theory outlined in \citet{lacey1993} provides
 a way to describe the growth history of galaxy clusters in terms of the
 merger tree.
 In order to build the merger tree for a galaxy cluster, we start with
@@ -619,7 +619,7 @@ Then, the cluster's progenitor mass $M_1$ is obtained as
 $S_1 = S_2 + \Delta S$.
 
 Given that observable radio halos are regarded to be associated
-with recent (in observer's frame) major mergers
+with recent (in the observer's frame) major mergers
 and have typical lifetimes $\tau_{\R{halo}} \lesssim \SI{1}{\Gyr}$
 at \SI{1.4}{\GHz} \citep[e.g.,][]{brunetti2009,cassano2016},
 we trace the merging history of each galaxy cluster by a maximum
@@ -703,7 +703,7 @@ approximated as the virial temperature, i.e.,
 As primary electrons are continuously injected into the ICM via multiple
 processes, it is reasonable to assume an average injection rate and a
 power-law spectrum for the electron injection process
-\citep[e.g.,][]{cassano2005,donnert2014}
+\citep[e.g.,][]{cassano2005,donnert2014}, i.e.,
 \begin{equation}
   \label{eq:electron-inj}
   Q_e(\gamma, t) \simeq Q_e(\gamma) = K_e \,\gamma^{-s},
@@ -754,11 +754,11 @@ pressure and the hydrostatic pressure \citep{cassano2005}, i.e.,
   \bar{\rho}_m v_{\R{imp}}^2 = \frac{\rho_s(r_s)}{\mu m_u} k_B T_{\R{cl,s}},
 \end{equation}
 where
-$\bar{\rho}_m = \mu m_u n_{\R{th,m}}$ [see \autoref{eq:n-th}] is the mean
-gas density of the main cluster,
+$\bar{\rho}_m = \mu m_u n_{\R{th,m}}$ is the mean gas density of the main
+cluster,
 $v_{\R{imp}}$ is the relative impact velocity of the two merging clusters,
-and $\rho_s(\cdot)$ and $k_B T_{\R{cl,s}}$ are the gas density profile and
-temperature [see \autoref{eq:kt}] of the sub-cluster, respectively.
+and $\rho_s(\cdot)$ and $T_{\R{cl,s}}$ are the gas density profile and
+temperature of the sub-cluster, respectively.
 
 Starting from a sufficiently large distance with zero velocity,
 the relative impact velocity $v_{\R{imp}}$ of two merging clusters with
@@ -1221,20 +1221,20 @@ pixel size as our foreground maps.
 \autoref{fig:eor-tbrms} shows the \rms{} brightness temperatures of the
 EoR signal among \SIrange{120}{200}{\MHz} ($z = \numrange{6.1}{10.8}$).
 The corresponding \rms{} brightness temperatures at the central
-frequencies of the three adopted bands and the map of the EoR signal
-obtained at \SI{158}{\MHz} are given in \autoref{tab:tb-rms} and
-\autoref{fig:map-eor}, respectively.
+frequencies of the three adopted bands are given in \autoref{tab:tb-rms}
+and the sky map of the EoR signal at \SI{158}{\MHz} is shown in
+\autoref{fig:map-eor}.
 
 \begin{figure}
   \centering
   \includegraphics[width=\columnwidth]{eos2016-tbrms}
   \caption{\label{fig:eor-tbrms}%
     The \rms{} brightness temperatures of the EoR signal
-    (the solid green line) within \SIrange{120}{200}{\MHz}
+    (solid green line) within \SIrange{120}{200}{\MHz}
     ($z = \numrange{6.1}{10.8}$).
-    The red shaded regions mark the \numrange{120}{128},
-    \numrange{154}{162}, and \numrange{192}{200} \si{\MHz}
-    frequency bands adopted in this work.
+    The red shaded regions mark the three adopted frequency bands
+    (\numrange{120}{128}, \numrange{154}{162}, and \numrange{192}{200}
+    \si{\MHz}).
   }
 \end{figure}
 
@@ -1243,8 +1243,8 @@ obtained at \SI{158}{\MHz} are given in \autoref{tab:tb-rms} and
   \includegraphics[width=\columnwidth]{21cm-f158}
   \caption{\label{fig:map-eor}%
     The sky map of the EoR signal at \SI{158}{\MHz}.
-    The sky region size is \SI[product-units=repeat]{10 x 10}{\degree},
-    and the color bar is in units of \si{\kelvin}.
+    The sky region size is \SI[product-units=repeat]{10 x 10}{\degree}
+    and the color bar is in units of \si{\mK}.
   }
 \end{figure}
 
@@ -1286,7 +1286,7 @@ which passes through the zenith of the SKA1-Low telescope and
 is an ideal choice for the simulation of SKA observations.
 The simulated visibility data are imaged through the
 \texttt{WSClean}\footnote{%
-  WSClean: \url{https://sourceforge.net/p/wsclean} (version 2.5)}
+  WSClean: \url{https://sourceforge.net/p/wsclean} (version 2.6)}
 imager \citep{offringa2014} using Briggs' weighting with a
 robustness of zero \citep{briggs1995},
 and the created images are cropped to keep only the central regions
@@ -1305,11 +1305,11 @@ simulated observations because they have similar diffuse features.
 Similar to the real-time peeling of the brightest point sources in
 practical data analysis pipelines
 \citep[e.g.,][]{mitchell2008,intema2009,mort2017},
-we assume that the point sources with a \SI{158}{\MHz} flux density
-$S_{158} > \SI{50}{\mJy}$ are removed
+we assume that extragalactic point sources with a \SI{158}{\MHz} flux
+density $S_{158} > \SI{50}{\mJy}$ are removed
 \citep[e.g.,][]{liu2009ps,pindor2011}.
-The \rms{} brightness temperatures of extragalactic point sources are
-hence significantly reduced to be about
+The \rms{} brightness temperatures of point sources are hence significantly
+reduced to be about
 \SIlist[%
   list-units=brackets,
   scientific-notation=fixed,
@@ -1380,9 +1380,8 @@ The region almost free of the foreground contamination, namely the
 $(\kperp, \klos)$ plane and can be described with \citep{thyagarajan2013}
 \begin{equation}
   \label{eq:eor-window}
-  \klos \geq \frac{H(z) D_{\!M}(z)}{c (1+z)} \left[
-    \kperp \sin\Theta +
-    \frac{e}{B} \frac{2\pi f_{21}}{(1+z) D_{\!M}(z)} \right],
+  \klos \geq \frac{H(z) D_{\!M}(z)}{(1+z) c} \left[
+    \kperp \sin\Theta + \frac{2\pi e f_{21}}{(1+z) D_{\!M}(z) B} \right],
 \end{equation}
 where
 $c$ is the speed of light,
@@ -1760,7 +1759,7 @@ impacts of FSCN.
 \label{sec:summary}
 %########################################################################
 
-Based on the Press-Schechter formalism and turbulence re-acceleration
+Based on the Press--Schechter formalism and turbulence re-acceleration
 model, we have simulated the emission maps of radio halos, for which we
 have incorporated the SKA1-Low's instrumental effects by utilizing the
 latest SKA1-Low layout configuration.
