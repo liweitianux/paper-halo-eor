@@ -681,20 +681,24 @@ $M_{\R{vir}}$ is the cluster's virial mass,
 $r_{\R{vir}}$ is the virial radius [see \autoref{eq:radius-virial}],
 $\mu \simeq 0.6$ is the mean molecular weight \citep[e.g.,][]{ettori2013},
 and $m_u$ is the atomic mass unit.
-Therefore, the corresponding thermal energy density $\epsilon_{\R{th}}$
-of the ICM is given by
+Therefore, the corresponding ICM thermal energy density $\epsilon_{\R{th}}$
+is given by
 \begin{equation}
   \label{eq:e-th}
-  \epsilon_{\R{th}} = \frac{3}{2} \,n_{\R{th}} \,k_B T_{\R{cl}},
+  \epsilon_{\R{th}} = \frac{3}{2} \,n_{\R{th}} k_B T_{\R{cl}}.
+\end{equation}
+\editone{%
+The ICM mean temperature $T_{\R{cl}}$ is approximately given by
+\citep{cavaliere1998,fujita2003}
+\begin{equation}
+  \label{eq:t-icm}
+  T_{\R{cl}} \simeq T_{\R{vir}} + \frac{3}{2} \,T_{\R{pre}} ,
 \end{equation}
 where
-\editone{$k_B T_{\R{cl}}$ is the cluster's mean temperature and is
-approximated as the virial temperature, i.e.,
-\begin{equation}
-  \label{eq:kt}
-  k_B T_{\R{cl}} \simeq k_B T_{\R{vir}}
-    = \frac{G M_{\R{vir}} \mu m_u}{2 \,r_{\R{vir}}} .
-\end{equation}
+$T_{\R{vir}} = \mu m_u G M_{\R{vir}} / (2 \,r_{\R{vir}})$ is the virial
+temperature, and $T_{\R{pre}} \simeq \SI{0.5}{\keV}$ is the temperature of
+the pre-shock gas being accreted into the cluster
+\citep{fujita2003}.
 } % editone
 
 %........................................................................
