@@ -1046,6 +1046,8 @@ synchrotron emissivity at a frequency $\nu$ is given by \citep{rybicki1979}
     n_e(\gamma, t) F(\nu/\nu_c) \sin^2 \!\theta \,\D{\theta} \,\D{\gamma},
 \end{equation}
 where
+$c$ is the speed of light,
+$e$ is the elementary charge,
 $\theta$ is the pitch angle of electrons with respect to the magnetic
 field, $\nu_c = (3/2) \,\gamma^2 \nu_L \sin\theta$ is the electron's
 critical frequency with $\nu_L = e B / (2\pi m_e c)$ being the Larmor
@@ -1608,17 +1610,16 @@ and can be described with \citep{thyagarajan2013}
 \begin{equation}
   \label{eq:eor-window}
   \klos \geq \frac{H(z) D_{\!M}(z)}{(1+z) c} \left[
-    \kperp \sin\Theta + \frac{2\pi e f_{21}}{(1+z) D_{\!M}(z) B} \right],
+    \kperp \sin\Theta + \frac{2\pi w f_{21}}{(1+z) D_{\!M}(z) B} \right],
 \end{equation}
 where
-$c$ is the speed of light,
 $B = \SI{8}{\MHz}$ is the frequency bandwidth of the image cube,
 $f_{21} = \SI{1420.4}{\MHz}$ is the rest-frame frequency of the 21~cm line,
 $z = f_{21}/f_c - 1$ is the signal redshift corresponding to the central
 frequency ($f_c$) of the image cube,
 $H(z)$ is the Hubble parameter at redshift $z$ [see \autoref{eq:hubble-z}],
 $D_{\!M}(z)$ is the transverse comoving distance,
-$e$ denotes the number of characteristic convolution widths
+$w$ denotes the number of characteristic convolution widths
 ($\propto B^{-1}$) for the spillover region caused by the variations in
 instrumental frequency response,
 and $\Theta$ is the angular distance of foreground sources from the
@@ -1779,9 +1780,9 @@ foreground avoidance methods are applied, we need to appropriately
 define an EoR window in the $(\kperp, \klos)$ plane to avoid the
 heavily contaminated areas and then compare the powers of radio halos
 and the EoR signal derived inside the window.
-We have tested multiple parameter configurations ($e$, $\Theta$) as
-defined in \autoref{eq:eor-window}, and find that when $e = 3$ and
-$\Theta$ that is about 3 times the radius of SKA1-Low's \fov{} (i.e.,
+We have tested multiple parameter configurations ($w$, $\Theta$) as
+defined in \autoref{eq:eor-window}, and find that when $w = 3$ and
+$\Theta$ being about 1.5 times the SKA1-Low's \fov{} (i.e.,
 $\Theta = \SI{7.5}{\degree}$, \SI{6.0}{\degree}, and \SI{4.8}{\degree}
 in \numrange{120}{128}, \numrange{154}{162}, and \numrange{192}{200}
 \si{\MHz} bands, respectively) are used, a conservative EoR window
