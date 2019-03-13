@@ -545,13 +545,29 @@ is related to the fluctuation pattern whose power spectrum varies
 with wavenumber $k$ as $k^n$.
 
 With a minimum galaxy cluster mass of
-$M_{\R{min}} = \SI{e14}{\solarmass}$
+$M_{\R{min}} = \SI{2e14}{\solarmass}$
 and a maximum redshift cut at $z_{\R{max}} = 4$,
 we apply \autoref{eq:ps-mass-func} to derive the total number of
-galaxy clusters in a given sky patch, together with the mass and
-redshift distributions.
-The galaxy cluster sample is then built by randomly drawing mass and
-redshift pairs $(M_{\R{sim}}, z_{\R{sim}})$ from these distributions.
+galaxy clusters \editone{in a \SI[product-units=repeat]{10 x 10}{\degree}
+sky patch to be \num{504}}.
+Then, the galaxy cluster sample is built by randomly drawing mass and
+redshift pairs $(M_{\R{sim}}, z_{\R{sim}})$ from the
+\editone{%
+mass and redshift distributions (\autoref{fig:m-z-dist}) determined by the
+Press--Schechter mass function [\autoref{eq:ps-mass-func}].}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\columnwidth]{mass-z-dist}
+  \caption{\label{fig:m-z-dist}\editone{%
+    The mass (top panel) and redshift (bottom panel) distributions of the
+    simulated galaxy clusters in a sky patch of size
+    \SI[product-units=repeat]{10 x 10}{\degree}.
+    The solid line and shaded region represent the mean and
+    \SI{68}{\percent} uncertainty derived from 500 simulation runs,
+    respectively.
+  }}
+\end{figure}
 
 %------------------------------------------------------------------------
 \subsubsection{Merging History}
