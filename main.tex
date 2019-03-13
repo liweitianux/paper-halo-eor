@@ -1174,62 +1174,127 @@ and the factor $(1 + z_{\R{sim}})$ accounts for the $K$ correction
 \citep[e.g.,][]{hogg1999}.
 
 
-%........................................................................
-\ssssec{Parameters Tuning}
+%------------------------------------------------------------------------
+\subsubsection{\editone{Parameters and Results}}
+\label{sec:halo-results}
+%------------------------------------------------------------------------
 
-Our model has the following 5 parameters:
-(1) fraction of the merger energy transferred into the turbulence:
-$\eta_{\R{turb}} \sim \SI{10}{\percent}$;
-(2) relative energy density of the magnetic field:
-$\eta_B \sim \SI{0.1}{\percent}$;
-(3) ratio of the total energy of injected electrons to the total thermal
-energy: $\eta_e \sim \SI{0.1}{\percent}$;
-(4) efficiency of the ICM plasma instabilities:
-$\zeta \sim 0.1$;
-(5) relative energy density in the cosmic rays:
-$X_{\R{cr}} \sim \SI{1.5}{\percent}$.
-\editone{Since these parameters are currently lacking reasonable
-constraints from either observation or simulation studies, it is crucial to
-tune them in order to achieve good agreement with observations.} % editone
+Our model has the following parameters:
+\editone{%
+(1) $\eta_e$: ratio of the energy density of injected electrons to the
+thermal energy density;
+(2) $\eta_t$: fraction of the merger injected energy transferred into the
+turbulence;
+(3) $\chi_{\R{cr}}$: relative energy density of cosmic rays to the thermal
+component;
+(4) $\chi_{\R{turb}}$: relative energy density of the initial turbulence;
+(5) $\zeta$: efficiency of the ICM plasma instabilities.
+Since these parameters are currently lacking reasonable constraints from
+either observation or simulation studies, it is necessary to tune them in
+order to achieve good agreement with observations.} % editone
+
+\editone{%
+We perform two comparisons between our simulations and observations.
+The first comparison involves the observed scaling relation between the
+radio halo power at \SI{1.4}{\GHz} ($P_{1400}$) and the cluster's mass
+($M_{\R{vir}}$).
+We make use of the observation data presented in \citet{cassano2013},
+who reported a scaling relation of
+$P_{1400} \propto M_{500}^{3.70 \pm 0.56}$.
+The cluster mass $M_{500}$ is converted to virial mass for our comparison
+by assuming an NFW density profile \citep{navarro1997} and employing the
+mass--concentration relation derived by \citet{duffy2008}.
+Secondly,}
+we compare the \SI{1.4}{\GHz} all-sky integrated flux function between
+the simulated radio halos and observations.
 To this end, we have collected all currently observed radio halos
 (\autoref{tab:halos-observed} in \autoref{sec:halos-collection};
-71 identified halos and 9 candidates; as of 2018 January),
-and compare the \SI{1.4}{\GHz} all-sky integrated flux function between
-our simulated radio halos and the observations.
+71 identified halos and 9 candidates; as of 2018 January).
+Considering that current observations are far from complete,
+especially in the low-flux end, our strategy is to require that the
+flux function of simulated radio halos agrees with the
+observed one in the high-flux end.
+
 We have explored various parameter configurations,
 and for each configuration we have repeated the simulation for 500 times
 in order to take into account the distribution variations of bright
 radio halos across the sky.
-Considering that the current observations are far from complete,
-especially in the low-flux end, our strategy is requiring that the
-integrated flux function of simulated radio halos agrees with the
-observed one in the high-flux end within error bars.
-Consequently, we have chosen a set of model parameters with
-$\eta_{\R{turb}} = \SI{10}{\percent}$, $\eta_B = \SI{0.1}{\percent}$,
-$\eta_e = \SI{0.3}{\percent}$, $\zeta = 0.1$,
-and $X_{\R{cr}} = \SI{1.5}{\percent}$.
-A comparison between the \SI{1.4}{\GHz} all-sky integrated flux
-functions of radio halos obtained in observations and simulations is
-shown in \autoref{fig:halos-simucomp},
-where we also plot the \SI{158}{\MHz} all-sky integrated flux function
-for the simulated radio halos, which shows that radio halos are much
-brighter at lower frequencies.
+\editone{%
+By comparing the simulation results with the observed
+$P_{1400}$--$M_{\R{vir}}$ scaling relation and the \SI{1.4}{\GHz} flux
+function, we finally choose a set of model parameters with
+$\eta_e = \SI{0.01}{\percent}$,
+$\eta_t = \SI{15}{\percent}$,
+$\chi_{\R{cr}} = \SI{1.5}{\percent}$,
+$\chi_{\R{turb}} = \SI{1.5}{\percent}$,
+and $\zeta = 0.1$.
+As the $P_{1400}$--$M_{\R{vir}}$ scaling relation shown in
+\autoref{fig:halo-power}, the radio halos simulated by our model with the
+tuned parameters show a relation of
+$P_{1400} \propto M_{\R{vir}}^{3.94 \pm 0.12}$, which agrees well with
+\citet{cassano2013} for both the slope and the normalization.
+In \autoref{fig:halos-simucomp}, we present the \SI{1.4}{\GHz} flux
+functions for the simulated radio halos and observed ones, which agree with
+each other in the high-flux end.
+The \SI{1.4}{\GHz} flux function given by our tuned model also matches
+the prediction of \citet{cassano2012}.
+We also plot the \SI{158}{\MHz} flux function for the simulated radio
+halos, which indicates that radio halos become much brighter and their
+count increases toward lower frequencies.
+}
 
 \begin{figure}
   \centering
-  \includegraphics[width=\columnwidth]{fluxfunc-simucomp-1400}
+  \includegraphics[width=\columnwidth]{halo-power-mvir}
+  \caption{\label{fig:halo-power}\editone{%
+    The scaling relation between the radio halo power at \SI{1.4}{\GHz}
+    ($P_{1400}$) and the cluster's virial mass ($M_{\R{vir}}$).
+    The blue asterisks mark the observation data from \citet{cassano2013}.
+    Note that their cluster mass $M_{500}$ is converted to virial mass
+    $M_{\R{vir}}$ plotted here.
+    The purple dots represent the results of 500 simulation runs, and the
+    dashed red line shows the fitted scaling relation:
+    $P_{1400} \propto M_{\R{vir}}^{3.94 \pm 0.12}$.
+  }}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\columnwidth]{fluxfunc-simucomp}
   \caption{\label{fig:halos-simucomp}%
     The \SI{1.4}{\GHz} all-sky integrated flux function comparison
-    between the observed (the dashed purple line) and simulated
-    (the solid purple line) radio halos.
-    The \SI{158}{\MHz} all-sky integrated flux function for the simulated
-    halos is also plotted in the solid blue line.
-    The shaded regions show the \SI{68}{\percent} errors of the
-    simulated radio halos derived from the 500 simulation runs.
+    between the observed (dashed purple line) and simulated
+    (solid purple line) radio halos.
+    The dotted red line shows the \SI{1.4}{\GHz} flux function predicted
+    by \citet{cassano2012}.
+    The \SI{158}{\MHz} flux function for the simulated halos is also
+    plotted in the solid blue line.
+    The shaded regions mark the \SI{68}{\percent} errors of the
+    simulated radio halos estimated from the 500 simulation runs.
   }
 \end{figure}
 
-In order to describe the uncertainty of the number density of bright
+\editone{%
+Furthermore, we plot the fraction of clusters with radio halos as a
+function of the cluster mass in \autoref{fig:halo-fraction}.
+It clearly shows that more massive galaxy clusters have higher probability
+to host radio halos.
+Meanwhile, more radio halos should be observed at lower frequencies, since
+they could be generated by less intense mergers and have longer lifetimes
+(see also \autoref{sec:numerical} and \autoref{fig:spec-evo}).
+}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\columnwidth]{halo-fraction}
+  \caption{\label{fig:halo-fraction}\editone{%
+    The fraction of clusters with radio halos as a function of the cluster
+    mass.
+    The blue and purple lines represent the fraction of halos identified at
+    \SI{158}{\MHz} and \SI{1400}{\MHz}, respectively.
+  }}
+\end{figure}
+
 radio halos across the sky, we repeat the simulation of radio halos
 for 100 times.
 The medians and the corresponding \SI{68}{\percent} errors%
