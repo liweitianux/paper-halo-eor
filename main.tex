@@ -1098,32 +1098,81 @@ shortly, especially at high frequencies.
   }}
 \end{figure*}
 
+
+%------------------------------------------------------------------------
+\subsubsection{\editone{Halo Existence and Size}}
+\label{sec:halo-size}
+%------------------------------------------------------------------------
+
+\editone{%
+Radio halos cannot form or will rapidly disappear if there is no active
+turbulent acceleration.
+For each galaxy cluster, in order to determine the existence of the radio
+halo at frequency $\nu$, we employ the following criterion:
+the synchrotron emissivity $J(\nu)$ of the final electron spectrum
+$n_e(\gamma, t_{\R{sim}})$ is at least \num{1000} times larger than that of
+the reference electron spectrum $\tilde{n}_e(\gamma, t_{\R{sim}})$, which is
+obtained by solving the identical Fokker--Planck equation but without
+merger-induced turbulent acceleration, similar to the way of deriving the
+initial electron spectrum (\autoref{sec:numerical}).
+As shown in \autoref{fig:spec-evo}(c) for an example, the radio halo exists
+from about 10.7 to 11.0 \si{\Gyr} at \SI{1400}{\MHz} and
+from about 10.6 to 11.3 \si{\Gyr} at \SI{158}{\MHz}.
+This result demonstrates that radio halos have longer lifetimes at low
+frequencies and thus it is expected to observe more radio halos in
+low-frequency bands.
+
+Previous studies \citep[e.g.,][]{cassano2007,basu2012}
+have shown that the radius of radio halos ($r_{\R{halo}}$)
+increases non-linearly with the cluster's virial radius ($r_{\R{vir}}$).
+Given that the radius of turbulence regions ($r_{\R{turb}}$) linearly
+scales with $r_{\R{vir}}$, we assume the following scaling relation for
+$r_{\R{halo}}$:
+\begin{equation}
+  \label{eq:r-halo}
+  r_{\R{halo}} = f_r R_{\R{turb}}
+    \left( \frac{r_{\R{vir}}}{r_{\R{vir,*}}} \right)^b ,
+\end{equation}
+where
+$R_{\R{turb}}$ is the maximum radius of the turbulence regions as used in
+\autoref{eq:ratio-v},
+$r_{\R{vir,*}}$ is the virial radius of a cluster of mass
+\SI{e15}{\solarmass},
+and $f_r$ and $b$ are the scaling normalization and index, respectively.
+After comparing with the observed scaling relation
+$r_{\R{halo}} \propto r_{\R{vir}}^{2.63 \pm 0.50}$ \citep{cassano2007},
+as shown in \autoref{fig:halo-radius},
+we adopt $f_r = 0.7$ and $b = 1.8$.
+} % editone
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\columnwidth]{halo-radius-rvir}
+  \caption{\label{fig:halo-radius}\editone{%
+    The scaling relation between the radio halo radius ($r_{\R{halo}}$) and
+    the cluster's virial radius ($r_{\R{vir}}$).
+    The blue asterisks mark the observation data from \citet{cassano2007}.
+    The purple dots represent the results of 500 simulation runs, and the red
+    dashed line shows the fitted scaling relation:
+    $r_{\R{halo}} \propto r_{\R{vir}}^{2.67 \pm 0.02}$.
+  }}
+\end{figure}
+
+Consequently, the power of a radio halo at frequency $\nu$ is
 \begin{equation}
   \label{eq:halo-power}
-  P(\nu) = \frac{4\pi}{3} r_{\R{halo}}^3 J_{\R{syn}}(\nu),
+  P(\nu) = \frac{4\pi}{3} r_{\R{halo}}^3 J(\nu),
 \end{equation}
-and its flux density at the same frequency is
+and the flux density at the same frequency is
 \begin{equation}
   \label{eq:halo-flux}
-  S(\nu) = \frac{(1+z_{\R{sim}}) P(\nu(1+z_{\R{sim}}))}{4\pi D_{\!L}^2(z_{\R{sim}})},
+  S(\nu) = \frac{(1+z_{\R{sim}}) P(\nu(1+z_{\R{sim}}))}
+    {4\pi D_{\!L}^2(z_{\R{sim}})} ,
 \end{equation}
-where $D_{\!L}(z_{\R{sim}})$ is the luminosity distance to the halo at
-redshift $z_{\R{sim}}$,
+where $D_{\!L}(z_{\R{sim}})$ is the luminosity distance to the halo,
 and the factor $(1 + z_{\R{sim}})$ accounts for the $K$ correction
 \citep[e.g.,][]{hogg1999}.
 
-To generate the image for the simulated radio halos, we adopt an
-exponential profile for the azimuthally averaged brightness distribution
-\citep{murgia2009}:
-\begin{equation}
-  \label{eq:halo-profile}
-  I_{\nu}(\theta) = I_{\nu,0} \exp(-3 \,\theta / \theta_{\R{halo}}),
-\end{equation}
-where $\theta = r / D_{\!A}(z_{\R{sim}})$ is the angular radius from the
-halo center with $D_{\!A}(z_{\R{sim}})$ being the angular diameter
-distance to the halo,
-and $I_{\nu,0} = 9 S(\nu) / (2\pi \theta^2_{\R{halo}})$ is the central
-brightness.
 
 %........................................................................
 \ssssec{Parameters Tuning}
