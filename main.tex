@@ -1700,24 +1700,6 @@ halos due to their diffuse and relatively complicated morphologies.
 \label{sec:ps2d}
 %========================================================================
 
-In \autoref{fig:ps2d} we take the \SIrange{154}{162}{\MHz} band as an
-example to show the 2D power spectra $P(\kperp, \klos)$ of the EoR signal,
-radio halos (the median power spectrum of the 100 simulation runs),
-Galactic diffuse emission, and extragalactic point sources.
-We find that, as shown in many previous works,
-the EoR signal distributes its power across all \klos{} modes,
-illustrating its rapid fluctuations along the line-of-sight dimension,
-while the spectral-smooth foreground components dominate only in the
-low-\klos{} regions ($\klos{} \lesssim \SI{0.2}{\per\Mpc}$).
-With regard to the angular dimension, the power of radio halos appears in
-the range of $\kperp \lesssim \SI{1}{\per\Mpc}$, showing a concentration
-on the intermediate scales of $\kperp \sim \SI{0.5}{\per\Mpc}$.
-Meanwhile, the powers of Galactic diffuse emission and extragalactic
-point sources dominate on the larger scales of
-$\kperp \lesssim \SI{0.1}{\per\Mpc}$ and a broader angular scales of
-$\kperp \gtrsim \SI{0.1}{\per\Mpc}$, respectively.
-These results are also consistent with \autoref{fig:ps1d-3bands}(b).
-
 \begin{figure}
   \centering
   \includegraphics[width=\columnwidth]{ps2d-band158}
@@ -1750,6 +1732,24 @@ These results are also consistent with \autoref{fig:ps1d-3bands}(b).
     The dashed white lines mark the EoR window boundaries.
   }
 \end{figure*}
+
+We take the \SIrange{154}{162}{\MHz} band as an example and show in
+\autoref{fig:ps2d} the 2D power spectra $P(\kperp, \klos)$ of the EoR
+signal, radio halos (the median power spectrum of the 100 simulation runs),
+Galactic diffuse emission, and extragalactic point sources.
+We find that, as shown in many previous works,
+the EoR signal distributes its power across all \klos{} modes,
+illustrating its rapid fluctuations along the line-of-sight dimension,
+while the spectral-smooth foreground components dominate only in the
+low-\klos{} regions ($\klos{} \lesssim \SI{0.2}{\per\Mpc}$).
+With regard to the angular dimension, the power of radio halos appears in
+the range of $\kperp \lesssim \SI{1}{\per\Mpc}$, showing a concentration
+on the intermediate scales of $\kperp \sim \SI{0.5}{\per\Mpc}$.
+Meanwhile, the powers of Galactic diffuse emission and extragalactic
+point sources dominate on the larger scales of
+$\kperp \lesssim \SI{0.1}{\per\Mpc}$ and a broader angular scales of
+$\kperp \gtrsim \SI{0.1}{\per\Mpc}$, respectively.
+These results are also consistent with \autoref{fig:ps1d-3bands}(b).
 
 In order to better evaluate the importance of radio halos as foreground
 contaminating sources, we calculate the 2D power spectrum ratios
@@ -1831,23 +1831,12 @@ in these two situations if the contamination of radio halos is not
 properly removed.
 
 %========================================================================
-\subsection{Impacts of Frequency Artifacts}
-\label{sec:freq-artifacts}
-%========================================================================
-
-The smoothness along the frequency dimension is the most crucial feature
-of various foreground components and is the key to extract the faint EoR
-signal.
-However, frequency artifacts may present in the obtained image cubes due
-to calibration uncertainties and various instrumental and observational
-effects, which break the spectral smoothness of the foreground emission
-and hence damage the EoR measurements.
-
+% figures of this section
 \begin{figure*}
   \centering
-  \includegraphics[width=\textwidth]{ps2d-ratio-crp-halos-3bands}
+  \includegraphics[width=0.9\textwidth]{ps2d-ratio-crp-halos-3bands}
   \caption{\label{fig:ps2d-ratio-crp}%
-    2D power spectrum ratios $R_{\R{arti}}(\kperp, \klos)$ of radio
+    The 2D power spectrum ratios $R_{\R{arti}}(\kperp, \klos)$ of radio
     halos that are obtained between the modified image cubes with
     frequency artifacts and the original ones.
     All the 100 simulation runs for radio halos are used to derive
@@ -1862,6 +1851,33 @@ and hence damage the EoR measurements.
     All panels share the same color bar in logarithmic scale.
   }
 \end{figure*}
+
+\begin{figure*}
+  \centering
+  \includegraphics[width=0.9\textwidth]{ps2d-fscn}
+  \caption{\label{fig:ps2d-fscn}%
+    \textbf{(a)} The 2D power spectrum of the FSCN caused by radio halos
+    in the far side-lobes of the station beam.
+    \textbf{(b)} The 2D power spectrum ratio of the FSCN to the EoR signal.
+    The results are derived in the \SIrange{154}{162}{\MHz} band.
+    The dashed and solid white lines mark the EoR window boundaries
+    defined with $\Theta = \SI{6}{\degree}$ and \SI{90}{\degree},
+    respectively.
+  }
+\end{figure*}
+
+%========================================================================
+\subsection{Impacts of Frequency Artifacts}
+\label{sec:freq-artifacts}
+%========================================================================
+
+The smoothness along the frequency dimension is the most crucial feature
+of various foreground components and is the key to extract the faint EoR
+signal.
+However, frequency artifacts may present in the obtained image cubes due
+to calibration uncertainties and various instrumental and observational
+effects, which break the spectral smoothness of the foreground emission
+and hence damage the EoR measurements.
 
 To evaluate the influence of the frequency artifacts on the power
 spectra, we multiply each slice of the image cube by a random number
@@ -1943,20 +1959,6 @@ Using the \texttt{OSKAR} simulator and the \texttt{WSClean} imager as
 described in \autoref{sec:obs-simu}, we obtain the dirty images of the
 central \SI[product-units=repeat]{5 x 5}{\degree} region and then
 calculate the 2D power spectrum.
-
-\begin{figure*}
-  \centering
-  \includegraphics[width=\textwidth]{ps2d-fscn}
-  \caption{\label{fig:ps2d-fscn}%
-    \textbf{(a)} The 2D power spectrum of the FSCN caused by radio halos
-    in the far side-lobes of the station beam.
-    \textbf{(b)} The 2D power spectrum ratio of the FSCN to the EoR signal.
-    The results are derived in the \SIrange{154}{162}{\MHz} band.
-    The dashed and solid white lines mark the EoR window boundaries
-    defined with $\Theta = \SI{6}{\degree}$ and \SI{90}{\degree},
-    respectively.
-  }
-\end{figure*}
 
 From the 2D power spectrum shown in \autoref{fig:ps2d-fscn}(a),
 we find that the FSCN contributed by radio halos is remarkably strong,
