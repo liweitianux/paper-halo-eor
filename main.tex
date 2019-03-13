@@ -478,7 +478,7 @@ EoR redshift range &
 Bandwidth ($B$) & \multicolumn{3}{c}{\SI{8}{\MHz}} \\
 Region size &
   \multicolumn{3}{c}{\SI[product-units=repeat]{10 x 10}{\degree}} \\
-Image size & \multicolumn{3}{c}{\num{1800x1800}} \\
+Image size & \multicolumn{3}{c}{\num{1800 x 1800}} \\
 Pixel size & \multicolumn{3}{c}{\SI{20}{\arcsecond}}
 \enddata
 \end{deluxetable}
@@ -490,7 +490,7 @@ Pixel size & \multicolumn{3}{c}{\SI{20}{\arcsecond}}
 %========================================================================
 
 As a significant improvement over our past works \citep{wang2010,wang2013},
-we consider in detail the evolution of radio halos in galaxy clusters by
+we model the radio halos in galaxy clusters by
 employing the Press--Schechter formalism and turbulence re-acceleration model,
 in terms of which the relativistic electrons in the ICM are re-accelerated
 by the turbulence generated in merger events via the second-order Fermi
@@ -563,8 +563,8 @@ Press--Schechter mass function [\autoref{eq:ps-mass-func}].}
     The mass (top panel) and redshift (bottom panel) distributions of the
     simulated galaxy clusters in a sky patch of size
     \SI[product-units=repeat]{10 x 10}{\degree}.
-    The solid line and shaded region represent the mean and
-    \SI{68}{\percent} uncertainty derived from 500 simulation runs,
+    The solid lines and shaded regions represent the means and
+    \SI{68}{\percent} uncertainties derived from 500 simulation runs,
     respectively.
   }}
 \end{figure}
@@ -781,10 +781,10 @@ is derived to be
 \ssssec{\editone{Stripping Radius}}
 
 \editone{%
-When the sub-cluster merges into the main cluster, the gas at outer regions
-is stripped due to the exerted ram pressure \citep{gunn1972}.
+When a sub-cluster merges into the main cluster, the gas at outer regions
+is stripped due to the ram pressure \citep{gunn1972}.
 The stripping radius $r_s$ of the sub-cluster, outside which the stripping
-effect is efficient, can be obtained from the equipartition between the ram
+is efficient, can be obtained from the equipartition between the ram
 pressure and the hydrostatic pressure \citep{cassano2005}, i.e.,
 \begin{equation}
   \label{eq:rs-eqp}
@@ -793,12 +793,12 @@ pressure and the hydrostatic pressure \citep{cassano2005}, i.e.,
 where
 $\bar{\rho}_m = \mu m_u n_{\R{th,m}}$ is the mean gas density of the main
 cluster,
-$v_{\R{imp}}$ is the relative impact velocity of the two merging clusters,
+$v_{\R{imp}}$ is the impact velocity of the two merging clusters,
 and $\rho_s(\cdot)$ and $T_{\R{cl,s}}$ are the gas density profile and
-temperature of the sub-cluster, respectively.
+temperature of the sub-cluster, respectively.}
 
 Starting from a sufficiently large distance with zero velocity,
-the relative impact velocity $v_{\R{imp}}$ of two merging clusters with
+the impact velocity $v_{\R{imp}}$ of two merging clusters with
 masses $M_{\R{vir,m}}$ and $M_{\R{vir,s}}$ is given by
 \citep{sarazin2002,cassano2005}
 \begin{equation}
@@ -809,6 +809,7 @@ masses $M_{\R{vir,m}}$ and $M_{\R{vir,s}}$ is given by
 \end{equation}
 where $\eta_v \simeq 4 \,(1 + M_{\R{vir,s}}/M_{\R{vir,m}})^{1/3}$.
 
+\editone{%
 The gas density profile $\rho_s(\cdot)$ of the sub-cluster is described by
 a $\beta$-model \citep{cavaliere1976}:
 \begin{equation}
@@ -819,7 +820,7 @@ where $r_{\R{c,s}}$ and $\beta$ are the core radius and slope parameter,
 respectively, and we adopt $r_{\R{c,s}} = 0.1 \,r_{\R{vir,s}}$ and
 $\beta = 2/3$.
 The central gas density $\rho_s(0)$ can then be determined by the total gas
-mass ($M_{\R{gas,s}} \simeq f_b M_{\R{vir,s}}$).
+mass ($M_{\R{gas,s}} = f_b M_{\R{vir,s}}$).
 } % editone
 
 %........................................................................
@@ -833,7 +834,7 @@ damping process, i.e., the turbulence dissipates its energy and
 accelerates particles by interacting with the relativistic particles
 (e.g., cosmic rays) in the ICM
 \citep[and references therein]{brunetti2007,brunetti2011}.
-The associated diffusion coefficient is derived as
+The associated diffusion coefficient is derived to be
 \citep{miniati2015,pinzke2017}
 \begin{equation}
   \label{eq:dpp}
@@ -908,12 +909,12 @@ The gas mass $M_{\R{turb}}$ enclosed in the turbulence region is given by
 where $\rho(r)$ is the gas density profile of the merged cluster
 characterized by the $\beta$-model [see \autoref{eq:beta-model}].
 The injected energy $E_m$ is approximated as the work done by the infalling
-sub-cluster in the merger, i.e.,
+sub-cluster, i.e.,
 \begin{equation}
   \label{eq:energy-inj}
   E_m \simeq \bar{\rho}_m v_{\R{imp}}^2 V_{\R{turb}},
 \end{equation}
-where $V_{\R{turb}} \simeq \pi r_s^2 \,r_{\R{vir,m}}$ is the swept volume
+with $V_{\R{turb}} \simeq \pi r_s^2 \,r_{\R{vir,m}}$ being the swept volume
 \citep{fujita2003,cassano2005}.
 Therefore, the turbulence velocity dispersion is obtained as
 \begin{equation}
@@ -1003,16 +1004,16 @@ accumulated electron spectrum $n_e'(\gamma) = Q_e(\gamma) \,\tau_0$ for
 \SI{1}{\Gyr} \citep[e.g.,][]{brunetti2007}, where $\tau_0$ is the cluster's
 age at the beginning of the earliest merger.
 
-Although the whole merger process can last for about \SIrange{2}{3}{\Gyr}
-\citep[e.g.,][]{tormen2004,cassano2016}, the period during which the
-turbulence is intense enough to effectively accelerate particles is
-relatively short.
+Although the whole process of a single merger can last for about
+\SIrange{2}{3}{\Gyr} \citep[e.g.,][]{tormen2004,cassano2016}, the period
+during which the turbulence is intense enough to effectively accelerate
+electrons is relatively short.
 An appropriate estimation of the turbulent acceleration period is
 $\tau_{\R{turb}} \simeq 2 \,r_{\R{turb}} / v_{\R{imp}}$ \citep{miniati2015}.
 \editone{%
 A galaxy cluster may experience multiple mergers in the past
 $t_{\R{back}} = \SI{3}{\Gyr}$ from its \enquote{current} age.
-For echo merger event
+For each merger event
 $\left( M^{(i)}_{\R{vir,m}}, M^{(i)}_{\R{vir,s}}, t^{(i)}_{\R{begin}} \right)$,
 where $t^{(i)}_{\R{begin}}$ denotes the beginning time of this merger,
 it can induce effective turbulent acceleration (i.e., being active) during
@@ -1020,7 +1021,7 @@ the period $\left[ t^{(i)}_{\R{begin}}, t^{(i)}_{\R{end}} \right]$ with
 $t^{(i)}_{\R{end}} = t^{(i)}_{\R{begin}}+\tau^{(i)}_{\R{turb}}$.
 At other times when there is no any active merger, only the base
 turbulence contributes to the acceleration of electrons, which is, however,
-even insufficient to balance the energy losses.
+even insufficient to balance the energy loss.
 
 In addition, the turbulence regions generated by different mergers have
 different sizes.
@@ -1035,8 +1036,8 @@ where $R_{\R{turb}}$ is the maximum radius of the turbulence regions
 generated by all the merger events.
 } % editone
 
-Once the electron spectrum $n_e(\gamma, t)$ is obtained, the synchrotron
-emissivity at a frequency $\nu$ is given by \citep{rybicki1979}
+Once the desired electron spectrum $n_e(\gamma, t)$ is obtained, the
+synchrotron emissivity at a frequency $\nu$ is given by \citep{rybicki1979}
 \begin{equation}
   \label{sec:jnu-sync}
   % unit: [erg/s/Hz/cm^3]
@@ -1074,8 +1075,8 @@ shortly, especially at high frequencies.
   \centering
   \includegraphics[width=\textwidth]{spec-evo-example}
   \caption{\label{fig:spec-evo}\editone{%
-    The temporal evolution of the relativistic electron and synchrotron
-    emission spectra for an example galaxy cluster of mass
+    The temporal evolution of the electron and synchrotron
+    emission spectra for an example cluster of mass
     \SI{e15}{\solarmass} that merges with a sub-cluster of mass
     \SI{5e14}{\solarmass} at redshift $z = 0.3$
     (i.e., $t \simeq \SI{10.3}{\Gyr}$).
@@ -1125,8 +1126,8 @@ low-frequency bands.
 Previous studies \citep[e.g.,][]{cassano2007,basu2012}
 have shown that the radius of radio halos ($r_{\R{halo}}$)
 increases non-linearly with the cluster's virial radius ($r_{\R{vir}}$).
-Given that the radius of turbulence regions ($r_{\R{turb}}$) linearly
-scales with $r_{\R{vir}}$, we assume the following scaling relation for
+Given that the radius of turbulence regions ($r_{\R{turb}}$) scales
+linearly with $r_{\R{vir}}$, we assume the following scaling relation for
 $r_{\R{halo}}$:
 \begin{equation}
   \label{eq:r-halo}
@@ -1136,9 +1137,9 @@ $r_{\R{halo}}$:
 where
 $R_{\R{turb}}$ is the maximum radius of the turbulence regions as used in
 \autoref{eq:ratio-v},
-$r_{\R{vir,*}}$ is the virial radius of a cluster of mass
+$r_{\R{vir,*}}$ is the reference virial radius of a cluster of mass
 \SI{e15}{\solarmass},
-and $f_r$ and $b$ are the scaling normalization and index, respectively.
+and $f_r$ and $b$ are the scaling normalization and slope, respectively.
 After comparing with the observed scaling relation
 $r_{\R{halo}} \propto r_{\R{vir}}^{2.63 \pm 0.50}$ \citep{cassano2007},
 as shown in \autoref{fig:halo-radius},
@@ -1153,7 +1154,7 @@ we adopt $f_r = 0.7$ and $b = 1.8$.
     the cluster's virial radius ($r_{\R{vir}}$).
     The blue asterisks mark the observation data from \citet{cassano2007}.
     The purple dots represent the results of 500 simulation runs, and the red
-    dashed line shows the fitted scaling relation:
+    dashed line shows the fitted relation of
     $r_{\R{halo}} \propto r_{\R{vir}}^{2.67 \pm 0.02}$.
   }}
 \end{figure}
@@ -1183,27 +1184,27 @@ Our model has the following parameters:
 \editone{%
 (1) $\eta_e$: ratio of the energy density of injected electrons to the
 thermal energy density;
-(2) $\eta_t$: fraction of the merger injected energy transferred into the
+(2) $\eta_t$: fraction of the merger energy transferred into the
 turbulence;
 (3) $\chi_{\R{cr}}$: relative energy density of cosmic rays to the thermal
 component;
-(4) $\chi_{\R{turb}}$: relative energy density of the initial turbulence;
+(4) $\chi_{\R{turb}}$: relative energy density of the base turbulence;
 (5) $\zeta$: efficiency of the ICM plasma instabilities.
 Since these parameters are currently lacking reasonable constraints from
-either observation or simulation studies, it is necessary to tune them in
-order to achieve good agreement with observations.} % editone
+either observation or simulation studies, it is necessary to tune them for
+the purpose of achieving good agreement with observations.} % editone
 
 \begin{figure}
   \centering
   \includegraphics[width=\columnwidth]{halo-power-mvir}
   \caption{\label{fig:halo-power}\editone{%
     The scaling relation between the radio halo power at \SI{1.4}{\GHz}
-    ($P_{1400}$) and the cluster's virial mass ($M_{\R{vir}}$).
+    ($P_{1400}$) and the cluster mass ($M_{\R{vir}}$).
     The blue asterisks mark the observation data from \citet{cassano2013}.
     Note that their cluster mass $M_{500}$ is converted to virial mass
     $M_{\R{vir}}$ plotted here.
     The purple dots represent the results of 500 simulation runs, and the
-    dashed red line shows the fitted scaling relation:
+    dashed red line shows the fitted relation of
     $P_{1400} \propto M_{\R{vir}}^{3.94 \pm 0.12}$.
   }}
 \end{figure}
@@ -1215,8 +1216,8 @@ order to achieve good agreement with observations.} % editone
     The \SI{1.4}{\GHz} all-sky integrated flux function comparison
     between the observed (dashed purple line) and simulated
     (solid purple line) radio halos.
-    The dotted red line shows the \SI{1.4}{\GHz} flux function predicted
-    by \citet{cassano2012}.
+    \editone{The dotted red line shows the \SI{1.4}{\GHz} flux function
+    predicted by \citet{cassano2012}.}
     The \SI{158}{\MHz} flux function for the simulated halos is also
     plotted in the solid blue line.
     The shaded regions mark the \SI{68}{\percent} errors of the
@@ -1227,9 +1228,9 @@ order to achieve good agreement with observations.} % editone
 \editone{%
 We perform two comparisons between our simulations and observations.
 The first comparison involves the observed scaling relation between the
-radio halo power at \SI{1.4}{\GHz} ($P_{1400}$) and the cluster's mass
+radio halo power at \SI{1.4}{\GHz} ($P_{1400}$) and the cluster mass
 ($M_{\R{vir}}$).
-We make use of the observation data presented in \citet{cassano2013},
+We make use of the observation data presented by \citet{cassano2013},
 who reported a scaling relation of
 $P_{1400} \propto M_{500}^{3.70 \pm 0.56}$.
 The cluster mass $M_{500}$ is converted to virial mass for our comparison
@@ -1242,9 +1243,9 @@ To this end, we have collected all currently observed radio halos
 (\autoref{tab:halos-observed} in \autoref{sec:halos-collection};
 71 identified halos and 9 candidates; as of 2018 January).
 Considering that current observations are far from complete,
-especially in the low-flux end, our strategy is to require that the
+especially at the low-flux end, our strategy is to require that the
 flux function of simulated radio halos agrees with the
-observed one in the high-flux end.
+observed one at the high-flux end.
 
 We have explored various parameter configurations,
 and for each configuration we have repeated the simulation for 500 times
@@ -1263,24 +1264,23 @@ As the $P_{1400}$--$M_{\R{vir}}$ scaling relation shown in
 \autoref{fig:halo-power}, the radio halos simulated by our model with the
 tuned parameters show a relation of
 $P_{1400} \propto M_{\R{vir}}^{3.94 \pm 0.12}$, which agrees well with
-\citet{cassano2013} for both the slope and the normalization.
+\citet{cassano2013} on both the slope and the normalization.
 In \autoref{fig:halos-simucomp}, we present the \SI{1.4}{\GHz} flux
 functions for the simulated radio halos and observed ones, which agree with
-each other in the high-flux end.
+each other at the high-flux end.
 The \SI{1.4}{\GHz} flux function given by our tuned model also matches
 the prediction of \citet{cassano2012}.
-We also plot the \SI{158}{\MHz} flux function for the simulated radio
-halos, which indicates that radio halos become much brighter and their
-count increases toward lower frequencies.
-}
+In the meantime, we plot the \SI{158}{\MHz} flux function for the simulated
+radio halos, which indicates that radio halos become much brighter and
+their count significantly increases toward lower frequencies.
 
-\editone{%
-Furthermore, we plot the fraction of clusters with radio halos as a
+Furthermore, we display the fraction of clusters with radio halos as a
 function of the cluster mass in \autoref{fig:halo-fraction}.
 It clearly shows that more massive galaxy clusters have higher probability
 to host radio halos.
-Meanwhile, more radio halos should be observed at lower frequencies, since
-they could be generated by less intense mergers and have longer lifetimes
+Meanwhile, we are expected to observe much more radio halos at low
+frequencies, since they could be generated by less intense mergers and have
+longer lifetimes
 (see also \autoref{sec:numerical} and \autoref{fig:spec-evo}).
 }
 
