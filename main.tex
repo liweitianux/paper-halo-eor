@@ -833,121 +833,97 @@ damping process, i.e., the turbulence dissipates its energy and
 accelerates particles by interacting with the relativistic particles
 (e.g., cosmic rays) in the ICM
 \citep[and references therein]{brunetti2007,brunetti2011}.
-The associated diffusion coefficient is given as
+The associated diffusion coefficient is derived as
 \citep{miniati2015,pinzke2017}
 \begin{equation}
   \label{eq:dpp}
-  D_{\gamma\gamma} = \gamma^2 \frac{4\pi \zeta}{X_{\R{cr}} L_{\R{turb}}}
-    \frac{\langle (\delta{v_t})^2 \rangle^2}{c_s^3},
+  D_{\gamma\gamma} = 2 \gamma^2 \zeta \,k_L
+    \frac{\langle (\delta v_t)^2 \rangle^2}{\chi_{\R{cr}} \, c_s^3},
 \end{equation}
 where
-$\zeta \sim \numrange{0.1}{0.3}$ is an efficiency factor characterizing
-the plasma instabilities (e.g., due to spatial or temporal intermittency),
-$X_{\R{cr}} = \epsilon_{\R{cr}} / \epsilon_{\R{th}} \sim \SI{1}{\percent}$
-is the relative energy density of cosmic rays with respect to the thermal ICM,
-$L_{\R{turb}} \simeq r_{\R{vir}}/3$ is the turbulence injection scale
-\citep{miniati2015},
-$\langle (\delta{v_t})^2 \rangle$ is the turbulence velocity dispersion,
-and $c_s = \sqrt{\gamma_{\R{gas}} k_B T_{\R{cl}} / (\mu m_u)}$ is the sound
-speed in the ICM with $\gamma_{\R{gas}} = 5/3$ being the adiabatic index
+$\zeta$ is an efficiency factor characterizing the ICM plasma instabilities
+(e.g., due to spatial or temporal intermittency),
+$\chi_{\R{cr}} = \epsilon_{\R{cr}} / \epsilon_{\R{th}}$ is the relative
+energy density of cosmic rays with respect to the thermal ICM,
+\editone{$k_L$ is the turbulence injection scale},
+$\langle (\delta v_t)^2 \rangle$ is the turbulence velocity dispersion,
+and $c_s$ is the sound speed in the ICM
+\begin{equation}
+  \label{eq:sound-speed}
+  c_s = \sqrt{\gamma_{\R{gas}} k_B T_{\R{cl}} / (\mu m_u)}
+\end{equation}
+with $\gamma_{\R{gas}} = 5/3$ being the adiabatic index
 of ideal monatomic gas.
 
-In order to estimate the velocity dispersion of the turbulence, we assume
-that a fraction ($\eta_{\R{turb}}$) of the kinetic energy carried by the
-merger is transferred into turbulent waves, i.e.,
+\editone{%
+Major mergers ($M_{\R{vir,m}} / M_{\R{vir,s}} \lesssim 3$) can generate
+intense turbulence in regions of radius about \numrange{0.3}{0.5}
+$r_{\R{vir,m}}$ \citep[e.g.,][]{sunyaev2003,miniati2015ss}.
+Meanwhile, minor mergers
+($M_{\R{vir,m}} / M_{\R{vir,s}} \sim \numrange{3}{10}$) can also cause
+relatively large-scale turbulence in regions of radius about the core
+radius ($r_{\R{c,m}}$) of the main cluster, due to the gas sloshing and
+other mechanisms induced by the infalling sub-cluster
+\citep[e.g.,][]{vazza2011,vazza2012}.
+Therefore, the radius of the turbulence region is estimated to be
+\begin{equation}
+  \label{eq:radius-turb}
+  r_{\R{turb}} = r_s + r_{\R{c,m}} = r_s + 0.1 \,r_{\R{vir,m}},
+\end{equation}
+where $r_s$ is the stripping radius of the sub-cluster
+[see \autoref{eq:rs-eqp}].
+Thus, the turbulence injection scale is
+\begin{equation}
+  \label{eq:injection-scale}
+  k_L \simeq 2\pi / r_{\R{turb}} .
+\end{equation}
+
+In order to estimate the velocity dispersion of the turbulence during a
+merger, we assume that a fraction ($\eta_t$) of the energy ($E_m$) injected
+by the sub-cluster is transferred into turbulent waves, i.e.,
 \begin{equation}
   \label{eq:energy-turb}
-  E_{\R{turb}} = \frac{1}{2} M_{\R{turb}}^b
-    \langle (\delta{v_t})^2 \rangle = \eta_{\R{turb}} E_{\R{merger}},
+  E_{\R{turb}} =
+    \frac{1}{2} M_{\R{turb}} \langle (\delta v_t)^2 \rangle =
+    \frac{1}{2} M_{\R{turb}} \langle (\delta v_0)^2 \rangle + \eta_t E_m ,
 \end{equation}
 where
-$M_{\R{turb}}^b$ is the baryon mass enclosed in the turbulent region
-(i.e., within radius of $L_{\R{turb}}$),
-and $E_{\R{merger}}$ is merger's kinetic energy, which can be approximated
-as the potential energy released from the infalling sub-cluster
+$\langle (\delta v_0)^2 \rangle$ is the base velocity dispersion, since
+the turbulence can be injected in the ICM by several other mechanisms, such
+as outflows from central AGNs, galactic winds, and plasma instabilities
+\citep{iapichino2011,vazza2011}.
+Assuming that the energy density of the base turbulence accounts for a
+small fraction ($\chi_{\R{turb}}$) of the ICM thermal energy density, we
+can obtain
 \begin{equation}
-  \label{eq:energy-merger}
-  E_{\R{merger}} \simeq \frac{1}{2} f_b M_{\R{vir,s}} \,v^2_{\R{vir}}
-    \simeq \frac{1}{2} f_b M_{\R{vir,s}}
-    \frac{G M_{\R{vir,m}}}{r^2_{\R{vir,m}}},
+  \label{eq:v-turb-init}
+  \langle (\delta v_0)^2 \rangle
+    = 3 \chi_{\R{turb}} \frac{k_B T_{\R{cl,m}}}{\mu m_u} .
 \end{equation}
-where
-$M_{\R{vir,m}}$ and $r_{\R{vir,m}}$ are the virial mass and radius of the
-main cluster, respectively, and $M_{\R{vir,s}}$ is the virial mass of the
-sub-cluster.
-By adopting the NFW density profile \citep{navarro1997}, the distribution
-of mass within a radius of $s \,r_{\R{vir}}$ ($s$ is the normalized radius
-in units of the virial radius) in fraction of the virial mass is
-\begin{equation}
-  \label{eq:mass-dist-nfw}
-  f_{\R{nfw}}(s) = \frac{M(< s \,r_{\R{vir}})}{M_{\R{vir}}} =
-    \frac{\ln(1 + c s) - c s / (1 + c s)}{\ln(1 + c) - c / (1 + c)},
-\end{equation}
-where
-$c \sim 5$ is the concentration parameter for clusters \citep{lokas2001}.
-Therefore we have
+The gas mass $M_{\R{turb}}$ enclosed in the turbulence region is given by
 \begin{equation}
   \label{eq:mass-turb}
-  M_{\R{turb}}^b = f_b M_{\R{merged}}(<L_{\R{turb}})
-    = f_b f_{\R{nfw}}(1/3) (M_{\R{vir,m}} + M_{\R{vir,s}}).
+  M_{\R{turb}} = \int_0^{r_{\R{turb}}} \! \rho(r) 4\pi r^2 \,\D{r},
 \end{equation}
-By substituting Equations~(\ref{eq:energy-merger}) and (\ref{eq:mass-turb})
-into \autoref{eq:energy-turb}, we obtain the turbulence velocity dispersion
-as
+where $\rho(r)$ is the gas density profile of the merged cluster
+characterized by the $\beta$-model [see \autoref{eq:beta-model}].
+The injected energy $E_m$ is approximated as the work done by the infalling
+sub-cluster in the merger, i.e.,
 \begin{equation}
-  \label{eq:turb-velocity-dispersion}
-  \langle (\delta{v_t})^2 \rangle =
-    \frac{\eta_{\R{turb}}}{f_{\R{nfw}}(1/3)}
-    \frac{M_{\R{vir,s}}}{M_{\R{vir,m}} + M_{\R{vir,s}}}
-    \frac{G M_{\R{vir,m}}}{r^2_{\R{vir,m}}}.
+  \label{eq:energy-inj}
+  E_m \simeq \bar{\rho}_m v_{\R{imp}}^2 V_{\R{turb}},
 \end{equation}
-
-Generally, the turbulence generated during major mergers is subsonic
-with a Mach number of
-$\mathcal{M}_{\R{turb}} = \sqrt{\langle (\delta{v_t})^2 \rangle} / c_s
-  \sim \numrange{0.2}{0.5}$.
-The acceleration efficiency can be described by the systematic
-acceleration timescale (i.e., the reciprocal of the acceleration rate;
-e.g., \citealt{brunetti2011})
-$\tau_{\R{acc}} = \gamma^2 / (4 D_{\gamma\gamma}) \sim \SI{0.1}{\Gyr}$,
-suggesting that the turbulent acceleration is a moderately efficient
-mechanism to accelerate the relativistic electrons in the ICM and
-may be used to explain the origin of radio halos.
-
-%........................................................................
-\ssssec{Acceleration Periods}
-
-The whole merger process may last for \SIrange{2}{3}{\Gyr}
-\citep[e.g.,][]{tormen2004,cassano2016};
-however, the period $\tau_{\R{turb}}$ during which the turbulence is
-intense enough to be able to effectively accelerate particles is
-relatively short: $\tau_{\R{turb}} \simeq 2 L_{\R{turb}} / v_{\R{imp}}$,
-where $v_{\R{imp}}$ is the relative impact velocity between the merging
-clusters \citep{miniati2015}.
-Starting from a sufficiently large distance with zero velocity,
-the relative impact velocity of two merging clusters with masses
-$M_{\R{vir,m}}$ and $M_{\R{vir,s}}$ is given by
-\citep{sarazin2002,cassano2005}
+where $V_{\R{turb}} \simeq \pi r_s^2 \,r_{\R{vir,m}}$ is the swept volume
+\citep{fujita2003,cassano2005}.
+Therefore, the turbulence velocity dispersion is obtained as
 \begin{equation}
-  \label{eq:v-imp}
-  v_{\R{imp}} \simeq \left[
-    \frac{2G (M_{\R{vir,m}} + M_{\R{vir,s}})}{r_{\R{vir,m}}}
-    \left( 1 - \frac{1}{\eta_v} \right)\right]^{1/2},
+  \label{eq:v-turb}
+  \langle (\delta v_t)^2 \rangle
+    = \langle (\delta v_0)^2 \rangle
+    + 2 \pi\,\eta_t\, \bar{\rho}_m r_{\R{vir,m}}
+      \,\frac{r_s^2 v_{\R{imp}}^2}{M_{\R{turb}}} .
 \end{equation}
-where $\eta_v \simeq 4 \,(1 + M_{\R{vir,s}}/M_{\R{vir,m}})^{1/3}$.
-Based on these, we estimate that major mergers generally have an effective
-turbulent acceleration duration of $\tau_{\R{turb}} \sim \SI{0.5}{\Gyr}$.
-
-For each merger event
-$\left( M^{(i)}_{\R{vir,m}}, M^{(i)}_{\R{vir,s}}, t^{(i)}_{\R{merger}} \right)$
-as simulated in \autoref{sec:merging-history} for a galaxy cluster,
-where $t^{(i)}_{\R{merger}}$ denotes the starting time of the $i$-th
-merger event, we calculate the corresponding turbulent acceleration
-duration $\tau^{(i)}_{\R{turb}}$.
-We then solve \autoref{eq:fokkerplanck} by taking into account both
-turbulent acceleration and energy losses during the period
-$\left[ t^{(i)}_{\R{merger}}, t^{(i)}_{\R{merger}}+\tau^{(i)}_{\R{turb}} \right]$,
-while there is no turbulent acceleration at other times.
+} % editone
 
 %........................................................................
 \ssssec{Energy Losses}
