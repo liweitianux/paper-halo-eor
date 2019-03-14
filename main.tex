@@ -1888,7 +1888,7 @@ drawn from a Gaussian distribution with unity mean and then compare
 the resulting power spectra \citep{chapman2016}.
 Some simulation and observation studies have suggested that the residual
 calibration errors in frequency channels may be about
-\SIrange[range-units=repeat]{0.1}{1}{\percent}
+\SIrange{0.1}{1}{\percent}
 \citep[e.g.,][]{barry2016,beardsley2016,ewallWice2017}.
 We thus investigate two extreme cases here:
 a frequency artifact of amplitude $A_{\R{arti}} = \SI{0.1}{\percent}$ by
@@ -1907,22 +1907,24 @@ and present the median 2D power spectrum ratios obtained in the
 We find that, when the frequency artifact is added, the resulting 2D
 power spectra are seriously damaged in all three frequency bands.
 On scales of $\kperp \lesssim \SI{0.2}{\per\Mpc}$ and
-$\klos \gtrsim \SI{0.2}{\per\Mpc}$, adding frequency artifact of
-$A_{\R{arti}} = \SI{0.1}{\percent}$ causes the power of radio halos
-to be about 20, 10, and 3 times stronger in the \numrange{120}{128},
+\editone{$\klos \gtrsim \SI{0.3}{\per\Mpc}$},
+adding frequency artifact of $A_{\R{arti}} = \SI{0.1}{\percent}$
+causes the power of radio halos to be about
+\editone{17, 15, and 13 times}
+stronger in the \numrange{120}{128},
 \numrange{154}{162}, and \numrange{192}{200} \si{\MHz} bands,
-respectively, and the corresponding power increases are about 2000,
-1000, and 200 times for frequency artifact of
-$A_{\R{arti}} = \SI{1}{\percent}$.
+respectively, and the corresponding power increases are about
+\editone{1700, 1500, and 1300 times}
+for frequency artifact of $A_{\R{arti}} = \SI{1}{\percent}$.
 As a comparison, we add the same frequency artifacts
 ($A_{\R{arti}} = \SI{0.1}{\percent}$ and \SI{1}{\percent}) to the image
 cubes of the EoR signal, but find that the changes in the calculated
 2D power spectra are negligible.
-This is because that the EoR signal already fluctuates remarkably along
+This is because the EoR signal already fluctuates remarkably along
 the frequency dimension.
 Therefore, even very minor (\SI{\sim 0.1}{\percent}) instrumental or
-calibration uncertainties can make the contamination of radio halos
-become much stronger, especially inside the EoR window.
+calibration errors can make the contamination of radio halos
+become much stronger, particularly inside the crucial EoR window.
 These results further support our conclusion made in \autoref{sec:ps2d}
 that radio halos are important foreground sources and must be carefully
 dealt with in EoR experiments.
@@ -1963,23 +1965,21 @@ described in \autoref{sec:obs-simu}, we obtain the dirty images of the
 central \SI[product-units=repeat]{5 x 5}{\degree} region and then
 calculate the 2D power spectrum.
 
-From the 2D power spectrum shown in \autoref{fig:ps2d-fscn}(a),
-we find that the FSCN contributed by radio halos is remarkably strong,
-and the wedge-shaped contamination region moves toward the top left in
-the $(\kperp, \klos)$ plane, which greatly reduces the EoR window.
+\editone{%
+In \autoref{fig:ps2d-fscn}, we present the 2D power spectrum of the FSCN
+contributed by radio halos and the corresponding 2D power spectrum ratio
+of the FSCN to the EoR signal.
+We find that the FSCN contamination is very strong as its power can be
+about 20 times the power of the EoR signal on scales of
+$\kperp \sim \SI{0.3}{\per\Mpc}$ and $\klos \sim \SI{1.0}{\per\Mpc}$.}
+The wedge-shaped contamination region moves toward the top left in
+the $(\kperp, \klos)$ plane and greatly reduces the EoR window.
 In order to effectively avoid the FSCN contamination, we are forced to
-employ a very conservative EoR window boundary, such as the one defined
-with $\Theta = \SI{90}{\degree}$ as marked in \autoref{fig:ps2d-fscn}
-with solid white line, at the cost of losing more information of the EoR
-signal.
-In \autoref{fig:ps2d-fscn}(b), we present the 2D power spectrum ratio
-of the FSCN to the EoR signal to better illustrate the impact of the
-FSCN on the EoR detection.
-It shows that even inside the newly defined EoR window
-($\Theta = \SI{90}{\degree}$), the FSCN resulted from radio halos can
-be about 1000 times stronger than the EoR signal on scales of
-$\kperp \lesssim \SI{0.1}{\per\Mpc}$ and $\klos \gtrsim \SI{0.6}{\per\Mpc}$.
-Consequently,
+employ a much more conservative EoR window boundary, such as the one
+defined with $\Theta = \SI{90}{\degree}$ as marked in
+\autoref{fig:ps2d-fscn} with solid white line, at the cost of losing
+a significantly larger portion of the EoR signal.
+In consequence,
 the serious FSCN contamination makes the selection of EoR sky region
 a more challenging task, since in principle neither bright radio halos
 nor other strong sources are allowed in both the main and side lobes.
