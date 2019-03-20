@@ -1,0 +1,281 @@
+Authors' Responses
+------------------
+
+We gratefully thank the reviewer for the constructive comments that greatly
+help improve this manuscript.  Based on the comments, we have significantly
+improved the modeling of radio halos (Section 2.1.3), including more
+physically motivated relations for the radius of turbulence regions
+(r_turb) and for the radio halo radius (r_halo), refined calculations of
+the turbulence velocity dispersion and the diffusion coefficient, existence
+identification of radio halos, and other small improvements.  We have
+extensively revised the manuscript to describe our modeling and results
+more thoroughly and clearly.  The original Section 2.1.3 has been split
+into multiple logical subsections to give a more coherent description.  All
+the suggested intermediate results (e.g., cluster mass and redshift
+distributions, simulated merging histories, temporal evolution of the
+electron and synchrotron emission spectra) and additional scaling relations
+(e.g., radio halo fraction vs. cluster mass, radio halo power at 1.4 GHz
+vs. cluster mass) have been carefully considered and incorporated.
+
+With the improved modeling of radio halos and the tuned parameters, our
+model can well reproduce the observed scaling relation between radio halo
+power at 1.4 GHz and cluster mass (Cassano et al. 2013). Moreover, the
+obtained 1.4 GHz flux function matches the observed one as well as the
+prediction by Cassano et al. (2012).
+
+We have rerun all the simulations for radio halos and updated the figures
+and results throughout the manuscript.  We note that the results of
+evaluating the contamination of radio halos on the EoR detection do not
+change significantly, because the major part of the contamination is
+contributed by bright radio halos, which are well constrained by the
+observed 1.4 GHz flux function.
+
+The changes to the manuscript are highlighted in "cyan."
+The point-by-point responses to the reviewer's comments (indented with the
+">" mark) are listed below:
+
+
+>   Reviewer's Comments
+>   -------------------
+>
+>   In this paper the authors try to model and evaluate the contribution
+>   of cluster radio halos to the EoR foreground in view of the future
+>   SKA1-LOW EoR experiment. They conclude that radio halos are severe
+>   foreground sources and need serious treatments.
+>
+>   Despite I believe this work was somehow necessary, there are several
+>   perhaps unavoidable simplifications in their treatment of diffuse radio
+>   emission in galaxy clusters that needed to be critically discussed and
+>   clarified in the paper, also before to judge the final part of the
+>   paper that is more specifically on simulations of SKA1-LOW
+>   observations.
+>
+>   Here below some points that needed to be addressed.
+>
+>   1) The authors assume radio halos are generated during cluster-cluster
+>   mergers due to the synchrotron emission of relativistic electrons
+>   re-accelerated by the turbulence developing in the ICM during
+>   mergers, the so-called turbulent re-acceleration model. They need
+>   to acknowledge pioneering works in the field:
+>   e.g. Brunetti et al. (2001); Petrosian 2001.
+
+Response 1:
+
+We now acknowledge the two works (Brunetti et al. 2001, MNRAS, 320, 365;
+Petrosian 2001, ApJ, 557, 560) in the first paragraph of Section 2.1.
+
+
+>   2) They then model the formation of halos in galaxy clusters using
+>   basic prescriptions from the Cassano & Brunetti (2005) paper, with
+>   some differences. Basically they follow the formation history of
+>   galaxy clusters through mergers by using the semi-analytic model
+>   of Lacy & Cole, which is based on the Press-Schechter theory of
+>   structure formation. They calculate the turbulent acceleration
+>   efficiency and duration for each merger event and then derived the
+>   temporal evolution of the relativistic electron spectrum and the
+>   ensuing synchrotron radiation.
+>
+>   Before showing Fig.1, which is really the final product of all their
+>   computations, they need to show some intermediate results that can
+>   help the reader to understand what's going on.
+>
+>   For instance, it would be very useful to see: a) a plot showing
+>   the simulated merging histories of a sample of galaxy clusters; b)
+>   a plot showing the temporal evolution of the electron and synchrotron
+>   spectra.
+>
+>   It is also not clear, how many galaxy clusters are you simulating?
+
+Response 2:
+
+In this new version of the manuscript, we present in Section 2.1 the
+following necessary intermediate results that make our modeling of radio
+halos easier to follow and understand.
+
+(a) In Section 2.1.1, we mention the number of galaxy clusters with mass M
+>= 2e14 Msun and redshift z <= 4 in a sky patch of size 10x10 deg^2 is 504,
+as determined by the Press-Schechter mass function.  Meanwhile, we have
+added Figure 1 showing the mass and redshift histograms.
+
+(b) In Section 2.1.2, we have added Figure 2 showing: (i) 30 randomly built
+merger trees for a galaxy cluster of mass 1e15 Msun at redshift 0.5; (ii)
+the simulated merger trees for 30 galaxy clusters randomly drawn from the
+sample constructed in Section 2.1.1.
+
+(c) In Section 2.1.4, we have added Figure 3 to illustrate the temporal
+evolution of the electron and synchrotron emission spectra for an example
+cluster of mass 1e15 Msun that merges with a sub-cluster of mass 5e14 Msun
+at redshift 0.3.  In addition, we show the evolution of synchrotron
+emissivity at 158 MHz and 1400 MHz with time from 10.3 to 12.4 Gyr in panel
+(c) of Figure 3, where we also mark the radio halo existing periods at each
+frequency (see also Response 5).
+
+
+>   3) They made the assumption that turbulence during mergers is
+>   generated on a scale L_turb~1/3 Rvir, that is independently on the
+>   mass-ratio of the two merging sub-clusters, and that depend basically
+>   only on the mass of the main cluster. This is not well motivated,
+>   indeed it is likely that such a scale would depend also on the mass
+>   (and radius) of the infalling clusters, whose external regions could
+>   be stripped by the ram-pressure experienced during the infall. Since
+>   a cluster with a given mass can experienced mergers with clusters
+>   with different mass, it is likely that turbulence can be generated
+>   on scale and volume which can be really different from the fixed 1/3
+>   Rvir. If the authors, on the other hand, believe their assumption
+>   is physically motivated, then they need to clarify it.
+
+Response 3a:
+
+We agree with the reviewer and have proposed a more physically motivated
+relation for the radius of turbulence regions generated by mergers.  As
+described in Section 2.1.3/d, the radius of the turbulence region is
+estimated to be:
+r_turb = r_s + r_c,m,
+where r_s is the stripping radius of the infalling sub-cluster, and
+r_c,m = 0.1 r_vir,m is the core radius of the main cluster.  This
+assumption is based on previous simulation studies: major mergers can
+generate intense turbulence in regions of radius about 0.3-0.5 r_vir,m
+(e.g., Sunyaev et al.  2003; Miniati & Beresnyak 2015), and minor mergers
+can also cause relatively large-scale turbulence in regions of radius
+about r_c,m due to gas sloshing and other mechanisms induced by the
+sub-cluster (e.g., Vazza et al. 2011, 2012).
+
+>   $) Related to point 3), the assumption that the size of radio halos
+>   is about the size of the turbulent region, that the authors assumed
+>   to be ~ 1/3 Rvir is not well motivated. In particular, I found this
+>   assumption not in agreement with the observed scaling between the
+>   radio halo size and the cluster viral radius, that is steeper --
+>   RH~R_v^~2.6 -- and with a lower normalization (see Cassano et
+>   al. 2007; Fig.11). The authors need to explain and clarify this
+>   assumption.
+
+Response 3b:
+
+In Section 2.1.5 of this revised manuscript, we have updated the estimation
+of the radius of radio halos to be:
+r_halo = f_r R_turb ((r_vir / r_vir,*)^b,
+where R_turb is the maximum radius of the turbulence regions generated by
+all mergers, r_vir is the cluster virial radius, r_vir,* is the virial
+radius of a cluster of mass 1e15 Msun, and f_r and b are the scaling
+normalization and slope, respectively.  By comparing with the observed
+scaling relation of r_halo ~ r_vir^{2.63+/-0.50} (Cassano et al.  2007),
+we adopt f_r = 0.7 and b = 1.8, which can give a relation of
+r_halo ~ r_vir^{2.67+/-0.02} that agrees well with the observed one
+(see Figure 4).
+
+
+>   4) In addition to the radio halos flux distribution (their Fig.1) they
+>   need to show some intermediate statistical products and connection
+>   with the properties of the hosting clusters:
+>   a) which is the fraction of clusters with radio halos as a function
+>   of the cluster mass?
+>   b) are they able to reproduce the observed radio power at 1.4 GHz
+>   vs cluster mass correlation (slope, normalisation and scatter)?
+>
+>   These tests are necessary to provide your modeling is able to
+>   reproduce the present observed statistical connection between radio
+>   halo and cluster properties and thus to provide reasonable constraints
+>   that can be used by future the EoR experiments.
+
+Response 4:
+
+In this revised manuscript, we have included the suggested statistical
+connections between radio halos and hosting clusters in Section 2.1.6.
+First, we have incorporated the observed scaling relation between the radio
+halo power at 1.4 GHz (P_1400) and the cluster mass (M_vir) in the tuning
+of model parameters.  Combined with the 1.4 GHz flux function of currently
+observed radio halos, we have tuned the model parameters.  The tuned model
+produces a scaling relation of P_1400 ~ M_vir^{3.94+/-0.12}, which agrees
+well with the observed one (P_1400 ~ M_500^{3.70+/-0.56}) obtained by
+Cassano et al. (2013) on both the slope and the normalization, although the
+simulated results exhibit a somewhat larger scattering (see Figure 5).
+
+Secondly, we have added Figure 7 showing the fraction of clusters with
+radio halos as a function of the cluster mass.  In accordance with previous
+studies (e.g., Cassano et al. 2006; Cassano et al. 2012), it clearly shows
+that more massive clusters have higher probabilities to host radio halos
+and that clusters are much more likely to host radio halos visible at low
+frequencies.
+
+
+>   5) In the framework of the turbulent re-acceleration scenario,
+>   there are a couple of important expectations for their statistical
+>   properties that have been put forward in a number of papers
+>   (e.g. Cassano, Brunetti, Setti 2006; Cassano et al. 2016): the
+>   efficiency to produce radio halos is expected to decrease in lower
+>   massive systems, and since there is a scaling between the radio halo
+>   power and the cluster mass, this implies that the number counts of
+>   radio halos should flatten at lower radio fluxes. This seems not to
+>   be the case in your Fig.1. Please explain.
+>
+>   Also the probability to form radio halos should increases at low
+>   radio frequency, where also less efficient merger can be able to
+>   produce diffuse radio emission. This implies that the number counts of
+>   radio halos should increase from high to low frequency because of the
+>   presence of a population of radio halos with ultra-steep radio spectra
+>   which is expected to be visible only at low radio frequency. Is the
+>   expected number of radio halos larger at low radio frequency because
+>   of this effect, or essentially all the halos visible at high-frequency
+>   (1400 MHz) are also visible at low frequency (~150 MHz) with a shift
+>   of the flux density for the spectral index?
+
+Response 5:
+
+In the previous version of this manuscript, we made the simplification that
+every cluster with past or ongoing mergers hosts a radio halo, which may
+have faded out if there is no very recent or ongoing turbulence
+acceleration.  All of these radio halos were counted in deriving the flux
+functions, which led to the overestimation at the low-flux end.
+
+In this revised version, we first identify the radio halos that are
+actually existing at frequency \nu and only use these radio halos to derive
+the flux function at that frequency.  As describe in Section 2.1.5, a radio
+halo is regarded as existing at frequency \nu if its synchrotron emissivity
+J(\nu) of the final electron spectrum n_e(\gamma, t_sim) is at least 1000
+times larger than that of the reference electron spectrum n’_e(\gamma,
+t_sim), which is obtained by solving the same Fokker-Planck equation but
+without merger-induced turbulent acceleration (see Figure 3(c) for an
+example).  As shown in Figure 6, the newly derived flux functions flatten
+at low-flux end.  In addition, our 1.4 GHz flux function agrees with the
+prediction by Cassano et al. (2012).
+
+We identify radio halos at 158 MHz separately from at 1.4 GHz.  Since radio
+halos at low frequencies could be generated by less intense mergers and
+have longer lifetimes (Figure 3(c)), their number counts are much larger,
+which makes the flux function of low-frequency radio halos higher than that
+of high-frequency radio halos.
+
+
+>   Minor Comments:
+>
+>   6) In Sect.1 "Introduction", the authors refer to their work as
+>   to a "sophisticated model" and "sophisticated simulation" of radio
+>   halos. Unfortunately, sophisticated (or if you prefer "realistic")
+>   simulation of diffuse radio emission from galaxy clusters are
+>   currently out of reach, since you need at the same time cosmological
+>   numerical simulations to follow realistic merging history of galaxy
+>   clusters and a superb spatial resolution to follow the generation
+>   and evolution of the MHD turbulence, magnetic field and acceleration
+>   of relativistic particles. Rather I would refer to the proposed
+>   modelling as to a "semi-analytic approach".
+
+Response 6:
+
+We now refer to our modeling and simulation of radio halos as a
+"semi-analytic approach" throughout the new manuscript.
+
+
+>   7) Sect.2.1.3 - i) "Although all of them have reasonable constraints
+>   from either observation or simulation studies, it is essential to
+>   further tune them in order to achieve better agreement with the
+>   observations." Unfortunately, it is difficult to say there are
+>   reasonable constraints from either observations or simulations, so
+>   please downgrade this sentence.
+
+Response 7:
+
+We have modified this sentence to read as "Since these parameters are
+currently lacking reasonable constraints from either observation or
+simulation studies, it is essential to tune them for the purpose of
+achieving good agreement with observations."  This sentence now locates
+in the first paragraph of Section 2.1.6.
