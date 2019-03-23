@@ -721,16 +721,23 @@ The number density of thermal electrons $n_{\R{th}}$ in the ICM can be
 calculated as
 \begin{equation}
   \label{eq:n-th}
-  n_{\R{th}} \simeq \frac{3 f_b M_{\R{vir}}}{4\pi \mu m_u \,r^3_{\R{vir}}},
+  n_{\R{th}} \simeq
+    \frac{3 f_{\R{gas}} M_{\R{vir}}}{4\pi \mu m_u \,r^3_{\R{vir}}},
 \end{equation}
 where
-$f_b \simeq \Omega_b/\Omega_m$ is the mean baryon (i.e., gas) fraction
-assumed for galaxy clusters,
+$\mu \simeq 0.6$ is the mean molecular weight \citep[e.g.,][]{ettori2013},
+$m_u$ is the atomic mass unit,
 $M_{\R{vir}}$ is the cluster's virial mass,
 $r_{\R{vir}}$ is the virial radius [see \autoref{eq:radius-virial}],
-$\mu \simeq 0.6$ is the mean molecular weight \citep[e.g.,][]{ettori2013},
-and $m_u$ is the atomic mass unit.
-Therefore, the corresponding ICM thermal energy density $\epsilon_{\R{th}}$
+and \editone{%
+$f_{\R{gas}}$ is the gas mass fraction that is given by \cite{ettori2015}
+\begin{equation}
+  \label{eq:fgas}
+  f_{\R{gas}} = 0.110 \left[
+    \frac{E(z) M_{\R{vir}}}{\SI{5e14}{\solarmass}} \right]^{0.198} ,
+\end{equation}
+where $E(z)$ is the redshift evolution factor [see \autoref{eq:hubble-z}].}
+Then, the corresponding ICM thermal energy density $\epsilon_{\R{th}}$
 is given by
 \begin{equation}
   \label{eq:e-th}
