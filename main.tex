@@ -494,20 +494,26 @@ Pixel size & \multicolumn{3}{c}{\SI{20}{\arcsecond}}
 %========================================================================
 
 As a significant improvement over our past works \citep{wang2010,wang2013},
-we model the radio halos in galaxy clusters by
-employing the Press--Schechter formalism and turbulence re-acceleration model,
-in terms of which the relativistic electrons in the ICM are re-accelerated
-by the turbulence generated in merger events via the second-order Fermi
-process, and lose energies due to mechanisms including synchrotron
-radiation, inverse Compton scattering off the CMB photons, and Coulomb
-collisions with the thermal ICM
-\editone{\citep[e.g.,][]{brunetti2001,petrosian2001,cassano2005,brunetti2007,brunetti2011}}.
-For a galaxy cluster, we first employ the extended Press--Schechter
-theory to simulate its merging history, and then calculate the turbulent
-acceleration efficiency and duration for each merger event.
-By combining the effects of turbulent acceleration and energy loss,
-we obtain the temporal evolution of the relativistic electron spectrum,
-from which we calculate the synchrotron radiation of the radio halo.
+we model the radio halos in galaxy clusters by employing the
+Press--Schechter formalism and turbulent re-acceleration model,
+\editwip{%
+which was pioneered by \citet{brunetti2001} and \citet{petrosian2001}
+and further developed in many works
+\citep[e.g.,][]{fujita2003,brunetti2004,cassano2005,brunetti2007,brunetti2011}
+to explain the observed properties and formation of radio halos
+(see \citealt{brunetti2014rev} for a recent review).}
+In the framework of re-acceleration model, relativistic electrons in the
+ICM are re-accelerated by the turbulence generated in merger events via the
+second-order Fermi process, and lose energies due to mechanisms including
+synchrotron radiation, inverse Compton scattering off the CMB photons, and
+Coulomb collisions with the thermal ICM.
+\editone{%
+For a galaxy cluster, we first simulate its merging history according to
+the extended Press--Schechter theory and then derive the temporal evolution
+of the relativistic electron spectrum by applying the re-acceleration
+model.
+Finally, the radio halo associated with the galaxy cluster is identified
+and its synchrotron radiation is determined.}
 
 %------------------------------------------------------------------------
 \subsubsection{Mass Function}
