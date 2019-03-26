@@ -299,7 +299,7 @@ find that radio halos can be about
 than the EoR signal on scales of $\SI{0.1}{\per\Mpc} < k < \SI{2}{\per\Mpc}$
 in the \numrange{120}{128}, \numrange{154}{162}, and \numrange{192}{200}
 \si{\MHz} bands, respectively.
-\editwip{%
+\editone{%
 By examining the two-dimensional power spectra inside properly defined
 EoR windows, we find that the power leaked by radio halos can still be
 significant, as the power ratios of radio halos to the EoR signal on scales
@@ -495,7 +495,7 @@ Pixel size & \multicolumn{3}{c}{\SI{20}{\arcsecond}}
 As a significant improvement over our past works \citep{wang2010,wang2013},
 we model the radio halos in galaxy clusters by employing the
 Press--Schechter formalism and turbulent re-acceleration model,
-\editwip{%
+\editone{%
 which was pioneered by \citet{brunetti2001} and \citet{petrosian2001}
 and further developed in many works
 \citep[e.g.,][]{fujita2003,brunetti2004,cassano2005,brunetti2007,brunetti2011}
@@ -869,7 +869,7 @@ and $c_s$ is the sound speed in the ICM
 with $\gamma_{\R{gas}} = 5/3$ being the adiabatic index
 of ideal monatomic gas.
 
-\editwip{%
+\editone{%
 In addition to mergers, mechanisms such as outflows from AGNs and galactic
 winds can introduce turbulence in the ICM, which is found to account for
 $\lesssim \SI{5}{\percent}$ of the thermal energy in the central regions
@@ -886,8 +886,7 @@ $\chi_{\R{turb}}$ is the ratio of energy density between the base
 turbulence and the thermal ICM.
 A merger will contribute a significant part of its energy to the turbulence
 and greatly increase the turbulence velocity dispersion
-$\langle (\delta v_t)^2 \rangle$, which leads to}%
-\editone{%
+$\langle (\delta v_t)^2 \rangle$, which leads to
 \begin{equation}
   \label{eq:energy-turb}
   E_{\R{turb}} =
@@ -923,9 +922,7 @@ as
     + 2 \pi\,\eta_t\, \bar{\rho}_m r_{\R{vir,m}}
       \,\frac{r_s^2 v_{\R{imp}}^2}{M_{\R{turb}}} .
 \end{equation}
-}
 
-\editwip{%
 One remaining parameter is the radius $r_{\R{turb}}$ of the turbulence
 region, which is estimated to be
 \begin{equation}
@@ -951,7 +948,7 @@ due to the core gas sloshing induced by the infalling sub-cluster
 However, the generated turbulence by a minor merger is weak because the
 injected energy $E_m$ is much smaller than a major one
 [see \autoref{eq:energy-inj}].
-}
+}  % editone
 
 %........................................................................
 \ssssec{Energy Losses}
@@ -1078,9 +1075,7 @@ At other times when there is no active merger, only the base
 turbulence contributes to the acceleration of electrons, which, however,
 is insufficient to balance the energy loss due to synchrotron radiation and
 inverse Compton scattering.
-}
 
-\editwip{%
 Along the history of a galaxy cluster that has multiple mergers, the
 turbulence region has a different radius during different mergers.
 To take this variation into account, we identify the radius of the largest
@@ -1097,7 +1092,7 @@ by a volume ratio given by
   \label{eq:ratio-v}
   R_{\R{vol}} = \left[ r^{(i)}_{\R{turb}} / R_{\R{turb}} \right]^3 .
 \end{equation}
-}
+}  % editone
 
 Once the desired electron spectrum $n_e(\gamma, t)$ is obtained, the
 synchrotron emissivity at a frequency $\nu$ is given by \citep{rybicki1979}
@@ -1142,7 +1137,7 @@ shortly, especially at high frequencies.
 
 
 %------------------------------------------------------------------------
-\subsubsection{\editone{Halo \editwip{Identification} and Size}}
+\subsubsection{\editone{Halo Identification and Size}}
 \label{sec:halo-size}
 %------------------------------------------------------------------------
 
@@ -1158,10 +1153,9 @@ $n'_e(\gamma, t_{\R{sim}})$, which is obtained by solving the identical
 Fokker--Planck equation but without merger-induced turbulent acceleration,
 similar to the way of deriving the initial electron spectrum
 (\autoref{sec:numerical});
-\editwip{%
 (2) the spectral index\footnote{%
   We adopt a power-law spectrum of form $J(\nu) \propto \nu^{-\alpha}$.}
-at frequency $\nu$ satisfies $\alpha_{\nu} \le 3$.}
+at frequency $\nu$ satisfies $\alpha_{\nu} \le 3$.
 For the example as shown in \autoref{fig:spec-evo}(c,d), a radio halo
 exists from about 10.6 to 11.0 \si{\Gyr} at \SI{1.4}{\GHz} and
 from about 10.5 to 11.3 \si{\Gyr} at \SI{158}{\MHz}.
@@ -1388,9 +1382,9 @@ example map of the simulated radio halos at \SI{158}{\MHz}).
 }
 \startdata
 Radio halos (100 simulations) &
-  \editwip{$\left(4.21_{-2.60}^{+11.2}\right) \times 10^3$} &
-  \editwip{$\left(1.81_{-1.13}^{+5.28}\right) \times 10^3$} &
-  \editwip{$\left(0.85_{-0.54}^{+2.74}\right) \times 10^3$} \\
+  \editone{$\left(4.21_{-2.60}^{+11.2}\right) \times 10^3$} &
+  \editone{$\left(1.81_{-1.13}^{+5.28}\right) \times 10^3$} &
+  \editone{$\left(0.85_{-0.54}^{+2.74}\right) \times 10^3$} \\
 Galactic synchrotron & \num{4.74e5} & \num{2.52e5} & \num{1.43e5} \\
 Galactic free-free & \num{330} & \num{200} & \num{130} \\
 Point sources & \num{29.7e7} & \num{5.90e7} & \num{1.39e7} \\
@@ -1829,7 +1823,7 @@ the EoR signal is lost in the excised wedges.
 By averaging the modes only inside the defined EoR window, we calculate
 the 1D power spectrum ratios $R_{\R{eorw}}(k)$ of radio halos to the EoR
 signal and present the results in \autoref{fig:ps1d-ratio}.
-\editwip{%
+\editone{%
 We find that, compared to \autoref{fig:ps1d-3bands}, the 1D power ratios
 inside the EoR window $R_{\R{eorw}}(k)$ are suppressed by about 4 orders
 of magnitude, which demonstrates that the EoR window is a powerful tool
