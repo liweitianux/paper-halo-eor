@@ -858,7 +858,9 @@ $\zeta$ is an efficiency factor characterizing the ICM plasma instabilities
 (e.g., due to spatial or temporal intermittency),
 $\chi_{\R{cr}} = \epsilon_{\R{cr}} / \epsilon_{\R{th}}$ is the relative
 energy density of cosmic rays with respect to the thermal ICM,
-\editone{$k_L$ is the turbulence injection scale},
+\editone{%
+$k_L \simeq 2\pi / r_{\R{turb}}$ is the turbulence injection scale
+with $r_{\R{turb}}$ being the radius of the turbulence region},
 $\langle (\delta v_t)^2 \rangle$ is the turbulence velocity dispersion,
 and $c_s$ is the sound speed in the ICM
 \begin{equation}
@@ -868,32 +870,25 @@ and $c_s$ is the sound speed in the ICM
 with $\gamma_{\R{gas}} = 5/3$ being the adiabatic index
 of ideal monatomic gas.
 
+\editwip{%
+In addition to mergers, mechanisms such as outflows from AGNs and galactic
+winds can introduce turbulence in the ICM, which is found to account for
+$\lesssim \SI{5}{\percent}$ of the thermal energy in the central regions
+of relaxed clusters \citep[e.g.,][]{vazza2011}.
+Therefore, the base velocity dispersion $\langle (\delta v_0)^2 \rangle$
+of the turbulence in the absence of mergers is
+\begin{equation}
+  \label{eq:v-turb-base}
+  \langle (\delta v_0)^2 \rangle
+    = 3 \chi_{\R{turb}} \frac{k_B T_{\R{cl,m}}}{\mu m_u} ,
+\end{equation}
+where
+$\chi_{\R{turb}}$ is the ratio of energy density between the base
+turbulence and the thermal ICM.
+A merger will contribute a significant part of its energy to the turbulence
+and greatly increase the turbulence velocity dispersion
+$\langle (\delta v_t)^2 \rangle$, which leads to}%
 \editone{%
-Major mergers ($M_{\R{vir,m}} / M_{\R{vir,s}} \lesssim 3$) can generate
-intense turbulence in regions of radius about \numrange{0.3}{0.5}
-$r_{\R{vir,m}}$ \citep[e.g.,][]{sunyaev2003,miniati2015ss}.
-Meanwhile, minor mergers
-($M_{\R{vir,m}} / M_{\R{vir,s}} \sim \numrange{3}{10}$) can also cause
-relatively large-scale turbulence in regions of radius about the core
-radius ($r_{\R{c,m}}$) of the main cluster, due to the gas sloshing and
-other mechanisms induced by the infalling sub-cluster
-\citep[e.g.,][]{vazza2011,vazza2012}.
-Therefore, the radius of the turbulence region is estimated to be
-\begin{equation}
-  \label{eq:radius-turb}
-  r_{\R{turb}} = r_s + r_{\R{c,m}} = r_s + 0.1 \,r_{\R{vir,m}},
-\end{equation}
-where $r_s$ is the stripping radius of the sub-cluster
-[see \autoref{eq:rs-eqp}].
-Thus, the turbulence injection scale is
-\begin{equation}
-  \label{eq:injection-scale}
-  k_L \simeq 2\pi / r_{\R{turb}} .
-\end{equation}
-
-In order to estimate the velocity dispersion of the turbulence during a
-merger, we assume that a fraction ($\eta_t$) of the energy ($E_m$) injected
-by the sub-cluster is transferred into turbulent waves, i.e.,
 \begin{equation}
   \label{eq:energy-turb}
   E_{\R{turb}} =
@@ -901,19 +896,11 @@ by the sub-cluster is transferred into turbulent waves, i.e.,
     \frac{1}{2} M_{\R{turb}} \langle (\delta v_0)^2 \rangle + \eta_t E_m ,
 \end{equation}
 where
-$\langle (\delta v_0)^2 \rangle$ is the base velocity dispersion, since
-the turbulence can be injected in the ICM by several other mechanisms, such
-as outflows from central AGNs, galactic winds, and plasma instabilities
-\citep{iapichino2011,vazza2011}.
-Assuming that the energy density of the base turbulence accounts for a
-small fraction ($\chi_{\R{turb}}$) of the ICM thermal energy density, we
-can obtain
-\begin{equation}
-  \label{eq:v-turb-init}
-  \langle (\delta v_0)^2 \rangle
-    = 3 \chi_{\R{turb}} \frac{k_B T_{\R{cl,m}}}{\mu m_u} .
-\end{equation}
-The gas mass $M_{\R{turb}}$ enclosed in the turbulence region is given by
+$E_m$ is the energy injected by the sub-cluster during the merger,
+$\eta_t$ is the fraction of injected energy ($E_m$) transferred into
+turbulent waves,
+and $M_{\R{turb}}$ is the gas mass enclosed in the turbulence region
+of radius $r_{\R{turb}}$, i.e.,
 \begin{equation}
   \label{eq:mass-turb}
   M_{\R{turb}} = \int_0^{r_{\R{turb}}} \! \rho(r) 4\pi r^2 \,\D{r},
@@ -928,7 +915,8 @@ sub-cluster, i.e.,
 \end{equation}
 with $V_{\R{turb}} \simeq \pi r_s^2 \,r_{\R{vir,m}}$ being the swept volume
 \citep{fujita2003,cassano2005}.
-Therefore, the turbulence velocity dispersion is obtained as
+Therefore, the turbulence velocity dispersion during a merger is obtained
+as
 \begin{equation}
   \label{eq:v-turb}
   \langle (\delta v_t)^2 \rangle
@@ -936,7 +924,35 @@ Therefore, the turbulence velocity dispersion is obtained as
     + 2 \pi\,\eta_t\, \bar{\rho}_m r_{\R{vir,m}}
       \,\frac{r_s^2 v_{\R{imp}}^2}{M_{\R{turb}}} .
 \end{equation}
-} % editone
+}
+
+\editwip{%
+One remaining parameter is the radius $r_{\R{turb}}$ of the turbulence
+region, which is estimated to be
+\begin{equation}
+  \label{eq:radius-turb}
+  r_{\R{turb}} = r_s + r_{\R{c,m}} ,
+\end{equation}
+where
+$r_{\R{c,m}} = 0.1 \,r_{\R{vir,m}}$ is the core radius of the main cluster,
+and $r_s$ is the stripping radius of the sub-cluster
+[see \autoref{eq:rs-eqp}]
+with a value of $\sim \numrange{1}{2} \,r_{\R{c,m}}$
+for major mergers ($M_{\R{vir,m}} / M_{\R{vir,s}} \lesssim 3$)
+and $< r_{\R{c,m}}$ for minor mergers
+($M_{\R{vir,m}} / M_{\R{vir,s}} \sim \numrange{3}{10}$).
+This assumption is well consistent with previous simulation studies, which
+show that mergers introduce turbulence in regions of radius about
+$\numrange{0.1}{0.3} \,r_{\R{vir,m}}$
+\citep[e.g.,][]{vazza2011,vazza2012,miniati2015ss}.
+We note that minor mergers can also generate
+a relatively large turbulence region of radius about $r_{\R{c,m}}$
+due to the core gas sloshing induced by the infalling sub-cluster
+\citep{vazza2012}.
+However, the generated turbulence by a minor merger is weak because the
+injected energy $E_m$ is much smaller than a major one
+[see \autoref{eq:energy-inj}].
+}
 
 %........................................................................
 \ssssec{Energy Losses}
