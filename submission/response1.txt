@@ -231,9 +231,9 @@ flux functions, which led to the overestimation at the low-flux end.
 
 In this revised version, we first identify the radio halos that are
 actually existing at frequency \nu and only use these radio halos to derive
-the flux function at that frequency.  As describe in Section 2.1.5, a radio
-halo is regarded as existing at frequency \nu based on the following two
-criteria:
+the flux function at that frequency.  As described in Section 2.1.5,
+a radio halo is regarded as existing at frequency \nu based on the
+following two criteria:
 (1) the synchrotron emissivity J(\nu) of the final electron spectrum
 n_e(\gamma, t_sim) is at least 1000 times larger than the emissivity
 J'(\nu) of the reference electron spectrum n'_e(\gamma, t_sim), which is
