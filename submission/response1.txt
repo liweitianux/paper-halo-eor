@@ -4,25 +4,24 @@ Authors' Responses
 We gratefully thank the reviewer for the constructive comments that greatly
 help improve this manuscript.  Based on the comments, we have significantly
 improved the modeling of radio halos (Section 2.1.3), including more
-physically motivated relations for the radius of turbulence regions
-(r_turb) and for the radio halo radius (r_halo), refined calculations of
-the turbulence velocity dispersion and the diffusion coefficient, existence
-identification of radio halos, and other small improvements.  We have
-extensively revised the manuscript to describe our modeling and results
-more thoroughly and clearly.  The original Section 2.1.3 has been split
-into five subsections in order to give a more coherent description.  All
-the suggested intermediate results (e.g., cluster mass and redshift
-distributions, simulated merging histories, temporal evolution of the
-electron and synchrotron emission spectra) and additional scaling relations
-(e.g., radio halo fraction -- cluster mass, radio halo power at 1.4 GHz
--- cluster mass) have been carefully reconsidered and presented in the
-revised manuscript.
+reasonable relations for the turbulence region radius (r_turb) and for
+the radio halo radius (r_halo), refined calculations of the turbulence
+velocity dispersion and the diffusion coefficient, formation identification
+of radio halos, and other small improvements.  We have extensively revised
+the manuscript to describe our modeling and results more thoroughly and
+clearly.  The original Section 2.1.3 has been split into five subsections
+in order to give a more coherent description.  All the suggested
+intermediate results (e.g., cluster mass and redshift distributions,
+simulated merging histories, temporal evolution of the electron and
+synchrotron emission spectra) and additional scaling relations (e.g., radio
+halo fraction -- cluster mass, radio halo power at 1.4 GHz -- cluster mass)
+have been carefully reconsidered and presented in the revised manuscript.
 
 With the improved modeling of radio halos and the tuned parameters, our
 model can well reproduce the observed scaling relation between radio halo
-power at 1.4 GHz and cluster mass (Cassano et al. 2013). Moreover, the
+power at 1.4 GHz and cluster mass (Cassano et al. 2013).  Moreover, the
 obtained 1.4 GHz flux function matches the observed one as well as the
-prediction by Cassano et al. (2012).
+prediction of Cassano et al. (2012), as shown in Figure 5.
 
 We have rerun all the simulations for radio halos and updated the figures,
 tables, and relevant text throughout the manuscript.  We note that the
@@ -82,10 +81,11 @@ re-acceleration model.
 >   computations, they need to show some intermediate results that can
 >   help the reader to understand what's going on.
 >
->   For instance, it would be very useful to see: a) a plot showing
->   the simulated merging histories of a sample of galaxy clusters; b)
->   a plot showing the temporal evolution of the electron and synchrotron
->   spectra.
+>   For instance, it would be very useful to see:
+>   a) a plot showing the simulated merging histories of a sample of
+>   galaxy clusters;
+>   b) a plot showing the temporal evolution of the electron and
+>   synchrotron spectra.
 >
 >   It is also not clear, how many galaxy clusters are you simulating?
 
@@ -95,15 +95,16 @@ In this new version of the manuscript, we have provided the following
 necessary intermediate results in Section 2.1, in order to make our
 modeling of radio halos easier to follow and understand.
 
-(a) In Section 2.1.1, we mention the number of galaxy clusters with mass M
->= 2e14 Msun and redshift z <= 4 in a sky patch of size 10x10 deg^2 is 504,
-as determined by the Press-Schechter mass function.  Meanwhile, we have
-added Figure 1 showing the mass and redshift histograms.
+(a) In Section 2.1.1, we mention the number of galaxy clusters with mass
+M >= 2e14 Msun and redshift z <= 4 in a sky patch of size 10x10 deg^2
+is 504, as determined by the Press-Schechter mass function.  Meanwhile, we
+have added Figure 1 to show the mass and redshift histograms.
 
-(b) In Section 2.1.2, we have added Figure 2 showing: (i) merger trees for
-one galaxy cluster of mass 1e15 Msun obtained by repeating the random build
-process for 30 times; (ii) simulated merger trees for 30 galaxy clusters
-randomly drawn from the sample constructed in Section 2.1.1.
+(b) In Section 2.1.2, we have added Figure 2 to demonstrate: (i) merger
+trees for one galaxy cluster of mass 1e15 Msun obtained by repeating the
+random build process for 30 times; (ii) simulated merger trees for 30
+galaxy clusters randomly drawn from the sample constructed in Section
+2.1.1.
 
 (c) In Section 2.1.4, we have added Figure 3 to illustrate the temporal
 evolution of the electron and synchrotron emission spectra for an example
@@ -131,17 +132,16 @@ Response 3a:
 
 We agree with the reviewer and have proposed a more appropriate relation
 for the radius of turbulence regions generated by mergers.  As described
-in Section 2.1.3/d, the radius of the turbulence region is estimated to
-be:
-r_turb = r_s + r_c,m,
+in Section 2.1.3/d, the turbulence region radius is estimated to be:
+r_turb = r_s + r_{c,m} ,
 where r_s is the stripping radius of the infalling sub-cluster, and
-r_c,m = 0.1 r_vir,m is the core radius of the main cluster.  This new
-assumption gives r_turb ~ 1-3 r_c,m and is consistent with previous
+r_{c,m} = 0.1 r_{vir,m} is the core radius of the main cluster.  This new
+assumption gives r_turb ~ 1-3 r_{c,m} and is consistent with previous
 simulation studies (e.g., Vazza et al. 2011, 2012; Miniati & Beresnyak
 2015).  We note that minor mergers can also generate a relatively large
-turbulence region of radius about r_c,m due to the core gas sloshing
+turbulence region of radius about r_{c,m} due to the core gas sloshing
 induced by the sub-cluster (e.g., Vazza et al. 2012), but the generated
-turbulence is rather because of the smaller injected energy
+turbulence is rather weak because of the less injected energy
 [see Equation (23)].
 
 >   $) Related to point 3), the assumption that the size of radio halos
@@ -157,9 +157,9 @@ Response 3b:
 
 In Section 2.1.5 of this revised manuscript, we have updated the relation
 for estimating the radius of radio halos to be:
-r_halo = f_r R_turb ((r_vir / r_vir,*)^b,
+r_halo = f_r R_turb (r_vir / r_{vir,*})^b ,
 where R_turb is the radius of the largest turbulence region, r_vir is the
-cluster's virial radius, r_vir,* is the virial radius of a reference
+cluster's virial radius, r_{vir,*} is the virial radius of a reference
 cluster of mass 1e15 Msun, and f_r and b are the scaling normalization and
 slope, respectively.  By comparing with the observed scaling relation of
 r_halo ~ r_vir^{2.63+/-0.50} (Cassano et al. 2007), we obtain f_r = 0.7
@@ -192,11 +192,11 @@ well with the observed one (P_1400 ~ M_500^{3.70+/-0.56}) obtained by
 Cassano et al. (2013) on both the slope and the normalization, although the
 simulated results exhibit a somewhat larger scatter (see Figure 4).
 
-Secondly, we have added Figure 6 showing the fraction of clusters with
+Secondly, we have added Figure 6 to show the fraction of clusters with
 radio halos as a function of the cluster mass.  In accordance with previous
-studies (e.g., Cassano et al. 2006; Cassano et al. 2012), it clearly shows
-that massive clusters tend to have higher probabilities to host radio halos
-and that clusters are much more likely to host radio halos visible at low
+studies (e.g., Cassano et al. 2006, 2012), it clearly shows that massive
+clusters tend to have higher probabilities to host radio halos and that
+clusters are much more likely to host radio halos visible at low
 frequencies (~100-200 MHz).
 
 
@@ -233,21 +233,23 @@ In this revised version, we first identify the radio halos that are
 actually existing at frequency \nu and only use these radio halos to derive
 the flux function at that frequency.  As describe in Section 2.1.5, a radio
 halo is regarded as existing at frequency \nu based on the following two
-criteria: (1) the synchrotron emissivity J(\nu) of the final electron
-spectrum n_e(\gamma, t_sim) is at least 1000 times larger than the
-emissivity J'(\nu) of the reference electron spectrum n'_e(\gamma, t_sim),
-which is obtained by solving the same Fokker-Planck equation but without
-merger-induced turbulent acceleration; (2) the spectral index at frequency
-\nu is not steeper than 3.  We present in Figure 3(c,d) an example of
-identifying the radio halo at 1.4 GHz and 158 MHz. As shown in Figure 6,
-the newly derived flux functions flatten at low-flux end.  In addition, our
-1.4 GHz flux function agrees with the prediction of Cassano et al. (2012).
+criteria:
+(1) the synchrotron emissivity J(\nu) of the final electron spectrum
+n_e(\gamma, t_sim) is at least 1000 times larger than the emissivity
+J'(\nu) of the reference electron spectrum n'_e(\gamma, t_sim), which is
+obtained by solving the same Fokker-Planck equation but without
+merger-induced turbulent acceleration;
+(2) the spectral index at frequency \nu is not steeper than 3.
+We present in Figure 3(c,d) an example of identifying the radio halo at
+1.4 GHz and 158 MHz.  As shown in Figure 5, the newly derived flux
+functions flatten at low-flux end.  In addition, our 1.4 GHz flux function
+agrees with the prediction of Cassano et al. (2012).
 
 We identify radio halos at 158 MHz separately from at 1.4 GHz.  Since radio
 halos at low frequencies could be generated by less intense mergers (Figure
 6) and have longer lifetimes (e.g., Figure 3(c,d)), their number counts are
 much larger, which makes the flux function of low-frequency radio halos
-higher than that of high-frequency radio halos, as shown in Figure 5.
+higher than that of high-frequency radio halos, as illustrated in Figure 5.
 
 
 >   Minor Comments:
@@ -280,6 +282,6 @@ Response 7:
 
 We have modified this sentence to read as "Since currently no reasonable
 constraints on these parameters can be obtained from either observational
-or theoretical studies, it is necessary to tune them to force the model
-predictions to be consistent with observations."  This sentence now locates
-in the first paragraph of Section 2.1.6.
+or theoretical studies, it is necessary to tune them to make the model
+predictions consistent with observations."  This sentence now locates in
+the first paragraph of Section 2.1.6.
