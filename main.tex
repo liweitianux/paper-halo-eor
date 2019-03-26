@@ -1216,7 +1216,7 @@ and the factor $(1 + z_{\R{sim}})$ accounts for the $K$ correction
 
 
 %------------------------------------------------------------------------
-\subsubsection{\editone{Parameters and Results}}
+\subsubsection{\editone{Model Parameters and Results}}
 \label{sec:halo-results}
 %------------------------------------------------------------------------
 
@@ -1230,21 +1230,21 @@ turbulence;
 component;
 (4) $\chi_{\R{turb}}$: relative energy density of the base turbulence;
 (5) $\zeta$: efficiency of the ICM plasma instabilities.
-Since these parameters are currently lacking reasonable constraints from
-either observation or simulation studies, it is necessary to tune them for
-the purpose of achieving good agreement with observations.} % editone
+Since currently no reasonable constraints on these parameters can be
+obtained from either observational or theoretical studies,
+it is necessary to tune them to force the model predictions (e.g., the halo
+flux function, the scaling relation between the halo power and the hosting
+cluster mass) to be consistent with observations.} % editone
 
 \begin{figure}
   \centering
   \includegraphics[width=\columnwidth]{halo-power-mvir}
   \caption{\label{fig:halo-power}\editone{%
-    The scaling relation between the radio halo power at \SI{1.4}{\GHz}
-    ($P_{1400}$) and the cluster mass ($M_{\R{vir}}$).
-    The blue asterisks mark the observation data from \citet{cassano2013}.
-    Note that their cluster mass $M_{500}$ is converted to virial mass
-    $M_{\R{vir}}$ plotted here.
-    The purple dots represent the results of 500 simulation runs, and the
-    dashed red line shows the fitted relation of
+    Simulated scaling relation between the radio halo power at
+    \SI{1.4}{\GHz} ($P_{1400}$) and the cluster mass ($M_{\R{vir}}$).
+    Blue asterisks mark the observation data from \citet{cassano2013}.
+    Purple dots represent the results of 500 simulation runs
+    and dashed red line shows the fitted relation of
     $P_{1400} \propto M_{\R{vir}}^{3.94 \pm 0.12}$.
   }}
 \end{figure}
@@ -1258,9 +1258,9 @@ the purpose of achieving good agreement with observations.} % editone
     (solid purple line) radio halos.
     \editone{The dotted red line shows the \SI{1.4}{\GHz} flux function
     predicted by \citet{cassano2012}.}
-    The \SI{158}{\MHz} flux function for the simulated halos is also
-    plotted in the solid blue line.
-    The shaded regions mark the \SI{68}{\percent} uncertainties of the
+    The solid blue line represents the \SI{158}{\MHz} flux function for
+    the simulated halos as a comparison.
+    Shaded regions mark the \SI{68}{\percent} uncertainties of the
     simulated radio halos estimated from the 500 simulation runs.
   }
 \end{figure}
@@ -1273,9 +1273,9 @@ radio halo power at \SI{1.4}{\GHz} ($P_{1400}$) and the cluster mass
 We make use of the observation data presented by \citet{cassano2013},
 who reported a scaling relation of
 $P_{1400} \propto M_{500}^{3.70 \pm 0.56}$.
-The cluster mass $M_{500}$ is converted to virial mass for our comparison
-by assuming an NFW density profile \citep{navarro1997} and employing the
-mass--concentration relation derived by \citet{duffy2008}.
+We convert their mass $M_{500}$ to virial mass by assuming an NFW density
+profile \citep{navarro1997} and employing the mass--concentration relation
+derived by \citet{duffy2008}.
 Secondly,}
 we compare the \SI{1.4}{\GHz} all-sky integrated flux function between
 the simulated radio halos and observations.
@@ -1300,28 +1300,24 @@ $\eta_t = \SI{15}{\percent}$,
 $\chi_{\R{cr}} = \SI{1.5}{\percent}$,
 $\chi_{\R{turb}} = \SI{1.5}{\percent}$,
 and $\zeta = 0.1$.
-As the $P_{1400}$--$M_{\R{vir}}$ scaling relation shown in
-\autoref{fig:halo-power}, the radio halos simulated by our model with the
-tuned parameters show a relation of
-$P_{1400} \propto M_{\R{vir}}^{3.94 \pm 0.12}$, which agrees well with
-\citet{cassano2013} on both the slope and the normalization.
+As shown in \autoref{fig:halo-power}, the radio halos simulated by our
+model with the tuned parameters show a scaling relation of $P_{1400}
+\propto M_{\R{vir}}^{3.94 \pm 0.12}$, which is consistent well with that of
+\citet{cassano2013} on both the slope and normalization.
 In \autoref{fig:halos-simucomp}, we present the \SI{1.4}{\GHz} flux
 functions for the simulated radio halos and observed ones, which agree with
 each other at the high-flux end.
 The \SI{1.4}{\GHz} flux function given by our tuned model also matches
 the prediction of \citet{cassano2012}.
-In the meantime, we plot the \SI{158}{\MHz} flux function for the simulated
-radio halos, which indicates that radio halos become much brighter and
-their count significantly increases toward lower frequencies.
 
 Furthermore, we display the fraction of clusters with radio halos as a
 function of the cluster mass in \autoref{fig:halo-fraction}.
-It clearly shows that more massive galaxy clusters have higher
+It clearly shows that more massive clusters tend to have higher
 probabilities to host radio halos.
 Meanwhile, we are expected to observe much more radio halos at low
-frequencies, since they could be generated by less intense mergers and have
-longer lifetimes
-(see also \autoref{sec:numerical} and \autoref{fig:spec-evo}).
+frequencies (e.g., $\sim \SIrange{100}{200}{\MHz}$), which could be
+generated by less intense mergers and have longer lifetimes (see also
+\autoref{sec:numerical} and \autoref{fig:spec-evo}).
 }
 
 \begin{figure}
