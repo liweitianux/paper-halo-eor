@@ -586,21 +586,6 @@ which are determined by the Press--Schechter mass function
 \label{sec:merging-history}
 %------------------------------------------------------------------------
 
-\begin{figure}
-  \centering
-  \includegraphics[width=\columnwidth]{merging-history}
-  \caption{\label{fig:merging-history}\editone{%
-    \textbf{(upper)} The 30 randomly built merger trees for a galaxy cluster
-    of mass \SI{e15}{\solarmass} at redshift 0.5.
-    \textbf{(lower)} The merger trees for 30 galaxy clusters randomly drawn
-    from the sample constructed in \autoref{sec:mass-function}.
-    Every merger tree is built by tracing the main cluster by
-    $t_{\R{back}} = \SI{3}{\Gyr}$.
-    The large asterisks mark the identified merger events and the small
-    dots represent accretion events.
-  }}
-\end{figure}
-
 The extended Press--Schechter theory outlined in \citet{lacey1993} provides
 a way to describe the growth history of galaxy clusters in terms of the
 merger tree.
@@ -671,20 +656,33 @@ Given that observable radio halos are regarded to be associated
 with recent (in the observer's frame) major mergers
 and have typical lifetimes $\tau_{\R{halo}} \lesssim \SI{1}{\Gyr}$
 at \SI{1.4}{\GHz} \citep[e.g.,][]{brunetti2009,cassano2016},
-we trace the merging history of each galaxy cluster by a maximum
-backward time of $t_{\R{back}} = \SI{3}{\Gyr}$ from its \enquote{current}
+we trace the merging history of each galaxy cluster for
+$t_{\R{back}} = \SI{3}{\Gyr}$ from its \enquote{current}
 age $t_{\R{sim}}$ (corresponding to $z_{\R{sim}}$).
 For each built merger tree, we extract the information of all
 the mergers associated with the main cluster to carry out the
 subsequent simulation of radio halos.
 \editone{%
-In the upper panel of \autoref{fig:merging-history}, we present 30 randomly
-built merger trees for a galaxy cluster of mass \SI{e15}{\solarmass} at
-redshift 0.5.
-Meanwhile, in the lower panel, we show the merger trees for 30 galaxy
-clusters randomly drawn from the sample constructed in
-\autoref{sec:mass-function}.
+As shown in the upper panel of \autoref{fig:merging-history},
+we take one galaxy cluster of mass \SI{e15}{\solarmass} as an example and
+repeat the random merger tree build process for 30 times.
+Besides, we randomly draw 30 galaxy clusters from the sample constructed
+in \autoref{sec:mass-function} and build one merger tree instance for each
+galaxy cluster, as shown in the lower panel.
 }
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\columnwidth]{merging-history}
+  \caption{\label{fig:merging-history}\editone{%
+    \textbf{(Upper)} Merger trees for one galaxy cluster of mass
+    \SI{e15}{\solarmass} obtained by repeating the random build process
+    for 30 times.
+    \textbf{(Lower)} Example merger trees for 30 galaxy clusters randomly
+    drawn from the sample constructed in \autoref{sec:mass-function}.
+    Asterisks mark merger events and dots represent accretion events.
+  }}
+\end{figure}
 
 
 %------------------------------------------------------------------------
