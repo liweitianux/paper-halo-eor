@@ -290,9 +290,9 @@ The overwhelming foreground contamination is one of the primary impediments
 to probing the EoR through measuring the redshifted 21~cm signal.
 Among various foreground components, radio halos are less studied and
 their impacts on the EoR observations are still poorly understood.
-In this work, we employ the Press--Schechter formalism, turbulence
-re-acceleration model, and the latest SKA1-Low layout configuration to
-simulate the SKA \enquote{observed} images of radio halos.
+In this work, we employ the Press--Schechter formalism, merger-induced
+turbulent re-acceleration model, and the latest SKA1-Low layout
+configuration to simulate the SKA \enquote{observed} images of radio halos.
 We calculate the one-dimensional power spectra from simulated images and
 find that radio halos can be about \numlist{e4; e3; e2} times more luminous
 than the EoR signal on scales of $\SI{0.1}{\per\Mpc} < k < \SI{2}{\per\Mpc}$
@@ -309,7 +309,7 @@ about
 \SIrange{3}{18}{\percent}}
 in the three bands, when the \SI{68}{\percent} uncertainties caused by
 the variation of the number density of bright radio halos are considered.
-In addition, we find that radio halos located inside the far side-lobes
+Furthermore, we find that radio halos located inside the far side-lobes
 of the station beam can also impose strong contamination within the EoR
 window.
 In conclusion, we argue that radio halos are severe foreground sources
@@ -341,7 +341,7 @@ The Epoch of Reionization (EoR; $z \sim \numrange{6}{15}$) refers to
 a period of our Universe preceded by the Cosmic Dawn
 ($z \sim \numrange{15}{30}$) and the Dark Ages ($z \sim \numrange{30}{200}$)
 and is expected to last from about 300 million to about 1 billion years
-after the Big Bang \citep[see][and references therein]{koopmans2015rev}.
+after the Big Bang (see \citealt{koopmans2015rev} and references therein).
 During the EoR, the reionization of neutral hydrogen (\Hi), which was
 caused primarily by the ultra-violet and soft X-ray photons emitted from
 the first-generation celestial objects, efficiently surpassed the cooling
@@ -350,7 +350,7 @@ As a result, the majority of baryonic matter was again in a highly ionized
 state.
 Comparing with the observations of distant quasars and cosmic microwave
 background (CMB), which have provided some important but loose constraints
-on the reionization process \citep[see][for a review]{fan2006rev},
+on the reionization process (see \citealt{fan2006rev} for a review),
 the 21~cm line emission of \Hi{} that is redshifted to frequencies below
 \SI{200}{\MHz} is regarded as the decisive probe to directly explore the EoR
 \citep[see][for reviews]{furlanetto2006rev,zaroubi2013rev,furlanetto2016rev}.
@@ -423,7 +423,7 @@ contamination (see \citealt{chapman2016} and references therein).
 This paper is prepared as follows.
 In \autoref{sec:sky-simu} we simulate the low-frequency radio sky, where a
 \editone{semi-analytic} simulation of radio halos is developed by employing
-the Press--Schechter formalism and turbulence re-acceleration model.
+the Press--Schechter formalism and turbulent re-acceleration model.
 In \autoref{sec:obs-simu} we adopt the latest SKA1-Low layout
 configuration to incorporate the practical instrumental effects into
 the simulated sky maps.
@@ -647,7 +647,7 @@ probability distribution of sub-cluster masses
     & = 1 - \erf \!\left( \frac{\Delta \omega}{\sqrt{2 \Delta S}} \right),
 \end{align}
 where
-$\erf(x) = (2/\sqrt{\pi}) \int_0^x \R{e}^{-t^2} \,\D{t}$
+$\erf(x) = (2/\!\sqrt{\pi}) \int_0^x \R{e}^{-t^2} \,\D{t}$
 is the error function.
 Then, the cluster's progenitor mass $M_1$ is obtained as
 $S_1 = S_2 + \Delta S$.
@@ -791,8 +791,8 @@ is derived to be
 \ssssec{\editone{Stripping Radius}}
 
 \editone{%
-When a sub-cluster merges into the main cluster, the gas at outer regions
-is stripped due to the ram pressure \citep{gunn1972}.
+When a sub-cluster merges into the main cluster, the gas at its outer
+regions is stripped due to the ram pressure \citep{gunn1972}.
 The stripping radius $r_s$ of the sub-cluster, outside which the stripping
 is efficient, can be obtained from the equipartition between the ram
 pressure and the hydrostatic pressure \citep{cassano2005}, i.e.,
@@ -804,7 +804,7 @@ where
 $\bar{\rho}_m = \mu m_u n_{\R{th,m}}$ is the mean gas density of the main
 cluster,
 $v_{\R{imp}}$ is the impact velocity of the two merging clusters,
-and $\rho_s(\cdot)$ and $T_{\R{cl,s}}$ are the gas density profile and
+and $\rho_s(r)$ and $T_{\R{cl,s}}$ are the gas density profile and
 temperature of the sub-cluster, respectively.}
 
 Starting from a sufficiently large distance with zero velocity,
@@ -1471,8 +1471,8 @@ for these components are shown in \autoref{fig:map-fg-other}.
 %========================================================================
 
 The sky maps of the EoR signal are created using the 2016 data release
-from the Evolution Of 21\,cm Structure project\footnote{%
-  The Evolution Of 21\,cm Structure project:
+from the \emph{Evolution Of 21\,cm Structure} project\footnote{%
+  Evolution Of 21\,cm Structure project:
   \url{http://homepage.sns.it/mesinger/EOS.html}},
 which has made use of the \texttt{21cmFAST} to simulate the cosmic
 reionization process from redshift 86.5 to 5.0 inside a large cube that is
@@ -1954,7 +1954,7 @@ This is because the EoR signal already fluctuates remarkably along
 the frequency dimension.
 Therefore, even very minor (\SI{\sim 0.1}{\percent}) instrumental or
 calibration errors can make the contamination of radio halos
-become much stronger, particularly inside the crucial EoR window.
+become much stronger, particularly inside the critical EoR window.
 These results further support our conclusion made in \autoref{sec:ps2d}
 that radio halos are important foreground sources and must be carefully
 dealt with in EoR experiments.
@@ -2008,7 +2008,7 @@ In order to effectively avoid the FSCN contamination, we are forced to
 employ a much more conservative EoR window boundary, such as the one
 defined with $\Theta = \SI{90}{\degree}$ as marked in
 \autoref{fig:ps2d-fscn} with solid white line, at the cost of losing
-a significantly larger portion of the EoR signal.
+a remarkably larger portion of the EoR signal.
 In consequence,
 the serious FSCN contamination makes the selection of EoR sky region
 a more challenging task, since in principle neither bright radio halos
@@ -2022,10 +2022,10 @@ impacts of FSCN.
 \label{sec:summary}
 %########################################################################
 
-Based on the Press--Schechter formalism and turbulence re-acceleration
-model, we have simulated the emission maps of radio halos, for which we
-have incorporated the SKA1-Low's instrumental effects by utilizing its
-latest layout configuration.
+Based on the Press--Schechter formalism and merger-induced turbulent
+re-acceleration model, we have simulated the emission maps of radio halos,
+for which we have incorporated the SKA1-Low's instrumental effects by
+utilizing its latest layout configuration.
 By carrying out detailed comparisons of power spectra between radio halos
 and the EoR signal as well as the Galactic diffuse emission and
 extragalactic point sources in the \numrange{120}{128},
