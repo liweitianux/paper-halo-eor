@@ -923,8 +923,8 @@ as
       \,\frac{r_s^2 v_{\R{imp}}^2}{M_{\R{turb}}} .
 \end{equation}
 
-One remaining parameter is the radius $r_{\R{turb}}$ of the turbulence
-region, which is estimated to be
+One remaining parameter is the turbulence region radius $r_{\R{turb}}$,
+which is estimated to be
 \begin{equation}
   \label{eq:radius-turb}
   r_{\R{turb}} = r_s + r_{\R{c,m}} ,
@@ -945,8 +945,8 @@ We note that minor mergers can also generate
 a relatively large turbulence region of radius about $r_{\R{c,m}}$
 due to the core gas sloshing induced by the infalling sub-cluster
 \citep{vazza2012}.
-However, the generated turbulence by a minor merger is weak because the
-injected energy $E_m$ is much smaller than a major one
+However, the generated turbulence by a minor merger is rather weak because
+the injected energy $E_m$ is much less than a major one
 [see \autoref{eq:energy-inj}].
 }  % editone
 
@@ -1017,7 +1017,7 @@ as the cluster grows \citep{sarazin1999}.
     which begins at redshift $z = 0.3$ (i.e., $t \simeq \SI{10.3}{\Gyr}$)
     and is tracked until $z = 0.15$ (i.e., $t \simeq \SI{11.8}{\Gyr}$).
     \textbf{(a)} The relativistic electron spectra (solid lines) and the
-    corresponding reference spectra (dashed lines; see
+    corresponding reference electron spectra (dashed lines; see
     \autoref{sec:halo-size}).
     \textbf{(b)} The synchrotron emission spectra (solid lines) and the
     corresponding reference synchrotron spectra (dashed lines).
@@ -1069,18 +1069,18 @@ $\left( M^{(i)}_{\R{vir,m}}, M^{(i)}_{\R{vir,s}}, t^{(i)}_{\R{begin}} \right)$,
 where $t^{(i)}_{\R{begin}}$ denotes the beginning time of this merger,
 it can induce effective turbulent acceleration (i.e., being active) during
 the period $\left[ t^{(i)}_{\R{begin}}, t^{(i)}_{\R{end}} \right]$ with
-$t^{(i)}_{\R{end}} = t^{(i)}_{\R{begin}}+\tau^{(i)}_{\R{turb}}$ is the
+$t^{(i)}_{\R{end}} = t^{(i)}_{\R{begin}}+\tau^{(i)}_{\R{turb}}$ being the
 time when this merger becomes inactive.
-At other times when there is no active merger, only the base
-turbulence contributes to the acceleration of electrons, which, however,
-is insufficient to balance the energy loss due to synchrotron radiation and
-inverse Compton scattering.
+At other times (i.e., no active merger), only the base turbulence
+contributes to the acceleration of electrons, which, however,
+is insufficient to balance the energy loss due to synchrotron radiation
+and inverse Compton scattering.
 
 Along the history of a galaxy cluster that has multiple mergers, the
 turbulence region has a different radius during different mergers.
 To take this variation into account, we identify the radius of the largest
 turbulence region ($R_{\R{turb}}$) and properly diffuse the electron
-spectrum to the volume of radius $R_{\R{turb}}$ for mergers with a smaller
+spectrum to the sphere of radius $R_{\R{turb}}$ for mergers with a smaller
 turbulence region.
 Specifically, for a merger that is active during 
 $\left[ t^{(i)}_{\R{begin}}, t^{(i)}_{\R{end}} \right]$ and has a
@@ -1090,7 +1090,7 @@ spectra at $t^{(i)}_{\R{end}}$ and at $t^{(i)}_{\R{begin}}$] is re-scaled
 by a volume ratio given by
 \begin{equation}
   \label{eq:ratio-v}
-  R_{\R{vol}} = \left[ r^{(i)}_{\R{turb}} / R_{\R{turb}} \right]^3 .
+  R_{\R{vol}} = \left[ r^{(i)}_{\R{turb}} \Big/ R_{\R{turb}} \right]^3 .
 \end{equation}
 }  % editone
 
@@ -1157,7 +1157,7 @@ similar to the way of deriving the initial electron spectrum
   We adopt a power-law spectrum of form $J(\nu) \propto \nu^{-\alpha}$.}
 at frequency $\nu$ satisfies $\alpha_{\nu} \le 3$.
 For the example as shown in \autoref{fig:spec-evo}(c,d), a radio halo
-exists from about 10.6 to 11.0 \si{\Gyr} at \SI{1.4}{\GHz} and
+is identified from about 10.6 to 11.0 \si{\Gyr} at \SI{1.4}{\GHz} and
 from about 10.5 to 11.3 \si{\Gyr} at \SI{158}{\MHz}.
 The spectral indices at \SI{1.4}{\GHz} and \SI{158}{\MHz} reach about 2.1
 and 1.0, respectively.
@@ -1167,8 +1167,8 @@ low-frequency radio bands.
 We note that the \SI{1.4}{\GHz} spectral index ($\alpha_{1400} \sim 2.1$)
 is slightly larger than the general result from observations,
 because we calculate the spectral index around a specific frequency while
-the observed spectral index is obtained from two separated frequencies
-(e.g., 0.3 and 1.4 GHz; \citealt{feretti2012rev}).
+observed spectral indices are generally obtained from two separated
+frequencies (e.g., 0.3 and 1.4 GHz; \citealt{feretti2012rev}).
 
 Previous studies \citep[e.g.,][]{cassano2007,basu2012}
 have shown that the radius of radio halos ($r_{\R{halo}}$)
@@ -1184,7 +1184,7 @@ Therefore, we assume the following scaling relation for $r_{\R{halo}}$:
 where
 $R_{\R{turb}}$ is the radius of the largest turbulence region as also used
 in \autoref{eq:ratio-v},
-$r_{\R{vir,*}}$ is the reference virial radius of a cluster of mass
+$r_{\R{vir,*}}$ is the virial radius of a reference cluster of mass
 \SI{e15}{\solarmass},
 and $f_r$ and $b$ are the scaling normalization and slope, respectively.
 After comparing with the observed scaling relation of
@@ -1192,7 +1192,7 @@ $r_{\R{halo}} \propto r_{\R{vir}}^{2.63 \pm 0.50}$ \citep{cassano2007},
 we obtain $f_r = 0.7$ and $b = 1.8$.
 } % editone
 
-Consequently, the power of a radio halo at frequency $\nu$ is
+Then, the power of a radio halo at frequency $\nu$ is
 \begin{equation}
   \label{eq:halo-power}
   P(\nu) = \frac{4\pi}{3} r_{\R{halo}}^3 J(\nu),
@@ -1214,15 +1214,16 @@ and the factor $(1 + z_{\R{sim}})$ accounts for the $K$ correction
 %------------------------------------------------------------------------
 
 Our model has the following parameters:
-\editone{%
 (1) $\eta_e$: ratio of the energy density of injected electrons to the
 thermal energy density;
 (2) $\eta_t$: fraction of the merger energy transferred into the
 turbulence;
 (3) $\chi_{\R{cr}}$: relative energy density of cosmic rays to the thermal
 component;
-(4) $\chi_{\R{turb}}$: relative energy density of the base turbulence;
+\editone{%
+(4) $\chi_{\R{turb}}$: relative energy density of the base turbulence;}
 (5) $\zeta$: efficiency of the ICM plasma instabilities.
+\editone{%
 Since currently no reasonable constraints on these parameters can be
 obtained from either observational or theoretical studies,
 it is necessary to tune them to make the model predictions (e.g., the halo
@@ -1237,7 +1238,7 @@ cluster mass) consistent with observations.} % editone
     \SI{1.4}{\GHz} ($P_{1400}$) and the cluster mass ($M_{\R{vir}}$).
     Blue asterisks mark the observation data from \citet{cassano2013}.
     Purple dots represent the results of 500 simulation runs
-    and dashed red line shows the fitted relation of
+    and the dashed red line shows the fitted relation of
     $P_{1400} \propto M_{\R{vir}}^{3.94 \pm 0.12}$.
   }}
 \end{figure}
@@ -1832,7 +1833,7 @@ For example, $R_{\R{eorw}}(k)$ on scales of $k \sim \SI{1}{\per\Mpc}$ are
 generally about \SI{45}{\percent}, \SI{6}{\percent}, and \SI{2}{\percent}
 in the \numrange{120}{128}, \numrange{154}{162}, and \numrange{192}{200}
 \si{\MHz} bands, respectively.
-However, the power of radio halos leaked into the EoR window can be
+However, the power of radio halos leaked into the EoR window can still be
 significant, considering that $R_{\R{eorw}}(k)$ on scales of
 $\SI{0.5}{\per\Mpc} \lesssim k \lesssim \SI{1}{\per\Mpc}$ can be up to
 about \SIrange{230}{800}{\percent}, \SIrange{18}{95}{\percent}, and
@@ -1848,10 +1849,9 @@ non-negligible contamination on the EoR measurements, especially at
 lower frequencies (\SI{\sim 120}{\MHz}).
 \editone{%
 Careful treatments of radio halos as well as other foreground contaminating
-sources can greatly help obtain a EoR window that is not only sufficiently
-clean but also as large as possible to preseve maximum information of the
-EoR signal.
-}
+sources would be indispensable for obtaining an EoR window that is not only
+sufficiently clean but also as large as possible to preseve maximum
+information of the EoR signal.}
 
 
 %########################################################################
@@ -1960,7 +1960,7 @@ cubes of the EoR signal, but find that the changes in the calculated
 2D power spectra are negligible.
 This is because the EoR signal already fluctuates remarkably along
 the frequency dimension.
-Therefore, even very minor (\SI{\sim 0.1}{\percent}) instrumental or
+Consequently, even very minor (\SI{\sim 0.1}{\percent}) instrumental or
 calibration errors can make the contamination of radio halos
 become much stronger, particularly inside the critical EoR window.
 These results further support our conclusion made in \autoref{sec:ps2d}
