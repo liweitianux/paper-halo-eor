@@ -1,7 +1,7 @@
 ID:=		halo-eor
 
-# Files to pack for AAS submission
-SRCS:=		main.tex references.bib
+SRCS:=		main.tex
+REFS:=		main.bbl main.bib
 FIGURES:=	$(wildcard figures/*.pdf)
 TEMPLATE:=	aastex/aastex62.cls aastex/aasjournal-links.bst
 
@@ -22,11 +22,12 @@ main.pdf: $(SRCS) $(TEMPLATE) $(FIGURES)
 
 aaspack: $(SRCS) $(TEMPLATE) $(FIGURES)
 	mkdir $@.$(DATE)
-	@for f in $(SRCS) $(TEMPLATE) $(FIGURES); do \
+	@for f in $(SRCS) $(REFS) $(TEMPLATE) $(FIGURES); do \
 		cp -v $$f $@.$(DATE)/; \
 	done
 	tar -cvf $@.$(DATE).tar -C $@.$(DATE)/ .
 	rm -r $@.$(DATE)
+	cp main.pdf $@.$(DATE).pdf
 
 clean:
 	latexmk -c main.tex
