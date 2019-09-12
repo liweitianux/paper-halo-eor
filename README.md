@@ -21,13 +21,13 @@ Jie Zhu,
 Xiang-Ping Wu
 
 **Journal**:
-[ApJ, 2019, ???](https://dx.doi.org/???)
+[ApJ, 2019, 879, 104](https://dx.doi.org/10.3847/1538-4357/ab21bc)
 
 **arXiv**:
 [1905.05399](https://arxiv.org/abs/1905.05399)
 
 **ADS**:
-[???](http://adsabs.harvard.edu/abs/???)
+[2019ApJ...879..104L](http://adsabs.harvard.edu/abs/2019ApJ...879..104L)
 
 **Code**:
 https://github.com/liweitianux/fg21sim
